@@ -1,4 +1,4 @@
-PCHAR RfSecureStringCopyA(PCHAR String1, LPCSTR String2, SIZE_T Size)
+PCHAR SecureStringCopyA(PCHAR String1, LPCSTR String2, SIZE_T Size)
 {
 	PCHAR pChar = String1;
 
@@ -7,7 +7,7 @@ PCHAR RfSecureStringCopyA(PCHAR String1, LPCSTR String2, SIZE_T Size)
 	return pChar;
 }
 
-PWCHAR RfSecureStringCopyW(PWCHAR String1, LPCWSTR String2, SIZE_T Size)
+PWCHAR SecureStringCopyW(PWCHAR String1, LPCWSTR String2, SIZE_T Size)
 {
 	PWCHAR pChar = String1;
 
