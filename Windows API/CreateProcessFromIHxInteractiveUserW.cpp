@@ -1,15 +1,7 @@
-HRESULT CoInitializeIHxHelpIds(LPGUID Clsid, LPGUID Iid)
-{
-	HRESULT Result = S_OK;
-
-	if (!SUCCEEDED(Result = CLSIDFromString(L"{8cec58ae-07a1-11d9-b15e-000d56bfe6ee}", Clsid)))
-		return Result;
-
-	if (!SUCCEEDED(Result = CLSIDFromString(L"{8cec592c-07a1-11d9-b15e-000d56bfe6ee}", Iid)))
-		return Result;
-
-	return Result;
-}
+struct __declspec(uuid("8cec595b-07a1-11d9-b15e-000d56bfe6ee"))
+	IHxInteractiveUser : public IUnknown {
+	virtual VOID __stdcall Execute(PWCHAR pcUrl) = 0;
+};
 
 HRESULT CoInitializeIHxInteractiveUserIds(LPGUID Clsid, LPGUID Iid)
 {
