@@ -1,4 +1,4 @@
-PWCHAR GeneratePseudoRandomStringW(SIZE_T dwLength)
+PWCHAR CreatePseudoRandomStringW(SIZE_T dwLength)
 {
 	WCHAR DataSet[] = L"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	PWCHAR String = NULL;
@@ -24,7 +24,7 @@ PWCHAR GeneratePseudoRandomStringW(SIZE_T dwLength)
 	return String;
 }
 
-PCHAR GeneratePseudoRandomStringA(SIZE_T dwLength)
+PCHAR CreatePseudoRandomStringA(SIZE_T dwLength)
 {
 	CHAR DataSet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	PCHAR String = NULL;
