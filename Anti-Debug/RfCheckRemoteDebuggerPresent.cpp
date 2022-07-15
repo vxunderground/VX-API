@@ -28,10 +28,9 @@ BOOL RfCheckRemoteDebuggerPresent(HANDLE hHandle, PBOOL pbDebuggerPresent)
 
 	Status = NtQueryInformationProcess(hHandle, ProcessDebugPort, &dwProcessDebugPort, sizeof(DWORD), &dwReturnValue);
 	if (NT_SUCCESS(Status) && dwProcessDebugPort == -1)
-		return FALSE;
+		return TRUE;
 
 	*pbDebuggerPresent = TRUE;
 
 	return TRUE;
-
 }
