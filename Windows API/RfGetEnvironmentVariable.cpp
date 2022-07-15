@@ -81,7 +81,7 @@ DWORD RfGetEnvironmentVariableA(LPCSTR Name, LPSTR Buffer, DWORD Size, BOOL UseA
 	if (String == NULL)
 		goto EXIT_ROUTINE;
 
-	pwName = (LPWSTR)RtlHeapAllocForward(256);
+	pwName = (LPWSTR)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(WCHAR) * 2);
 	if (pwName == NULL)
 		goto EXIT_ROUTINE;
 
