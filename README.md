@@ -8,6 +8,12 @@ The VX-API is a collection of malicious functionality to aid in malware developm
 
 </div>
 
+## Todo
+- Note bugs
+- Give attribution to people for techniques
+- Complete data structure listing
+- Add more stuff?
+
 ## Notes
 
 | Prefix | Explanation         |
