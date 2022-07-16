@@ -1,4 +1,4 @@
-BOOL IsBeingDebuggedAlt(VOID)
+BOOL RfIsDebuggerPresent(VOID)
 {
 	return GetPeb()->BeingDebugged;
 }
