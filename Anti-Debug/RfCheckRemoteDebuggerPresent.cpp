@@ -1,3 +1,9 @@
+/*
+
+Created via ReactOS and IDA
+
+Credit: smelly__vx
+*/
 BOOL RfCheckRemoteDebuggerPresent(HANDLE hHandle, PBOOL pbDebuggerPresent)
 {
 	typedef enum _PROCESSINFOCLASS
