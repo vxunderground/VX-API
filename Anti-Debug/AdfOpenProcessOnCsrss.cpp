@@ -1,3 +1,11 @@
+/*
+Some debuggers can be detected by using the kernel32!OpenProcess() function on the csrss.exe process. 
+The call will succeed only if the user for the process is a member of the administrators group and 
+has debug privileges.
+
+Credit: Checkpoint Research
+*/
+
 BOOL AdfOpenProcessOnCsrss(VOID)
 {
 	typedef DWORD(WINAPI* CSRGETPROCESSID)(VOID);
