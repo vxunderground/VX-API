@@ -1,3 +1,9 @@
+/*
+
+Originally seen in Trickbot malware in 2017
+Re-developed by smelly__vx
+*/
+
 DWORD IsDomainController(PBOOL IsDomainController)
 {
 	typedef enum _DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
