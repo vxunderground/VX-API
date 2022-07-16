@@ -1,3 +1,9 @@
+/*
+Paper: Finding Interactive User COM Objects using PowerShell
+
+Credit: James Forshaw
+*/
+
 struct __declspec(uuid("8cec595b-07a1-11d9-b15e-000d56bfe6ee"))
 	IHxInteractiveUser : public IUnknown {
 	virtual VOID __stdcall Execute(PWCHAR pcUrl) = 0;
