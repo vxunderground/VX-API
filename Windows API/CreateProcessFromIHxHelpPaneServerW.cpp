@@ -1,3 +1,9 @@
+/*
+Paper: Finding Interactive User COM Objects using PowerShell
+
+Credit: James Forshaw
+*/
+
 struct __declspec(uuid("{8cec592c-07a1-11d9-b15e-000d56bfe6ee}"))
 	IHxHelpPaneServer : public IUnknown {
 	virtual HRESULT __stdcall DisplayTask(PWCHAR) = 0;
