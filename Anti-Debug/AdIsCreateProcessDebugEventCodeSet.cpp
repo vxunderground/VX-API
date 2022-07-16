@@ -12,7 +12,7 @@ run in the presence of a debugger.
 Credit: Checkpoint Research
 */
 
-BOOL IsCreateProcessDebugEventCodeSet(VOID)
+BOOL AdIsCreateProcessDebugEventCodeSet(VOID)
 {
 	WCHAR FilePath[MAX_PATH * sizeof(WCHAR)] = { 0 };
 	HANDLE hHandle = INVALID_HANDLE_VALUE;
