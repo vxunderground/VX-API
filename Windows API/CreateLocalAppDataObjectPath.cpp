@@ -5,7 +5,7 @@ Path == concatted, must have \\ in front i.e. L"\\File.exe"
 
 Credit: smelly__vx
 */
-BOOL CfCreateLocalAppDataObjectPathW(PWCHAR pBuffer, PWCHAR Path, DWORD Size, BOOL bDoesObjectExist)
+BOOL CreateLocalAppDataObjectPathW(PWCHAR pBuffer, PWCHAR Path, DWORD Size, BOOL bDoesObjectExist)
 {
 	if (pBuffer == NULL)
 		return FALSE;
@@ -25,7 +25,7 @@ BOOL CfCreateLocalAppDataObjectPathW(PWCHAR pBuffer, PWCHAR Path, DWORD Size, BO
 	return TRUE;
 }
 
-BOOL CfCreateLocalAppDataObjectPathA(PCHAR pBuffer, PCHAR Path, DWORD Size, BOOL bDoesObjectExist)
+BOOL CreateLocalAppDataObjectPathA(PCHAR pBuffer, PCHAR Path, DWORD Size, BOOL bDoesObjectExist)
 {
 	if (pBuffer == NULL)
 		return FALSE;
