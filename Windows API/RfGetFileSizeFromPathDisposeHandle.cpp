@@ -11,6 +11,7 @@ LONGLONG RfGetFileSizeFromPathDisposeHandleW(PWCHAR Path, DWORD dwFlagsAndAttrib
 	{
 		if (hHandle)
 			CloseHandle(hHandle);
+		
 		return LargeInteger.QuadPart;
 	}
 	
@@ -30,6 +31,7 @@ LONGLONG RfGetFileSizeFromPathDisposeHandleA(PCHAR Path, DWORD dwFlagsAndAttribu
 	{
 		if (hHandle)
 			CloseHandle(hHandle);
+		
 		return LargeInteger.QuadPart;
 	}
 	
