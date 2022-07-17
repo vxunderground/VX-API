@@ -63,7 +63,7 @@ EXIT_ROUTINE:
 	return (bFlag == TRUE ? uString.Length : 0);
 }
 
-DWORD RfGetEnvironmentVariableA(LPCSTR Name, LPSTR Buffer, DWORD Size, BOOL UseAlt)
+DWORD RfGetEnvironmentVariableA(LPCSTR Name, LPSTR Buffer, DWORD Size)
 {
 	UNICODE_STRING uString; RtlZeroMemory(&uString, sizeof(UNICODE_STRING));
 	UNICODE_STRING Variable; RtlZeroMemory(&Variable, sizeof(UNICODE_STRING));
