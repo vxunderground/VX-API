@@ -19,7 +19,6 @@ The VX-API is a collection of malicious functionality to aid in malware developm
 | Prefix | Explanation         |
 |--------|---------------------|
 | Adf    | Anti-debug Function |
-| Cmf    | Custom made Function|
 | Eh     | Error Handling      |
 | Hash   | String Hash Related |
 | Mpf    | Malicious Payload in Function |
