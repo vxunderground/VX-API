@@ -1,3 +1,10 @@
+/*
+LnkPath = L"C:\\Users\\User1\\Desktop\\Chrome.exe.lnk" <--- MUST BE .LNK!
+NewValue = L"C:\\Windows\\System32\\calc.exe"
+
+Chrome.exe.lnk on desktop now launches calc.exe
+*/
+
 BOOL MpfComModifyShortcutTargetW(PWCHAR LnkPath, PWCHAR NewValue)
 {
 	HRESULT Result = S_OK;
