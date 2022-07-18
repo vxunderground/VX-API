@@ -108,7 +108,7 @@ BOOL CreateFileFromDsCopyFromSharedFileA(PCHAR NewFileName, PCHAR FileToClone)
 	PWCHAR TokenData = NULL;
 	HMODULE hDsClient = NULL;
 
-	CHAR FileToCloneWchar[MAX_PATH * sizeof(WCHAR)] = {0};
+	CHAR FileToCloneWchar[MAX_PATH * sizeof(WCHAR)] = { 0 };
 	CHAR NewFileNameWchar[MAX_PATH * sizeof(WCHAR)] = { 0 };
 
 	if (CharStringToWCharString((PWCHAR)FileToCloneWchar, FileToClone, (MAX_PATH * sizeof(WCHAR))) == 0)
