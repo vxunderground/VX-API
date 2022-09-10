@@ -1,0 +1,92 @@
+#include "Win32Helper.h"
+
+//NOTE: PULONG must be pointed to an array of ULONG integers e.g. ULONG FileHash[4] = { 0 };
+BOOL HashFileByMsiFileHashTableW(PWCHAR Path, PULONG FileHash)
+{
+	typedef struct _MSIFILEHASHINFO {
+		ULONG dwFileHashInfoSize;
+		ULONG dwData[4];
+	} MSIFILEHASHINFO, * PMSIFILEHASHINFO;
+	typedef UINT(WINAPI* MSIGETFILEHASHW)(LPCWSTR, DWORD, PMSIFILEHASHINFO);
+
+	MSIGETFILEHASHW MsiGetFileHashW = NULL;
+	MSIFILEHASHINFO Hash = { 0 };
+	HMODULE hModule = NULL;
+	BOOL bFlag = FALSE;
+
+	Hash.dwFileHashInfoSize = sizeof(Hash);
+
+	hModule = LoadLibraryW(L"msi.dll");
+	if (hModule == NULL)
+		return FALSE;
+
+	MsiGetFileHashW = (MSIGETFILEHASHW)GetProcAddressW((DWORD64)hModule, L"MsiGetFileHashW");
+	if (MsiGetFileHashW == NULL)
+		goto EXIT_ROUTINE;
+
+	if (!IsPathValidW(Path))
+		goto EXIT_ROUTINE;
+
+	Hash.dwFileHashInfoSize = sizeof(MSIFILEHASHINFO);
+	if (MsiGetFileHashW(Path, 0, &Hash) != ERROR_SUCCESS)
+		goto EXIT_ROUTINE;
+
+	for (DWORD dwX = 0; dwX < 4; dwX++)
+		FileHash[dwX] = Hash.dwData[dwX];
+
+	bFlag = TRUE;
+
+EXIT_ROUTINE:
+
+	if (hModule)
+		FreeLibrary(hModule);
+
+	return bFlag;
+}
+
+BOOL HashFileByMsiFileHashTableA(PCHAR Path, PULONG FileHash)
+{
+	typedef struct _MSIFILEHASHINFO {
+		ULONG dwFileHashInfoSize;
+		ULONG dwData[4];
+	} MSIFILEHASHINFO, * PMSIFILEHASHINFO;
+	typedef UINT(WINAPI* MSIGETFILEHASHA)(LPCSTR, DWORD, PMSIFILEHASHINFO);
+
+	MSIGETFILEHASHA MsiGetFileHashA = NULL;
+	MSIFILEHASHINFO Hash = { 0 };
+	HMODULE hModule = NULL;
+	BOOL bFlag = FALSE;
+
+#pragma warning( push )
+#pragma warning( disable : 6384)
+	if ((sizeof(FileHash) / sizeof(ULONG)) < 4)
+		return FALSE;
+#pragma warning( pop )
+
+	Hash.dwFileHashInfoSize = sizeof(Hash);
+
+	hModule = LoadLibraryW(L"msi.dll");
+	if (hModule == NULL)
+		return FALSE;
+
+	MsiGetFileHashA = (MSIGETFILEHASHA)GetProcAddressW((DWORD64)hModule, L"MsiGetFileHashA");
+	if (MsiGetFileHashA == NULL)
+		goto EXIT_ROUTINE;
+
+	if (!IsPathValidA(Path))
+		goto EXIT_ROUTINE;
+
+	Hash.dwFileHashInfoSize = sizeof(MSIFILEHASHINFO);
+	if (MsiGetFileHashA(Path, 0, &Hash) != ERROR_SUCCESS)
+		goto EXIT_ROUTINE;
+
+	for (DWORD dwX = 0; dwX < 4; dwX++)
+		FileHash[dwX] = Hash.dwData[dwX];
+
+EXIT_ROUTINE:
+
+	if (hModule)
+		FreeLibrary(hModule);
+
+	return bFlag;
+}

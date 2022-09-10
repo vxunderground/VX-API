@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{12cf8029-1663-470e-b138-39dc69c35b1d}</ProjectGuid>
+    <RootNamespace>VXAPI</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AdfCloseHandleOnInvalidAddress.cpp" />
+    <ClCompile Include="AdfIsCreateProcessDebugEventCodeSet.cpp" />
+    <ClCompile Include="AdfOpenProcessOnCsrss.cpp" />
+    <ClCompile Include="CaplockString.cpp" />
+    <ClCompile Include="CharArrayToByteArray.cpp" />
+    <ClCompile Include="CharStringToWCharString.cpp" />
+    <ClCompile Include="CheckRemoteDebuggerPresentEx.cpp" />
+    <ClCompile Include="CopyMemoryEx.cpp" />
+    <ClCompile Include="CreateFileFromDsCopyFromSharedFile.cpp" />
+    <ClCompile Include="CreateLocalAppDataObjectPath.cpp" />
+    <ClCompile Include="CreateProcessFromIHxHelpPaneServer.cpp" />
+    <ClCompile Include="CreateProcessFromIHxInteractiveUser.cpp" />
+    <ClCompile Include="CreateProcessWithCfGuard.cpp" />
+    <ClCompile Include="CreatePseudoRandomInteger.cpp" />
+    <ClCompile Include="CreatePseudoRandomString.cpp" />
+    <ClCompile Include="CreateWindowsObjectPath.cpp" />
+    <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp" />
+    <ClCompile Include="DeleteFileEx.cpp" />
+    <ClCompile Include="GetCurrentDirectoryEx.cpp" />
+    <ClCompile Include="GetCurrentProcessEx.cpp" />
+    <ClCompile Include="GetCurrentProcessIdEx.cpp" />
+    <ClCompile Include="GetCurrentThreadEx.cpp" />
+    <ClCompile Include="GetCurrentUserSid.cpp" />
+    <ClCompile Include="GetCurrentWindowText.cpp" />
+    <ClCompile Include="GetFileSizeFromPath.cpp" />
+    <ClCompile Include="GetKUserSharedData.cpp" />
+    <ClCompile Include="GetLastErrorEx.cpp" />
+    <ClCompile Include="GetLastNtStatusEx.cpp" />
+    <ClCompile Include="GetNumberOfLinkedDlls.cpp" />
+    <ClCompile Include="GetModuleHandleEx.cpp" />
+    <ClCompile Include="GetOSIdentificationData.cpp" />
+    <ClCompile Include="GetPeb.cpp" />
+    <ClCompile Include="GetProcAddress.cpp" />
+    <ClCompile Include="GetProcAddressDjb2.cpp" />
+    <ClCompile Include="GetProcAddressFowlerNollVoVariant1a.cpp" />
+    <ClCompile Include="GetProcAddressJenkinsOneAtATime32Bit.cpp" />
+    <ClCompile Include="GetProcAddressLoseLose.cpp" />
+    <ClCompile Include="GetProcAddressRotr32.cpp" />
+    <ClCompile Include="GetProcAddressSdbm.cpp" />
+    <ClCompile Include="GetProcAddressSuperFastHash.cpp" />
+    <ClCompile Include="GetProcAddressUnknownGenericHash1.cpp" />
+    <ClCompile Include="GetProcessHeapEx.cpp" />
+    <ClCompile Include="GetProcessPathFromLoaderLoadModule.cpp" />
+    <ClCompile Include="GetProcessPathFromProcessParameters.cpp" />
+    <ClCompile Include="GetRtlUserProcessParameters.cpp" />
+    <ClCompile Include="GetSystemWindowsDirectory.cpp" />
+    <ClCompile Include="GetTeb.cpp" />
+    <ClCompile Include="HashFileByMsiFileHashTable.cpp" />
+    <ClCompile Include="HashStringDjb2.cpp" />
+    <ClCompile Include="HashStringFowlerNollVoVariant1a.cpp" />
+    <ClCompile Include="HashStringJenkinsOneAtATime32Bit.cpp" />
+    <ClCompile Include="HashStringLoseLose.cpp" />
+    <ClCompile Include="HashStringRotr32.cpp" />
+    <ClCompile Include="HashStringSdbm.cpp" />
+    <ClCompile Include="HashStringSuperFastHash.cpp" />
+    <ClCompile Include="HashStringUnknownGenericHash1.cpp" />
+    <ClCompile Include="IsDebuggerPresentEx.cpp" />
+    <ClCompile Include="IsIntelHardwareBreakpointPresent.cpp" />
+    <ClCompile Include="IsNvidiaGraphicsCardPresent.cpp" />
+    <ClCompile Include="IsPathValid.cpp" />
+    <ClCompile Include="IsProcessRunning.cpp" />
+    <ClCompile Include="IsProcessRunningAsAdmin.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MasqueradePebAsExplorerEx.cpp" />
+    <ClCompile Include="MpfComModifyShortcutTarget.cpp" />
+    <ClCompile Include="MpfComVssDeleteShadowVolumeBackups.cpp" />
+    <ClCompile Include="OleGetClipboardData.cpp" />
+    <ClCompile Include="RecursiveFindFile.cpp" />
+    <ClCompile Include="RemoveDllFromPeb.cpp" />
+    <ClCompile Include="RtlInitEmptyUnicodeString.cpp" />
+    <ClCompile Include="RtlInitUnicodeString.cpp" />
+    <ClCompile Include="RtlLoadPeHeaders.cpp" />
+    <ClCompile Include="SecureStringCopy.cpp" />
+    <ClCompile Include="SetLastErrorEx.cpp" />
+    <ClCompile Include="SetLastNtStatusEx.cpp" />
+    <ClCompile Include="SetProcessPrivilegeToken.cpp" />
+    <ClCompile Include="StringCompare.cpp" />
+    <ClCompile Include="StringConcat.cpp" />
+    <ClCompile Include="StringCopy.cpp" />
+    <ClCompile Include="StringFindSubstring.cpp" />
+    <ClCompile Include="StringLength.cpp" />
+    <ClCompile Include="StringLocateChar.cpp" />
+    <ClCompile Include="StringRemoveSubstring.cpp" />
+    <ClCompile Include="StringTerminateStringAtChar.cpp" />
+    <ClCompile Include="StringToken.cpp" />
+    <ClCompile Include="UacBypassFodHelperMethod.cpp" />
+    <ClCompile Include="UrlDownloadToFileSynchronous.cpp" />
+    <ClCompile Include="WCharStringToCharString.cpp" />
+    <ClCompile Include="Win32FromHResult.cpp" />
+    <ClCompile Include="ZeroMemoryEx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StringManipulation.h" />
+    <ClInclude Include="Internal.h" />
+    <ClInclude Include="Win32Helper.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

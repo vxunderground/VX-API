@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\String Manipulation">
+      <UniqueIdentifier>{7bee1f76-94ef-414b-a5d4-97559deb97eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\String Manipulation\String Conversion">
+      <UniqueIdentifier>{b574c7b9-493c-4d75-b2ed-c8e1200baf78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\String Manipulation\Windows Unicode Structure">
+      <UniqueIdentifier>{a6bd0e16-d21c-47b9-a988-a3d89061caff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions">
+      <UniqueIdentifier>{b886358f-6f50-49e5-b609-8ebd592f301a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Error Handling">
+      <UniqueIdentifier>{21607da1-329f-4ac7-9af9-0eb9196a521c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Cryptography Related">
+      <UniqueIdentifier>{039ec0bb-9f6f-449d-a6e9-153f125ee373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Cryptography Related\String Hashing">
+      <UniqueIdentifier>{1673f575-24a4-41d9-81e0-e1b8ea714ed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Library Loading">
+      <UniqueIdentifier>{037a80e7-f89c-4b98-8443-83ae913c216e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Malicious Capabilities">
+      <UniqueIdentifier>{2e9b5ccc-f4f2-4022-a14b-32cc890faeb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Helper Functions">
+      <UniqueIdentifier>{2fd47371-6649-481c-9758-b605ffbe8b02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Fingerprinting">
+      <UniqueIdentifier>{fdd19391-a19d-46d6-99c4-b9f30f7b4164}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Evasion">
+      <UniqueIdentifier>{25e93b43-7026-4e01-9d1f-aa640a1fa1ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Antidebug">
+      <UniqueIdentifier>{5c518d5a-a7b5-448a-8872-577693d1ccca}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StringCopy.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="CaplockString.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyMemoryEx.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="ZeroMemoryEx.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="SecureStringCopy.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="StringCompare.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="StringLength.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="StringConcat.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="StringLocateChar.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="StringFindSubstring.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="StringRemoveSubstring.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="StringTerminateStringAtChar.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="StringToken.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="RtlInitUnicodeString.cpp">
+      <Filter>Source Files\String Manipulation\Windows Unicode Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="RtlInitEmptyUnicodeString.cpp">
+      <Filter>Source Files\String Manipulation\Windows Unicode Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="CharArrayToByteArray.cpp">
+      <Filter>Source Files\String Manipulation\String Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="CharStringToWCharString.cpp">
+      <Filter>Source Files\String Manipulation\String Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="WCharStringToCharString.cpp">
+      <Filter>Source Files\String Manipulation\String Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="GetLastErrorEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="GetLastNtStatusEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="SetLastErrorEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="SetLastNtStatusEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32FromHResult.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="HashStringDjb2.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="HashStringFowlerNollVoVariant1a.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="HashStringJenkinsOneAtATime32Bit.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="HashStringLoseLose.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="HashStringRotr32.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="HashStringSdbm.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="HashStringSuperFastHash.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="HashStringUnknownGenericHash1.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatePseudoRandomInteger.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatePseudoRandomString.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
+    </ClCompile>
+    <ClCompile Include="RtlLoadPeHeaders.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddress.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetModuleHandleEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetTeb.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetPeb.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressDjb2.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressFowlerNollVoVariant1a.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressJenkinsOneAtATime32Bit.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressLoseLose.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressRotr32.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressSdbm.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressSuperFastHash.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressUnknownGenericHash1.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetKUserSharedData.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetRtlUserProcessParameters.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="OleGetClipboardData.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateLocalAppDataObjectPath.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateWindowsObjectPath.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteFileEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCurrentDirectoryEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCurrentProcessEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCurrentProcessIdEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCurrentThreadEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCurrentUserSid.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCurrentWindowText.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetFileSizeFromPath.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcessHeapEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcessPathFromLoaderLoadModule.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcessPathFromProcessParameters.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetSystemWindowsDirectory.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="IsPathValid.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="IsNvidiaGraphicsCardPresent.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="IsProcessRunning.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="GetOSIdentificationData.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="IsProcessRunningAsAdmin.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoveDllFromPeb.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
+    <ClCompile Include="SetProcessPrivilegeToken.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="RecursiveFindFile.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="UrlDownloadToFileSynchronous.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetNumberOfLinkedDlls.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfComVssDeleteShadowVolumeBackups.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfComModifyShortcutTarget.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessWithCfGuard.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromIHxInteractiveUser.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromIHxHelpPaneServer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="HashFileByMsiFileHashTable.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
+    </ClCompile>
+    <ClCompile Include="MasqueradePebAsExplorerEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="AdfCloseHandleOnInvalidAddress.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Antidebug</Filter>
+    </ClCompile>
+    <ClCompile Include="AdfIsCreateProcessDebugEventCodeSet.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Antidebug</Filter>
+    </ClCompile>
+    <ClCompile Include="AdfOpenProcessOnCsrss.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Antidebug</Filter>
+    </ClCompile>
+    <ClCompile Include="IsIntelHardwareBreakpointPresent.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Antidebug</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckRemoteDebuggerPresentEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Antidebug</Filter>
+    </ClCompile>
+    <ClCompile Include="IsDebuggerPresentEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Antidebug</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateFileFromDsCopyFromSharedFile.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="UacBypassFodHelperMethod.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
+    <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringManipulation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32Helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
