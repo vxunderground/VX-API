@@ -2,6 +2,8 @@
 #include "Internal.h"
 #include "StringManipulation.h"
 #include "Win32Helper.h"
+#include <stdio.h>
+
 
 /*
 TODO:
@@ -16,3 +18,4 @@ int main(VOID)
 	DWORD dwError = ERROR_SUCCESS;
 	return ERROR_SUCCESS;
 }
+

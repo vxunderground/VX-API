@@ -38,6 +38,8 @@ PWCHAR CreatePseudoRandomStringW(SIZE_T dwLength, ULONG Seed);
 PCHAR CreatePseudoRandomStringA(SIZE_T dwLength, ULONG Seed);
 BOOL HashFileByMsiFileHashTableW(PWCHAR Path, PULONG FileHash);
 BOOL HashFileByMsiFileHashTableA(PCHAR Path, PULONG FileHash);
+BOOL CreateMd5HashFromFilePathW(_In_ PWCHAR FilePath, _Inout_ PWCHAR Md5Hash);
+BOOL CreateMd5HashFromFilePathA(_In_ PCHAR FilePath, _Inout_ PCHAR Md5Hash);
 
 //library loading
 PTEB GetTeb(VOID);

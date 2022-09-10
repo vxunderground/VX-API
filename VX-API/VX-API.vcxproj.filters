@@ -324,6 +324,12 @@
     <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
+    <ClCompile Include="ByteArrayToCharArray.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateMd5HashFromFilePath.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

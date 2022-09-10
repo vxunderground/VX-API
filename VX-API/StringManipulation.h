@@ -31,3 +31,5 @@ VOID RtlInitUnicodeString(PUNICODE_STRING DestinationString, PCWSTR SourceString
 VOID RtlInitEmptyUnicodeString(PUNICODE_STRING UnicodeString, PWCHAR Buffer, USHORT BufferSize);
 SIZE_T CharStringToWCharString(PWCHAR Destination, PCHAR Source, SIZE_T MaximumAllowed);
 SIZE_T WCharStringToCharString(PCHAR Destination, PWCHAR Source, SIZE_T MaximumAllowed);
+VOID ByteArrayToCharArrayA(PCHAR Destination, PBYTE Source, DWORD Length);
+VOID ByteArrayToCharArrayW(PWCHAR Destination, PBYTE Source, DWORD Length);

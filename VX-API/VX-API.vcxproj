@@ -130,6 +130,7 @@
     <ClCompile Include="AdfCloseHandleOnInvalidAddress.cpp" />
     <ClCompile Include="AdfIsCreateProcessDebugEventCodeSet.cpp" />
     <ClCompile Include="AdfOpenProcessOnCsrss.cpp" />
+    <ClCompile Include="ByteArrayToCharArray.cpp" />
     <ClCompile Include="CaplockString.cpp" />
     <ClCompile Include="CharArrayToByteArray.cpp" />
     <ClCompile Include="CharStringToWCharString.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="CopyMemoryEx.cpp" />
     <ClCompile Include="CreateFileFromDsCopyFromSharedFile.cpp" />
     <ClCompile Include="CreateLocalAppDataObjectPath.cpp" />
+    <ClCompile Include="CreateMd5HashFromFilePath.cpp" />
     <ClCompile Include="CreateProcessFromIHxHelpPaneServer.cpp" />
     <ClCompile Include="CreateProcessFromIHxInteractiveUser.cpp" />
     <ClCompile Include="CreateProcessWithCfGuard.cpp" />
