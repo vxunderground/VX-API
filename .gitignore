@@ -3,3 +3,15 @@
 *.tlog
 x64/Debug/VX-API.exe
 *.pdb
+.vs/VX-API/v17/.suo
+*.vsidx
+*.db
+*.db-shm
+*.lock
+*.db-wal
+*.opendb
+*.ipch
+*.idb
+*.recipe
+*.ilk
+*.log
