@@ -2,6 +2,7 @@
 #include "Internal.h"
 #include "StringManipulation.h"
 #include "Win32Helper.h"
+#include <initguid.h>
 
 #pragma comment(lib, "shlwapi.lib")
 /*
@@ -11,8 +12,6 @@ TODO:
 KNOWN ISSUES
 	- Dynamically resolve IUnknown_QueryService in UnusedSubroutineGetShellViewForDesktop in CreateProcessFromShellExecuteInExplorerProcess
 */
-
-
 
 int main(VOID)
 {
