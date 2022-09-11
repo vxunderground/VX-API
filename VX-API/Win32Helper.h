@@ -123,6 +123,8 @@ BOOL CreateFileFromDsCopyFromSharedFileA(PCHAR NewFileName, PCHAR FileToClone);
 BOOL UacBypassFodHelperMethodA(PCHAR PathToBinaryToExecute, PPROCESS_INFORMATION Pi);
 BOOL UacBypassFodHelperMethodW(PWCHAR PathToBinaryToExecute, PPROCESS_INFORMATION Pi);
 BOOL DelayedExecutionExecuteOnDisplayOff(VOID);
+DWORD CreateProcessFromShellExecuteInExplorerProcessW(_In_ PWCHAR BinaryPath);
+DWORD CreateProcessFromShellExecuteInExplorerProcessA(_In_ PCHAR BinaryPath);
 
 //antidebug
 BOOL AdfCloseHandleOnInvalidAddress(VOID);

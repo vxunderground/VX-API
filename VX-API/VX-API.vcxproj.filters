@@ -330,6 +330,9 @@
     <ClCompile Include="CreateMd5HashFromFilePath.cpp">
       <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
     </ClCompile>
+    <ClCompile Include="CreateProcessFromShellExecuteInExplorerProcess.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">
