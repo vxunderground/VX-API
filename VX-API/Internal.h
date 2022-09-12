@@ -1,6 +1,8 @@
 #pragma once
 #include <Windows.h>
 
+
+
 #define PROCESSOR_FEATURE_MAX 64
 
 #define InitializeObjectAttributes(p, n, a, r, s) \
@@ -18,6 +20,15 @@ typedef struct _LSA_UNICODE_STRING {
 	USHORT MaximumLength;
 	PWSTR  Buffer;
 } LSA_UNICODE_STRING, * PLSA_UNICODE_STRING, UNICODE_STRING, * PUNICODE_STRING;
+
+typedef struct _OBJECT_ATTRIBUTES {
+	ULONG           Length;
+	HANDLE          RootDirectory;
+	PUNICODE_STRING ObjectName;
+	ULONG           Attributes;
+	PVOID           SecurityDescriptor;
+	PVOID           SecurityQualityOfService;
+} OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
 
 typedef struct _LDR_MODULE {
 	LIST_ENTRY              InLoadOrderModuleList;

@@ -333,6 +333,12 @@
     <ClCompile Include="CreateProcessFromShellExecuteInExplorerProcess.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
+    <ClCompile Include="CreateProcessFromIShellDispatchInvoke.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessViaNtCreateUserProcess.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

@@ -141,7 +141,9 @@
     <ClCompile Include="CreateMd5HashFromFilePath.cpp" />
     <ClCompile Include="CreateProcessFromIHxHelpPaneServer.cpp" />
     <ClCompile Include="CreateProcessFromIHxInteractiveUser.cpp" />
+    <ClCompile Include="CreateProcessFromIShellDispatchInvoke.cpp" />
     <ClCompile Include="CreateProcessFromShellExecuteInExplorerProcess.cpp" />
+    <ClCompile Include="CreateProcessViaNtCreateUserProcess.cpp" />
     <ClCompile Include="CreateProcessWithCfGuard.cpp" />
     <ClCompile Include="CreatePseudoRandomInteger.cpp" />
     <ClCompile Include="CreatePseudoRandomString.cpp" />

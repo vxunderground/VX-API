@@ -127,6 +127,8 @@ DWORD CreateProcessFromShellExecuteInExplorerProcessW(_In_ PWCHAR BinaryPath);
 DWORD CreateProcessFromShellExecuteInExplorerProcessA(_In_ PCHAR BinaryPath);
 DWORD CreateProcessFromIShellDispatchInvokeW(_In_ PWCHAR BinaryPath);
 DWORD CreateProcessFromIShellDispatchInvokeA(_In_ PCHAR BinaryPath);
+DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR FullBinaryPath);
+DWORD CreateProcessViaNtCreateUserProcessA(PCHAR FullBinaryPath);
 
 //antidebug
 BOOL AdfCloseHandleOnInvalidAddress(VOID);

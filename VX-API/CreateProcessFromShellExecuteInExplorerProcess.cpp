@@ -3,6 +3,8 @@
 #include <shlwapi.h>
 #include <shlobj.h>
 
+#pragma comment(lib, "shlwapi.lib")
+
 HRESULT UnusedSubroutineGetShellDispatchFromView(IShellView* ShellView, REFIID Riid, PVOID* Dispatch2)
 {
 	HRESULT Result = S_OK;
