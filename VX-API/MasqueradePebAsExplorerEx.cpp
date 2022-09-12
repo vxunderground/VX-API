@@ -14,7 +14,7 @@ BOOL MasqueradePebAsExplorerEx(VOID)
 
 	Module = (PLDR_MODULE)((PBYTE)Peb->LoaderData->InMemoryOrderModuleList.Flink - 16);
 
-	hModule = GetModuleHandleExW(L"ntdll.dll");
+	hModule = GetModuleHandleEx2W(L"ntdll.dll");
 	if (hModule == NULL)
 		return FALSE;
 

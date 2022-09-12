@@ -58,8 +58,8 @@ DWORD64 __stdcall GetProcAddressUnknownGenericHash1(DWORD64 ModuleBase, DWORD64 
 DWORD64 __stdcall GetProcAddressA(DWORD64 ModuleBase, LPCSTR lpProcName);
 DWORD64 __stdcall GetProcAddressW(DWORD64 ModuleBase, LPCWSTR lpProcName);
 BOOL RtlLoadPeHeaders(PIMAGE_DOS_HEADER* Dos, PIMAGE_NT_HEADERS* Nt, PIMAGE_FILE_HEADER* File, PIMAGE_OPTIONAL_HEADER* Optional, PBYTE* ImageBase);
-HMODULE GetModuleHandleExA(LPCSTR lpModuleName);
-HMODULE GetModuleHandleExW(LPCWSTR lpModuleName);
+HMODULE GetModuleHandleEx2A(LPCSTR lpModuleName);
+HMODULE GetModuleHandleEx2W(LPCWSTR lpModuleName);
 
 //helper functions
 BOOL IsPathValidA(PCHAR FilePath);

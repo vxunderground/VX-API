@@ -90,7 +90,7 @@ BOOL RecursiveFindFileA(LPCSTR Path, LPCSTR Pattern)
 	BOOL bIsNewlyLoaded = FALSE;
 	BOOL bFlag = FALSE;
 
-	hShlwapi = GetModuleHandleExW(L"Shlwapi.dll");
+	hShlwapi = GetModuleHandleEx2W(L"Shlwapi.dll");
 	if (hShlwapi == NULL)
 	{
 		bIsNewlyLoaded = TRUE;
@@ -202,7 +202,7 @@ BOOL RecursiveFindFileW(LPCWSTR Path, LPCWSTR Pattern)
 	BOOL bIsNewlyLoaded = FALSE;
 	BOOL bFlag = FALSE;
 
-	hShlwapi = GetModuleHandleExW(L"Shlwapi.dll");
+	hShlwapi = GetModuleHandleEx2W(L"Shlwapi.dll");
 	if (hShlwapi == NULL)
 	{
 		bIsNewlyLoaded = TRUE;

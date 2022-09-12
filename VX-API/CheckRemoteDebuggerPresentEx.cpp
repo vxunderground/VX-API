@@ -20,7 +20,7 @@ BOOL CheckRemoteDebuggerPresentEx(HANDLE hHandle, PBOOL pbDebuggerPresent)
 	if (hHandle == NULL)
 		return FALSE;
 
-	HMODULE hModule = GetModuleHandleExW(L"ntdll.dll");
+	HMODULE hModule = GetModuleHandleEx2W(L"ntdll.dll");
 	if (hModule == NULL)
 		return FALSE;
 

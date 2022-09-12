@@ -174,7 +174,7 @@ DWORD CreateProcessViaNtCreateUserProcessA(PCHAR BinaryPath)
 	CreateInfo.Size = sizeof(CreateInfo);
 	CreateInfo.State = PsCreateInitialState;
 
-	hModule = GetModuleHandleExW(L"ntdll.dll");
+	hModule = GetModuleHandleEx2W(L"ntdll.dll");
 	if (hModule == NULL)
 		return GetLastErrorEx();
 
@@ -268,7 +268,7 @@ DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR BinaryPath)
 	CreateInfo.Size = sizeof(CreateInfo);
 	CreateInfo.State = PsCreateInitialState;
 
-	hModule = GetModuleHandleExW(L"ntdll.dll");
+	hModule = GetModuleHandleEx2W(L"ntdll.dll");
 	if (hModule == NULL)
 		return GetLastErrorEx();
 

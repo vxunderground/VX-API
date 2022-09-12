@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-HMODULE GetModuleHandleExA(LPCSTR lpModuleName)
+HMODULE GetModuleHandleEx2A(LPCSTR lpModuleName)
 {
 	PPEB Peb = GetPeb();
 	PLDR_MODULE Module = NULL;
@@ -24,7 +24,7 @@ HMODULE GetModuleHandleExA(LPCSTR lpModuleName)
 	return NULL;
 }
 
-HMODULE GetModuleHandleExW(LPCWSTR lpModuleName)
+HMODULE GetModuleHandleEx2W(LPCWSTR lpModuleName)
 {
 	PPEB Peb = GetPeb();
 	PLDR_MODULE Module = NULL;

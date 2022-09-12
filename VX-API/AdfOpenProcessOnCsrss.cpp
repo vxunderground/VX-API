@@ -7,7 +7,7 @@ BOOL AdfOpenProcessOnCsrss(VOID)
 	CSRGETPROCESSID CsrGetProcessId = NULL;
 	HANDLE hCsrHandle = NULL;
 
-	hNtdll = GetModuleHandleExW(L"ntdll.dll");
+	hNtdll = GetModuleHandleEx2W(L"ntdll.dll");
 	if (hNtdll == NULL)
 		return FALSE;
 
