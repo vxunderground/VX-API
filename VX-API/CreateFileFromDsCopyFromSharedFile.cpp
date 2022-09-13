@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL CreateFileFromDsCopyFromSharedFileW(PWCHAR NewFileName, PWCHAR FileToClone)
+BOOL CreateFileFromDsCopyFromSharedFileW(_In_ PWCHAR NewFileName, _In_ PWCHAR FileToClone)
 {
 	typedef struct __DATA_SHARE_SCOPE_ENTRY {
 		INT ScopeType;
@@ -73,7 +73,7 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL CreateFileFromDsCopyFromSharedFileA(PCHAR NewFileName, PCHAR FileToClone)
+BOOL CreateFileFromDsCopyFromSharedFileA(_In_ PCHAR NewFileName, _In_ PCHAR FileToClone)
 {
 	typedef struct __DATA_SHARE_SCOPE_ENTRY {
 		INT ScopeType;

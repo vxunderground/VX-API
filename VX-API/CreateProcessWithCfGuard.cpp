@@ -67,7 +67,7 @@ VOID UnusedSubroutineUpdateProcThreadAttribute(LPPROC_THREAD_ATTRIBUTE_LIST Attr
 	return;
 }
 
-BOOL CreateProcessWithCfGuardW(PPROCESS_INFORMATION Pi, PWCHAR Path)
+BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path)
 {
 	BOOL bFlag = FALSE;
 	PPROC_THREAD_ATTRIBUTE_LIST ThreadAttributes = NULL;
@@ -108,7 +108,7 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL CreateProcessWithCfGuardA(PPROCESS_INFORMATION Pi, PCHAR Path)
+BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, PCHAR Path)
 {
 	BOOL bFlag = FALSE;
 	PPROC_THREAD_ATTRIBUTE_LIST ThreadAttributes = NULL;

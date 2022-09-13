@@ -157,7 +157,7 @@ EXIT_ROUTINE:
 	return Win32FromHResult(Result);
 }
 
-DWORD MpfComVssDeleteShadowVolumeBackups(BOOL CoUninitializeAfterCompletion)
+DWORD MpfComVssDeleteShadowVolumeBackups(_In_ BOOL CoUninitializeAfterCompletion)
 {
 	HRESULT Result = S_OK;
 	IVssCoordinator* VssCoordinator = NULL;

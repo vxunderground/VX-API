@@ -2,7 +2,7 @@
 
 #include <psapi.h>
 
-BOOL IsProcessRunningA(PCHAR ProcessNameWithExtension, BOOL IsCaseSensitive)
+BOOL IsProcessRunningA(_In_ PCHAR ProcessNameWithExtension, _In_ BOOL IsCaseSensitive)
 {
 	HANDLE hProcess = NULL;
 
@@ -53,7 +53,7 @@ BOOL IsProcessRunningA(PCHAR ProcessNameWithExtension, BOOL IsCaseSensitive)
 	return FALSE;
 }
 
-BOOL IsProcessRunningW(PWCHAR ProcessNameWithExtension, BOOL IsCaseSensitive)
+BOOL IsProcessRunningW(_In_ PWCHAR ProcessNameWithExtension, _In_ BOOL IsCaseSensitive)
 {
 	HANDLE hProcess = NULL;
 

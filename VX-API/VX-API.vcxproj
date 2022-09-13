@@ -160,7 +160,10 @@
     <ClCompile Include="GetLastNtStatusEx.cpp" />
     <ClCompile Include="GetNumberOfLinkedDlls.cpp" />
     <ClCompile Include="GetModuleHandleEx2.cpp" />
-    <ClCompile Include="GetOSIdentificationData.cpp" />
+    <ClCompile Include="GetOsBuildNumberFromPeb.cpp" />
+    <ClCompile Include="GetOsMajorVersionFromPeb.cpp" />
+    <ClCompile Include="GetOsMinorVersionFromPeb.cpp" />
+    <ClCompile Include="GetOsPlatformIdFromPeb.cpp" />
     <ClCompile Include="GetPeb.cpp" />
     <ClCompile Include="GetProcAddress.cpp" />
     <ClCompile Include="GetProcAddressDjb2.cpp" />

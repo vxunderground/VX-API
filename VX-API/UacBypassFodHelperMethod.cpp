@@ -21,7 +21,7 @@ EXIT_ROUTINE:
 	return FALSE;
 }
 
-BOOL UacBypassFodHelperMethodW(PWCHAR PathToBinaryToExecute, PPROCESS_INFORMATION Pi)
+BOOL UacBypassFodHelperMethodW(_In_ PWCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi)
 {
 	HKEY hKey = HKEY_CURRENT_USER, hkResult;
 	WCHAR pvData[MAX_PATH * sizeof(WCHAR)] = { 0 };
@@ -75,7 +75,7 @@ EXIT_ROUTINE:
 	return dwError;
 }
 
-BOOL UacBypassFodHelperMethodA(PCHAR PathToBinaryToExecute, PPROCESS_INFORMATION Pi)
+BOOL UacBypassFodHelperMethodA(_In_ PCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi)
 {
 	HKEY hKey = HKEY_CURRENT_USER, hkResult;
 	CHAR pvData[MAX_PATH] = { 0 };

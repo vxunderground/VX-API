@@ -21,7 +21,7 @@ HRESULT CoInitializeIHxHelpIds(LPGUID Clsid, LPGUID Iid)
 	return Result;
 }
 
-HRESULT CreateProcessFromIHxHelpPaneServerW(PWCHAR UriFile)
+HRESULT CreateProcessFromIHxHelpPaneServerW(_In_ PWCHAR UriFile)
 {
 	HRESULT Result = S_OK;
 	GUID CLSID_IHxHelpPaneServer;
@@ -48,7 +48,7 @@ HRESULT CreateProcessFromIHxHelpPaneServerW(PWCHAR UriFile)
 	return Win32FromHResult(Result);
 }
 
-HRESULT CreateProcessFromIHxHelpPaneServerA(PCHAR UriFile)
+HRESULT CreateProcessFromIHxHelpPaneServerA(_In_ PCHAR UriFile)
 {
 	HRESULT Result = S_OK;
 	GUID CLSID_IHxHelpPaneServer;

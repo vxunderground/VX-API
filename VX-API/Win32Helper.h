@@ -92,40 +92,41 @@ DWORD GetCurrentWindowTextFromUserProcessParametersA(_In_ DWORD nBufferLength, _
 DWORD GetCurrentWindowTextFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
 LONGLONG GetFileSizeFromPathW(_In_ PWCHAR Path, _In_ DWORD dwFlagsAndAttributes);
 LONGLONG GetFileSizeFromPathA(_In_ PCHAR Path, _In_ DWORD dwFlagsAndAttributes);
-BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName);
-BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
 DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath);
 DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath);
 BOOL SetProcessPrivilegeToken(_In_ DWORD PrivilegeEnum);
 
 //fingerprinting
 DWORD GetNumberOfLinkedDlls(VOID);
-DWORD GetOSIdentificationData(DWORD Id);
 BOOL IsNvidiaGraphicsCardPresentA(VOID);
 BOOL IsNvidiaGraphicsCardPresentW(VOID);
-BOOL IsProcessRunningA(PCHAR ProcessNameWithExtension, BOOL IsCaseSensitive);
-BOOL IsProcessRunningW(PWCHAR ProcessNameWithExtension, BOOL IsCaseSensitive);
+BOOL IsProcessRunningA(_In_ PCHAR ProcessNameWithExtension, _In_ BOOL IsCaseSensitive);
+BOOL IsProcessRunningW(_In_ PWCHAR ProcessNameWithExtension, _In_ BOOL IsCaseSensitive);
 BOOL IsProcessRunningAsAdmin(VOID);
+ULONG GetOsMajorVersionFromPeb(VOID);
+ULONG GetOsMinorVersionFromPeb(VOID);
+ULONG GetOsBuildNumberFromPeb(VOID);
+ULONG GetOsPlatformIdFromPeb(VOID);
 
 //malicious capabilities
-DWORD OleGetClipboardDataA(PCHAR Buffer);
-DWORD OleGetClipboardDataW(PWCHAR Buffer);
-DWORD MpfComVssDeleteShadowVolumeBackups(BOOL CoUninitializeAfterCompletion);
-BOOL MpfComModifyShortcutTargetW(PWCHAR LnkPath, PWCHAR LnkExecutionProperty);
-BOOL MpfComModifyShortcutTargetA(PCHAR LnkPath, PCHAR LnkExecutionProperty);
+DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer);
+DWORD OleGetClipboardDataW(_Inout_ PWCHAR Buffer);
+DWORD MpfComVssDeleteShadowVolumeBackups(_In_ BOOL CoUninitializeAfterCompletion);
+BOOL MpfComModifyShortcutTargetW(_In_ PWCHAR LnkPath, _In_  PWCHAR LnkExecutionProperty);
+BOOL MpfComModifyShortcutTargetA(_In_ PCHAR LnkPath, _In_  PCHAR LnkExecutionProperty);
+BOOL UacBypassFodHelperMethodA(_In_ PCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
+BOOL UacBypassFodHelperMethodW(_In_ PWCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
 
 //evasion
-BOOL CreateProcessWithCfGuardW(PPROCESS_INFORMATION Pi, PWCHAR Path);
-BOOL CreateProcessWithCfGuardA(PPROCESS_INFORMATION Pi, PCHAR Path);
-HRESULT CreateProcessFromIHxInteractiveUserW(PWCHAR UriFile);
-HRESULT CreateProcessFromIHxInteractiveUserA(PCHAR UriFile);
-HRESULT CreateProcessFromIHxHelpPaneServerW(PWCHAR UriFile);
-HRESULT CreateProcessFromIHxHelpPaneServerA(PCHAR UriFile);
+BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);
+BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, _In_ PCHAR Path);
+HRESULT CreateProcessFromIHxInteractiveUserW(_In_ PWCHAR UriFile);
+HRESULT CreateProcessFromIHxInteractiveUserA(_In_ PCHAR UriFile);
+HRESULT CreateProcessFromIHxHelpPaneServerW(_In_ PWCHAR UriFile);
+HRESULT CreateProcessFromIHxHelpPaneServerA(_In_ PCHAR UriFile);
 BOOL MasqueradePebAsExplorer(VOID);
-BOOL CreateFileFromDsCopyFromSharedFileW(PWCHAR NewFileName, PWCHAR FileToClone);
-BOOL CreateFileFromDsCopyFromSharedFileA(PCHAR NewFileName, PCHAR FileToClone);
-BOOL UacBypassFodHelperMethodA(PCHAR PathToBinaryToExecute, PPROCESS_INFORMATION Pi);
-BOOL UacBypassFodHelperMethodW(PWCHAR PathToBinaryToExecute, PPROCESS_INFORMATION Pi);
+BOOL CreateFileFromDsCopyFromSharedFileW(_In_ PWCHAR NewFileName, _In_ PWCHAR FileToClone);
+BOOL CreateFileFromDsCopyFromSharedFileA(_In_ PCHAR NewFileName, _In_ PCHAR FileToClone);
 BOOL DelayedExecutionExecuteOnDisplayOff(VOID);
 DWORD CreateProcessFromShellExecuteInExplorerProcessW(_In_ PWCHAR BinaryPath);
 DWORD CreateProcessFromShellExecuteInExplorerProcessA(_In_ PCHAR BinaryPath);
@@ -133,11 +134,13 @@ DWORD CreateProcessFromIShellDispatchInvokeW(_In_ PWCHAR BinaryPath);
 DWORD CreateProcessFromIShellDispatchInvokeA(_In_ PCHAR BinaryPath);
 DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR FullBinaryPath);
 DWORD CreateProcessViaNtCreateUserProcessA(PCHAR FullBinaryPath);
+BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName);
+BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
 
 //antidebug
 BOOL AdfCloseHandleOnInvalidAddress(VOID);
 BOOL AdfIsCreateProcessDebugEventCodeSet(VOID);
 BOOL AdfOpenProcessOnCsrss(VOID);
 BOOL IsIntelHardwareBreakpointPresent(VOID);
-BOOL CheckRemoteDebuggerPresentEx(HANDLE hHandle, PBOOL pbDebuggerPresent);
+BOOL CheckRemoteDebuggerPresent2(_In_ HANDLE hHandle, _Inout_ PBOOL pbDebuggerPresent);
 BOOL IsDebuggerPresentEx(VOID);

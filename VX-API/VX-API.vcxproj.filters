@@ -249,14 +249,8 @@
     <ClCompile Include="IsProcessRunning.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
     </ClCompile>
-    <ClCompile Include="GetOSIdentificationData.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
-    </ClCompile>
     <ClCompile Include="IsProcessRunningAsAdmin.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
-    </ClCompile>
-    <ClCompile Include="RemoveDllFromPeb.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
     <ClCompile Include="SetProcessPrivilegeToken.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
@@ -331,6 +325,21 @@
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
     <ClCompile Include="CreateProcessViaNtCreateUserProcess.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="GetOsMajorVersionFromPeb.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="GetOsMinorVersionFromPeb.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="GetOsBuildNumberFromPeb.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="GetOsPlatformIdFromPeb.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoveDllFromPeb.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
   </ItemGroup>

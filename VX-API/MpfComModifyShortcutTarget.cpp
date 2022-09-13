@@ -3,7 +3,7 @@
 #include <shobjidl_core.h>
 #include <shlguid.h>
 
-BOOL MpfComModifyShortcutTargetW(PWCHAR LnkPath, PWCHAR LnkExecutionProperty)
+BOOL MpfComModifyShortcutTargetW(_In_ PWCHAR LnkPath, _In_ PWCHAR LnkExecutionProperty)
 {
 	HRESULT Result = S_OK;
 	IShellLinkW* Shell = NULL;
@@ -56,7 +56,7 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL MpfComModifyShortcutTargetA(PCHAR LnkPath, PCHAR LnkExecutionProperty)
+BOOL MpfComModifyShortcutTargetA(_In_ PCHAR LnkPath, _In_ PCHAR LnkExecutionProperty)
 {
 	HRESULT Result = S_OK;
 	IShellLinkW* Shell = NULL;

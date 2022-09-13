@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD OleGetClipboardDataA(PCHAR Buffer)
+DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer)
 {
 	DWORD dwError = ERROR_SUCCESS;
 	HRESULT Result = S_OK;
@@ -53,7 +53,7 @@ EXIT_ROUTINE:
 	return dwError;
 }
 
-DWORD OleGetClipboardDataW(PWCHAR Buffer)
+DWORD OleGetClipboardDataW(_Inout_ PWCHAR Buffer)
 {
 	DWORD dwError = ERROR_SUCCESS;
 	HRESULT Result = S_OK;

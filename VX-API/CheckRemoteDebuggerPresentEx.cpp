@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL CheckRemoteDebuggerPresentEx(HANDLE hHandle, PBOOL pbDebuggerPresent)
+BOOL CheckRemoteDebuggerPresent2(_In_ HANDLE hHandle, _Inout_ PBOOL pbDebuggerPresent)
 {
 	typedef enum _PROCESSINFOCLASS
 	{
@@ -24,7 +24,7 @@ BOOL CheckRemoteDebuggerPresentEx(HANDLE hHandle, PBOOL pbDebuggerPresent)
 	if (hModule == NULL)
 		return FALSE;
 
-	NtQueryInformationProcess = (NTQUERYINFORMATIONPROCESS)GetProcAddressW((DWORD64)hModule, L"NtQueryInformationProcess");
+	NtQueryInformationProcess = (NTQUERYINFORMATIONPROCESS)GetProcAddressA((DWORD64)hModule, "NtQueryInformationProcess");
 	if (!NtQueryInformationProcess)
 		return FALSE;
 

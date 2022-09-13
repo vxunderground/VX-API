@@ -18,7 +18,7 @@ HRESULT CoInitializeIHxInteractiveUserIds(LPGUID Clsid, LPGUID Iid)
 	return Result;
 }
 
-HRESULT CreateProcessFromIHxInteractiveUserW(PWCHAR UriFile)
+HRESULT CreateProcessFromIHxInteractiveUserW(_In_ PWCHAR UriFile)
 {
 	HRESULT Result = S_OK;
 	GUID CLSID_IHxInteractiveUser;
@@ -44,7 +44,7 @@ HRESULT CreateProcessFromIHxInteractiveUserW(PWCHAR UriFile)
 	return Win32FromHResult(Result);
 }
 
-HRESULT CreateProcessFromIHxInteractiveUserA(PCHAR UriFile)
+HRESULT CreateProcessFromIHxInteractiveUserA(_In_ PCHAR UriFile)
 {
 	HRESULT Result = S_OK;
 	GUID CLSID_IHxInteractiveUser;
