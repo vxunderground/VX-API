@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL DeleteFileExA(PCHAR Path)
+BOOL DeleteFileWithCreateFileFlagA(_In_ PCHAR Path)
 {
 	HANDLE hHandle = INVALID_HANDLE_VALUE;
 
@@ -19,7 +19,7 @@ BOOL DeleteFileExA(PCHAR Path)
 	return TRUE;
 }
 
-BOOL DeleteFileExW(PWCHAR Path)
+BOOL DeleteFileWithCreateFileFlagW(_In_ PWCHAR Path)
 {
 	HANDLE hHandle = INVALID_HANDLE_VALUE;
 

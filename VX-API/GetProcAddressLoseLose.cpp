@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD64 __stdcall GetProcAddressLoseLose(DWORD64 ModuleBase, DWORD64 Hash)
+DWORD64 __stdcall GetProcAddressLoseLose(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash)
 {
 	PBYTE pFunctionName;
 	PIMAGE_DOS_HEADER Dos;

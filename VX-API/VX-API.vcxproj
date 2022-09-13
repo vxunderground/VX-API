@@ -149,11 +149,9 @@
     <ClCompile Include="CreatePseudoRandomString.cpp" />
     <ClCompile Include="CreateWindowsObjectPath.cpp" />
     <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp" />
-    <ClCompile Include="DeleteFileEx.cpp" />
-    <ClCompile Include="GetCurrentDirectoryEx.cpp" />
-    <ClCompile Include="GetCurrentProcessEx.cpp" />
-    <ClCompile Include="GetCurrentProcessIdEx.cpp" />
-    <ClCompile Include="GetCurrentThreadEx.cpp" />
+    <ClCompile Include="DeleteFileWithCreateFileFlag.cpp" />
+    <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp" />
+    <ClCompile Include="GetCurrentProcessIdFromTeb.cpp" />
     <ClCompile Include="GetCurrentUserSid.cpp" />
     <ClCompile Include="GetCurrentWindowText.cpp" />
     <ClCompile Include="GetFileSizeFromPath.cpp" />
@@ -161,7 +159,7 @@
     <ClCompile Include="GetLastErrorFromTeb.cpp" />
     <ClCompile Include="GetLastNtStatusEx.cpp" />
     <ClCompile Include="GetNumberOfLinkedDlls.cpp" />
-    <ClCompile Include="GetModuleHandleEx.cpp" />
+    <ClCompile Include="GetModuleHandleEx2.cpp" />
     <ClCompile Include="GetOSIdentificationData.cpp" />
     <ClCompile Include="GetPeb.cpp" />
     <ClCompile Include="GetProcAddress.cpp" />
@@ -173,9 +171,9 @@
     <ClCompile Include="GetProcAddressSdbm.cpp" />
     <ClCompile Include="GetProcAddressSuperFastHash.cpp" />
     <ClCompile Include="GetProcAddressUnknownGenericHash1.cpp" />
-    <ClCompile Include="GetProcessHeapEx.cpp" />
+    <ClCompile Include="GetProcessHeapFromTeb.cpp" />
     <ClCompile Include="GetProcessPathFromLoaderLoadModule.cpp" />
-    <ClCompile Include="GetProcessPathFromProcessParameters.cpp" />
+    <ClCompile Include="GetProcessPathFromUserProcessParameters.cpp" />
     <ClCompile Include="GetRtlUserProcessParameters.cpp" />
     <ClCompile Include="GetSystemWindowsDirectory.cpp" />
     <ClCompile Include="GetTeb.cpp" />

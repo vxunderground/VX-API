@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD UrlDownloadToFileSynchronousW(PWCHAR Url, PWCHAR SavePath)
+DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath)
 {
 	typedef HRESULT(WINAPI* URLDOWNLOADFILE)(LPUNKNOWN, LPCTSTR, LPCTSTR, DWORD, LPBINDSTATUSCALLBACK);
 	class DownloadProgressRoutine : public IBindStatusCallback {
@@ -97,7 +97,7 @@ EXIT_ROUTINE:
 	return dwError;
 }
 
-DWORD UrlDownloadToFileSynchronousA(PCHAR Url, PCHAR SavePath)
+DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath)
 {
 	typedef HRESULT(WINAPI* URLDOWNLOADFILE)(LPUNKNOWN, LPCSTR, LPCSTR, DWORD, LPBINDSTATUSCALLBACK);
 	class DownloadProgressRoutine : public IBindStatusCallback {

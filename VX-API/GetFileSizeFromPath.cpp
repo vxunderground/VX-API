@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-LONGLONG GetFileSizeFromPathW(PWCHAR Path, DWORD dwFlagsAndAttributes)
+LONGLONG GetFileSizeFromPathW(_In_ PWCHAR Path, _In_ DWORD dwFlagsAndAttributes)
 {
 	LARGE_INTEGER LargeInteger;
 	HANDLE hHandle = INVALID_HANDLE_VALUE;
@@ -20,7 +20,7 @@ LONGLONG GetFileSizeFromPathW(PWCHAR Path, DWORD dwFlagsAndAttributes)
 	return INVALID_FILE_SIZE;
 }
 
-LONGLONG GetFileSizeFromPathA(PCHAR Path, DWORD dwFlagsAndAttributes)
+LONGLONG GetFileSizeFromPathA(_In_ PCHAR Path, _In_ DWORD dwFlagsAndAttributes)
 {
 	LARGE_INTEGER LargeInteger;
 	HANDLE hHandle = INVALID_HANDLE_VALUE;

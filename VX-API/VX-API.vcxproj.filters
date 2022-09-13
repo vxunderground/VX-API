@@ -162,7 +162,7 @@
     <ClCompile Include="GetProcAddress.cpp">
       <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
     </ClCompile>
-    <ClCompile Include="GetModuleHandleEx.cpp">
+    <ClCompile Include="GetModuleHandleEx2.cpp">
       <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
     </ClCompile>
     <ClCompile Include="GetTeb.cpp">
@@ -210,19 +210,13 @@
     <ClCompile Include="CreateWindowsObjectPath.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="DeleteFileEx.cpp">
+    <ClCompile Include="DeleteFileWithCreateFileFlag.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="GetCurrentDirectoryEx.cpp">
+    <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="GetCurrentProcessEx.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="GetCurrentProcessIdEx.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="GetCurrentThreadEx.cpp">
+    <ClCompile Include="GetCurrentProcessIdFromTeb.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
     <ClCompile Include="GetCurrentUserSid.cpp">
@@ -234,13 +228,13 @@
     <ClCompile Include="GetFileSizeFromPath.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="GetProcessHeapEx.cpp">
+    <ClCompile Include="GetProcessHeapFromTeb.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
     <ClCompile Include="GetProcessPathFromLoaderLoadModule.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="GetProcessPathFromProcessParameters.cpp">
+    <ClCompile Include="GetProcessPathFromUserProcessParameters.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
     <ClCompile Include="GetSystemWindowsDirectory.cpp">

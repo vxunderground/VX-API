@@ -1,12 +1,12 @@
 #include "Win32Helper.h"
 
-DWORD64 __stdcall GetProcAddressA(DWORD64 ModuleBase, LPCSTR lpProcName)
+DWORD64 __stdcall GetProcAddressA(_In_ DWORD64 ModuleBase, _In_ LPCSTR lpProcName)
 {
-	PBYTE pFunctionName;
-	PIMAGE_DOS_HEADER Dos;
-	PIMAGE_NT_HEADERS Nt;
-	PIMAGE_FILE_HEADER File;
-	PIMAGE_OPTIONAL_HEADER Optional;
+	PBYTE pFunctionName = NULL;
+	PIMAGE_DOS_HEADER Dos = NULL;
+	PIMAGE_NT_HEADERS Nt = NULL;
+	PIMAGE_FILE_HEADER File = NULL;
+	PIMAGE_OPTIONAL_HEADER Optional = NULL;
 
 	RtlLoadPeHeaders(&Dos, &Nt, &File, &Optional, (PBYTE*)&ModuleBase);
 
@@ -25,13 +25,13 @@ DWORD64 __stdcall GetProcAddressA(DWORD64 ModuleBase, LPCSTR lpProcName)
 	return 0;
 }
 
-DWORD64 __stdcall GetProcAddressW(DWORD64 ModuleBase, LPCWSTR lpProcName)
+DWORD64 __stdcall GetProcAddressW(_In_ DWORD64 ModuleBase, _In_ LPCWSTR lpProcName)
 {
-	PBYTE pFunctionName;
-	PIMAGE_DOS_HEADER Dos;
-	PIMAGE_NT_HEADERS Nt;
-	PIMAGE_FILE_HEADER File;
-	PIMAGE_OPTIONAL_HEADER Optional;
+	PBYTE pFunctionName = NULL;
+	PIMAGE_DOS_HEADER Dos = NULL;
+	PIMAGE_NT_HEADERS Nt = NULL;
+	PIMAGE_FILE_HEADER File = NULL;
+	PIMAGE_OPTIONAL_HEADER Optional = NULL;
 
 	RtlLoadPeHeaders(&Dos, &Nt, &File, &Optional, (PBYTE*)&ModuleBase);
 

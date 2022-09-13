@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD64 __stdcall GetProcAddressUnknownGenericHash1(DWORD64 ModuleBase, DWORD64 Hash)
+DWORD64 __stdcall GetProcAddressUnknownGenericHash1(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash)
 {
 	PBYTE pFunctionName;
 	PIMAGE_DOS_HEADER Dos;

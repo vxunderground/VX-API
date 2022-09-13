@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL RtlLoadPeHeaders(PIMAGE_DOS_HEADER* Dos, PIMAGE_NT_HEADERS* Nt, PIMAGE_FILE_HEADER* File, PIMAGE_OPTIONAL_HEADER* Optional, PBYTE* ImageBase)
+BOOL RtlLoadPeHeaders(_Inout_ PIMAGE_DOS_HEADER* Dos, _Inout_ PIMAGE_NT_HEADERS* Nt, _Inout_ PIMAGE_FILE_HEADER* File, _Inout_ PIMAGE_OPTIONAL_HEADER* Optional, _Inout_ PBYTE* ImageBase)
 {
 	*Dos = (PIMAGE_DOS_HEADER)*ImageBase;
 	if ((*Dos)->e_magic != IMAGE_DOS_SIGNATURE)

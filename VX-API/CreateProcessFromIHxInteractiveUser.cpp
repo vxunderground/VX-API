@@ -66,7 +66,7 @@ HRESULT CreateProcessFromIHxInteractiveUserA(PCHAR UriFile)
 	if (dwLength == 0)
 		goto EXIT_ROUTINE;
 
-	wUriFile = (PWCHAR)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, dwLength);
+	wUriFile = (PWCHAR)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, dwLength);
 	if(wUriFile == NULL)
 		goto EXIT_ROUTINE;
 
@@ -81,7 +81,7 @@ EXIT_ROUTINE:
 		User->Release();
 
 	if (wUriFile)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, wUriFile);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, wUriFile);
 
 	CoUninitialize();
 

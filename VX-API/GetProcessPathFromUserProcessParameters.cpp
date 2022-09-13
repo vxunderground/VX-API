@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD GetProcessPathFromProcessParametersA(DWORD nBufferLength, PCHAR lpBuffer)
+DWORD GetProcessPathFromUserProcessParametersA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer)
 {
 	PRTL_USER_PROCESS_PARAMETERS ProcessParameters = GetPeb()->ProcessParameters;
 
@@ -10,7 +10,7 @@ DWORD GetProcessPathFromProcessParametersA(DWORD nBufferLength, PCHAR lpBuffer)
 	return (DWORD)WCharStringToCharString(lpBuffer, ProcessParameters->ImagePathName.Buffer, ProcessParameters->ImagePathName.MaximumLength);
 }
 
-DWORD GetProcessPathFromProcessParametersW(DWORD nBufferLength, PWCHAR lpBuffer)
+DWORD GetProcessPathFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer)
 {
 	PRTL_USER_PROCESS_PARAMETERS ProcessParameters = GetPeb()->ProcessParameters;
 

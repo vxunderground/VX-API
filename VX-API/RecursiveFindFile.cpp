@@ -10,7 +10,7 @@ BOOL UnusedSubroutineRecursiveFindFileMainA(LPCSTR Path, LPCSTR Pattern, PVOID p
 	typedef LPWSTR(WINAPI* PATHCOMBINEA)(LPCSTR, LPCSTR, LPCSTR);
 	PATHCOMBINEA PathCombineA = (PATHCOMBINEA)pfnPathCombineW;
 
-	HANDLE HeapHandle = GetProcessHeapEx();
+	HANDLE HeapHandle = GetProcessHeapFromTeb();
 	CHAR szFullPattern[MAX_PATH] = { 0 };
 	WIN32_FIND_DATAA FindData = { 0 };
 	HANDLE FindHandle = INVALID_HANDLE_VALUE;
@@ -82,7 +82,7 @@ EXIT_ROUTINE:
 	return FALSE;
 }
 
-BOOL RecursiveFindFileA(LPCSTR Path, LPCSTR Pattern)
+BOOL RecursiveFindFileA(_In_ LPCSTR Path, _In_ LPCSTR Pattern)
 {
 	typedef LPWSTR(WINAPI* PATHCOMBINEA)(LPCSTR, LPCSTR, LPCSTR);
 	PATHCOMBINEA PathCombineA = NULL;
@@ -123,7 +123,7 @@ BOOL UnusedSubroutineRecursiveFindFileMainW(LPCWSTR Path, LPCWSTR Pattern, PVOID
 	typedef LPWSTR(WINAPI* PATHCOMBINEW)(LPCWSTR, LPCWSTR, LPCWSTR);
 	PATHCOMBINEW PathCombineW = (PATHCOMBINEW)pfnPathCombineW;
 
-	HANDLE HeapHandle = GetProcessHeapEx();
+	HANDLE HeapHandle = GetProcessHeapFromTeb();
 	WCHAR szFullPattern[MAX_PATH] = { 0 };
 	WIN32_FIND_DATAW FindData = { 0 };
 	HANDLE FindHandle = INVALID_HANDLE_VALUE;
@@ -194,7 +194,7 @@ EXIT_ROUTINE:
 	return FALSE;
 }
 
-BOOL RecursiveFindFileW(LPCWSTR Path, LPCWSTR Pattern)
+BOOL RecursiveFindFileW(_In_ LPCWSTR Path, _In_ LPCWSTR Pattern)
 {
 	typedef LPWSTR(WINAPI* PATHCOMBINEW)(LPCWSTR, LPCWSTR, LPCWSTR);
 	PATHCOMBINEW PathCombineW = NULL;

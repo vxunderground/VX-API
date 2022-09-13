@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL CreateWindowsObjectPathW(PWCHAR pBuffer, PWCHAR Path, DWORD Size, BOOL bDoesObjectExist)
+BOOL CreateWindowsObjectPathW(_Inout_ PWCHAR pBuffer, _In_ PWCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist)
 {
 	if (pBuffer == NULL)
 		return FALSE;
@@ -20,7 +20,7 @@ BOOL CreateWindowsObjectPathW(PWCHAR pBuffer, PWCHAR Path, DWORD Size, BOOL bDoe
 	return TRUE;
 }
 
-BOOL CreateWindowsObjectPathA(PCHAR pBuffer, PCHAR Path, DWORD Size, BOOL bDoesObjectExist)
+BOOL CreateWindowsObjectPathA(_Inout_ PCHAR pBuffer, _In_ PCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist)
 {
 	if (pBuffer == NULL)
 		return FALSE;

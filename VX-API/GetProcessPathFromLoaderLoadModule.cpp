@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD GetProcessPathFromLoaderLoadModuleA(DWORD nBufferLength, PCHAR lpBuffer)
+DWORD GetProcessPathFromLoaderLoadModuleA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer)
 {
 	PPEB Peb = GetPeb();
 	PLDR_MODULE Module = NULL;
@@ -12,7 +12,7 @@ DWORD GetProcessPathFromLoaderLoadModuleA(DWORD nBufferLength, PCHAR lpBuffer)
 	return (DWORD)WCharStringToCharString(lpBuffer, Module->FullDllName.Buffer, Module->FullDllName.MaximumLength);
 }
 
-DWORD GetProcessPathFromLoaderLoadModuleW(DWORD nBufferLength, PWCHAR lpBuffer)
+DWORD GetProcessPathFromLoaderLoadModuleW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer)
 {
 	PPEB Peb = GetPeb();
 	PLDR_MODULE Module = NULL;

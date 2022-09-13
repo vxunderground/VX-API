@@ -1,8 +1,8 @@
 #include "Win32Helper.h"
 
-BOOL SetProcessPrivilegeToken(DWORD PrivilegeEnum)
+BOOL SetProcessPrivilegeToken(_In_ DWORD PrivilegeEnum)
 {
-	HANDLE Process = GetCurrentProcessEx();
+	HANDLE Process = InlineGetCurrentProcess;
 	HANDLE Token = INVALID_HANDLE_VALUE;
 	TOKEN_PRIVILEGES Privileges = { 0 };
 	DWORD TokenLength = 0;

@@ -10,7 +10,7 @@ DWORD GetTokenInformationBufferSize(HANDLE hToken)
 	return dwReturn;
 }
 
-LPWSTR GetCurrentUserSidW(HANDLE hToken, BOOL DisposeProcessHandle)
+LPWSTR GetCurrentUserSidW(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle)
 {
 	typedef BOOL(WINAPI* CONVERTSIDTOSTRINGSIDW)(PSID, LPWSTR*);
 	CONVERTSIDTOSTRINGSIDW ConvertSidToStringSidW;
@@ -29,14 +29,14 @@ LPWSTR GetCurrentUserSidW(HANDLE hToken, BOOL DisposeProcessHandle)
 	if (!ConvertSidToStringSidW)
 		goto EXIT_ROUTINE;
 
-	if (!OpenProcessToken(GetCurrentProcessEx(), TOKEN_ALL_ACCESS, &hToken))
+	if (!OpenProcessToken(InlineGetCurrentProcess, TOKEN_ALL_ACCESS, &hToken))
 		return NULL;
 
 	dwError = GetTokenInformationBufferSize(hToken);
 	if (dwError == 0)
 		goto EXIT_ROUTINE;
 
-	TokenGroup = (PTOKEN_GROUPS)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, dwError);
+	TokenGroup = (PTOKEN_GROUPS)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, dwError);
 	if (TokenGroup == NULL)
 		goto EXIT_ROUTINE;
 
@@ -52,7 +52,7 @@ LPWSTR GetCurrentUserSidW(HANDLE hToken, BOOL DisposeProcessHandle)
 
 			dwError = GetLengthSid(TokenGroup->Groups[dwIndex].Sid);
 
-			Sid = (PSID)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, dwError);
+			Sid = (PSID)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, dwError);
 			if (Sid == NULL)
 				goto EXIT_ROUTINE;
 
@@ -74,10 +74,10 @@ EXIT_ROUTINE:
 		dwError = GetLastErrorFromTeb();
 
 	if (TokenGroup)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, TokenGroup);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, TokenGroup);
 
 	if (Sid)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, Sid);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, Sid);
 
 	if (hAdvapi)
 		FreeLibrary(hAdvapi);
@@ -91,7 +91,7 @@ EXIT_ROUTINE:
 	return (bFlag ? pSid : NULL);
 }
 
-LPSTR GetCurrentUserSidA(HANDLE hToken, BOOL DisposeProcessHandle)
+LPSTR GetCurrentUserSidA(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle)
 {
 	typedef BOOL(WINAPI* CONVERTSIDTOSTRINGSIDA)(PSID, LPSTR*);
 	CONVERTSIDTOSTRINGSIDA ConvertSidToStringSidA;
@@ -110,14 +110,14 @@ LPSTR GetCurrentUserSidA(HANDLE hToken, BOOL DisposeProcessHandle)
 	if (!ConvertSidToStringSidA)
 		goto EXIT_ROUTINE;
 
-	if (!OpenProcessToken(GetCurrentProcessEx(), TOKEN_ALL_ACCESS, &hToken))
+	if (!OpenProcessToken(InlineGetCurrentProcess, TOKEN_ALL_ACCESS, &hToken))
 		return NULL;
 
 	dwError = GetTokenInformationBufferSize(hToken);
 	if (dwError == 0)
 		goto EXIT_ROUTINE;
 
-	TokenGroup = (PTOKEN_GROUPS)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, dwError);
+	TokenGroup = (PTOKEN_GROUPS)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, dwError);
 	if (TokenGroup == NULL)
 		goto EXIT_ROUTINE;
 
@@ -133,7 +133,7 @@ LPSTR GetCurrentUserSidA(HANDLE hToken, BOOL DisposeProcessHandle)
 
 			dwError = GetLengthSid(TokenGroup->Groups[dwIndex].Sid);
 
-			Sid = (PSID)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, dwError);
+			Sid = (PSID)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, dwError);
 			if (Sid == NULL)
 				goto EXIT_ROUTINE;
 
@@ -155,10 +155,10 @@ EXIT_ROUTINE:
 		dwError = GetLastErrorFromTeb();
 
 	if (TokenGroup)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, TokenGroup);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, TokenGroup);
 
 	if (Sid)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, Sid);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, Sid);
 
 	if (hAdvapi)
 		FreeLibrary(hAdvapi);

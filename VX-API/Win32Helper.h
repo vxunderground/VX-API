@@ -9,6 +9,9 @@
 
 #define Get16Bits(d) ((((UINT32)(((CONST UINT8*)(d))[1])) << 8) +(UINT32)(((CONST UINT8*)(d))[0]))
 
+#define InlineGetCurrentThread ((HANDLE)(LONG_PTR)-2)
+#define InlineGetCurrentProcess (HANDLE)((HANDLE)-1)
+
 //error handling
 DWORD GetLastErrorFromTeb(VOID);
 NTSTATUS GetLastNtStatusEx(VOID);
@@ -48,37 +51,54 @@ PPEB GetPeb(VOID);
 PPEB GetPebFromTeb(VOID);
 PKUSER_SHARED_DATA GetKUserSharedData(VOID);
 PRTL_USER_PROCESS_PARAMETERS GetRtlUserProcessParameters(VOID);
-DWORD64 __stdcall GetProcAddressDjb2(DWORD64 ModuleBase, DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressFowlerNollVoVariant1a(DWORD64 ModuleBase, DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressJenkinsOneAtATime32Bit(DWORD64 ModuleBase, DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressLoseLose(DWORD64 ModuleBase, DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressRotr32(DWORD64 ModuleBase, DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressSdbm(DWORD64 ModuleBase, DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressSuperFastHash(DWORD64 ModuleBase, DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressUnknownGenericHash1(DWORD64 ModuleBase, DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressA(DWORD64 ModuleBase, LPCSTR lpProcName);
-DWORD64 __stdcall GetProcAddressW(DWORD64 ModuleBase, LPCWSTR lpProcName);
-BOOL RtlLoadPeHeaders(PIMAGE_DOS_HEADER* Dos, PIMAGE_NT_HEADERS* Nt, PIMAGE_FILE_HEADER* File, PIMAGE_OPTIONAL_HEADER* Optional, PBYTE* ImageBase);
-HMODULE GetModuleHandleEx2A(LPCSTR lpModuleName);
-HMODULE GetModuleHandleEx2W(LPCWSTR lpModuleName);
+DWORD64 __stdcall GetProcAddressDjb2(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressFowlerNollVoVariant1a(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressJenkinsOneAtATime32Bit(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressLoseLose(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressRotr32(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressSdbm(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressSuperFastHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressUnknownGenericHash1(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressA(_In_ DWORD64 ModuleBase, _In_ LPCSTR lpProcName);
+DWORD64 __stdcall GetProcAddressW(_In_ DWORD64 ModuleBase, _In_ LPCWSTR lpProcName);
+BOOL RtlLoadPeHeaders(_Inout_ PIMAGE_DOS_HEADER* Dos, _Inout_ PIMAGE_NT_HEADERS* Nt, _Inout_ PIMAGE_FILE_HEADER* File, _Inout_ PIMAGE_OPTIONAL_HEADER* Optional, _Inout_ PBYTE* ImageBase);
+HMODULE GetModuleHandleEx2A(_In_ LPCSTR lpModuleName);
+HMODULE GetModuleHandleEx2W(_In_ LPCWSTR lpModuleName);
 
 //helper functions
-BOOL IsPathValidA(PCHAR FilePath);
-BOOL IsPathValidW(PWCHAR FilePath);
-BOOL CreateLocalAppDataObjectPathW(PWCHAR pBuffer, PWCHAR Path, DWORD Size, BOOL bDoesObjectExist);
-BOOL CreateLocalAppDataObjectPathA(PCHAR pBuffer, PCHAR Path, DWORD Size, BOOL bDoesObjectExist);
-BOOL GetSystemWindowsDirectoryA(DWORD nBufferLength, PCHAR lpBuffer);
-BOOL GetSystemWindowsDirectoryW(DWORD nBufferLength, PWCHAR lpBuffer);
-BOOL CreateWindowsObjectPathW(PWCHAR pBuffer, PWCHAR Path, DWORD Size, BOOL bDoesObjectExist);
-BOOL CreateWindowsObjectPathA(PCHAR pBuffer, PCHAR Path, DWORD Size, BOOL bDoesObjectExist);
-HANDLE GetProcessHeapEx(VOID);
-HANDLE GetCurrentProcessEx(VOID);
-LPWSTR GetCurrentUserSidW(HANDLE hToken, BOOL DisposeProcessHandle);
-LPSTR GetCurrentUserSidA(HANDLE hToken, BOOL DisposeProcessHandle);
-DWORD GetProcessPathFromLoaderLoadModuleA(DWORD nBufferLength, PCHAR lpBuffer);
-DWORD GetProcessPathFromLoaderLoadModuleW(DWORD nBufferLength, PWCHAR lpBuffer);
-DWORD GetProcessPathFromProcessParametersA(DWORD nBufferLength, PCHAR lpBuffer);
-DWORD GetProcessPathFromProcessParametersW(DWORD nBufferLength, PWCHAR lpBuffer);
+BOOL IsPathValidA(_In_ PCHAR FilePath);
+BOOL IsPathValidW(_In_ PWCHAR FilePath);
+BOOL CreateLocalAppDataObjectPathW(_Inout_ PWCHAR pBuffer, _In_ PWCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
+BOOL CreateLocalAppDataObjectPathA(_Inout_ PCHAR pBuffer, _In_ PCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
+BOOL GetSystemWindowsDirectoryA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer);
+BOOL GetSystemWindowsDirectoryW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
+BOOL CreateWindowsObjectPathW(_Inout_ PWCHAR pBuffer, _In_ PWCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
+BOOL CreateWindowsObjectPathA(_Inout_ PCHAR pBuffer, _In_ PCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
+HANDLE GetProcessHeapFromTeb(VOID);
+LPWSTR GetCurrentUserSidW(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle);
+LPSTR GetCurrentUserSidA(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle);
+DWORD GetProcessPathFromLoaderLoadModuleA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer);
+DWORD GetProcessPathFromLoaderLoadModuleW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
+DWORD GetProcessPathFromUserProcessParametersA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer);
+DWORD GetProcessPathFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
+BOOL RecursiveFindFileA(_In_ LPCSTR Path, _In_ LPCSTR Pattern);
+BOOL RecursiveFindFileW(_In_ LPCWSTR Path, _In_ LPCWSTR Pattern);
+BOOL DeleteFileWithCreateFileFlagA(_In_ PCHAR Path);
+BOOL DeleteFileWithCreateFileFlagW(_In_ PWCHAR Path);
+DWORD GetCurrentDirectoryFromUserProcessParametersA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer);
+DWORD GetCurrentDirectoryFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
+DWORD GetCurrentProcessIdFromTeb(VOID);
+DWORD GetCurrentWindowTextFromUserProcessParametersA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer);
+DWORD GetCurrentWindowTextFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
+LONGLONG GetFileSizeFromPathW(_In_ PWCHAR Path, _In_ DWORD dwFlagsAndAttributes);
+LONGLONG GetFileSizeFromPathA(_In_ PCHAR Path, _In_ DWORD dwFlagsAndAttributes);
+BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName);
+BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
+DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath);
+DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath);
+BOOL SetProcessPrivilegeToken(_In_ DWORD PrivilegeEnum);
+
+//fingerprinting
 DWORD GetNumberOfLinkedDlls(VOID);
 DWORD GetOSIdentificationData(DWORD Id);
 BOOL IsNvidiaGraphicsCardPresentA(VOID);
@@ -86,23 +106,6 @@ BOOL IsNvidiaGraphicsCardPresentW(VOID);
 BOOL IsProcessRunningA(PCHAR ProcessNameWithExtension, BOOL IsCaseSensitive);
 BOOL IsProcessRunningW(PWCHAR ProcessNameWithExtension, BOOL IsCaseSensitive);
 BOOL IsProcessRunningAsAdmin(VOID);
-BOOL RecursiveFindFileA(LPCSTR Path, LPCSTR Pattern);
-BOOL RecursiveFindFileW(LPCWSTR Path, LPCWSTR Pattern);
-BOOL DeleteFileExA(PCHAR Path);
-BOOL DeleteFileExW(PWCHAR Path);
-DWORD GetCurrentDirectoryExA(DWORD nBufferLength, PCHAR lpBuffer);
-DWORD GetCurrentDirectoryExW(DWORD nBufferLength, PWCHAR lpBuffer);
-DWORD GetCurrentProcessIdEx(VOID);
-HANDLE GetCurrentThreadEx(VOID);
-DWORD GetCurrentWindowTextA(DWORD nBufferLength, PCHAR lpBuffer);
-DWORD GetCurrentWindowTextW(DWORD nBufferLength, PWCHAR lpBuffer);
-LONGLONG GetFileSizeFromPathW(PWCHAR Path, DWORD dwFlagsAndAttributes);
-LONGLONG GetFileSizeFromPathA(PCHAR Path, DWORD dwFlagsAndAttributes);
-BOOL RemoveDllFromPebA(LPCSTR lpModuleName);
-BOOL RemoveDllFromPebW(LPCWSTR lpModuleName);
-DWORD UrlDownloadToFileSynchronousW(PWCHAR Url, PWCHAR SavePath);
-DWORD UrlDownloadToFileSynchronousA(PCHAR Url, PCHAR SavePath);
-BOOL SetProcessPrivilegeToken(DWORD PrivilegeEnum);
 
 //malicious capabilities
 DWORD OleGetClipboardDataA(PCHAR Buffer);

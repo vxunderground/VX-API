@@ -82,7 +82,7 @@ BOOL CreateProcessWithCfGuardW(PPROCESS_INFORMATION Pi, PWCHAR Path)
 	if (dwAttributeSize == 0)
 		goto EXIT_ROUTINE;
 
-	ThreadAttributes = (PPROC_THREAD_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, dwAttributeSize);
+	ThreadAttributes = (PPROC_THREAD_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, dwAttributeSize);
 	if (ThreadAttributes == NULL)
 		goto EXIT_ROUTINE;
 
@@ -103,7 +103,7 @@ BOOL CreateProcessWithCfGuardW(PPROCESS_INFORMATION Pi, PWCHAR Path)
 EXIT_ROUTINE:
 
 	if (ThreadAttributes)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, (PPROC_THREAD_ATTRIBUTE_LIST)ThreadAttributes);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, (PPROC_THREAD_ATTRIBUTE_LIST)ThreadAttributes);
 
 	return bFlag;
 }
@@ -123,7 +123,7 @@ BOOL CreateProcessWithCfGuardA(PPROCESS_INFORMATION Pi, PCHAR Path)
 	if (dwAttributeSize == 0)
 		goto EXIT_ROUTINE;
 
-	ThreadAttributes = (PPROC_THREAD_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, dwAttributeSize);
+	ThreadAttributes = (PPROC_THREAD_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, dwAttributeSize);
 	if (ThreadAttributes == NULL)
 		goto EXIT_ROUTINE;
 
@@ -144,7 +144,7 @@ BOOL CreateProcessWithCfGuardA(PPROCESS_INFORMATION Pi, PCHAR Path)
 EXIT_ROUTINE:
 
 	if (ThreadAttributes)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, (PPROC_THREAD_ATTRIBUTE_LIST)ThreadAttributes);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, (PPROC_THREAD_ATTRIBUTE_LIST)ThreadAttributes);
 
 	return bFlag;
 }

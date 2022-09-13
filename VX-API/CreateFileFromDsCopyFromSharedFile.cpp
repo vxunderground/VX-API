@@ -65,7 +65,7 @@ EXIT_ROUTINE:
 		dwError = GetLastErrorFromTeb();
 
 	if (SidString)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, SidString);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, SidString);
 
 	if (hToken)
 		CloseHandle(hToken);
@@ -147,7 +147,7 @@ EXIT_ROUTINE:
 		dwError = GetLastErrorFromTeb();
 
 	if (SidString)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, SidString);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, SidString);
 
 	if (hToken)
 		CloseHandle(hToken);

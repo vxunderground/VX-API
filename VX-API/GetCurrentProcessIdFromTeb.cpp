@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD GetCurrentProcessIdEx(VOID)
+DWORD GetCurrentProcessIdFromTeb(VOID)
 {
 	return HandleToUlong(GetTeb()->ClientId.UniqueProcess);
 }

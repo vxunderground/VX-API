@@ -199,7 +199,7 @@ DWORD CreateProcessViaNtCreateUserProcessA(PCHAR BinaryPath)
 	if (RtlCreateProcessParametersEx(&ProcessParameters, &NtImagePath, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, RTL_USER_PROCESS_PARAMETERS_NORMALIZED) != ERROR_SUCCESS)
 		return GetLastErrorFromTeb();
 
-	AttributeList = (PPS_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, sizeof(PS_ATTRIBUTE));
+	AttributeList = (PPS_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, sizeof(PS_ATTRIBUTE));
 	if (AttributeList)
 	{
 		AttributeList->TotalLength = sizeof(PS_ATTRIBUTE_LIST) - sizeof(PS_ATTRIBUTE);
@@ -292,7 +292,7 @@ DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR BinaryPath)
 	if (RtlCreateProcessParametersEx(&ProcessParameters, &NtImagePath, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, RTL_USER_PROCESS_PARAMETERS_NORMALIZED) != ERROR_SUCCESS)
 		return GetLastErrorFromTeb();
 
-	AttributeList = (PPS_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, sizeof(PS_ATTRIBUTE));
+	AttributeList = (PPS_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, sizeof(PS_ATTRIBUTE));
 	if (AttributeList)
 	{
 		AttributeList->TotalLength = sizeof(PS_ATTRIBUTE_LIST) - sizeof(PS_ATTRIBUTE);

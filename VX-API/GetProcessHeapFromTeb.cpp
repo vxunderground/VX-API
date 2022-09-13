@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-HANDLE GetProcessHeapEx(VOID)
+HANDLE GetProcessHeapFromTeb(VOID)
 {
 	return GetPeb()->ProcessHeap;
 }

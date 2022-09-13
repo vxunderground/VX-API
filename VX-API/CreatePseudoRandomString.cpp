@@ -5,7 +5,7 @@ PWCHAR CreatePseudoRandomStringW(_In_ SIZE_T dwLength, _In_ ULONG Seed)
 	WCHAR DataSet[] = L"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	PWCHAR String = NULL;
 
-	String = (PWCHAR)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, (sizeof(WCHAR) * (dwLength + 1)));
+	String = (PWCHAR)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, (sizeof(WCHAR) * (dwLength + 1)));
 	if (String == NULL)
 		return NULL;
 
@@ -31,7 +31,7 @@ PCHAR CreatePseudoRandomStringA(_In_ SIZE_T dwLength, _In_ ULONG Seed)
 	CHAR DataSet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	PCHAR String = NULL;
 
-	String = (PCHAR)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, (sizeof(CHAR) * (dwLength + 1)));
+	String = (PCHAR)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, (sizeof(CHAR) * (dwLength + 1)));
 	if (String == NULL)
 		return NULL;
 

@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD GetCurrentWindowTextA(DWORD nBufferLength, PCHAR lpBuffer)
+DWORD GetCurrentWindowTextFromUserProcessParametersA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer)
 {
 	PRTL_USER_PROCESS_PARAMETERS ProcessParameters = GetPeb()->ProcessParameters;
 
@@ -10,7 +10,7 @@ DWORD GetCurrentWindowTextA(DWORD nBufferLength, PCHAR lpBuffer)
 	return (DWORD)WCharStringToCharString(lpBuffer, ProcessParameters->WindowTitle.Buffer, ProcessParameters->WindowTitle.MaximumLength);
 }
 
-DWORD GetCurrentWindowTextW(DWORD nBufferLength, PWCHAR lpBuffer)
+DWORD GetCurrentWindowTextFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer)
 {
 	PRTL_USER_PROCESS_PARAMETERS ProcessParameters = GetPeb()->ProcessParameters;
 

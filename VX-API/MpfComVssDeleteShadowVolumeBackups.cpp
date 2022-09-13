@@ -229,10 +229,10 @@ DWORD MpfComVssDeleteShadowVolumeBackups(BOOL CoUninitializeAfterCompletion)
 EXIT_ROUTINE:
 
 	if (ShadowCopyId)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, ShadowCopyId);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, ShadowCopyId);
 
 	if (ShadowCopySetId)
-		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, ShadowCopySetId);
+		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, ShadowCopySetId);
 
 	if (EnumObject)
 		EnumObject->Release();

@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD GetCurrentDirectoryExA(DWORD nBufferLength, PCHAR lpBuffer)
+DWORD GetCurrentDirectoryFromUserProcessParametersA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer)
 {
 	PRTL_USER_PROCESS_PARAMETERS ProcessParameters = GetPeb()->ProcessParameters;
 
@@ -10,7 +10,7 @@ DWORD GetCurrentDirectoryExA(DWORD nBufferLength, PCHAR lpBuffer)
 	return (DWORD)WCharStringToCharString(lpBuffer, ProcessParameters->CurrentDirectory.DosPath.Buffer, ProcessParameters->CurrentDirectory.DosPath.MaximumLength);
 }
 
-DWORD GetCurrentDirectoryExW(DWORD nBufferLength, PWCHAR lpBuffer)
+DWORD GetCurrentDirectoryFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer)
 {
 	PRTL_USER_PROCESS_PARAMETERS ProcessParameters = GetPeb()->ProcessParameters;
 
