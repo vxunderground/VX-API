@@ -14,7 +14,7 @@
 
 //error handling
 DWORD GetLastErrorFromTeb(VOID);
-NTSTATUS GetLastNtStatusEx(VOID);
+NTSTATUS GetLastNtStatusFromTeb(VOID);
 VOID SetLastErrorInTeb(_In_ DWORD ErrorCode);
 VOID SetLastNtStatusInTeb(_In_ NTSTATUS Status);
 DWORD Win32FromHResult(_In_ HRESULT Result);
