@@ -75,8 +75,8 @@ BOOL GetSystemWindowsDirectoryW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffe
 BOOL CreateWindowsObjectPathW(_Inout_ PWCHAR pBuffer, _In_ PWCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
 BOOL CreateWindowsObjectPathA(_Inout_ PCHAR pBuffer, _In_ PCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
 HANDLE GetProcessHeapFromTeb(VOID);
-LPWSTR GetCurrentUserSidW(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle);
-LPSTR GetCurrentUserSidA(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle);
+LPWSTR GetCurrentUserSidW(VOID);
+LPSTR GetCurrentUserSidA(VOID);
 DWORD GetProcessPathFromLoaderLoadModuleA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer);
 DWORD GetProcessPathFromLoaderLoadModuleW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
 DWORD GetProcessPathFromUserProcessParametersA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer);

@@ -23,7 +23,6 @@ BOOL CreateFileFromDsCopyFromSharedFileW(_In_ PWCHAR NewFileName, _In_ PWCHAR Fi
 
 	DATA_SHARE_CTRL Share; ZeroMemoryEx(&Share, sizeof(DATA_SHARE_CTRL));
 	LPWSTR SidString = NULL;
-	HANDLE hToken = NULL;
 	DSCREATESHAREDFILETOKEN DsCreateSharedFileToken = NULL;
 	DSCOPYFROMSHAREDFILE DsCopyFromSharedFile = NULL;
 	DWORD dwError = ERROR_SUCCESS;
@@ -41,8 +40,11 @@ BOOL CreateFileFromDsCopyFromSharedFileW(_In_ PWCHAR NewFileName, _In_ PWCHAR Fi
 	if (!DsCreateSharedFileToken || !DsCopyFromSharedFile)
 		goto EXIT_ROUTINE;
 
-	if ((SidString = GetCurrentUserSidW(hToken, FALSE)) == NULL)
+#pragma warning( push )
+#pragma warning( disable : 6387)
+	if ((SidString = GetCurrentUserSidW()) == NULL)
 		goto EXIT_ROUTINE;
+#pragma warning( pop ) 
 
 	Share.SharePermission = 2;
 	Share.ShareMode = 3;
@@ -67,8 +69,8 @@ EXIT_ROUTINE:
 	if (SidString)
 		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, SidString);
 
-	if (hToken)
-		CloseHandle(hToken);
+	DsCreateSharedFileToken = NULL; 
+	DsCopyFromSharedFile = NULL;
 
 	return bFlag;
 }
@@ -96,7 +98,6 @@ BOOL CreateFileFromDsCopyFromSharedFileA(_In_ PCHAR NewFileName, _In_ PCHAR File
 
 	DATA_SHARE_CTRL Share; ZeroMemoryEx(&Share, sizeof(DATA_SHARE_CTRL));
 	LPWSTR SidString = NULL;
-	HANDLE hToken = NULL;
 	DSCREATESHAREDFILETOKEN DsCreateSharedFileToken = NULL;
 	DSCOPYFROMSHAREDFILE DsCopyFromSharedFile = NULL;
 	DWORD dwError = ERROR_SUCCESS;
@@ -123,8 +124,11 @@ BOOL CreateFileFromDsCopyFromSharedFileA(_In_ PCHAR NewFileName, _In_ PCHAR File
 	if (!DsCreateSharedFileToken || !DsCopyFromSharedFile)
 		goto EXIT_ROUTINE;
 
-	if ((SidString = GetCurrentUserSidW(hToken, FALSE)) == NULL)
+#pragma warning( push )
+#pragma warning( disable : 6387)
+	if ((SidString = GetCurrentUserSidW()) == NULL)
 		goto EXIT_ROUTINE;
+#pragma warning( pop ) 
 
 	Share.SharePermission = 2;
 	Share.ShareMode = 3;
@@ -149,8 +153,8 @@ EXIT_ROUTINE:
 	if (SidString)
 		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, SidString);
 
-	if (hToken)
-		CloseHandle(hToken);
+	DsCreateSharedFileToken = NULL;
+	DsCopyFromSharedFile = NULL;
 
 	return bFlag;
 }

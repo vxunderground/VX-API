@@ -108,7 +108,7 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, PCHAR Path)
+BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, _In_ PCHAR Path)
 {
 	BOOL bFlag = FALSE;
 	PPROC_THREAD_ATTRIBUTE_LIST ThreadAttributes = NULL;

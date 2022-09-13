@@ -10,7 +10,7 @@ DWORD GetTokenInformationBufferSize(HANDLE hToken)
 	return dwReturn;
 }
 
-LPWSTR GetCurrentUserSidW(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle)
+LPWSTR GetCurrentUserSidW(VOID)
 {
 	typedef BOOL(WINAPI* CONVERTSIDTOSTRINGSIDW)(PSID, LPWSTR*);
 	CONVERTSIDTOSTRINGSIDW ConvertSidToStringSidW;
@@ -20,6 +20,7 @@ LPWSTR GetCurrentUserSidW(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle)
 	BOOL bFlag = FALSE;
 	LPWSTR pSid = NULL;
 	HMODULE hAdvapi = NULL;
+	HANDLE hToken = NULL;
 
 	hAdvapi = LoadLibraryW(L"Advapi32.dll");
 	if (hAdvapi == NULL)
@@ -82,16 +83,13 @@ EXIT_ROUTINE:
 	if (hAdvapi)
 		FreeLibrary(hAdvapi);
 
-	if (DisposeProcessHandle)
-	{
-		if (hToken)
-			CloseHandle(hToken);
-	}
+	if (hToken)
+		CloseHandle(hToken);
 
 	return (bFlag ? pSid : NULL);
 }
 
-LPSTR GetCurrentUserSidA(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle)
+LPSTR GetCurrentUserSidA(VOID)
 {
 	typedef BOOL(WINAPI* CONVERTSIDTOSTRINGSIDA)(PSID, LPSTR*);
 	CONVERTSIDTOSTRINGSIDA ConvertSidToStringSidA;
@@ -101,6 +99,7 @@ LPSTR GetCurrentUserSidA(_Inout_ HANDLE hToken, _In_ BOOL DisposeProcessHandle)
 	BOOL bFlag = FALSE;
 	LPSTR pSid = NULL;
 	HMODULE hAdvapi = NULL;
+	HANDLE hToken = NULL;
 
 	hAdvapi = LoadLibraryW(L"Advapi32.dll");
 	if (hAdvapi == NULL)
@@ -163,11 +162,8 @@ EXIT_ROUTINE:
 	if (hAdvapi)
 		FreeLibrary(hAdvapi);
 
-	if (DisposeProcessHandle)
-	{
-		if (hToken)
-			CloseHandle(hToken);
-	}
+	if (hToken)
+		CloseHandle(hToken);
 
 	return (bFlag ? pSid : NULL);
 }

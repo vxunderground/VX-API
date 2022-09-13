@@ -70,7 +70,7 @@ HRESULT CreateProcessFromIHxInteractiveUserA(_In_ PCHAR UriFile)
 	if(wUriFile == NULL)
 		goto EXIT_ROUTINE;
 
-	if (CharStringToWCharString(wUriFile, UriFile, dwLength + 1) == 0)
+	if (CharStringToWCharString(wUriFile, UriFile, dwLength) == 0)
 		goto EXIT_ROUTINE;
 
 	User->Execute(wUriFile);

@@ -34,5 +34,7 @@ BOOL CheckRemoteDebuggerPresent2(_In_ HANDLE hHandle, _Inout_ PBOOL pbDebuggerPr
 
 	*pbDebuggerPresent = TRUE;
 
+	NtQueryInformationProcess = NULL;
+
 	return TRUE;
 }

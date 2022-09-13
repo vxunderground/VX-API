@@ -22,5 +22,7 @@ BOOL AdfOpenProcessOnCsrss(VOID)
 	if (hCsrHandle)
 		CloseHandle(hCsrHandle);
 
+	CsrGetProcessId = NULL;
+
 	return TRUE;
 }

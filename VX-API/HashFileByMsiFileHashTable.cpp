@@ -20,7 +20,7 @@ BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash)
 	if (hModule == NULL)
 		return FALSE;
 
-	MsiGetFileHashW = (MSIGETFILEHASHW)GetProcAddressW((DWORD64)hModule, L"MsiGetFileHashW");
+	MsiGetFileHashW = (MSIGETFILEHASHW)GetProcAddressA((DWORD64)hModule, "MsiGetFileHashW");
 	if (MsiGetFileHashW == NULL)
 		goto EXIT_ROUTINE;
 
@@ -40,6 +40,8 @@ EXIT_ROUTINE:
 
 	if (hModule)
 		FreeLibrary(hModule);
+
+	MsiGetFileHashW = NULL;
 
 	return bFlag;
 }
@@ -87,6 +89,8 @@ EXIT_ROUTINE:
 
 	if (hModule)
 		FreeLibrary(hModule);
+
+	MsiGetFileHashA = NULL;
 
 	return bFlag;
 }
