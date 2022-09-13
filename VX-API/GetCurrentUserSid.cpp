@@ -71,7 +71,7 @@ LPWSTR GetCurrentUserSidW(HANDLE hToken, BOOL DisposeProcessHandle)
 EXIT_ROUTINE:
 
 	if (!bFlag)
-		dwError = GetLastErrorEx();
+		dwError = GetLastErrorFromTeb();
 
 	if (TokenGroup)
 		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, TokenGroup);
@@ -152,7 +152,7 @@ LPSTR GetCurrentUserSidA(HANDLE hToken, BOOL DisposeProcessHandle)
 EXIT_ROUTINE:
 
 	if (!bFlag)
-		dwError = GetLastErrorEx();
+		dwError = GetLastErrorFromTeb();
 
 	if (TokenGroup)
 		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, TokenGroup);

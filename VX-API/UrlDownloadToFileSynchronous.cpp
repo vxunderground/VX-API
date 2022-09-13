@@ -88,7 +88,7 @@ EXIT_ROUTINE:
 		if (Result != S_OK)
 			dwError = Win32FromHResult(Result);
 		else
-			dwError = GetLastErrorEx();
+			dwError = GetLastErrorFromTeb();
 	}
 
 	if (Urlmon)
@@ -185,7 +185,7 @@ EXIT_ROUTINE:
 		if (Result != S_OK)
 			dwError = Win32FromHResult(Result);
 		else
-			dwError = GetLastErrorEx();
+			dwError = GetLastErrorFromTeb();
 	}
 
 	if (Urlmon)

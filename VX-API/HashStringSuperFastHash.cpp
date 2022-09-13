@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-UINT32 HashStringSuperFastHashA(PCHAR String)
+UINT32 HashStringSuperFastHashA(_In_ PCHAR String)
 {
 	INT Length = (INT)StringLengthA(String);
 	UINT32 Hash = Length;
@@ -56,7 +56,7 @@ UINT32 HashStringSuperFastHashA(PCHAR String)
 	return Hash;
 }
 
-UINT32 HashStringSuperFastHashW(PWCHAR String)
+UINT32 HashStringSuperFastHashW(_In_ PWCHAR String)
 {
 	INT Length = (INT)StringLengthW(String);
 	UINT32 Hash = Length;

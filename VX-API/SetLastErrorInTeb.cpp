@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-VOID SetLastErrorEx(DWORD ErrorCode)
+VOID SetLastErrorInTeb(_In_ DWORD ErrorCode)
 {
 	GetTeb()->LastErrorValue = ErrorCode;
 }

@@ -111,16 +111,16 @@
     <ClCompile Include="WCharStringToCharString.cpp">
       <Filter>Source Files\String Manipulation\String Conversion</Filter>
     </ClCompile>
-    <ClCompile Include="GetLastErrorEx.cpp">
+    <ClCompile Include="GetLastErrorFromTeb.cpp">
       <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
     </ClCompile>
     <ClCompile Include="GetLastNtStatusEx.cpp">
       <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
     </ClCompile>
-    <ClCompile Include="SetLastErrorEx.cpp">
+    <ClCompile Include="SetLastErrorInTeb.cpp">
       <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
     </ClCompile>
-    <ClCompile Include="SetLastNtStatusEx.cpp">
+    <ClCompile Include="SetLastNtStatusInTeb.cpp">
       <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
     </ClCompile>
     <ClCompile Include="Win32FromHResult.cpp">
@@ -294,7 +294,7 @@
     <ClCompile Include="HashFileByMsiFileHashTable.cpp">
       <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
     </ClCompile>
-    <ClCompile Include="MasqueradePebAsExplorerEx.cpp">
+    <ClCompile Include="MasqueradePebAsExplorer.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
     <ClCompile Include="AdfCloseHandleOnInvalidAddress.cpp">

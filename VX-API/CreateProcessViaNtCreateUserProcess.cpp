@@ -176,19 +176,19 @@ DWORD CreateProcessViaNtCreateUserProcessA(PCHAR BinaryPath)
 
 	hModule = GetModuleHandleEx2W(L"ntdll.dll");
 	if (hModule == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	NtCreateUserProcess = (NTCREATEUSERPROCESS)GetProcAddressA((DWORD64)hModule, "NtCreateUserProcess");
 	if (NtCreateUserProcess == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	RtlCreateProcessParametersEx = (RTLCREATEPROCESSPARAMETERSEX)GetProcAddressA((DWORD64)hModule, "RtlCreateProcessParametersEx");
 	if (RtlCreateProcessParametersEx == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	RtlDestroyProcessParameters = (RTLDESTROYPROCESSPARAMETERS)GetProcAddressA((DWORD64)hModule, "RtlDestroyProcessParameters");
 	if (RtlDestroyProcessParameters == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	CharStringToWCharString(wBinaryPath, BinaryPath, StringLengthA(BinaryPath));
 	StringCopyW(MsDosFullPath, (PWCHAR)L"\\??\\");
@@ -197,7 +197,7 @@ DWORD CreateProcessViaNtCreateUserProcessA(PCHAR BinaryPath)
 	RtlInitUnicodeString(&NtImagePath, MsDosFullPath);
 
 	if (RtlCreateProcessParametersEx(&ProcessParameters, &NtImagePath, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, RTL_USER_PROCESS_PARAMETERS_NORMALIZED) != ERROR_SUCCESS)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	AttributeList = (PPS_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, sizeof(PS_ATTRIBUTE));
 	if (AttributeList)
@@ -208,7 +208,7 @@ DWORD CreateProcessViaNtCreateUserProcessA(PCHAR BinaryPath)
 		AttributeList->Attributes[0].Value = (ULONG_PTR)NtImagePath.Buffer;
 
 		if (NtCreateUserProcess(&hHandle, &hThread, PROCESS_ALL_ACCESS, THREAD_ALL_ACCESS, NULL, NULL, NULL, NULL, ProcessParameters, &CreateInfo, AttributeList) != ERROR_SUCCESS)
-			dwError = GetLastErrorEx(); //?
+			dwError = GetLastErrorFromTeb(); //?
 	}
 
 	if (AttributeList)
@@ -270,19 +270,19 @@ DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR BinaryPath)
 
 	hModule = GetModuleHandleEx2W(L"ntdll.dll");
 	if (hModule == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	NtCreateUserProcess = (NTCREATEUSERPROCESS)GetProcAddressA((DWORD64)hModule, "NtCreateUserProcess");
 	if (NtCreateUserProcess == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	RtlCreateProcessParametersEx = (RTLCREATEPROCESSPARAMETERSEX)GetProcAddressA((DWORD64)hModule, "RtlCreateProcessParametersEx");
 	if (RtlCreateProcessParametersEx == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	RtlDestroyProcessParameters = (RTLDESTROYPROCESSPARAMETERS)GetProcAddressA((DWORD64)hModule, "RtlDestroyProcessParameters");
 	if (RtlDestroyProcessParameters == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	StringCopyW(MsDosFullPath, (PWCHAR)L"\\??\\");
 	StringConcatW(MsDosFullPath, BinaryPath);
@@ -290,7 +290,7 @@ DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR BinaryPath)
 	RtlInitUnicodeString(&NtImagePath, MsDosFullPath);
 
 	if (RtlCreateProcessParametersEx(&ProcessParameters, &NtImagePath, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, RTL_USER_PROCESS_PARAMETERS_NORMALIZED) != ERROR_SUCCESS)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	AttributeList = (PPS_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeapEx(), HEAP_ZERO_MEMORY, sizeof(PS_ATTRIBUTE));
 	if (AttributeList)
@@ -301,7 +301,7 @@ DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR BinaryPath)
 		AttributeList->Attributes[0].Value = (ULONG_PTR)NtImagePath.Buffer;
 
 		if (NtCreateUserProcess(&hHandle, &hThread, PROCESS_ALL_ACCESS, THREAD_ALL_ACCESS, NULL, NULL, NULL, NULL, ProcessParameters, &CreateInfo, AttributeList) != ERROR_SUCCESS)
-			dwError = GetLastErrorEx(); //?
+			dwError = GetLastErrorFromTeb(); //?
 	}
 
 	if (AttributeList)

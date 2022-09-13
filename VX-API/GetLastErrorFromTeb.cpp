@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD GetLastErrorEx(VOID)
+DWORD GetLastErrorFromTeb(VOID)
 {
 	return GetTeb()->LastErrorValue;
 }

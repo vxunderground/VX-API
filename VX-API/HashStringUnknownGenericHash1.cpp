@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-INT HashStringUnknownGenericHash1A(PCHAR String)
+INT HashStringUnknownGenericHash1A(_In_ PCHAR String)
 {
 	PCHAR Pointer;
 	INT Generic;
@@ -20,7 +20,7 @@ INT HashStringUnknownGenericHash1A(PCHAR String)
 	return Hash;
 }
 
-INT HashStringUnknownGenericHash1W(PWCHAR String)
+INT HashStringUnknownGenericHash1W(_In_ PWCHAR String)
 {
 	PWCHAR Pointer;
 	INT Generic;

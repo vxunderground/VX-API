@@ -18,7 +18,7 @@ DWORD CreateProcessFromIShellDispatchInvokeW(_In_ PWCHAR BinaryPath)
 
 	hModule = LoadLibraryW(L"Shell32.dll");
 	if (hModule == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	DllGetClassObject = (DLLGETCLASSOBJECT)GetProcAddressA((DWORD64)hModule, "DllGetClassObject");
 	if (DllGetClassObject == NULL)
@@ -91,7 +91,7 @@ DWORD CreateProcessFromIShellDispatchInvokeA(_In_ PCHAR BinaryPath)
 
 	hModule = LoadLibraryW(L"Shell32.dll");
 	if (hModule == NULL)
-		return GetLastErrorEx();
+		return GetLastErrorFromTeb();
 
 	DllGetClassObject = (DLLGETCLASSOBJECT)GetProcAddressA((DWORD64)hModule, "DllGetClassObject");
 	if (DllGetClassObject == NULL)

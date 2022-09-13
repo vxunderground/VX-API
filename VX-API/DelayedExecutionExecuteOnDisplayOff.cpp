@@ -73,7 +73,7 @@ BOOL DelayedExecutionExecuteOnDisplayOff(VOID)
 
 FAILURE:
 
-	dwError = GetLastError();
+	dwError = GetLastErrorFromTeb();
 
 	if (hNotificationRegister)
 		_PowerSettingUnregisterNotification(hNotificationRegister);

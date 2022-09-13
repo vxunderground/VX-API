@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD HashStringSdbmA(PCHAR String)
+DWORD HashStringSdbmA(_In_ PCHAR String)
 {
 	ULONG Hash = 0;
 	INT c;
@@ -11,7 +11,7 @@ DWORD HashStringSdbmA(PCHAR String)
 	return Hash;
 }
 
-DWORD HashStringSdbmW(PWCHAR String)
+DWORD HashStringSdbmW(_In_ PWCHAR String)
 {
 	ULONG Hash = 0;
 	INT c;

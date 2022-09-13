@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL MasqueradePebAsExplorerEx(VOID)
+BOOL MasqueradePebAsExplorer(VOID)
 {
 	typedef NTSTATUS(NTAPI* RTLENTERCRITICALSECTION)(PRTL_CRITICAL_SECTION CriticalSection);
 	typedef NTSTATUS(NTAPI* RTLLEAVECRITICALSECTION)(PRTL_CRITICAL_SECTION CriticalSection);

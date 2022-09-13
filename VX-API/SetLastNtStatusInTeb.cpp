@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-VOID SetLastNtStatusEx(NTSTATUS Status)
+VOID SetLastNtStatusInTeb(_In_ NTSTATUS Status)
 {
 	GetTeb()->LastStatusValue = Status;
 }

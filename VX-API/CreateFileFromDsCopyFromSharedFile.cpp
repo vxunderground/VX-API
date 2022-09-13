@@ -62,7 +62,7 @@ BOOL CreateFileFromDsCopyFromSharedFileW(PWCHAR NewFileName, PWCHAR FileToClone)
 EXIT_ROUTINE:
 
 	if (!bFlag)
-		dwError = GetLastErrorEx();
+		dwError = GetLastErrorFromTeb();
 
 	if (SidString)
 		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, SidString);
@@ -144,7 +144,7 @@ BOOL CreateFileFromDsCopyFromSharedFileA(PCHAR NewFileName, PCHAR FileToClone)
 EXIT_ROUTINE:
 
 	if (!bFlag)
-		dwError = GetLastErrorEx();
+		dwError = GetLastErrorFromTeb();
 
 	if (SidString)
 		HeapFree(GetProcessHeapEx(), HEAP_ZERO_MEMORY, SidString);

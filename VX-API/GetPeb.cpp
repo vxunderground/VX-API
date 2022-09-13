@@ -9,7 +9,7 @@ PPEB GetPeb(VOID)
 #endif
 }
 
-PPEB GetPebEx(VOID)
+PPEB GetPebFromTeb(VOID)
 {
 	PTEB Teb;
 #if defined(_WIN64)

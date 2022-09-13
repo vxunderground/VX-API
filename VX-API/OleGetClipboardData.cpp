@@ -38,7 +38,7 @@ EXIT_ROUTINE:
 		if (Result != S_OK)
 			dwError = Win32FromHResult(Result);
 		else
-			dwError = GetLastErrorEx();
+			dwError = GetLastErrorFromTeb();
 	}
 
 #pragma warning( push )
@@ -92,7 +92,7 @@ EXIT_ROUTINE:
 		if (Result != S_OK)
 			dwError = Win32FromHResult(Result);
 		else
-			dwError = GetLastErrorEx();
+			dwError = GetLastErrorFromTeb();
 	}
 
 #pragma warning( push )

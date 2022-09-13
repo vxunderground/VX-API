@@ -22,7 +22,7 @@ BOOL UnusedSubroutineInitializeProcThreadAttributeList(LPPROC_THREAD_ATTRIBUTE_L
 
 	if (dwFlags || (dwAttributeCount > 0x1B))
 	{
-		SetLastErrorEx(ERROR_INVALID_PARAMETER);
+		SetLastErrorInTeb(ERROR_INVALID_PARAMETER);
 		return bFlag;
 	}
 
@@ -37,7 +37,7 @@ BOOL UnusedSubroutineInitializeProcThreadAttributeList(LPPROC_THREAD_ATTRIBUTE_L
 		bFlag = TRUE;
 	}
 	else
-		SetLastErrorEx(ERROR_INSUFFICIENT_BUFFER);
+		SetLastErrorInTeb(ERROR_INSUFFICIENT_BUFFER);
 
 	*lpSize = dwSize;
 	return bFlag;

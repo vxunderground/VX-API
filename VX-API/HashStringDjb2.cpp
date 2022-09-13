@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD HashStringDjb2A(PCHAR String)
+DWORD HashStringDjb2A(_In_ PCHAR String)
 {
 	ULONG Hash = 5381;
 	INT c;
@@ -11,7 +11,7 @@ DWORD HashStringDjb2A(PCHAR String)
 	return Hash;
 }
 
-DWORD HashStringDjb2W(PWCHAR String)
+DWORD HashStringDjb2W(_In_ PWCHAR String)
 {
 	ULONG Hash = 5381;
 	INT c;

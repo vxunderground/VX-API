@@ -10,41 +10,42 @@
 #define Get16Bits(d) ((((UINT32)(((CONST UINT8*)(d))[1])) << 8) +(UINT32)(((CONST UINT8*)(d))[0]))
 
 //error handling
-DWORD GetLastErrorEx(VOID);
+DWORD GetLastErrorFromTeb(VOID);
 NTSTATUS GetLastNtStatusEx(VOID);
-VOID SetLastErrorEx(DWORD ErrorCode);
-VOID SetLastNtStatusEx(NTSTATUS Status);
-DWORD Win32FromHResult(HRESULT Result);
+VOID SetLastErrorInTeb(_In_ DWORD ErrorCode);
+VOID SetLastNtStatusInTeb(_In_ NTSTATUS Status);
+DWORD Win32FromHResult(_In_ HRESULT Result);
 
 //cryptography related
-DWORD HashStringDjb2A(PCHAR String);
-DWORD HashStringDjb2W(PWCHAR String);
-ULONG HashStringFowlerNollVoVariant1aA(PCHAR String);
-ULONG HashStringFowlerNollVoVariant1aW(PWCHAR String);
-UINT32 HashStringJenkinsOneAtATime32BitA(PCHAR String);
-UINT32 HashStringJenkinsOneAtATime32BitW(PWCHAR String);
-DWORD HashStringLoseLoseA(PCHAR String);
-DWORD HashStringLoseLoseW(PWCHAR String);
-INT HashStringRotr32A(PCHAR String);
-INT HashStringRotr32W(PWCHAR String);
-DWORD HashStringSdbmA(PCHAR String);
-DWORD HashStringSdbmW(PWCHAR String);
-UINT32 HashStringSuperFastHashA(PCHAR String);
-UINT32 HashStringSuperFastHashW(PWCHAR String);
-INT HashStringUnknownGenericHash1A(PCHAR String);
-INT HashStringUnknownGenericHash1W(PWCHAR String);
-INT CreatePseudoRandomInteger(ULONG Seed);
-PWCHAR CreatePseudoRandomStringW(SIZE_T dwLength, ULONG Seed);
-PCHAR CreatePseudoRandomStringA(SIZE_T dwLength, ULONG Seed);
-BOOL HashFileByMsiFileHashTableW(PWCHAR Path, PULONG FileHash);
-BOOL HashFileByMsiFileHashTableA(PCHAR Path, PULONG FileHash);
+DWORD HashStringDjb2A(_In_ PCHAR String);
+DWORD HashStringDjb2W(_In_ PWCHAR String);
+ULONG HashStringFowlerNollVoVariant1aA(_In_ PCHAR String);
+ULONG HashStringFowlerNollVoVariant1aW(_In_ PWCHAR String);
+UINT32 HashStringJenkinsOneAtATime32BitA(_In_ PCHAR String);
+UINT32 HashStringJenkinsOneAtATime32BitW(_In_ PWCHAR String);
+DWORD HashStringLoseLoseA(_In_ PCHAR String);
+DWORD HashStringLoseLoseW(_In_ PWCHAR String);
+INT HashStringRotr32A(_In_ PCHAR String);
+INT HashStringRotr32W(_In_ PWCHAR String);
+DWORD HashStringSdbmA(_In_ PCHAR String);
+DWORD HashStringSdbmW(_In_ PWCHAR String);
+UINT32 HashStringSuperFastHashA(_In_ PCHAR String);
+UINT32 HashStringSuperFastHashW(_In_ PWCHAR String);
+INT HashStringUnknownGenericHash1A(_In_ PCHAR String);
+INT HashStringUnknownGenericHash1W(_In_ PWCHAR String);
 BOOL CreateMd5HashFromFilePathW(_In_ PWCHAR FilePath, _Inout_ PWCHAR Md5Hash);
 BOOL CreateMd5HashFromFilePathA(_In_ PCHAR FilePath, _Inout_ PCHAR Md5Hash);
+INT CreatePseudoRandomInteger(_In_ ULONG Seed);
+PWCHAR CreatePseudoRandomStringW(_In_ SIZE_T dwLength, _In_ ULONG Seed);
+PCHAR CreatePseudoRandomStringA(_In_ SIZE_T dwLength, _In_ ULONG Seed);
+BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash);
+BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash);
+
 
 //library loading
 PTEB GetTeb(VOID);
 PPEB GetPeb(VOID);
-PPEB GetPebEx(VOID);
+PPEB GetPebFromTeb(VOID);
 PKUSER_SHARED_DATA GetKUserSharedData(VOID);
 PRTL_USER_PROCESS_PARAMETERS GetRtlUserProcessParameters(VOID);
 DWORD64 __stdcall GetProcAddressDjb2(DWORD64 ModuleBase, DWORD64 Hash);
@@ -117,7 +118,7 @@ HRESULT CreateProcessFromIHxInteractiveUserW(PWCHAR UriFile);
 HRESULT CreateProcessFromIHxInteractiveUserA(PCHAR UriFile);
 HRESULT CreateProcessFromIHxHelpPaneServerW(PWCHAR UriFile);
 HRESULT CreateProcessFromIHxHelpPaneServerA(PCHAR UriFile);
-BOOL MasqueradePebAsExplorerEx(VOID);
+BOOL MasqueradePebAsExplorer(VOID);
 BOOL CreateFileFromDsCopyFromSharedFileW(PWCHAR NewFileName, PWCHAR FileToClone);
 BOOL CreateFileFromDsCopyFromSharedFileA(PCHAR NewFileName, PCHAR FileToClone);
 BOOL UacBypassFodHelperMethodA(PCHAR PathToBinaryToExecute, PPROCESS_INFORMATION Pi);

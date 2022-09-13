@@ -18,7 +18,7 @@ BOOL IsProcessRunningAsAdmin(VOID)
 EXIT_ROUTINE:
 
 	if (!bFlag)
-		SetLastErrorEx(ERROR_ACCESS_DENIED);
+		SetLastErrorInTeb(ERROR_ACCESS_DENIED);
 
 	if (hToken)
 		CloseHandle(hToken);

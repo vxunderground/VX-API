@@ -1,7 +1,7 @@
 #include "Win32Helper.h"
 
 //NOTE: PULONG must be pointed to an array of ULONG integers e.g. ULONG FileHash[4] = { 0 };
-BOOL HashFileByMsiFileHashTableW(PWCHAR Path, PULONG FileHash)
+BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash)
 {
 	typedef struct _MSIFILEHASHINFO {
 		ULONG dwFileHashInfoSize;
@@ -44,7 +44,7 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL HashFileByMsiFileHashTableA(PCHAR Path, PULONG FileHash)
+BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash)
 {
 	typedef struct _MSIFILEHASHINFO {
 		ULONG dwFileHashInfoSize;
