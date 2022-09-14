@@ -16,12 +16,12 @@ You're free to use this in any manner you please. You do not need to use this en
 
 | Function Name | Original Author | Section |
 | ------------- | --------------- | ------- |
-| CharArrayToByteArray | smelly__vx | String Manipulation |
-| CharStringToWCharString | smelly__vx | String Manipulation |
-| WCharStringToCharString | smelly__vx | String Manipulation |
-| RtlInitEmptyUnicodeString | ReactOS | String Manipulation |
-| RtlInitUnicodeString | ReactOS | String Manipulation |
-| ByteArrayToCharArray | smelly__vx | String Manipulation |
+| ByteArrayToCharArray | smelly__vx | String Conversion |
+| CharArrayToByteArray | smelly__vx | String Conversion |
+| CharStringToWCharString | smelly__vx | String Conversion |
+| WCharStringToCharString | smelly__vx | String Conversion |
+| RtlInitEmptyUnicodeString | ReactOS | Windows Unicode Structure |
+| RtlInitUnicodeString | ReactOS | Windows Unicode Structure |
 | CaplockString | simonc | String Manipulation |
 | CopyMemoryEx | ReactOS | String Manipulation |
 | SecureStringCopy | Apple (c) 1999 | String Manipulation |
@@ -52,7 +52,13 @@ You're free to use this in any manner you please. You do not need to use this en
 | CreateMd5HashFromFilePath | Microsoft | Cryptography Related |
 | CreatePseudoRandomInteger | Apple (c) 1999 | Cryptography Related |
 | CreatePseudoRandomString | smelly__vx | Cryptography Related |
-| HashFileByMsiFileHashTabl | smelly__vx | Cryptography Related |
+| HashFileByMsiFileHashTable | smelly__vx | Cryptography Related |
+| GetLastErrorFromTeb | smelly__vx | Error Handling |
+| GetLastNtStatusFromTeb | smelly__vx | Error Handling |
+| GetLastErrorFromTeb | smelly__vx | Error Handling |
+| SetLastErrorInTeb | smelly__vx | Error Handling |
+| SetLastNtStatusInTeb | smelly__vx | Error Handling |
+| Win32FromHResult | Raymond Chen | Error Handling |
 | CreateFileFromDsCopyFromSharedFile | Jonas Lyk | Evasion |
 | CreateProcessFromIHxHelpPaneServer | James Forshaw | Evasion |
 | CreateProcessFromIHxInteractiveUser | James Forshaw | Evasion |
@@ -63,14 +69,28 @@ You're free to use this in any manner you please. You do not need to use this en
 | DelayedExecutionExecuteOnDisplayOff | am0nsec and smelly__vx | Evasion |
 | MasqueradePebAsExplorer | smelly__vx | Evasion |
 | RemoveDllFromPeb | rad9800 | Evasion |
-| GetLastErrorFromTeb | smelly__vx | Error Handling |
-| GetLastNtStatusFromTeb | smelly__vx | Error Handling |
-| GetLastErrorFromTeb | smelly__vx | Error Handling |
-| SetLastErrorInTeb | smelly__vx | Error Handling |
-| SetLastNtStatusInTeb | smelly__vx | Error Handling |
-| Win32FromHResult | Raymond Chen | Error Handling |
-
-
-
-
+| GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
+| GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |
+| GetOsMajorVersionFromPeb | smelly__vx | Fingerprinting |
+| GetOsMinorVersionFromPeb | smelly__vx | Fingerprinting |
+| GetOsPlatformIdFromPeb | smelly__vx | Fingerprinting |
+| IsNvidiaGraphicsCardPresent | smelly__vx | Fingerprinting |
+| IsProcessRunning | smelly__vx | Fingerprinting |
+| IsProcessRunningAsAdmin | Vimal Shekar | Fingerprinting |
+| CreateLocalAppDataObjectPath | smelly__vx | Helper Functions |
+| CreateWindowsObjectPath | smelly__vx | Helper Functions |
+| DeleteFileWithCreateFileFlag | smelly__vx | Helper Functions |
+| GetCurrentDirectoryFromUserProcessParameters | smelly__vx | Helper Functions |
+| GetCurrentProcessIdFromTeb | ReactOS | Helper Functions |
+| GetCurrentUserSid | Giovanni Dicanio | Helper Functions |
+| GetCurrentWindowTextFromUserProcessParameter | smelly__vx | Helper Functions |
+| GetFileSizeFromPath | smelly__vx | Helper Functions |
+| GetProcessHeapFromTeb | smelly__vx | Helper Functions |
+| GetProcessPathFromLoaderLoadModule | smelly__vx | Helper Functions |
+| GetProcessPathFromUserProcessParameters | smelly__vx | Helper Functions |
+| GetSystemWindowsDirectory | Geoff Chappell | Helper Functions |
+| IsPathValid | smelly__vx | Helper Functions |
+| RecursiveFindFile | Luke | Helper Functions |
+| SetProcessPrivilegeToken | Microsoft | Helper Functions |
+| UrlDownloadToFileSynchronous | Hans Passant | Helper Functions |
 
