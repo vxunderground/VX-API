@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-PVOID CopyMemoryEx(PVOID Destination, CONST PVOID Source, SIZE_T Length)
+PVOID CopyMemoryEx(_Inout_ PVOID Destination, _In_ CONST PVOID Source, _In_ SIZE_T Length)
 {
 	PBYTE D = (PBYTE)Destination;
 	PBYTE S = (PBYTE)Source;

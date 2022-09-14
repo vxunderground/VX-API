@@ -153,7 +153,7 @@
     <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp" />
     <ClCompile Include="GetCurrentProcessIdFromTeb.cpp" />
     <ClCompile Include="GetCurrentUserSid.cpp" />
-    <ClCompile Include="GetCurrentWindowText.cpp" />
+    <ClCompile Include="GetCurrentWindowTextFromUserProcessParameter.cpp" />
     <ClCompile Include="GetFileSizeFromPath.cpp" />
     <ClCompile Include="GetKUserSharedData.cpp" />
     <ClCompile Include="GetLastErrorFromTeb.cpp" />
@@ -199,13 +199,13 @@
     <ClCompile Include="MasqueradePebAsExplorer.cpp" />
     <ClCompile Include="MpfComModifyShortcutTarget.cpp" />
     <ClCompile Include="MpfComVssDeleteShadowVolumeBackups.cpp" />
-    <ClCompile Include="MpfPrintDesktopScreenSaveAsBitmap.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />
     <ClCompile Include="RecursiveFindFile.cpp" />
     <ClCompile Include="RemoveDllFromPeb.cpp" />
     <ClCompile Include="RtlInitEmptyUnicodeString.cpp" />
     <ClCompile Include="RtlInitUnicodeString.cpp" />
     <ClCompile Include="RtlLoadPeHeaders.cpp" />
+    <ClCompile Include="RtlNtStatusToDosErrorViaImport.cpp" />
     <ClCompile Include="SecureStringCopy.cpp" />
     <ClCompile Include="SetLastErrorInTeb.cpp" />
     <ClCompile Include="SetLastNtStatusInTeb.cpp" />
@@ -229,6 +229,9 @@
     <ClInclude Include="StringManipulation.h" />
     <ClInclude Include="Internal.h" />
     <ClInclude Include="Win32Helper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

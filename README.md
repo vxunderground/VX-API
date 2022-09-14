@@ -55,6 +55,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | HashFileByMsiFileHashTable | smelly__vx | Cryptography Related |
 | GetLastErrorFromTeb | smelly__vx | Error Handling |
 | GetLastNtStatusFromTeb | smelly__vx | Error Handling |
+| RtlNtStatusToDosErrorViaImport | ReactOS | Error Handling |
 | GetLastErrorFromTeb | smelly__vx | Error Handling |
 | SetLastErrorInTeb | smelly__vx | Error Handling |
 | SetLastNtStatusInTeb | smelly__vx | Error Handling |

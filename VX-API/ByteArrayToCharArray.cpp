@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-VOID ByteArrayToCharArrayA(PCHAR Destination, PBYTE Source, DWORD Length)
+VOID ByteArrayToCharArrayA(_Inout_ PCHAR Destination, _In_ PBYTE Source, _In_ DWORD Length)
 {
 	for (DWORD dwX = 0; dwX < Length; dwX++)
 	{
@@ -8,7 +8,7 @@ VOID ByteArrayToCharArrayA(PCHAR Destination, PBYTE Source, DWORD Length)
 	}
 }
 
-VOID ByteArrayToCharArrayW(PWCHAR Destination, PBYTE Source, DWORD Length)
+VOID ByteArrayToCharArrayW(_Inout_ PWCHAR Destination, _In_ PBYTE Source, _In_ DWORD Length)
 {
 	for (DWORD dwX = 0; dwX < Length; dwX++)
 	{

@@ -14,10 +14,11 @@ TODO:
 	- Profit!!!!11
 
 KNOWN ISSUES
-	- Implement RtlNtStatusToDosError
 	- Work on In / Out / Inout in function calls
 	- Various logic improvements
 */
+
+
 
 
 int main(VOID)

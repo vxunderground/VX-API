@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-PCHAR StringTerminateStringAtCharA(PCHAR String, INT Character)
+PCHAR StringTerminateStringAtCharA(_Inout_ PCHAR String, _In_ INT Character)
 {
 	DWORD Length = (DWORD)StringLengthA(String);
 
@@ -16,7 +16,7 @@ PCHAR StringTerminateStringAtCharA(PCHAR String, INT Character)
 	return NULL;
 }
 
-PWCHAR StringTerminateStringAtCharW(PWCHAR String, INT Character)
+PWCHAR StringTerminateStringAtCharW(_Inout_ PWCHAR String, _In_ INT Character)
 {
 	DWORD Length = (DWORD)StringLengthW(String);
 

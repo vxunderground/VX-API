@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-PCHAR StringTokenA(PCHAR String, CONST PCHAR Delim)
+PCHAR StringTokenA(_In_ PCHAR String, _In_ CONST PCHAR Delim)
 {
 	PCHAR Last;
 	PCHAR SpanP, Token;
@@ -46,7 +46,7 @@ CONTINUE:
 
 }
 
-PWCHAR StringTokenW(PWCHAR String, CONST PWCHAR Delim)
+PWCHAR StringTokenW(_In_ PWCHAR String, _In_ CONST PWCHAR Delim)
 {
 	PWCHAR Last;
 	PWCHAR SpanP, Token;

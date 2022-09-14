@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-PCHAR StringLocateCharA(PCHAR String, INT Character)
+PCHAR StringLocateCharA(_Inout_ PCHAR String, _In_ INT Character)
 {
 	do
 	{
@@ -12,7 +12,7 @@ PCHAR StringLocateCharA(PCHAR String, INT Character)
 	return NULL;
 }
 
-PWCHAR StringLocateCharW(PWCHAR String, INT Character)
+PWCHAR StringLocateCharW(_Inout_ PWCHAR String, _In_ INT Character)
 {
 	do
 	{

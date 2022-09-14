@@ -18,6 +18,7 @@ NTSTATUS GetLastNtStatusFromTeb(VOID);
 VOID SetLastErrorInTeb(_In_ DWORD ErrorCode);
 VOID SetLastNtStatusInTeb(_In_ NTSTATUS Status);
 DWORD Win32FromHResult(_In_ HRESULT Result);
+DWORD RtlNtStatusToDosErrorViaImport(_In_ NTSTATUS Status);
 
 //cryptography related
 DWORD HashStringDjb2A(_In_ PCHAR String);

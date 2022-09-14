@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-PCHAR CaplockStringA(PCHAR Ptr)
+PCHAR CaplockStringA(_In_ PCHAR Ptr)
 {
 	PCHAR sv = Ptr;
 	while (*sv != '\0')
@@ -13,7 +13,7 @@ PCHAR CaplockStringA(PCHAR Ptr)
 	return Ptr;
 }
 
-PWCHAR CaplockStringW(PWCHAR Ptr)
+PWCHAR CaplockStringW(_In_ PWCHAR Ptr)
 {
 	PWCHAR sv = Ptr;
 	while (*sv != '\0')

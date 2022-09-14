@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-PCHAR StringRemoveSubstringA(PCHAR String, CONST PCHAR Substring)
+PCHAR StringRemoveSubstringA(_Inout_ PCHAR String, _In_ CONST PCHAR Substring)
 {
 	DWORD Length = (DWORD)StringLengthA(Substring);
 	PCHAR pPointer = String;
@@ -14,7 +14,7 @@ PCHAR StringRemoveSubstringA(PCHAR String, CONST PCHAR Substring)
 	return String;
 }
 
-PWCHAR StringRemoveSubstringW(PWCHAR String, CONST PWCHAR Substring)
+PWCHAR StringRemoveSubstringW(_Inout_ PWCHAR String, _In_ CONST PWCHAR Substring)
 {
 	DWORD Length = (DWORD)StringLengthW(Substring);
 	PWCHAR pPointer = String;

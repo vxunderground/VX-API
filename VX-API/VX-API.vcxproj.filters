@@ -222,7 +222,7 @@
     <ClCompile Include="GetCurrentUserSid.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="GetCurrentWindowText.cpp">
+    <ClCompile Include="GetCurrentWindowTextFromUserProcessParameter.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
     <ClCompile Include="GetFileSizeFromPath.cpp">
@@ -312,9 +312,6 @@
     <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
-    <ClCompile Include="ByteArrayToCharArray.cpp">
-      <Filter>Source Files\String Manipulation</Filter>
-    </ClCompile>
     <ClCompile Include="CreateMd5HashFromFilePath.cpp">
       <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
     </ClCompile>
@@ -342,8 +339,11 @@
     <ClCompile Include="RemoveDllFromPeb.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
-    <ClCompile Include="MpfPrintDesktopScreenSaveAsBitmap.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    <ClCompile Include="ByteArrayToCharArray.cpp">
+      <Filter>Source Files\String Manipulation\String Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="RtlNtStatusToDosErrorViaImport.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -356,5 +356,8 @@
     <ClInclude Include="Win32Helper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
   </ItemGroup>
 </Project>

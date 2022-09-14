@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-SIZE_T StringLengthA(LPCSTR String)
+SIZE_T StringLengthA(_In_ LPCSTR String)
 {
 	LPCSTR String2;
 
@@ -9,7 +9,7 @@ SIZE_T StringLengthA(LPCSTR String)
 	return (String2 - String);
 }
 
-SIZE_T StringLengthW(LPCWSTR String)
+SIZE_T StringLengthW(_In_ LPCWSTR String)
 {
 	LPCWSTR String2;
 

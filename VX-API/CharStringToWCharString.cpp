@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-SIZE_T CharStringToWCharString(PWCHAR Destination, PCHAR Source, SIZE_T MaximumAllowed)
+SIZE_T CharStringToWCharString(_Inout_ PWCHAR Destination, _In_ PCHAR Source, SIZE_T _In_ MaximumAllowed)
 {
 	INT Length = (INT)MaximumAllowed;
 

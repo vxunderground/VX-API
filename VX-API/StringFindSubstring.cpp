@@ -36,7 +36,7 @@ INT StringCompareStringRegionW(PWCHAR String1, PWCHAR String2, SIZE_T Count)
 	return 0;
 }
 
-PCHAR StringFindSubstringA(PCHAR String1, PCHAR String2)
+PCHAR StringFindSubstringA(_In_ PCHAR String1, _In_ PCHAR String2)
 {
 	PCHAR pPointer = String1;
 	DWORD Length = (DWORD)StringLengthA(String2);
@@ -50,7 +50,7 @@ PCHAR StringFindSubstringA(PCHAR String1, PCHAR String2)
 	return NULL;
 }
 
-PWCHAR StringFindSubstringW(PWCHAR String1, PWCHAR String2)
+PWCHAR StringFindSubstringW(_In_ PWCHAR String1, _In_ PWCHAR String2)
 {
 	PWCHAR pPointer = String1;
 	DWORD Length = (DWORD)StringLengthW(String2);
