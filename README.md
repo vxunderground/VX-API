@@ -93,4 +93,24 @@ You're free to use this in any manner you please. You do not need to use this en
 | RecursiveFindFile | Luke | Helper Functions |
 | SetProcessPrivilegeToken | Microsoft | Helper Functions |
 | UrlDownloadToFileSynchronous | Hans Passant | Helper Functions |
+| GetKUserSharedData | Geoff Chappell | Library Loading |
+| GetModuleHandleEx2 | smelly__vx | Library Loading |
+| GetPeb | 29a | Library Loading |
+| GetPebFromTeb | ReactOS | Library Loading |
+| GetProcAddress | 29a Volume 2 | Library Loading |
+| GetProcAddressDjb2 | smelly__vx | Library Loading |
+| GetProcAddressFowlerNollVoVariant1a | smelly__vx | Library Loading |
+| GetProcAddressJenkinsOneAtATime32Bit | smelly__vx | Library Loading |
+| GetProcAddressLoseLose | smelly__vx | Library Loading |
+| GetProcAddressRotr32 | smelly__vx | Library Loading |
+| GetProcAddressSdbm | smelly__vx | Library Loading |
+| GetProcAddressSuperFastHash | smelly__vx | Library Loading |
+| GetProcAddressUnknownGenericHash1 | smelly__vx | Library Loading |
+| GetRtlUserProcessParameters | ReactOS | Library Loading |
+| GetTeb | ReactOS | Library Loading |
+| RtlLoadPeHeaders | smelly__vx | Library Loading |
+| MpfComModifyShortcutTarget | Unknown | Malicious Capability |
+| MpfComVssDeleteShadowVolumeBackups | am0nsec | Malicious Capability |
+| OleGetClipboardData | Microsoft | Malicious Capability |
+| UacBypassFodHelperMethod | winscripting.blog | Malicious Capability |
 
