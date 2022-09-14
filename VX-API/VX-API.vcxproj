@@ -157,7 +157,7 @@
     <ClCompile Include="GetFileSizeFromPath.cpp" />
     <ClCompile Include="GetKUserSharedData.cpp" />
     <ClCompile Include="GetLastErrorFromTeb.cpp" />
-    <ClCompile Include="GetLastNtStatusEx.cpp" />
+    <ClCompile Include="GetLastNtStatusFromTeb.cpp" />
     <ClCompile Include="GetNumberOfLinkedDlls.cpp" />
     <ClCompile Include="GetModuleHandleEx2.cpp" />
     <ClCompile Include="GetOsBuildNumberFromPeb.cpp" />
@@ -199,6 +199,7 @@
     <ClCompile Include="MasqueradePebAsExplorer.cpp" />
     <ClCompile Include="MpfComModifyShortcutTarget.cpp" />
     <ClCompile Include="MpfComVssDeleteShadowVolumeBackups.cpp" />
+    <ClCompile Include="MpfPrintDesktopScreenSaveAsBitmap.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />
     <ClCompile Include="RecursiveFindFile.cpp" />
     <ClCompile Include="RemoveDllFromPeb.cpp" />
