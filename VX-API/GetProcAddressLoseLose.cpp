@@ -2,11 +2,11 @@
 
 DWORD64 __stdcall GetProcAddressLoseLose(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash)
 {
-	PBYTE pFunctionName;
-	PIMAGE_DOS_HEADER Dos;
-	PIMAGE_NT_HEADERS Nt;
-	PIMAGE_FILE_HEADER File;
-	PIMAGE_OPTIONAL_HEADER Optional;
+	PBYTE pFunctionName = NULL;
+	PIMAGE_DOS_HEADER Dos = NULL;
+	PIMAGE_NT_HEADERS Nt = NULL;
+	PIMAGE_FILE_HEADER File = NULL;
+	PIMAGE_OPTIONAL_HEADER Optional = NULL;
 
 	RtlLoadPeHeaders(&Dos, &Nt, &File, &Optional, (PBYTE*)&ModuleBase);
 
