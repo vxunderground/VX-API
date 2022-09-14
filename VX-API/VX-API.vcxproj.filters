@@ -345,6 +345,9 @@
     <ClCompile Include="RtlNtStatusToDosErrorViaImport.cpp">
       <Filter>Source Files\Windows API Helper Functions\Error Handling</Filter>
     </ClCompile>
+    <ClCompile Include="GetCurrentLocaleFromTeb.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

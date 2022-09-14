@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-LCID GetCurrentLocale(VOID)
+LCID GetCurrentLocaleFromTeb(VOID)
 {
 	PTEB Teb = (PTEB)GetTeb();
 

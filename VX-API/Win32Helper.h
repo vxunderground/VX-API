@@ -98,6 +98,7 @@ DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath);
 BOOL SetProcessPrivilegeToken(_In_ DWORD PrivilegeEnum);
 
 //fingerprinting
+LCID GetCurrentLocaleFromTeb(VOID);
 DWORD GetNumberOfLinkedDlls(VOID);
 BOOL IsNvidiaGraphicsCardPresentA(VOID);
 BOOL IsNvidiaGraphicsCardPresentW(VOID);

@@ -151,6 +151,7 @@
     <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp" />
     <ClCompile Include="DeleteFileWithCreateFileFlag.cpp" />
     <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp" />
+    <ClCompile Include="GetCurrentLocaleFromTeb.cpp" />
     <ClCompile Include="GetCurrentProcessIdFromTeb.cpp" />
     <ClCompile Include="GetCurrentUserSid.cpp" />
     <ClCompile Include="GetCurrentWindowTextFromUserProcessParameter.cpp" />

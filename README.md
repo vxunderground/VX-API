@@ -70,6 +70,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | DelayedExecutionExecuteOnDisplayOff | am0nsec and smelly__vx | Evasion |
 | MasqueradePebAsExplorer | smelly__vx | Evasion |
 | RemoveDllFromPeb | rad9800 | Evasion |
+| GetCurrentLocaleFromTeb | 3xp0rt | Fingerprinting |
 | GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
 | GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |
 | GetOsMajorVersionFromPeb | smelly__vx | Fingerprinting |
