@@ -166,6 +166,9 @@
     <ClCompile Include="GetOsMinorVersionFromPeb.cpp" />
     <ClCompile Include="GetOsPlatformIdFromPeb.cpp" />
     <ClCompile Include="GetPeb.cpp" />
+    <ClCompile Include="GetPidFromNtQuerySystemInformation.cpp" />
+    <ClCompile Include="GetPidFromWindowsTerminalService.cpp" />
+    <ClCompile Include="GetPidFromWmiComInterface.cpp" />
     <ClCompile Include="GetProcAddress.cpp" />
     <ClCompile Include="GetProcAddressDjb2.cpp" />
     <ClCompile Include="GetProcAddressFowlerNollVoVariant1a.cpp" />
@@ -191,6 +194,7 @@
     <ClCompile Include="HashStringSuperFastHash.cpp" />
     <ClCompile Include="HashStringUnknownGenericHash1.cpp" />
     <ClCompile Include="IsDebuggerPresentEx.cpp" />
+    <ClCompile Include="IsDllLoaded.cpp" />
     <ClCompile Include="IsIntelHardwareBreakpointPresent.cpp" />
     <ClCompile Include="IsNvidiaGraphicsCardPresent.cpp" />
     <ClCompile Include="IsPathValid.cpp" />

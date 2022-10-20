@@ -1,6 +1,6 @@
 #include "StringManipulation.h"
 
-VOID RtlInitUnicodeString(PUNICODE_STRING DestinationString, PCWSTR SourceString)
+VOID RtlInitUnicodeString(_Inout_ PUNICODE_STRING DestinationString, _In_ PCWSTR SourceString)
 {
 	SIZE_T DestSize;
 

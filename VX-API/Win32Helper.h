@@ -96,6 +96,8 @@ LONGLONG GetFileSizeFromPathA(_In_ PCHAR Path, _In_ DWORD dwFlagsAndAttributes);
 DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath);
 DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath);
 BOOL SetProcessPrivilegeToken(_In_ DWORD PrivilegeEnum);
+BOOL IsDllLoadedW(_In_ LPCWSTR DllName);
+BOOL IsDllLoadedA(_In_ LPCSTR DllName);
 
 //fingerprinting
 LCID GetCurrentLocaleFromTeb(VOID);
@@ -109,6 +111,11 @@ ULONG GetOsMajorVersionFromPeb(VOID);
 ULONG GetOsMinorVersionFromPeb(VOID);
 ULONG GetOsBuildNumberFromPeb(VOID);
 ULONG GetOsPlatformIdFromPeb(VOID);
+DWORD GetPidFromNtQuerySystemInformationW(_In_ PWCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromNtQuerySystemInformationA(_In_ PCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromWindowsTerminalServiceW(_In_ PWCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromWindowsTerminalServiceA(_In_ PCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromWmiComInterface(_In_ PWCHAR BinaryNameWithFileExtension);
 
 //malicious capabilities
 DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer);

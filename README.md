@@ -79,6 +79,9 @@ You're free to use this in any manner you please. You do not need to use this en
 | IsNvidiaGraphicsCardPresent | smelly__vx | Fingerprinting |
 | IsProcessRunning | smelly__vx | Fingerprinting |
 | IsProcessRunningAsAdmin | Vimal Shekar | Fingerprinting |
+| GetPidFromNtQuerySystemInformation | smelly__vx | Fingerprinting |
+| GetPidFromWindowsTerminalService | modexp | Fingerprinting |
+| GetPidFromWmiComInterface | aalimian and modexp | Fingerprinting |
 | CreateLocalAppDataObjectPath | smelly__vx | Helper Functions |
 | CreateWindowsObjectPath | smelly__vx | Helper Functions |
 | DeleteFileWithCreateFileFlag | smelly__vx | Helper Functions |
@@ -95,6 +98,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | RecursiveFindFile | Luke | Helper Functions |
 | SetProcessPrivilegeToken | Microsoft | Helper Functions |
 | UrlDownloadToFileSynchronous | Hans Passant | Helper Functions |
+| IsDllLoaded | smelly__vx | Helper Functions | 
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
@@ -116,3 +120,29 @@ You're free to use this in any manner you please. You do not need to use this en
 | OleGetClipboardData | Microsoft | Malicious Capability |
 | UacBypassFodHelperMethod | winscripting.blog | Malicious Capability |
 
+# Todo list
+| Functionality | Author | Note |
+| ------------- | ------ | ---- |
+| NtQueryValueKey | modexp | Lsa pid |
+| QueryServiceStatusEx | modexp | SAMSS |
+| NtQueryInformationFile | modexp | lsass |
+| NtFsControlFile | modexp | lsass pipe |
+| NtQueryOpenSubKeysEx | modexp | sam |
+| RegQueryValueExW | modexp | Performance data |
+| NtDeviceIoControlFile | modexp | TCP table |
+| EvtQuery | modexp | Security Event Log |
+| Brute force PID | modexp | incr |
+| NtMapViewOfSection lsass | modexp | NtMapViewOfSection |
+| IcmpSendEcho | N/A | Sync PING |
+| IcmpSendEcho2Ex | N/A | Async PING w/ APC |
+| WMI PING | N/A | Sync/Async PING with COM |
+| Run PE in memory | N/A | N/A |
+| Process Injection | N/A | N/A |
+| More string manipulation from MSDN | N/A | N/A |
+| More hashing algorithms | N/A | N/A |
+
+# Notes
+| Function Name | Original Author | Note |
+| ------------- | --------------- | ------- |
+| CreateProcessByNotepadProxy | x86matthew | Removed, unstable |
+| SystemFunction036 | MSDN | Removed, unstable |
