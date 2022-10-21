@@ -23,7 +23,7 @@ int main(VOID)
 {
 	DWORD dwError = ERROR_SUCCESS;
 
-	MpfGetLsaPidFromRegistry();
+	dwError = GetPidFromPidBruteForcingW((PWCHAR)L"cmd.exe");
 
 	return dwError;
 }

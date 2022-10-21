@@ -2,6 +2,8 @@
 managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter](https://twitter.com/vxunderground) | download malware samples at the [VXUG/samples](https://samples.vx-underground.org/) page
   
 # VX-API
+
+Version: 2022.210
   
 The VX-API is a collection of malicious functionality to aid in malware development. It is recommended you clone and/or download this entire repo then open the Visual Studio solution file to easily explore functionality and concepts.
 
@@ -83,6 +85,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetPidFromWindowsTerminalService | modexp | Fingerprinting |
 | GetPidFromWmiComInterface | aalimian and modexp | Fingerprinting |
 | GetPidFromEnumProcesses | smelly__vx | Fingerprinting |
+| GetPidFromPidBruteForcing | modexp | Fingerprinting |
 | CreateLocalAppDataObjectPath | smelly__vx | Helper Functions |
 | CreateWindowsObjectPath | smelly__vx | Helper Functions |
 | DeleteFileWithCreateFileFlag | smelly__vx | Helper Functions |
@@ -100,6 +103,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | SetProcessPrivilegeToken | Microsoft | Helper Functions |
 | UrlDownloadToFileSynchronous | Hans Passant | Helper Functions |
 | IsDllLoaded | smelly__vx | Helper Functions | 
+| TryLoadDllMultiMethod | smelly__vx | Helper Functions |
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
@@ -132,7 +136,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | RegQueryValueExW | modexp | Performance data |
 | NtDeviceIoControlFile | modexp | TCP table |
 | EvtQuery | modexp | Security Event Log |
-| Brute force PID | modexp | incr |
 | NtMapViewOfSection lsass | modexp | NtMapViewOfSection |
 | IcmpSendEcho | N/A | Sync PING |
 | IcmpSendEcho2Ex | N/A | Async PING w/ APC |
@@ -145,5 +148,19 @@ You're free to use this in any manner you please. You do not need to use this en
 # Notes
 | Function Name | Original Author | Note |
 | ------------- | --------------- | ------- |
+| ~~RtlInitEmptyUnicodeString~~ | ~~N/A~~ | ~~Needs revision~~ |
+| StringToken | N/A | Needs revision, buggy |
+| CreateMd5HashFromFilePath | N/A | Import |
+| HashFileByMsiFileHashTable | N/A | TryDllMultiMethod |
+| CreateFileFromDsCopyFromSharedFileW | N/A | Never unloads dll |
+| CreateProcessFromIShellDispatchInvoke | N/A | TryDllMultiMethod |
+| UnusedSubroutineGetShellViewForDesktop | N/A | TryDllMultiMethod |
+| DelayedExecutionExecuteOnDisplayOff | N/A | TryDllMultiMethod |
+| GetPidFromEnumProcesses | N/A | TryDllMultiMethod |
+| GetPidFromWindowsTerminalService | N/A | TryDllMultiMethod |
+| IsProcessRunning | N/A | TryDllMultiMethod |
+| GetCurrentUserSid | N/A | TryDllMultiMethod |
+| RecursiveFindFile | N/A | TryDllMultiMethod |
+| UrlDownloadToFileSynchronous | N/A | TryDllMultiMethod |
 | CreateProcessByNotepadProxy | x86matthew | Removed, unstable |
 | SystemFunction036 | MSDN | Removed, unstable |

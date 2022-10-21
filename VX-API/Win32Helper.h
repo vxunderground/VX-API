@@ -99,6 +99,8 @@ DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath);
 BOOL SetProcessPrivilegeToken(_In_ DWORD PrivilegeEnum);
 BOOL IsDllLoadedW(_In_ LPCWSTR DllName);
 BOOL IsDllLoadedA(_In_ LPCSTR DllName);
+HMODULE TryLoadDllMultiMethodW(_In_ PWCHAR DllName);
+HMODULE TryLoadDllMultiMethodA(_In_ PCHAR DllName);
 
 //fingerprinting
 LCID GetCurrentLocaleFromTeb(VOID);
@@ -120,6 +122,8 @@ DWORD GetPidFromWmiComInterfaceW(_In_ PWCHAR BinaryNameWithFileExtension);
 DWORD GetPidFromWmiComInterfaceA(_In_ PCHAR BinaryNameWithFileExtension);
 DWORD GetPidFromEnumProcessesW(_In_ PWCHAR ProcessNameWithExtension);
 DWORD GetPidFromEnumProcessesA(_In_ PCHAR ProcessNameWithExtension);
+DWORD GetPidFromPidBruteForcingW(_In_ PWCHAR ProcessNameWithExtension);
+DWORD GetPidFromPidBruteForcingA(_In_ PCHAR ProcessNameWithExtension);
 
 //malicious capabilities
 DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer);

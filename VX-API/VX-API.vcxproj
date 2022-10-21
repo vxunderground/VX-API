@@ -168,6 +168,7 @@
     <ClCompile Include="GetPeb.cpp" />
     <ClCompile Include="GetPidFromEnumProcesses.cpp" />
     <ClCompile Include="GetPidFromNtQuerySystemInformation.cpp" />
+    <ClCompile Include="GetPidFromPidBruteForcingW.cpp" />
     <ClCompile Include="GetPidFromWindowsTerminalService.cpp" />
     <ClCompile Include="GetPidFromWmiComInterface.cpp" />
     <ClCompile Include="GetProcAddress.cpp" />
@@ -226,6 +227,7 @@
     <ClCompile Include="StringRemoveSubstring.cpp" />
     <ClCompile Include="StringTerminateStringAtChar.cpp" />
     <ClCompile Include="StringToken.cpp" />
+    <ClCompile Include="TryLoadDllMultiMethod.cpp" />
     <ClCompile Include="UacBypassFodHelperMethod.cpp" />
     <ClCompile Include="UrlDownloadToFileSynchronous.cpp" />
     <ClCompile Include="WCharStringToCharString.cpp" />
