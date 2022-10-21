@@ -125,7 +125,6 @@ You're free to use this in any manner you please. You do not need to use this en
 # Todo list
 | Functionality | Author | Note |
 | ------------- | ------ | ---- |
-| NtQueryValueKey | modexp | Lsa pid |
 | QueryServiceStatusEx | modexp | SAMSS |
 | NtQueryInformationFile | modexp | lsass |
 | NtFsControlFile | modexp | lsass pipe |
