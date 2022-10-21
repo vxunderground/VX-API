@@ -207,6 +207,7 @@
     <ClCompile Include="MpfComModifyShortcutTarget.cpp" />
     <ClCompile Include="MpfComVssDeleteShadowVolumeBackups.cpp" />
     <ClCompile Include="MpfGetLsaPidFromRegistry.cpp" />
+    <ClCompile Include="MpfGetLsaPidFromServiceManager.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />
     <ClCompile Include="RecursiveFindFile.cpp" />
     <ClCompile Include="RemoveDllFromPeb.cpp" />
