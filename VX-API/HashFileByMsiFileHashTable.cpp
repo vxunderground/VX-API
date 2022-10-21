@@ -3,12 +3,6 @@
 //NOTE: PULONG must be pointed to an array of ULONG integers e.g. ULONG FileHash[4] = { 0 };
 BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash)
 {
-	typedef struct _MSIFILEHASHINFO {
-		ULONG dwFileHashInfoSize;
-		ULONG dwData[4];
-	} MSIFILEHASHINFO, * PMSIFILEHASHINFO;
-	typedef UINT(WINAPI* MSIGETFILEHASHW)(LPCWSTR, DWORD, PMSIFILEHASHINFO);
-
 	MSIGETFILEHASHW MsiGetFileHashW = NULL;
 	MSIFILEHASHINFO Hash = { 0 };
 	HMODULE hModule = NULL;
@@ -48,12 +42,6 @@ EXIT_ROUTINE:
 
 BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash)
 {
-	typedef struct _MSIFILEHASHINFO {
-		ULONG dwFileHashInfoSize;
-		ULONG dwData[4];
-	} MSIFILEHASHINFO, * PMSIFILEHASHINFO;
-	typedef UINT(WINAPI* MSIGETFILEHASHA)(LPCSTR, DWORD, PMSIFILEHASHINFO);
-
 	MSIGETFILEHASHA MsiGetFileHashA = NULL;
 	MSIFILEHASHINFO Hash = { 0 };
 	HMODULE hModule = NULL;

@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL GetSystemWindowsDirectoryA(DWORD nBufferLength, PCHAR lpBuffer)
+BOOL GetSystemWindowsDirectoryA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer)
 {
 	PKUSER_SHARED_DATA SharedData = GetKUserSharedData();
 
@@ -13,7 +13,7 @@ BOOL GetSystemWindowsDirectoryA(DWORD nBufferLength, PCHAR lpBuffer)
 		return FALSE;
 }
 
-BOOL GetSystemWindowsDirectoryW(DWORD nBufferLength, PWCHAR lpBuffer)
+BOOL GetSystemWindowsDirectoryW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer)
 {
 	PKUSER_SHARED_DATA SharedData = GetKUserSharedData();
 

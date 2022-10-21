@@ -2,7 +2,6 @@
 
 BOOL AdfOpenProcessOnCsrss(VOID)
 {
-	typedef DWORD(WINAPI* CSRGETPROCESSID)(VOID);
 	HMODULE hNtdll = NULL;
 	CSRGETPROCESSID CsrGetProcessId = NULL;
 	HANDLE hCsrHandle = NULL;

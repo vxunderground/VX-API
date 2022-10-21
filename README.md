@@ -120,6 +120,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfComVssDeleteShadowVolumeBackups | am0nsec | Malicious Capability |
 | OleGetClipboardData | Microsoft | Malicious Capability |
 | UacBypassFodHelperMethod | winscripting.blog | Malicious Capability |
+| MpfGetLsaPidFromRegistry | modexp | Malicious Capability |
 
 # Todo list
 | Functionality | Author | Note |

@@ -2,20 +2,10 @@
 
 BOOL CheckRemoteDebuggerPresent2(_In_ HANDLE hHandle, _Inout_ PBOOL pbDebuggerPresent)
 {
-	typedef enum _PROCESSINFOCLASS
-	{
-		ProcessBasicInformation = 0,
-		ProcessDebugPort = 7,
-		ProcessWow64Information = 26,
-		ProcessImageFileName = 27,
-		ProcessBreakOnTermination = 29
-	} PROCESSINFOCLASS;
-
-	typedef NTSTATUS(NTAPI* NTQUERYINFORMATIONPROCESS)(HANDLE, PROCESSINFOCLASS, PVOID, ULONG, PULONG);
-	*pbDebuggerPresent = FALSE;
 	NTQUERYINFORMATIONPROCESS NtQueryInformationProcess = NULL;
 	NTSTATUS Status = 0;
 	DWORD dwProcessDebugPort = 0, dwReturnValue = 0;
+	*pbDebuggerPresent = FALSE;
 
 	if (hHandle == NULL)
 		return FALSE;

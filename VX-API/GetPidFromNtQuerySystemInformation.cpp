@@ -1,9 +1,5 @@
 #include "Win32Helper.h"
 
-#include <stdio.h>
-
-typedef NTSTATUS(NTAPI* NTQUERYSYSTEMINFORMATION)(SYSTEM_INFORMATION_CLASS, PVOID, ULONG, PULONG);
-
 DWORD UnusedSubroutineQueryBufferSize(NTQUERYSYSTEMINFORMATION NtQuerySystemInformation)
 {
 	DWORD dwSize = ERROR_SUCCESS;

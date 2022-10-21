@@ -1,8 +1,6 @@
 #pragma once
 #include <Windows.h>
 
-
-
 #define PROCESSOR_FEATURE_MAX 64
 
 #define InitializeObjectAttributes(p, n, a, r, s) \
@@ -14,6 +12,16 @@
 	(p)->SecurityDescriptor = s; \
 	(p)->SecurityQualityOfService = NULL; \
 }
+
+#define OBJ_INHERIT 0x00000002
+#define OBJ_PERMANENT 0x00000010
+#define OBJ_EXCLUSIVE 0x00000020
+#define OBJ_CASE_INSENSITIVE 0x00000040
+#define OBJ_OPENIF 0x00000080
+#define OBJ_OPENLINK 0x00000100
+#define OBJ_KERNEL_HANDLE 0x00000200
+#define OBJ_FORCE_ACCESS_CHECK 0x00000400
+#define OBJ_VALID_ATTRIBUTES 0x000007f2
 
 typedef struct _LSA_UNICODE_STRING {
 	USHORT Length;
@@ -548,3 +556,197 @@ typedef struct _SYSTEM_PROCESS_INFORMATION{
 	LARGE_INTEGER WriteTransferCount;
 	LARGE_INTEGER OtherTransferCount;
 } SYSTEM_PROCESS_INFORMATION, * PSYSTEM_PROCESS_INFORMATION;
+
+typedef enum _PROCESSINFOCLASS
+{
+	ProcessBasicInformation = 0,
+	ProcessDebugPort = 7,
+	ProcessWow64Information = 26,
+	ProcessImageFileName = 27,
+	ProcessBreakOnTermination = 29
+} PROCESSINFOCLASS;
+
+typedef struct _MSIFILEHASHINFO {
+	ULONG dwFileHashInfoSize;
+	ULONG dwData[4];
+} MSIFILEHASHINFO, * PMSIFILEHASHINFO;
+
+typedef struct __DATA_SHARE_SCOPE_ENTRY {
+	INT ScopeType;
+	PWCHAR ScopeValue;
+}DATA_SHARE_SCOPE_ENTRY, * PDATA_SHARE_SCOPE_ENTRY;
+
+typedef struct __DATA_SHARE_SCOPE {
+	INT ScopeCount;
+	DATA_SHARE_SCOPE_ENTRY Entries[20];
+}DATA_SHARE_SCOPE, * PDATA_SHARE_SCOPE;
+
+typedef struct __DATA_SHARE_CTRL {
+	INT SharePermission;
+	INT ShareMode;
+	DATA_SHARE_SCOPE Scope;
+}DATA_SHARE_CTRL, * PDATA_SHARE_CTRL;
+
+#define PS_ATTRIBUTE_NUMBER_MASK    0x0000ffff
+#define PS_ATTRIBUTE_THREAD         0x00010000 
+#define PS_ATTRIBUTE_INPUT          0x00020000 
+#define PS_ATTRIBUTE_ADDITIVE       0x00040000 
+
+typedef enum _PS_ATTRIBUTE_NUM
+{
+	PsAttributeParentProcess,
+	PsAttributeDebugPort,
+	PsAttributeToken,
+	PsAttributeClientId,
+	PsAttributeTebAddress,
+	PsAttributeImageName,
+	PsAttributeImageInfo,
+	PsAttributeMemoryReserve,
+	PsAttributePriorityClass,
+	PsAttributeErrorMode,
+	PsAttributeStdHandleInfo,
+	PsAttributeHandleList,
+	PsAttributeGroupAffinity,
+	PsAttributePreferredNode,
+	PsAttributeIdealProcessor,
+	PsAttributeUmsThread,
+	PsAttributeMitigationOptions,
+	PsAttributeProtectionLevel,
+	PsAttributeSecureProcess,
+	PsAttributeJobList,
+	PsAttributeChildProcessPolicy,
+	PsAttributeAllApplicationPackagesPolicy,
+	PsAttributeWin32kFilter,
+	PsAttributeSafeOpenPromptOriginClaim,
+	PsAttributeBnoIsolation,
+	PsAttributeDesktopAppPolicy,
+	PsAttributeMax
+} PS_ATTRIBUTE_NUM;
+
+#define PsAttributeValue(Number, Thread, Input, Additive) \
+    (((Number) & PS_ATTRIBUTE_NUMBER_MASK) | \
+    ((Thread) ? PS_ATTRIBUTE_THREAD : 0) | \
+    ((Input) ? PS_ATTRIBUTE_INPUT : 0) | \
+    ((Additive) ? PS_ATTRIBUTE_ADDITIVE : 0))
+
+#define RTL_USER_PROCESS_PARAMETERS_NORMALIZED              0x01
+#define PS_ATTRIBUTE_IMAGE_NAME \
+    PsAttributeValue(PsAttributeImageName, FALSE, TRUE, FALSE)
+
+typedef struct _PS_ATTRIBUTE
+{
+	ULONG_PTR Attribute;
+	SIZE_T Size;
+	union
+	{
+		ULONG_PTR Value;
+		PVOID ValuePtr;
+	};
+	PSIZE_T ReturnLength;
+} PS_ATTRIBUTE, * PPS_ATTRIBUTE;
+
+typedef struct _PS_ATTRIBUTE_LIST
+{
+	SIZE_T TotalLength;
+	PS_ATTRIBUTE Attributes[2];
+} PS_ATTRIBUTE_LIST, * PPS_ATTRIBUTE_LIST;
+
+typedef enum _PS_CREATE_STATE
+{
+	PsCreateInitialState,
+	PsCreateFailOnFileOpen,
+	PsCreateFailOnSectionCreate,
+	PsCreateFailExeFormat,
+	PsCreateFailMachineMismatch,
+	PsCreateFailExeName,
+	PsCreateSuccess,
+	PsCreateMaximumStates
+} PS_CREATE_STATE;
+
+typedef struct _PS_CREATE_INFO {
+	SIZE_T Size;
+	PS_CREATE_STATE State;
+	union {
+		struct {
+			union {
+				ULONG InitFlags;
+				struct {
+					UCHAR WriteOutputOnExit : 1;
+					UCHAR DetectManifest : 1;
+					UCHAR IFEOSkipDebugger : 1;
+					UCHAR IFEODoNotPropagateKeyState : 1;
+					UCHAR SpareBits1 : 4;
+					UCHAR SpareBits2 : 8;
+					USHORT ProhibitedImageCharacteristics : 16;
+				} s1;
+			} u1;
+			ACCESS_MASK AdditionalFileAccess;
+		} InitState;
+		struct { HANDLE FileHandle; } FailSection;
+		struct { USHORT DllCharacteristics; } ExeFormat;
+		struct { HANDLE IFEOKey; } ExeName;
+		struct {
+			union {
+				ULONG OutputFlags;
+				struct {
+					UCHAR ProtectedProcess : 1;
+					UCHAR AddressSpaceOverride : 1;
+					UCHAR DevOverrideEnabled : 1;
+					UCHAR ManifestDetected : 1;
+					UCHAR ProtectedProcessLight : 1;
+					UCHAR SpareBits1 : 3;
+					UCHAR SpareBits2 : 8;
+					USHORT SpareBits3 : 16;
+				} s2;
+			} u2;
+			HANDLE FileHandle;
+			HANDLE SectionHandle;
+			ULONGLONG UserProcessParametersNative;
+			ULONG UserProcessParametersWow64;
+			ULONG CurrentParameterFlags;
+			ULONGLONG PebAddressNative;
+			ULONG PebAddressWow64;
+			ULONGLONG ManifestAddress;
+			ULONG ManifestSize;
+		} SuccessState;
+	};
+} PS_CREATE_INFO, * PPS_CREATE_INFO;
+
+typedef struct _PROC_THREAD_ATTRIBUTE {
+	ULONG64 Attribute;
+	ULONG64 Size;
+	ULONG64 Value;
+}PROC_THREAD_ATTRIBUTE, * PPROC_THREAD_ATTRIBUTE;
+
+typedef struct _PROC_THREAD_ATTRIBUTE_LIST {
+	ULONG PresentFlags;
+	ULONG AttributeCount;
+	ULONG LastAttribute;
+	ULONG SpareUlong0;
+	struct _PROC_THREAD_ATTRIBUTE* ExtendedFlagsAttribute;
+	struct _PROC_THREAD_ATTRIBUTE Attributes[1];
+}PROC_THREAD_ATTRIBUTE_LIST, * PPROC_THREAD_ATTRIBUTE_LIST;
+
+typedef struct _WTS_PROCESS_INFOW {
+	DWORD SessionId;
+	DWORD ProcessId;
+	LPWSTR pProcessName;
+	PSID  pUserSid;
+} WTS_PROCESS_INFOW, * PWTS_PROCESS_INFOW;
+
+typedef enum _KEY_VALUE_INFORMATION_CLASS {
+	KeyValueBasicInformation,
+	KeyValueFullInformation,
+	KeyValuePartialInformation,
+	KeyValueFullInformationAlign64,
+	KeyValuePartialInformationAlign64,
+	KeyValueLayerInformation,
+	MaxKeyValueInfoClass
+} KEY_VALUE_INFORMATION_CLASS;
+
+typedef struct _KEY_VALUE_PARTIAL_INFORMATION {
+	ULONG TitleIndex;
+	ULONG Type;
+	ULONG DataLength;
+	UCHAR Data[1];
+} KEY_VALUE_PARTIAL_INFORMATION, * PKEY_VALUE_PARTIAL_INFORMATION;

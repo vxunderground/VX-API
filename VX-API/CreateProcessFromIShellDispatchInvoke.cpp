@@ -4,7 +4,6 @@ const static GUID IClassFactorClsid = { 0x13709620, 0xc279, 0x11ce, { 0xa4, 0x9e
 
 DWORD CreateProcessFromIShellDispatchInvokeW(_In_ PWCHAR BinaryPath)
 {
-	typedef HRESULT(WINAPI* DLLGETCLASSOBJECT)(REFCLSID, REFIID, LPVOID*);
 	HRESULT Result = S_OK;
 	HMODULE hModule = NULL;
 	DLLGETCLASSOBJECT DllGetClassObject = NULL;
@@ -74,7 +73,6 @@ EXIT_ROUTINE:
 
 DWORD CreateProcessFromIShellDispatchInvokeA(_In_ PCHAR BinaryPath)
 {
-	typedef HRESULT(WINAPI* DLLGETCLASSOBJECT)(REFCLSID, REFIID, LPVOID*);
 	HRESULT Result = S_OK;
 	HMODULE hModule = NULL;
 	DLLGETCLASSOBJECT DllGetClassObject = NULL;

@@ -4,15 +4,6 @@
 
 DWORD GetPidFromWindowsTerminalServiceW(_In_ PWCHAR BinaryNameWithFileExtension)
 {
-	typedef struct _WTS_PROCESS_INFOW {
-		DWORD SessionId;
-		DWORD ProcessId;
-		LPWSTR pProcessName;
-		PSID  pUserSid;
-	} WTS_PROCESS_INFOW, * PWTS_PROCESS_INFOW;
-
-	typedef BOOL(WINAPI* WTSENUMERATEPROCESSES)(HANDLE, DWORD, DWORD, PWTS_PROCESS_INFOW*, PDWORD);
-	typedef VOID(WINAPI* WTSFREEMEMORY)(PVOID);
 	PWTS_PROCESS_INFOW ProcessInformation = NULL;
 	WTSFREEMEMORY WtsFreeMemory = NULL;
 	WTSENUMERATEPROCESSES WtsEnumerateProcessesW;
@@ -68,15 +59,6 @@ EXIT_ROUTINE:
 
 DWORD GetPidFromWindowsTerminalServiceA(_In_ PCHAR BinaryNameWithFileExtension)
 {
-	typedef struct _WTS_PROCESS_INFOW {
-		DWORD SessionId;
-		DWORD ProcessId;
-		LPWSTR pProcessName;
-		PSID  pUserSid;
-	} WTS_PROCESS_INFOW, * PWTS_PROCESS_INFOW;
-
-	typedef BOOL(WINAPI* WTSENUMERATEPROCESSES)(HANDLE, DWORD, DWORD, PWTS_PROCESS_INFOW*, PDWORD);
-	typedef VOID(WINAPI* WTSFREEMEMORY)(PVOID);
 	PWTS_PROCESS_INFOW ProcessInformation = NULL;
 	WTSFREEMEMORY WtsFreeMemory = NULL;
 	WTSENUMERATEPROCESSES WtsEnumerateProcessesW;

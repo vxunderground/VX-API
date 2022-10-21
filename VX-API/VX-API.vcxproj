@@ -166,6 +166,7 @@
     <ClCompile Include="GetOsMinorVersionFromPeb.cpp" />
     <ClCompile Include="GetOsPlatformIdFromPeb.cpp" />
     <ClCompile Include="GetPeb.cpp" />
+    <ClCompile Include="GetPidFromEnumProcesses.cpp" />
     <ClCompile Include="GetPidFromNtQuerySystemInformation.cpp" />
     <ClCompile Include="GetPidFromWindowsTerminalService.cpp" />
     <ClCompile Include="GetPidFromWmiComInterface.cpp" />
@@ -204,6 +205,7 @@
     <ClCompile Include="MasqueradePebAsExplorer.cpp" />
     <ClCompile Include="MpfComModifyShortcutTarget.cpp" />
     <ClCompile Include="MpfComVssDeleteShadowVolumeBackups.cpp" />
+    <ClCompile Include="MpfGetLsaPidFromRegistry.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />
     <ClCompile Include="RecursiveFindFile.cpp" />
     <ClCompile Include="RemoveDllFromPeb.cpp" />
@@ -231,6 +233,7 @@
     <ClCompile Include="ZeroMemoryEx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FunctionDeclaration.h" />
     <ClInclude Include="StringManipulation.h" />
     <ClInclude Include="Internal.h" />
     <ClInclude Include="Win32Helper.h" />

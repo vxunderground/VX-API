@@ -14,7 +14,7 @@ VOID RemoveEntryList(LIST_ENTRY* Entry)
 	}
 }
 
-BOOL RemoveDllFromPebW(LPCWSTR lpModuleName) {
+BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName) {
 	PPEB Peb = GetPeb();
 	PLDR_MODULE Module = NULL;
 
@@ -43,7 +43,7 @@ BOOL RemoveDllFromPebW(LPCWSTR lpModuleName) {
 	return FALSE;
 }
 
-BOOL RemoveDllFromPebA(LPCSTR lpModuleName) {
+BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName) {
 	PPEB Peb = GetPeb();
 	PLDR_MODULE Module = NULL;
 	CHAR wDllName[64] = { 0 };

@@ -1,20 +1,5 @@
 #include "Win32Helper.h"
 
-typedef struct _PROC_THREAD_ATTRIBUTE {
-	ULONG64 Attribute;
-	ULONG64 Size;
-	ULONG64 Value;
-}PROC_THREAD_ATTRIBUTE, * PPROC_THREAD_ATTRIBUTE;
-
-typedef struct _PROC_THREAD_ATTRIBUTE_LIST {
-	ULONG PresentFlags;
-	ULONG AttributeCount;
-	ULONG LastAttribute;
-	ULONG SpareUlong0;
-	struct _PROC_THREAD_ATTRIBUTE* ExtendedFlagsAttribute;
-	struct _PROC_THREAD_ATTRIBUTE Attributes[1];
-}PROC_THREAD_ATTRIBUTE_LIST, * PPROC_THREAD_ATTRIBUTE_LIST;
-
 BOOL UnusedSubroutineInitializeProcThreadAttributeList(LPPROC_THREAD_ATTRIBUTE_LIST lpAttributeList, DWORD dwAttributeCount, DWORD dwFlags, PSIZE_T lpSize)
 {
 	BOOL bFlag = FALSE;
@@ -74,7 +59,7 @@ BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path
 	SIZE_T dwAttributeSize = 0;
 	DWORD64 Policy = PROCESS_CREATION_MITIGATION_POLICY_BLOCK_NON_MICROSOFT_BINARIES_ALWAYS_ON;
 
-	STARTUPINFOEXW Si; ZeroMemoryEx(&Si, sizeof(STARTUPINFOEXW));
+	STARTUPINFOEXW Si = {0};// ZeroMemoryEx(&Si, sizeof(STARTUPINFOEXW));
 	Si.StartupInfo.cb = sizeof(STARTUPINFOEXW);
 	ZeroMemoryEx(Pi, sizeof(PROCESS_INFORMATION));
 
@@ -115,7 +100,7 @@ BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, _In_ PCHAR Path)
 	SIZE_T dwAttributeSize = 0;
 	DWORD64 Policy = PROCESS_CREATION_MITIGATION_POLICY_BLOCK_NON_MICROSOFT_BINARIES_ALWAYS_ON;
 
-	STARTUPINFOEXA Si; ZeroMemoryEx(&Si, sizeof(STARTUPINFOEXA));
+	STARTUPINFOEXA Si = {0}; //ZeroMemoryEx(&Si, sizeof(STARTUPINFOEXA));
 	Si.StartupInfo.cb = sizeof(STARTUPINFOEXW);
 	ZeroMemoryEx(Pi, sizeof(PROCESS_INFORMATION));
 

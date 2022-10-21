@@ -84,7 +84,6 @@ EXIT_ROUTINE:
 
 BOOL RecursiveFindFileA(_In_ LPCSTR Path, _In_ LPCSTR Pattern)
 {
-	typedef LPWSTR(WINAPI* PATHCOMBINEA)(LPCSTR, LPCSTR, LPCSTR);
 	PATHCOMBINEA PathCombineA = NULL;
 	HMODULE hShlwapi = NULL;
 	BOOL bIsNewlyLoaded = FALSE;
@@ -196,7 +195,6 @@ EXIT_ROUTINE:
 
 BOOL RecursiveFindFileW(_In_ LPCWSTR Path, _In_ LPCWSTR Pattern)
 {
-	typedef LPWSTR(WINAPI* PATHCOMBINEW)(LPCWSTR, LPCWSTR, LPCWSTR);
 	PATHCOMBINEW PathCombineW = NULL;
 	HMODULE hShlwapi = NULL;
 	BOOL bIsNewlyLoaded = FALSE;

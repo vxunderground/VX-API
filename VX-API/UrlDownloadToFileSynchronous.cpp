@@ -2,7 +2,6 @@
 
 DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath)
 {
-	typedef HRESULT(WINAPI* URLDOWNLOADFILE)(LPUNKNOWN, LPCTSTR, LPCTSTR, DWORD, LPBINDSTATUSCALLBACK);
 	class DownloadProgressRoutine : public IBindStatusCallback {
 	private:
 		BOOL AbortOperation = FALSE;
@@ -50,7 +49,7 @@ DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath)
 	HRESULT Result = S_OK;
 	DownloadProgressRoutine DownloadCallback;
 	DWORD dwError = ERROR_SUCCESS;
-	URLDOWNLOADFILE UrlDownloadToFileW = NULL;
+	URLDOWNLOADFILEW UrlDownloadToFileW = NULL;
 	HMODULE Urlmon;
 	BOOL bFlag = FALSE;
 
@@ -58,7 +57,7 @@ DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath)
 	if (Urlmon == NULL)
 		goto EXIT_ROUTINE;
 
-	UrlDownloadToFileW = (URLDOWNLOADFILE)GetProcAddressA((DWORD64)Urlmon, "URLDownloadToFileW");
+	UrlDownloadToFileW = (URLDOWNLOADFILEW)GetProcAddressA((DWORD64)Urlmon, "URLDownloadToFileW");
 	if (!UrlDownloadToFileW)
 		goto EXIT_ROUTINE;
 
@@ -99,7 +98,6 @@ EXIT_ROUTINE:
 
 DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath)
 {
-	typedef HRESULT(WINAPI* URLDOWNLOADFILE)(LPUNKNOWN, LPCSTR, LPCSTR, DWORD, LPBINDSTATUSCALLBACK);
 	class DownloadProgressRoutine : public IBindStatusCallback {
 	private:
 		BOOL AbortOperation = FALSE;
@@ -147,7 +145,7 @@ DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath)
 	HRESULT Result = S_OK;
 	DownloadProgressRoutine DownloadCallback;
 	DWORD dwError = ERROR_SUCCESS;
-	URLDOWNLOADFILE UrlDownloadToFileA = NULL;
+	URLDOWNLOADFILEA UrlDownloadToFileA = NULL;
 	HMODULE Urlmon;
 	BOOL bFlag = FALSE;
 
@@ -155,7 +153,7 @@ DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath)
 	if (Urlmon == NULL)
 		goto EXIT_ROUTINE;
 
-	UrlDownloadToFileA = (URLDOWNLOADFILE)GetProcAddressA((DWORD64)Urlmon, "URLDownloadToFileA");
+	UrlDownloadToFileA = (URLDOWNLOADFILEA)GetProcAddressA((DWORD64)Urlmon, "URLDownloadToFileA");
 	if (!UrlDownloadToFileA)
 		goto EXIT_ROUTINE;
 

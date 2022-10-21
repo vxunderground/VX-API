@@ -1,6 +1,7 @@
 #pragma once
 #include "Internal.h"
 #include "StringManipulation.h"
+#include "FunctionDeclaration.h"
 
 #ifndef NT_SUCCESS
 #define NT_SUCCESS(x) ((x)>=0)
@@ -115,7 +116,8 @@ DWORD GetPidFromNtQuerySystemInformationW(_In_ PWCHAR BinaryNameWithFileExtensio
 DWORD GetPidFromNtQuerySystemInformationA(_In_ PCHAR BinaryNameWithFileExtension);
 DWORD GetPidFromWindowsTerminalServiceW(_In_ PWCHAR BinaryNameWithFileExtension);
 DWORD GetPidFromWindowsTerminalServiceA(_In_ PCHAR BinaryNameWithFileExtension);
-DWORD GetPidFromWmiComInterface(_In_ PWCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromWmiComInterfaceW(_In_ PWCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromWmiComInterfaceA(_In_ PCHAR BinaryNameWithFileExtension);
 DWORD GetPidFromEnumProcessesW(_In_ PWCHAR ProcessNameWithExtension);
 DWORD GetPidFromEnumProcessesA(_In_ PCHAR ProcessNameWithExtension);
 
@@ -127,6 +129,7 @@ BOOL MpfComModifyShortcutTargetW(_In_ PWCHAR LnkPath, _In_  PWCHAR LnkExecutionP
 BOOL MpfComModifyShortcutTargetA(_In_ PCHAR LnkPath, _In_  PCHAR LnkExecutionProperty);
 BOOL UacBypassFodHelperMethodA(_In_ PCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
 BOOL UacBypassFodHelperMethodW(_In_ PWCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
+DWORD MpfGetLsaPidFromRegistry(VOID);
 
 //evasion
 BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);

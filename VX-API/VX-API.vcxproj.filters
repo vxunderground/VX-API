@@ -360,6 +360,12 @@
     <ClCompile Include="GetPidFromWmiComInterface.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
     </ClCompile>
+    <ClCompile Include="GetPidFromEnumProcesses.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfGetLsaPidFromRegistry.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">
@@ -369,6 +375,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Win32Helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionDeclaration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

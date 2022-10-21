@@ -47,7 +47,6 @@ EXIT_ROUTINE:
 
 HRESULT UnusedSubroutineGetShellViewForDesktop(REFIID Riid, PVOID* ShellView)
 {
-	typedef HRESULT(WINAPI* IUNKNOWN_QUERYSERVICE)(IUnknown*, REFGUID, REFIID, PVOID*);
 	IUNKNOWN_QUERYSERVICE QueryServiceUsingIUnknown = NULL;
 	HMODULE hModule = NULL;
 	HRESULT Result = S_OK;
