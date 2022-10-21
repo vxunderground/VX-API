@@ -82,6 +82,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetPidFromNtQuerySystemInformation | smelly__vx | Fingerprinting |
 | GetPidFromWindowsTerminalService | modexp | Fingerprinting |
 | GetPidFromWmiComInterface | aalimian and modexp | Fingerprinting |
+| GetPidFromEnumProcesses | smelly__vx | Fingerprinting |
 | CreateLocalAppDataObjectPath | smelly__vx | Helper Functions |
 | CreateWindowsObjectPath | smelly__vx | Helper Functions |
 | DeleteFileWithCreateFileFlag | smelly__vx | Helper Functions |

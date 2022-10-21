@@ -104,8 +104,8 @@ LCID GetCurrentLocaleFromTeb(VOID);
 DWORD GetNumberOfLinkedDlls(VOID);
 BOOL IsNvidiaGraphicsCardPresentA(VOID);
 BOOL IsNvidiaGraphicsCardPresentW(VOID);
-BOOL IsProcessRunningA(_In_ PCHAR ProcessNameWithExtension, _In_ BOOL IsCaseSensitive);
-BOOL IsProcessRunningW(_In_ PWCHAR ProcessNameWithExtension, _In_ BOOL IsCaseSensitive);
+BOOL IsProcessRunningA(_In_ PCHAR ProcessNameWithExtension);
+BOOL IsProcessRunningW(_In_ PWCHAR ProcessNameWithExtension);
 BOOL IsProcessRunningAsAdmin(VOID);
 ULONG GetOsMajorVersionFromPeb(VOID);
 ULONG GetOsMinorVersionFromPeb(VOID);
@@ -116,6 +116,8 @@ DWORD GetPidFromNtQuerySystemInformationA(_In_ PCHAR BinaryNameWithFileExtension
 DWORD GetPidFromWindowsTerminalServiceW(_In_ PWCHAR BinaryNameWithFileExtension);
 DWORD GetPidFromWindowsTerminalServiceA(_In_ PCHAR BinaryNameWithFileExtension);
 DWORD GetPidFromWmiComInterface(_In_ PWCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromEnumProcessesW(_In_ PWCHAR ProcessNameWithExtension);
+DWORD GetPidFromEnumProcessesA(_In_ PCHAR ProcessNameWithExtension);
 
 //malicious capabilities
 DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer);

@@ -2,7 +2,7 @@
 
 #include <psapi.h>
 
-BOOL IsProcessRunningA(_In_ PCHAR ProcessNameWithExtension)
+DWORD GetPidFromEnumProcessesW(_In_ PWCHAR ProcessNameWithExtension)
 {
 	HANDLE hProcess = NULL;
 
@@ -18,48 +18,8 @@ BOOL IsProcessRunningA(_In_ PCHAR ProcessNameWithExtension)
 	for (DWORD dwIndex = 0; dwIndex < ProcessIdArraySize; dwIndex++)
 	{
 		HMODULE Module = NULL;
-		CHAR ProcessStringName[MAX_PATH] = { 0 };
-
-		if (ProcessIdArray[dwIndex] == 0)
-			continue;
-
-		hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, ProcessIdArray[dwIndex]);
-		if (hProcess == NULL)
-			continue;
-
-		if (!K32EnumProcessModules(hProcess, &Module, sizeof(Module), &NumberOfBytesReturned))
-			continue;
-
-		if (K32GetModuleBaseNameA(hProcess, Module, ProcessStringName, sizeof(ProcessStringName) / sizeof(WCHAR)) == 0)
-			continue;
-
-		if (hProcess)
-			CloseHandle(hProcess);
-		
-		if (StringCompareA(ProcessNameWithExtension, ProcessStringName) == 0)
-				return TRUE;
-	}
-
-	return FALSE;
-}
-
-BOOL IsProcessRunningW(_In_ PWCHAR ProcessNameWithExtension)
-{
-	HANDLE hProcess = NULL;
-
-	DWORD ProcessIdArray[1024] = { 0 };
-	DWORD ProcessIdArraySize = 0;
-	DWORD NumberOfBytesReturned = 0;
-
-	if (!K32EnumProcesses(ProcessIdArray, sizeof(ProcessIdArray), &NumberOfBytesReturned))
-		return FALSE;
-
-	ProcessIdArraySize = NumberOfBytesReturned / sizeof(DWORD);
-
-	for (DWORD dwIndex = 0; dwIndex < ProcessIdArraySize; dwIndex++)
-	{
-		HMODULE Module = NULL;
-		WCHAR ProcessStringName[MAX_PATH] = { 0 };
+		DWORD dwProcessId = ERROR_SUCCESS;
+		WCHAR ProcessStringName[MAX_PATH * sizeof(WCHAR)] = {0};
 
 		if (ProcessIdArray[dwIndex] == 0)
 			continue;
@@ -74,12 +34,58 @@ BOOL IsProcessRunningW(_In_ PWCHAR ProcessNameWithExtension)
 		if (K32GetModuleBaseNameW(hProcess, Module, ProcessStringName, sizeof(ProcessStringName) / sizeof(WCHAR)) == 0)
 			continue;
 
-		if (hProcess)
-			CloseHandle(hProcess);
+		if (StringCompareW(ProcessNameWithExtension, ProcessStringName) == 0)
+			dwProcessId = GetProcessId(hProcess);
 
-		if (StringCompareW(ProcessStringName, ProcessNameWithExtension) == 0)
-			return TRUE;
+		CloseHandle(hProcess);
+
+		if (dwProcessId != 0)
+			return dwProcessId;
 	}
 
-	return FALSE;
+	return 0;
+}
+
+DWORD GetPidFromEnumProcessesA(_In_ PCHAR ProcessNameWithExtension)
+{
+	HANDLE hProcess = NULL;
+
+	DWORD ProcessIdArray[1024] = { 0 };
+	DWORD ProcessIdArraySize = 0;
+	DWORD NumberOfBytesReturned = 0;
+
+	if (!K32EnumProcesses(ProcessIdArray, sizeof(ProcessIdArray), &NumberOfBytesReturned))
+		return FALSE;
+
+	ProcessIdArraySize = NumberOfBytesReturned / sizeof(DWORD);
+
+	for (DWORD dwIndex = 0; dwIndex < ProcessIdArraySize; dwIndex++)
+	{
+		HMODULE Module = NULL;
+		DWORD dwProcessId = ERROR_SUCCESS;
+		CHAR ProcessStringName[MAX_PATH] = { 0 };
+
+		if (ProcessIdArray[dwIndex] == 0)
+			continue;
+
+		hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, ProcessIdArray[dwIndex]);
+		if (hProcess == NULL)
+			continue;
+
+		if (!K32EnumProcessModules(hProcess, &Module, sizeof(Module), &NumberOfBytesReturned))
+			continue;
+
+		if (K32GetModuleBaseNameA(hProcess, Module, ProcessStringName, sizeof(ProcessStringName) / sizeof(CHAR)) == 0)
+			continue;
+
+		if (StringCompareA(ProcessNameWithExtension, ProcessStringName) == 0)
+			dwProcessId = GetProcessId(hProcess);
+
+		CloseHandle(hProcess);
+
+		if (dwProcessId != 0)
+			return dwProcessId;
+	}
+
+	return 0;
 }
