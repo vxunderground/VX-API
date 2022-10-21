@@ -4,6 +4,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
 # VX-API
 
 Version: 2022.210
+Developer: smelly__vx
   
 The VX-API is a collection of malicious functionality to aid in malware development. It is recommended you clone and/or download this entire repo then open the Visual Studio solution file to easily explore functionality and concepts.
 
@@ -146,21 +147,20 @@ You're free to use this in any manner you please. You do not need to use this en
 | More hashing algorithms | N/A | N/A |
 
 # Notes
-| Function Name | Original Author | Note |
+| Function Name | Original Author | Note | Fixed |
 | ------------- | --------------- | ------- |
-| ~~RtlInitEmptyUnicodeString~~ | ~~N/A~~ | ~~Needs revision~~ |
-| StringToken | N/A | Needs revision, buggy |
-| CreateMd5HashFromFilePath | N/A | Import |
-| HashFileByMsiFileHashTable | N/A | TryDllMultiMethod |
-| CreateFileFromDsCopyFromSharedFileW | N/A | Never unloads dll |
-| CreateProcessFromIShellDispatchInvoke | N/A | TryDllMultiMethod |
-| UnusedSubroutineGetShellViewForDesktop | N/A | TryDllMultiMethod |
-| DelayedExecutionExecuteOnDisplayOff | N/A | TryDllMultiMethod |
-| GetPidFromEnumProcesses | N/A | TryDllMultiMethod |
-| GetPidFromWindowsTerminalService | N/A | TryDllMultiMethod |
-| IsProcessRunning | N/A | TryDllMultiMethod |
-| GetCurrentUserSid | N/A | TryDllMultiMethod |
-| RecursiveFindFile | N/A | TryDllMultiMethod |
-| UrlDownloadToFileSynchronous | N/A | TryDllMultiMethod |
-| CreateProcessByNotepadProxy | x86matthew | Removed, unstable |
-| SystemFunction036 | MSDN | Removed, unstable |
+| StringToken | N/A | Needs revision, buggy | N/A |
+| CreateProcessFromIShellDispatchInvoke | N/A | TryDllMultiMethod | N/A |
+| UnusedSubroutineGetShellViewForDesktop | N/A | TryDllMultiMethod | N/A |
+| DelayedExecutionExecuteOnDisplayOff | N/A | TryDllMultiMethod | N/A |
+| GetPidFromEnumProcesses | N/A | TryDllMultiMethod | N/A |
+| GetPidFromWindowsTerminalService | N/A | TryDllMultiMethod | N/A |
+| IsProcessRunning | N/A | TryDllMultiMethod | N/A |
+| GetCurrentUserSid | N/A | TryDllMultiMethod | N/A |
+| RecursiveFindFile | N/A | TryDllMultiMethod | N/A |
+| UrlDownloadToFileSynchronous | N/A | TryDllMultiMethod | N/A |
+| ~~CreateFileFromDsCopyFromSharedFileW~~ | ~~N/A~~ | ~~Never unloads dll~~ | October 21th, 2022 |
+| ~~HashFileByMsiFileHashTable~~ | ~~N/A~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
+| ~~RtlInitEmptyUnicodeString~~ | ~~N/A~~ | ~~Needs revision~~ | October 21th, 2022 |
+| ~~CreateProcessByNotepadProxy~~ | ~~x86matthew~~ | ~~Removed, unstable~~ | October 16th, 2022 |
+| ~~SystemFunction036~~ | ~~MSDN~~ | ~~Removed, unstable~~ | October 16th, 2022 |

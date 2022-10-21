@@ -2,7 +2,7 @@
 
 PCHAR StringTokenA(_In_ PCHAR String, _In_ CONST PCHAR Delim)
 {
-	PCHAR Last;
+	/*PCHAR Last;
 	PCHAR SpanP, Token;
 	INT C, SC;
 
@@ -40,15 +40,14 @@ CONTINUE:
 				return Token;
 			}
 		} while (SC != ERROR_SUCCESS);
-	}
+	}*/
 
 	return NULL;
-
 }
 
 PWCHAR StringTokenW(_In_ PWCHAR String, _In_ CONST PWCHAR Delim)
 {
-	PWCHAR Last;
+	/*PWCHAR Last;
 	PWCHAR SpanP, Token;
 	INT C, SC;
 
@@ -86,8 +85,7 @@ CONTINUE:
 				return Token;
 			}
 		} while (SC != ERROR_SUCCESS);
-	}
+	}*/
 
 	return NULL;
-
 }

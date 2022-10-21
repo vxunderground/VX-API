@@ -10,7 +10,7 @@ BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash)
 
 	Hash.dwFileHashInfoSize = sizeof(Hash);
 
-	hModule = LoadLibraryW(L"msi.dll");
+	hModule = TryLoadDllMultiMethodW((PWCHAR)L"msi.dll");
 	if (hModule == NULL)
 		return FALSE;
 
@@ -55,7 +55,7 @@ BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash)
 
 	Hash.dwFileHashInfoSize = sizeof(Hash);
 
-	hModule = LoadLibraryW(L"msi.dll");
+	hModule = TryLoadDllMultiMethodW((PWCHAR)L"msi.dll");
 	if (hModule == NULL)
 		return FALSE;
 

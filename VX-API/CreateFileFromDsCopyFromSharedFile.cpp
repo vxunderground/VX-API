@@ -11,7 +11,7 @@ BOOL CreateFileFromDsCopyFromSharedFileW(_In_ PWCHAR NewFileName, _In_ PWCHAR Fi
 	PWCHAR TokenData = NULL;
 	HMODULE hDsClient = NULL;
 
-	hDsClient = LoadLibraryW(L"DSCLIENT.DLL");
+	hDsClient = TryLoadDllMultiMethodW((PWCHAR)L"DSCLIENT.DLL");
 	if (hDsClient == NULL)
 		return FALSE;
 
@@ -53,6 +53,9 @@ EXIT_ROUTINE:
 	DsCreateSharedFileToken = NULL; 
 	DsCopyFromSharedFile = NULL;
 
+	if (hDsClient)
+		FreeLibrary(hDsClient);
+
 	return bFlag;
 }
 
@@ -76,7 +79,7 @@ BOOL CreateFileFromDsCopyFromSharedFileA(_In_ PCHAR NewFileName, _In_ PCHAR File
 	if (CharStringToWCharString((PWCHAR)NewFileNameWchar, NewFileName, (MAX_PATH * sizeof(WCHAR))) == 0)
 		goto EXIT_ROUTINE;
 
-	hDsClient = LoadLibraryW(L"DSCLIENT.DLL");
+	hDsClient = TryLoadDllMultiMethodW((PWCHAR)L"DSCLIENT.DLL");
 	if (hDsClient == NULL)
 		return FALSE;
 
@@ -117,6 +120,9 @@ EXIT_ROUTINE:
 
 	DsCreateSharedFileToken = NULL;
 	DsCopyFromSharedFile = NULL;
+
+	if (hDsClient)
+		FreeLibrary(hDsClient);
 
 	return bFlag;
 }
