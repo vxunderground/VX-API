@@ -7,7 +7,6 @@ PVOID UserDefinedCallbackRoutineA(LPCSTR Path)
 
 BOOL UnusedSubroutineRecursiveFindFileMainA(LPCSTR Path, LPCSTR Pattern, PVOID pfnPathCombineW)
 {
-	typedef LPWSTR(WINAPI* PATHCOMBINEA)(LPCSTR, LPCSTR, LPCSTR);
 	PATHCOMBINEA PathCombineA = (PATHCOMBINEA)pfnPathCombineW;
 
 	HANDLE HeapHandle = GetProcessHeapFromTeb();
@@ -89,14 +88,9 @@ BOOL RecursiveFindFileA(_In_ LPCSTR Path, _In_ LPCSTR Pattern)
 	BOOL bIsNewlyLoaded = FALSE;
 	BOOL bFlag = FALSE;
 
-	hShlwapi = GetModuleHandleEx2W(L"Shlwapi.dll");
+	hShlwapi = TryLoadDllMultiMethodW((PWCHAR)L"Shlwapi.dll");
 	if (hShlwapi == NULL)
-	{
-		bIsNewlyLoaded = TRUE;
-		hShlwapi = LoadLibraryW(L"Shlwapi.dll");
-		if (hShlwapi == NULL)
-			goto EXIT_ROUTINE;
-	}
+		goto EXIT_ROUTINE;
 
 	PathCombineA = (PATHCOMBINEA)GetProcAddressA((DWORD64)hShlwapi, "PathCombineW");
 	if (PathCombineA == NULL)
@@ -119,7 +113,6 @@ PVOID UserDefinedCallbackRoutineW(LPCWSTR Path)
 
 BOOL UnusedSubroutineRecursiveFindFileMainW(LPCWSTR Path, LPCWSTR Pattern, PVOID pfnPathCombineW)
 {
-	typedef LPWSTR(WINAPI* PATHCOMBINEW)(LPCWSTR, LPCWSTR, LPCWSTR);
 	PATHCOMBINEW PathCombineW = (PATHCOMBINEW)pfnPathCombineW;
 
 	HANDLE HeapHandle = GetProcessHeapFromTeb();
@@ -200,14 +193,9 @@ BOOL RecursiveFindFileW(_In_ LPCWSTR Path, _In_ LPCWSTR Pattern)
 	BOOL bIsNewlyLoaded = FALSE;
 	BOOL bFlag = FALSE;
 
-	hShlwapi = GetModuleHandleEx2W(L"Shlwapi.dll");
+	hShlwapi = TryLoadDllMultiMethodW((PWCHAR)L"Shlwapi.dll");
 	if (hShlwapi == NULL)
-	{
-		bIsNewlyLoaded = TRUE;
-		hShlwapi = LoadLibraryW(L"Shlwapi.dll");
-		if (hShlwapi == NULL)
-			goto EXIT_ROUTINE;
-	}
+		goto EXIT_ROUTINE;
 
 	PathCombineW = (PATHCOMBINEW)GetProcAddressA((DWORD64)hShlwapi, "PathCombineW");
 	if (PathCombineW == NULL)

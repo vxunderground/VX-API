@@ -53,7 +53,7 @@ DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath)
 	HMODULE Urlmon;
 	BOOL bFlag = FALSE;
 
-	Urlmon = LoadLibraryW(L"Urlmon.dll");
+	Urlmon = TryLoadDllMultiMethodW((PWCHAR)L"Urlmon.dll");
 	if (Urlmon == NULL)
 		goto EXIT_ROUTINE;
 
@@ -149,7 +149,7 @@ DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath)
 	HMODULE Urlmon;
 	BOOL bFlag = FALSE;
 
-	Urlmon = LoadLibraryW(L"Urlmon.dll");
+	Urlmon = TryLoadDllMultiMethodW((PWCHAR)L"Urlmon.dll");
 	if (Urlmon == NULL)
 		goto EXIT_ROUTINE;
 

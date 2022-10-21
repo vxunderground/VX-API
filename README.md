@@ -148,20 +148,18 @@ You're free to use this in any manner you please. You do not need to use this en
 | More hashing algorithms | N/A | N/A |
 
 # Notes
-| Function Name | Original Author | Note | Fixed |
-| ------------- | --------------- | ---- | ----- |
-| StringToken | N/A | Needs revision, buggy | N/A |
-| CreateProcessFromIShellDispatchInvoke | N/A | TryDllMultiMethod | N/A |
-| UnusedSubroutineGetShellViewForDesktop | N/A | TryDllMultiMethod | N/A |
-| DelayedExecutionExecuteOnDisplayOff | N/A | TryDllMultiMethod | N/A |
-| GetPidFromEnumProcesses | N/A | TryDllMultiMethod | N/A |
-| GetPidFromWindowsTerminalService | N/A | TryDllMultiMethod | N/A |
-| IsProcessRunning | N/A | TryDllMultiMethod | N/A |
-| GetCurrentUserSid | N/A | TryDllMultiMethod | N/A |
-| RecursiveFindFile | N/A | TryDllMultiMethod | N/A |
-| UrlDownloadToFileSynchronous | N/A | TryDllMultiMethod | N/A |
-| ~~CreateFileFromDsCopyFromSharedFileW~~ | ~~N/A~~ | ~~Never unloads dll~~ | October 21th, 2022 |
-| ~~HashFileByMsiFileHashTable~~ | ~~N/A~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
-| ~~RtlInitEmptyUnicodeString~~ | ~~N/A~~ | ~~Needs revision~~ | October 21th, 2022 |
-| ~~CreateProcessByNotepadProxy~~ | ~~x86matthew~~ | ~~Removed, unstable~~ | October 16th, 2022 |
-| ~~SystemFunction036~~ | ~~MSDN~~ | ~~Removed, unstable~~ | October 16th, 2022 |
+| Function Name | Note | Fixed |
+| ------------- | ---- | ----- |
+| StringToken | Needs revision, buggy | N/A |
+| CreateProcessFromIShellDispatchInvoke | TryDllMultiMethod | N/A |
+| UnusedSubroutineGetShellViewForDesktop | TryDllMultiMethod | N/A |
+| DelayedExecutionExecuteOnDisplayOff | TryDllMultiMethod | N/A |
+| GetPidFromWindowsTerminalService | TryDllMultiMethod | N/A |
+| GetCurrentUserSid | TryDllMultiMethod | N/A |
+| ~~RecursiveFindFile~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
+| ~~UrlDownloadToFileSynchronous~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
+| ~~CreateFileFromDsCopyFromSharedFileW~~ | ~~Never unloads dll~~ | October 21th, 2022 |
+| ~~HashFileByMsiFileHashTable~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
+| ~~RtlInitEmptyUnicodeString~~ | ~~Needs revision~~ | October 21th, 2022 |
+| ~~CreateProcessByNotepadProxy~~ | ~~Removed, unstable~~ | October 16th, 2022 |
+| ~~SystemFunction036~~ | ~~Removed, unstable~~ | October 16th, 2022 |
