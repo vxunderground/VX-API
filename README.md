@@ -4,6 +4,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
 # VX-API
 
 Version: 2022.210
+
 Developer: smelly__vx
   
 The VX-API is a collection of malicious functionality to aid in malware development. It is recommended you clone and/or download this entire repo then open the Visual Studio solution file to easily explore functionality and concepts.
