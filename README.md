@@ -148,7 +148,7 @@ You're free to use this in any manner you please. You do not need to use this en
 
 # Notes
 | Function Name | Original Author | Note | Fixed |
-| ------------- | --------------- | ------- |
+| ------------- | --------------- | ---- | ----- |
 | StringToken | N/A | Needs revision, buggy | N/A |
 | CreateProcessFromIShellDispatchInvoke | N/A | TryDllMultiMethod | N/A |
 | UnusedSubroutineGetShellViewForDesktop | N/A | TryDllMultiMethod | N/A |
