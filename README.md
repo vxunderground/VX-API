@@ -89,6 +89,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetPidFromEnumProcesses | smelly__vx | Fingerprinting |
 | GetPidFromPidBruteForcing | modexp | Fingerprinting |
 | GetPidFromNtQueryFileInformation | modexp, Lloyd Davies, Jonas Lyk | Fingerprinting |
+| GetPidFromPidBruteForcingExW | smelly__vx, LLoyd Davies, Jonas Lyk, modexp | Fingerprinting |
 | CreateLocalAppDataObjectPath | smelly__vx | Helper Functions |
 | CreateWindowsObjectPath | smelly__vx | Helper Functions |
 | DeleteFileWithCreateFileFlag | smelly__vx | Helper Functions |
@@ -107,6 +108,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | UrlDownloadToFileSynchronous | Hans Passant | Helper Functions |
 | IsDllLoaded | smelly__vx | Helper Functions | 
 | TryLoadDllMultiMethod | smelly__vx | Helper Functions |
+| CreateThreadAndWaitForCompletion | smelly__vx | Helper Functions |
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
@@ -129,6 +131,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | UacBypassFodHelperMethod | winscripting.blog | Malicious Capability |
 | MpfGetLsaPidFromServiceManager | modexp | Malicious Capability |
 | MpfGetLsaPidFromRegistry | modexp | Malicious Capability |
+| ShellcodeExecViaCertEnumSystemStore | alfarom256 and aahmad097| Malicious Capability |
 
 # Todo list
 | Functionality | Author | Note |

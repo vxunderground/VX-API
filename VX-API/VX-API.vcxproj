@@ -147,6 +147,7 @@
     <ClCompile Include="CreateProcessWithCfGuard.cpp" />
     <ClCompile Include="CreatePseudoRandomInteger.cpp" />
     <ClCompile Include="CreatePseudoRandomString.cpp" />
+    <ClCompile Include="CreateThreadAndWaitForCompletion.cpp" />
     <ClCompile Include="CreateWindowsObjectPath.cpp" />
     <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp" />
     <ClCompile Include="DeleteFileWithCreateFileFlag.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="GetPidFromEnumProcesses.cpp" />
     <ClCompile Include="GetPidFromNtQueryFileInformation.cpp" />
     <ClCompile Include="GetPidFromNtQuerySystemInformation.cpp" />
+    <ClCompile Include="GetPidFromPidBruteForcingExW.cpp" />
     <ClCompile Include="GetPidFromPidBruteForcingW.cpp" />
     <ClCompile Include="GetPidFromWindowsTerminalService.cpp" />
     <ClCompile Include="GetPidFromWmiComInterface.cpp" />
@@ -220,6 +222,7 @@
     <ClCompile Include="SetLastErrorInTeb.cpp" />
     <ClCompile Include="SetLastNtStatusInTeb.cpp" />
     <ClCompile Include="SetProcessPrivilegeToken.cpp" />
+    <ClCompile Include="ShellcodeExecViaCertEnumSystemStore.cpp" />
     <ClCompile Include="StringCompare.cpp" />
     <ClCompile Include="StringConcat.cpp" />
     <ClCompile Include="StringCopy.cpp" />

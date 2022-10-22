@@ -47,7 +47,10 @@ DWORD GetPidFromNtQueryFileInformationW(_In_ PWCHAR FullBinaryPath)
 	if (!NT_SUCCESS(Status))
 		goto EXIT_ROUTINE;
 
+#pragma warning( push )
+#pragma warning( disable : 4244)
 	ProcessId = ProcessIdArray->ProcessIdList[0];
+#pragma warning( pop ) 
 
 EXIT_ROUTINE:
 
@@ -111,7 +114,10 @@ DWORD GetPidFromNtQueryFileInformationA(_In_ PCHAR FullBinaryPath)
 	if (!NT_SUCCESS(Status))
 		goto EXIT_ROUTINE;
 
+#pragma warning( push )
+#pragma warning( disable : 4244)
 	ProcessId = ProcessIdArray->ProcessIdList[0];
+#pragma warning( pop ) 
 
 EXIT_ROUTINE:
 

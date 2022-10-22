@@ -23,6 +23,14 @@
 #define OBJ_FORCE_ACCESS_CHECK 0x00000400
 #define OBJ_VALID_ATTRIBUTES 0x000007f2
 
+#define FILE_SUPERSEDE                  0x00000000
+#define FILE_OPEN                       0x00000001
+#define FILE_CREATE                     0x00000002
+#define FILE_OPEN_IF                    0x00000003
+#define FILE_OVERWRITE                  0x00000004
+#define FILE_OVERWRITE_IF               0x00000005
+#define FILE_MAXIMUM_DISPOSITION        0x00000005
+
 typedef struct _LSA_UNICODE_STRING {
 	USHORT Length;
 	USHORT MaximumLength;

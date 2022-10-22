@@ -13,6 +13,26 @@
 #define InlineGetCurrentThread ((HANDLE)(LONG_PTR)-2)
 #define InlineGetCurrentProcess (HANDLE)((HANDLE)-1)
 
+
+/*
+
+    LPBYTE Payload is a pointer to shellcode
+    DWORD dwLengthOfPayloadInBytes is the length of the payload in bytes
+
+    example:
+
+    SHELLCODE_EXECUTION_INFORMATION Sei = { 0 };
+    Sei.Payload = Shellcode;
+    Sei.dwLengthOfPayloadInBytes = 280 //whatever the length is
+
+*/
+typedef struct __SHELLCODE_EXECUTION_INFORMATION {
+    LPBYTE Payload;
+    DWORD dwLengthOfPayloadInBytes;
+}SHELLCODE_EXECUTION_INFORMATION, * PSHELLCODE_EXECUTION_INFORMATION;
+
+
+
 //error handling
 DWORD GetLastErrorFromTeb(VOID);
 NTSTATUS GetLastNtStatusFromTeb(VOID);
@@ -101,6 +121,7 @@ BOOL IsDllLoadedW(_In_ LPCWSTR DllName);
 BOOL IsDllLoadedA(_In_ LPCSTR DllName);
 HMODULE TryLoadDllMultiMethodW(_In_ PWCHAR DllName);
 HMODULE TryLoadDllMultiMethodA(_In_ PCHAR DllName);
+DWORD CreateThreadAndWaitForCompletion(_In_ LPTHREAD_START_ROUTINE StartAddress, _In_ LPVOID Parameters, _In_ DWORD dwMilliseconds);
 
 //fingerprinting
 LCID GetCurrentLocaleFromTeb(VOID);
@@ -126,6 +147,7 @@ DWORD GetPidFromPidBruteForcingW(_In_ PWCHAR ProcessNameWithExtension);
 DWORD GetPidFromPidBruteForcingA(_In_ PCHAR ProcessNameWithExtension);
 DWORD GetPidFromNtQueryFileInformationW(_In_ PWCHAR FullBinaryPath);
 DWORD GetPidFromNtQueryFileInformationA(_In_ PCHAR FullBinaryPath);
+DWORD GetPidFromPidBruteForcingExW(_In_ PWCHAR ProcessNameWithExtension);
 
 //malicious capabilities
 DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer);
@@ -137,6 +159,8 @@ BOOL UacBypassFodHelperMethodA(_In_ PCHAR PathToBinaryToExecute, _Inout_ PPROCES
 BOOL UacBypassFodHelperMethodW(_In_ PWCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
 DWORD MpfGetLsaPidFromRegistry(VOID);
 DWORD MpfGetLsaPidFromServiceManager(VOID);
+BOOL ShellcodeExecViaCertEnumSystemStore(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
+
 
 //evasion
 BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);

@@ -52,6 +52,9 @@
     <Filter Include="Source Files\Windows API Helper Functions\Antidebug">
       <UniqueIdentifier>{5c518d5a-a7b5-448a-8872-577693d1ccca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback">
+      <UniqueIdentifier>{aa395805-0d12-4167-b761-9e5a6a14b2df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -377,6 +380,15 @@
     </ClCompile>
     <ClCompile Include="GetPidFromNtQueryFileInformation.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="GetPidFromPidBruteForcingExW.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellcodeExecViaCertEnumSystemStore.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateThreadAndWaitForCompletion.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
