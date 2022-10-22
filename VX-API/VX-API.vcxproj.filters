@@ -375,6 +375,9 @@
     <ClCompile Include="MpfGetLsaPidFromServiceManager.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
+    <ClCompile Include="GetPidFromNtQueryFileInformation.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

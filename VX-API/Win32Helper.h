@@ -124,6 +124,8 @@ DWORD GetPidFromEnumProcessesW(_In_ PWCHAR ProcessNameWithExtension);
 DWORD GetPidFromEnumProcessesA(_In_ PCHAR ProcessNameWithExtension);
 DWORD GetPidFromPidBruteForcingW(_In_ PWCHAR ProcessNameWithExtension);
 DWORD GetPidFromPidBruteForcingA(_In_ PCHAR ProcessNameWithExtension);
+DWORD GetPidFromNtQueryFileInformationW(_In_ PWCHAR FullBinaryPath);
+DWORD GetPidFromNtQueryFileInformationA(_In_ PCHAR FullBinaryPath);
 
 //malicious capabilities
 DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer);

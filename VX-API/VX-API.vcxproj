@@ -167,6 +167,7 @@
     <ClCompile Include="GetOsPlatformIdFromPeb.cpp" />
     <ClCompile Include="GetPeb.cpp" />
     <ClCompile Include="GetPidFromEnumProcesses.cpp" />
+    <ClCompile Include="GetPidFromNtQueryFileInformation.cpp" />
     <ClCompile Include="GetPidFromNtQuerySystemInformation.cpp" />
     <ClCompile Include="GetPidFromPidBruteForcingW.cpp" />
     <ClCompile Include="GetPidFromWindowsTerminalService.cpp" />

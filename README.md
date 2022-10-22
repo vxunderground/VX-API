@@ -88,6 +88,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetPidFromWmiComInterface | aalimian and modexp | Fingerprinting |
 | GetPidFromEnumProcesses | smelly__vx | Fingerprinting |
 | GetPidFromPidBruteForcing | modexp | Fingerprinting |
+| GetPidFromNtQueryFileInformation | modexp, Lloyd Davies, Jonas Lyk | Fingerprinting |
 | CreateLocalAppDataObjectPath | smelly__vx | Helper Functions |
 | CreateWindowsObjectPath | smelly__vx | Helper Functions |
 | DeleteFileWithCreateFileFlag | smelly__vx | Helper Functions |

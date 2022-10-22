@@ -12,10 +12,6 @@ TODO:
 	- Download file options: https://www.x86matthew.com/view_post?id=ntsockets
 	- https://learn.microsoft.com/en-us/windows/win32/api/shlwapi/nf-shlwapi-shansitounicode
 	- https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767757(v=vs.85)
-
-KNOWN ISSUES
-	- Work on In / Out / Inout in function calls
-	- Various logic improvements
 */
 
 
@@ -23,7 +19,7 @@ int main(VOID)
 {
 	DWORD dwError = ERROR_SUCCESS;
 
-	dwError = MpfGetLsaPidFromServiceManager();
+	dwError = GetPidFromNtQueryFileInformationW((PWCHAR)L"C:\\Windows\\System32\\cmd.exe");
 
 	return dwError;
 }
