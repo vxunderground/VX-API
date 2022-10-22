@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2022.215
+Version: 2022.230
 
 Developer: smelly__vx
   
