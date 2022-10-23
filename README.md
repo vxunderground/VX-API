@@ -134,6 +134,12 @@ You're free to use this in any manner you please. You do not need to use this en
 | ShellcodeExecViaCertEnumSystemStore | alfarom256 and aahmad097| Malicious Capability |
 | ShellcodeExecViaCDefFolderMenu_Create2 | alfarom256 and aahmad097| Malicious Capability |
 | ShellcodeExecViaCertEnumSystemStoreLocation | alfarom256 and aahmad097| Malicious Capability |
+| ShellcodeExecViaCertFindChainInStore | alfarom256 and aahmad097| Malicious Capability |
+| ShellcodeExecViaEnumChildWindows | alfarom256 and aahmad097| Malicious Capability |
+| ShellcodeExecViaEnumDateFormatsW | alfarom256 and aahmad097| Malicious Capability |
+| ShellcodeExecViaEnumDesktopsW | alfarom256 and aahmad097| Malicious Capability |
+| ShellcodeExecViaEnumDesktopWindows | alfarom256 and aahmad097| Malicious Capability |
+
 
 # Todo list
 | Functionality | Author | Note |
