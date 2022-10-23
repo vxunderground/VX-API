@@ -47,7 +47,7 @@ int main(VOID)
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
 
-	ShellcodeExecViaCertEnumSystemStoreLocation(&Sei);
+	ShellcodeExecViaEnumDesktopsW(&Sei);
 
 	return dwError;
 }

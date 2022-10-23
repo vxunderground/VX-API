@@ -396,6 +396,21 @@
     <ClCompile Include="ShellcodeExecViaCertEnumSystemStoreLocation.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
     </ClCompile>
+    <ClCompile Include="ShellcodeExecViaCertFindChainInStore.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellcodeExecViaEnumChildWindows.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellcodeExecViaEnumDateFormatsW.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellcodeExecViaEnumDesktopWindows.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellcodeExecViaEnumDesktopsW.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

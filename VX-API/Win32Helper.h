@@ -162,7 +162,11 @@ DWORD MpfGetLsaPidFromServiceManager(VOID);
 BOOL ShellcodeExecViaCertEnumSystemStore(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 BOOL ShellcodeExecViaCDefFolderMenu_Create2(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 BOOL ShellcodeExecViaCertEnumSystemStoreLocation(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
-
+BOOL _unstable__ShellcodeExecViaCertFindChainInStore(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
+BOOL ShellcodeExecViaEnumChildWindows(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
+BOOL ShellcodeExecViaEnumDateFormatsW(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
+BOOL ShellcodeExecViaEnumDesktopWindows(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
+BOOL ShellcodeExecViaEnumDesktopsW(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 
 //evasion
 BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);

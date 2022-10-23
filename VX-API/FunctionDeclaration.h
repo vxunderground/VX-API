@@ -93,3 +93,51 @@ typedef BOOL(WINAPI* CONVERTSIDTOSTRINGSIDA)(PSID, LPSTR*);
 *******************************************/
 typedef BOOL(WINAPI* CERTENUMSYSTEMSTORE)(DWORD, PVOID, PVOID, PFN_CERT_ENUM_SYSTEM_STORE);
 typedef BOOL(WINAPI* CERTENUMSYSTEMSTORELOCATION)(DWORD, PVOID, PFN_CERT_ENUM_SYSTEM_STORE_LOCATION);
+typedef HCERTSTORE(WINAPI* CERTOPENSTORE)(LPCSTR, DWORD, HCRYPTPROV_LEGACY, DWORD, PVOID);
+typedef PCCERT_CHAIN_CONTEXT(WINAPI* CERTFINDCHAININSTORE)(HCERTSTORE, DWORD, DWORD, DWORD, PVOID, PCCERT_CHAIN_CONTEXT);
+typedef BOOL(WINAPI* CERTCLOSESTORE)(HCERTSTORE, DWORD);
+
+/*
+
+#include "Win32Helper.h"
+
+DWORD UnusedSubroutineDisposeableThread(LPVOID Param)
+{
+	PSHELLCODE_EXECUTION_INFORMATION Sei = (PSHELLCODE_EXECUTION_INFORMATION)Param;
+	LPVOID BinAddress = NULL;
+	HMODULE hModule = NULL;
+	BOOL bFlag = FALSE;
+
+	hModule = TryLoadDllMultiMethodW((PWCHAR)L"");
+	if (!hModule)
+		goto EXIT_ROUTINE;
+
+
+	BinAddress = VirtualAlloc(NULL, Sei->dwLengthOfPayloadInBytes, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+	if (BinAddress == NULL)
+		goto EXIT_ROUTINE;
+
+	CopyMemoryEx(BinAddress, Sei->Payload, Sei->dwLengthOfPayloadInBytes);
+
+	bFlag = TRUE;
+
+EXIT_ROUTINE:
+
+	if (hModule)
+		FreeLibrary(hModule);
+
+	if (BinAddress)
+		VirtualFree(BinAddress, 0, MEM_RELEASE);
+
+	return (bFlag ? 0 : 0xffffffff);
+}
+
+
+BOOL ShellcodeExecVia(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei)
+{
+	return CreateThreadAndWaitForCompletion(UnusedSubroutineDisposeableThread, Sei, INFINITE);
+}
+
+
+
+*/
