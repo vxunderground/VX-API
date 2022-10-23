@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2022.230
+Version: 2.0.241
 
 Developer: smelly__vx
   
@@ -132,6 +132,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromServiceManager | modexp | Malicious Capability |
 | MpfGetLsaPidFromRegistry | modexp | Malicious Capability |
 | ShellcodeExecViaCertEnumSystemStore | alfarom256 and aahmad097| Malicious Capability |
+| ShellcodeExecViaCDefFolderMenu_Create2 | alfarom256 and aahmad097| Malicious Capability |
+| ShellcodeExecViaCertEnumSystemStoreLocation | alfarom256 and aahmad097| Malicious Capability |
 
 # Todo list
 | Functionality | Author | Note |

@@ -160,6 +160,8 @@ BOOL UacBypassFodHelperMethodW(_In_ PWCHAR PathToBinaryToExecute, _Inout_ PPROCE
 DWORD MpfGetLsaPidFromRegistry(VOID);
 DWORD MpfGetLsaPidFromServiceManager(VOID);
 BOOL ShellcodeExecViaCertEnumSystemStore(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
+BOOL ShellcodeExecViaCDefFolderMenu_Create2(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
+BOOL ShellcodeExecViaCertEnumSystemStoreLocation(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 
 
 //evasion

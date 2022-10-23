@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD UnusedSubroutineDisposeableThread(LPVOID Param)
+DWORD UnusedSubroutineDisposeableThreadCertEnumSystemStore(LPVOID Param)
 {
     PSHELLCODE_EXECUTION_INFORMATION Sei = (PSHELLCODE_EXECUTION_INFORMATION)Param;
 	CERTENUMSYSTEMSTORE pCertEnumSystemStore = NULL;
@@ -40,5 +40,5 @@ EXIT_ROUTINE:
 
 BOOL ShellcodeExecViaCertEnumSystemStore(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei)
 {
-	return CreateThreadAndWaitForCompletion(UnusedSubroutineDisposeableThread, Sei, INFINITE);
+	return CreateThreadAndWaitForCompletion(UnusedSubroutineDisposeableThreadCertEnumSystemStore, Sei, INFINITE);
 }

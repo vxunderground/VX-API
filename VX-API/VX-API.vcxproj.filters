@@ -390,6 +390,12 @@
     <ClCompile Include="CreateThreadAndWaitForCompletion.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
+    <ClCompile Include="ShellcodeExecViaCDefFolderMenu_Create2.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellcodeExecViaCertEnumSystemStoreLocation.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">
