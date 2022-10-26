@@ -146,8 +146,6 @@ You're free to use this in any manner you please. You do not need to use this en
 # Todo list
 | Functionality | Author | Note |
 | ------------- | ------ | ---- |
-| NtQueryInformationFile | modexp | lsass |
-| NtFsControlFile | modexp | lsass pipe |
 | NtQueryOpenSubKeysEx | modexp | sam |
 | RegQueryValueExW | modexp | Performance data |
 | NtDeviceIoControlFile | modexp | TCP table |
