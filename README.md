@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.252
+Version: 2.0.266
 
 Developer: smelly__vx
   
@@ -131,6 +131,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | UacBypassFodHelperMethod | winscripting.blog | Malicious Capability |
 | MpfGetLsaPidFromServiceManager | modexp | Malicious Capability |
 | MpfGetLsaPidFromRegistry | modexp | Malicious Capability |
+| MpfGetLsaPidFromNamedPipe | modexp | Malicious Capability |
 | ShellcodeExecViaCertEnumSystemStore | alfarom256 and aahmad097| Malicious Capability |
 | ShellcodeExecViaCDefFolderMenu_Create2 | alfarom256 and aahmad097| Malicious Capability |
 | ShellcodeExecViaCertEnumSystemStoreLocation | alfarom256 and aahmad097| Malicious Capability |
@@ -139,6 +140,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | ShellcodeExecViaEnumDateFormatsW | alfarom256 and aahmad097| Malicious Capability |
 | ShellcodeExecViaEnumDesktopsW | alfarom256 and aahmad097| Malicious Capability |
 | ShellcodeExecViaEnumDesktopWindows | alfarom256 and aahmad097| Malicious Capability |
+| ShellcodeExecViaEnumDirTreeW | alfarom256 and aahmad097| Malicious Capability |
 
 
 # Todo list

@@ -369,7 +369,7 @@
     <ClCompile Include="MpfGetLsaPidFromRegistry.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
-    <ClCompile Include="GetPidFromPidBruteForcingW.cpp">
+    <ClCompile Include="GetPidFromPidBruteForcing.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
     </ClCompile>
     <ClCompile Include="TryLoadDllMultiMethod.cpp">
@@ -381,7 +381,7 @@
     <ClCompile Include="GetPidFromNtQueryFileInformation.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
     </ClCompile>
-    <ClCompile Include="GetPidFromPidBruteForcingExW.cpp">
+    <ClCompile Include="GetPidFromPidBruteForcingEx.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
     </ClCompile>
     <ClCompile Include="ShellcodeExecViaCertEnumSystemStore.cpp">
@@ -410,6 +410,12 @@
     </ClCompile>
     <ClCompile Include="ShellcodeExecViaEnumDesktopsW.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellcodeExecViaEnumDirTreeW.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfGetLsaPidFromNamedPipe.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

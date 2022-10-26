@@ -148,6 +148,7 @@ DWORD GetPidFromPidBruteForcingA(_In_ PCHAR ProcessNameWithExtension);
 DWORD GetPidFromNtQueryFileInformationW(_In_ PWCHAR FullBinaryPath);
 DWORD GetPidFromNtQueryFileInformationA(_In_ PCHAR FullBinaryPath);
 DWORD GetPidFromPidBruteForcingExW(_In_ PWCHAR ProcessNameWithExtension);
+DWORD GetPidFromPidBruteForcingExA(_In_ PCHAR ProcessNameWithExtension);
 
 //malicious capabilities
 DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer);
@@ -167,6 +168,8 @@ BOOL ShellcodeExecViaEnumChildWindows(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei)
 BOOL ShellcodeExecViaEnumDateFormatsW(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 BOOL ShellcodeExecViaEnumDesktopWindows(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 BOOL ShellcodeExecViaEnumDesktopsW(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
+BOOL ShellcodeExecViaEnumDirTreeW(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
+DWORD MpfGetLsaPidFromNamedPipe(VOID);
 
 //evasion
 BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);

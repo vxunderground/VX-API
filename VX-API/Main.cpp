@@ -47,7 +47,9 @@ int main(VOID)
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
 
-	ShellcodeExecViaEnumDesktopsW(&Sei);
+	//ShellcodeExecViaEnumDirTreeW(&Sei);
+
+	dwError = MpfGetLsaPidFromNamedPipe();
 
 	return dwError;
 }

@@ -170,8 +170,8 @@
     <ClCompile Include="GetPidFromEnumProcesses.cpp" />
     <ClCompile Include="GetPidFromNtQueryFileInformation.cpp" />
     <ClCompile Include="GetPidFromNtQuerySystemInformation.cpp" />
-    <ClCompile Include="GetPidFromPidBruteForcingExW.cpp" />
-    <ClCompile Include="GetPidFromPidBruteForcingW.cpp" />
+    <ClCompile Include="GetPidFromPidBruteForcingEx.cpp" />
+    <ClCompile Include="GetPidFromPidBruteForcing.cpp" />
     <ClCompile Include="GetPidFromWindowsTerminalService.cpp" />
     <ClCompile Include="GetPidFromWmiComInterface.cpp" />
     <ClCompile Include="GetProcAddress.cpp" />
@@ -209,6 +209,7 @@
     <ClCompile Include="MasqueradePebAsExplorer.cpp" />
     <ClCompile Include="MpfComModifyShortcutTarget.cpp" />
     <ClCompile Include="MpfComVssDeleteShadowVolumeBackups.cpp" />
+    <ClCompile Include="MpfGetLsaPidFromNamedPipe.cpp" />
     <ClCompile Include="MpfGetLsaPidFromRegistry.cpp" />
     <ClCompile Include="MpfGetLsaPidFromServiceManager.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />
@@ -230,6 +231,7 @@
     <ClCompile Include="ShellcodeExecViaEnumDateFormatsW.cpp" />
     <ClCompile Include="ShellcodeExecViaEnumDesktopsW.cpp" />
     <ClCompile Include="ShellcodeExecViaEnumDesktopWindows.cpp" />
+    <ClCompile Include="ShellcodeExecViaEnumDirTreeW.cpp" />
     <ClCompile Include="StringCompare.cpp" />
     <ClCompile Include="StringConcat.cpp" />
     <ClCompile Include="StringCopy.cpp" />
