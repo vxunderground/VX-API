@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.266
+Version: 2.0.270
 
 Developer: smelly__vx
   
@@ -146,9 +146,6 @@ You're free to use this in any manner you please. You do not need to use this en
 # Todo list
 | Functionality | Author | Note |
 | ------------- | ------ | ---- |
-| NtQueryOpenSubKeysEx | modexp | sam |
-| RegQueryValueExW | modexp | Performance data |
-| NtDeviceIoControlFile | modexp | TCP table |
 | EvtQuery | modexp | Security Event Log |
 | NtMapViewOfSection lsass | modexp | NtMapViewOfSection |
 | IcmpSendEcho | N/A | Sync PING |
@@ -170,6 +167,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetCurrentUserSid | TryDllMultiMethod | N/A |
 | ShellcodeExecViaEnumDesktopsW | Fix abstraction | N/A |
 | ShellcodeExecViaEnumDesktopWindows | Fix abstraction | N/A |
+| NtQueryOpenSubKeysEx | admin required | N/A |
 | ~~ShellcodeExecViaCertFindChainInStore~~ | ~~Buggy, unstable~~ | October 23rd, 2022 |
 | ~~RecursiveFindFile~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
 | ~~UrlDownloadToFileSynchronous~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
