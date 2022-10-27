@@ -52,9 +52,6 @@
     <Filter Include="Source Files\Windows API Helper Functions\Antidebug">
       <UniqueIdentifier>{5c518d5a-a7b5-448a-8872-577693d1ccca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback">
-      <UniqueIdentifier>{aa395805-0d12-4167-b761-9e5a6a14b2df}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -384,37 +381,13 @@
     <ClCompile Include="GetPidFromPidBruteForcingEx.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
     </ClCompile>
-    <ClCompile Include="ShellcodeExecViaCertEnumSystemStore.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
-    </ClCompile>
     <ClCompile Include="CreateThreadAndWaitForCompletion.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="ShellcodeExecViaCDefFolderMenu_Create2.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
-    </ClCompile>
-    <ClCompile Include="ShellcodeExecViaCertEnumSystemStoreLocation.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
-    </ClCompile>
-    <ClCompile Include="ShellcodeExecViaCertFindChainInStore.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
-    </ClCompile>
-    <ClCompile Include="ShellcodeExecViaEnumChildWindows.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
-    </ClCompile>
-    <ClCompile Include="ShellcodeExecViaEnumDateFormatsW.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
-    </ClCompile>
-    <ClCompile Include="ShellcodeExecViaEnumDesktopWindows.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
-    </ClCompile>
-    <ClCompile Include="ShellcodeExecViaEnumDesktopsW.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
-    </ClCompile>
-    <ClCompile Include="ShellcodeExecViaEnumDirTreeW.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution from Callback</Filter>
-    </ClCompile>
     <ClCompile Include="MpfGetLsaPidFromNamedPipe.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ShellcodeExecutionViaFunctionCallbackMain.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
   </ItemGroup>

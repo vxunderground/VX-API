@@ -223,15 +223,7 @@
     <ClCompile Include="SetLastErrorInTeb.cpp" />
     <ClCompile Include="SetLastNtStatusInTeb.cpp" />
     <ClCompile Include="SetProcessPrivilegeToken.cpp" />
-    <ClCompile Include="ShellcodeExecViaCDefFolderMenu_Create2.cpp" />
-    <ClCompile Include="ShellcodeExecViaCertEnumSystemStore.cpp" />
-    <ClCompile Include="ShellcodeExecViaCertEnumSystemStoreLocation.cpp" />
-    <ClCompile Include="ShellcodeExecViaCertFindChainInStore.cpp" />
-    <ClCompile Include="ShellcodeExecViaEnumChildWindows.cpp" />
-    <ClCompile Include="ShellcodeExecViaEnumDateFormatsW.cpp" />
-    <ClCompile Include="ShellcodeExecViaEnumDesktopsW.cpp" />
-    <ClCompile Include="ShellcodeExecViaEnumDesktopWindows.cpp" />
-    <ClCompile Include="ShellcodeExecViaEnumDirTreeW.cpp" />
+    <ClCompile Include="ShellcodeExecutionViaFunctionCallbackMain.cpp" />
     <ClCompile Include="StringCompare.cpp" />
     <ClCompile Include="StringConcat.cpp" />
     <ClCompile Include="StringCopy.cpp" />
