@@ -132,7 +132,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromServiceManager | modexp | Malicious Capability |
 | MpfGetLsaPidFromRegistry | modexp | Malicious Capability |
 | MpfGetLsaPidFromNamedPipe | modexp | Malicious Capability |
-| ShellcodeExecutionViaFunctionCallbackMain | smelly__vx, alfarom256 and aahmad097| Malicious Capability |
+| ShellcodeExecutionViaFunctionCallbackMain | smelly__vx, alfarom256, aahmad097| Malicious Capability |
 
 
 # Todo list
@@ -156,8 +156,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | DelayedExecutionExecuteOnDisplayOff | TryDllMultiMethod | N/A |
 | GetPidFromWindowsTerminalService | TryDllMultiMethod | N/A |
 | GetCurrentUserSid | TryDllMultiMethod | N/A |
-| ShellcodeExecViaEnumDesktopsW | Fix abstraction | N/A |
-| ShellcodeExecViaEnumDesktopWindows | Fix abstraction | N/A |
 | NtQueryOpenSubKeysEx | admin required | N/A |
 | ~~ShellcodeExecViaCertFindChainInStore~~ | ~~Buggy, unstable~~ | October 23rd, 2022 |
 | ~~RecursiveFindFile~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
