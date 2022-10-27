@@ -132,7 +132,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromServiceManager | modexp | Malicious Capability |
 | MpfGetLsaPidFromRegistry | modexp | Malicious Capability |
 | MpfGetLsaPidFromNamedPipe | modexp | Malicious Capability |
-| ShellcodeExecutionViaFunctionCallbackMain | smelly__vx, alfarom256, aahmad097| Malicious Capability |
+| ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malicious Capability |
 
 
 # Todo list
