@@ -183,6 +183,7 @@
     <ClCompile Include="GetProcAddressSdbm.cpp" />
     <ClCompile Include="GetProcAddressSuperFastHash.cpp" />
     <ClCompile Include="GetProcAddressUnknownGenericHash1.cpp" />
+    <ClCompile Include="GetProcessBinaryNameFromHwnd.cpp" />
     <ClCompile Include="GetProcessHeapFromTeb.cpp" />
     <ClCompile Include="GetProcessPathFromLoaderLoadModule.cpp" />
     <ClCompile Include="GetProcessPathFromUserProcessParameters.cpp" />
@@ -208,6 +209,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MasqueradePebAsExplorer.cpp" />
     <ClCompile Include="MpfComModifyShortcutTarget.cpp" />
+    <ClCompile Include="MpfComMonitorChromeSessionOnce.cpp" />
     <ClCompile Include="MpfComVssDeleteShadowVolumeBackups.cpp" />
     <ClCompile Include="MpfGetLsaPidFromNamedPipe.cpp" />
     <ClCompile Include="MpfGetLsaPidFromRegistry.cpp" />

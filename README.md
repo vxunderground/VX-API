@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.285
+Version: 2.0.293
 
 Developer: smelly__vx
   
@@ -109,6 +109,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | IsDllLoaded | smelly__vx | Helper Functions | 
 | TryLoadDllMultiMethod | smelly__vx | Helper Functions |
 | CreateThreadAndWaitForCompletion | smelly__vx | Helper Functions |
+| GetProcessBinaryNameFromHwndW | smelly__vx | Helper Functions |
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
@@ -133,6 +134,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromRegistry | modexp | Malicious Capability |
 | MpfGetLsaPidFromNamedPipe | modexp | Malicious Capability |
 | ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malicious Capability |
+| MpfComMonitorChromeSessionOnce | smelly__vx | Malicious Capability |
 
 
 # Todo list
@@ -157,6 +159,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetPidFromWindowsTerminalService | TryDllMultiMethod | N/A |
 | GetCurrentUserSid | TryDllMultiMethod | N/A |
 | NtQueryOpenSubKeysEx | admin required | N/A |
+| GetProcessBinaryNameFromHwndW | make A variant | N/A |
+| MpfComMonitorChromeSessionOnce | Usability improvements needed | N/A |
 | ~~ShellcodeExecViaCertFindChainInStore~~ | ~~Buggy, unstable~~ | October 23rd, 2022 |
 | ~~RecursiveFindFile~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
 | ~~UrlDownloadToFileSynchronous~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |

