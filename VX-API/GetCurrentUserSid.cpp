@@ -21,7 +21,7 @@ LPWSTR GetCurrentUserSidW(VOID)
 	HMODULE hAdvapi = NULL;
 	HANDLE hToken = NULL;
 
-	hAdvapi = LoadLibraryW(L"Advapi32.dll");
+	hAdvapi = TryLoadDllMultiMethodW((PWCHAR)L"Advapi32.dll");
 	if (hAdvapi == NULL)
 		goto EXIT_ROUTINE;
 
@@ -99,7 +99,7 @@ LPSTR GetCurrentUserSidA(VOID)
 	HMODULE hAdvapi = NULL;
 	HANDLE hToken = NULL;
 
-	hAdvapi = LoadLibraryW(L"Advapi32.dll");
+	hAdvapi = TryLoadDllMultiMethodW((PWCHAR)L"Advapi32.dll");
 	if (hAdvapi == NULL)
 		goto EXIT_ROUTINE;
 

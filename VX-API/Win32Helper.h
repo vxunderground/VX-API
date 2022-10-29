@@ -172,6 +172,7 @@ HMODULE TryLoadDllMultiMethodW(_In_ PWCHAR DllName);
 HMODULE TryLoadDllMultiMethodA(_In_ PCHAR DllName);
 DWORD CreateThreadAndWaitForCompletion(_In_ LPTHREAD_START_ROUTINE StartAddress, _In_ LPVOID Parameters, _In_ DWORD dwMilliseconds);
 BOOL GetProcessBinaryNameFromHwndW(_In_ HWND ProcessHwnd, _Inout_ PWCHAR BinaryName, _In_ DWORD BufferSize);
+BOOL GetProcessBinaryNameFromHwndA(_In_ HWND ProcessHwnd, _Inout_ PCHAR BinaryName, _In_ DWORD BufferSize)
 
 
 

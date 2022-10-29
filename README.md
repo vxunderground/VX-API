@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.293
+Version: 2.0.298
 
 Developer: smelly__vx
   
@@ -153,14 +153,14 @@ You're free to use this in any manner you please. You do not need to use this en
 | Function Name | Note | Fixed |
 | ------------- | ---- | ----- |
 | StringToken | Needs revision, buggy | N/A |
-| CreateProcessFromIShellDispatchInvoke | TryDllMultiMethod | N/A |
 | UnusedSubroutineGetShellViewForDesktop | TryDllMultiMethod | N/A |
 | DelayedExecutionExecuteOnDisplayOff | TryDllMultiMethod | N/A |
 | GetPidFromWindowsTerminalService | TryDllMultiMethod | N/A |
-| GetCurrentUserSid | TryDllMultiMethod | N/A |
 | NtQueryOpenSubKeysEx | admin required | N/A |
-| GetProcessBinaryNameFromHwndW | make A variant | N/A |
 | MpfComMonitorChromeSessionOnce | Usability improvements needed | N/A |
+| ~~GetCurrentUserSid~~ | ~~TryDllMultiMethod~~ |October 29th, 2022 |
+| ~~GetProcessBinaryNameFromHwndW~~ | ~~make A variant~~ | October 29th, 2022 |
+| ~~CreateProcessFromIShellDispatchInvoke~~ | ~~TryDllMultiMethod~~ | October 29th, 2022 |
 | ~~ShellcodeExecViaCertFindChainInStore~~ | ~~Buggy, unstable~~ | October 23rd, 2022 |
 | ~~RecursiveFindFile~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
 | ~~UrlDownloadToFileSynchronous~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |

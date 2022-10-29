@@ -15,7 +15,7 @@ DWORD CreateProcessFromIShellDispatchInvokeW(_In_ PWCHAR BinaryPath)
 	DISPPARAMS DispatchParameters;
 	LPOLESTR MemberString = (PWCHAR)L"ShellExecute";
 
-	hModule = LoadLibraryW(L"Shell32.dll");
+	hModule = TryLoadDllMultiMethodW((PWCHAR)L"Shell32.dll");
 	if (hModule == NULL)
 		return GetLastErrorFromTeb();
 
