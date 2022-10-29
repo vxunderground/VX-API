@@ -47,8 +47,6 @@ EXIT_ROUTINE:
 
 HRESULT UnusedSubroutineGetShellViewForDesktop(REFIID Riid, PVOID* ShellView)
 {
-	IUNKNOWN_QUERYSERVICE QueryServiceUsingIUnknown = NULL;
-	HMODULE hModule = NULL;
 	HRESULT Result = S_OK;
 	IShellWindows* Windows = NULL;
 	HWND hWnd;
@@ -58,14 +56,6 @@ HRESULT UnusedSubroutineGetShellViewForDesktop(REFIID Riid, PVOID* ShellView)
 	IShellView* View = NULL;
 	*ShellView = NULL;
 
-	hModule = LoadLibraryW(L"Shlwapi.dll");
-	if (hModule == NULL)
-		return E_FAIL;
-
-	QueryServiceUsingIUnknown = (IUNKNOWN_QUERYSERVICE)GetProcAddressA((DWORD64)hModule, (PCHAR)"IUnknown_QueryService");
-	if(QueryServiceUsingIUnknown == NULL)
-		return E_FAIL;
-	
 	Result = CoCreateInstance(CLSID_ShellWindows, NULL, CLSCTX_LOCAL_SERVER, IID_PPV_ARGS(&Windows));
 	if (!SUCCEEDED(Result))
 		return Result;
@@ -74,7 +64,7 @@ HRESULT UnusedSubroutineGetShellViewForDesktop(REFIID Riid, PVOID* ShellView)
 	if (!SUCCEEDED(Result))
 		goto EXIT_ROUTINE;
 
-	Result = QueryServiceUsingIUnknown(Dispatch, SID_STopLevelBrowser, IID_PPV_ARGS(&Browser));
+	Result = IUnknown_QueryService(Dispatch, SID_STopLevelBrowser, IID_PPV_ARGS(&Browser));
 	if (!SUCCEEDED(Result))
 		goto EXIT_ROUTINE;
 
@@ -88,9 +78,6 @@ HRESULT UnusedSubroutineGetShellViewForDesktop(REFIID Riid, PVOID* ShellView)
 
 
 EXIT_ROUTINE:
-
-	if (hModule)
-		FreeLibrary(hModule);
 
 #pragma warning( push )
 #pragma warning( disable : 6001)

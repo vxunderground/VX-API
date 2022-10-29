@@ -49,19 +49,9 @@ DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath)
 	HRESULT Result = S_OK;
 	DownloadProgressRoutine DownloadCallback;
 	DWORD dwError = ERROR_SUCCESS;
-	URLDOWNLOADFILEW UrlDownloadToFileW = NULL;
-	HMODULE Urlmon;
 	BOOL bFlag = FALSE;
 
-	Urlmon = TryLoadDllMultiMethodW((PWCHAR)L"Urlmon.dll");
-	if (Urlmon == NULL)
-		goto EXIT_ROUTINE;
-
-	UrlDownloadToFileW = (URLDOWNLOADFILEW)GetProcAddressA((DWORD64)Urlmon, "URLDownloadToFileW");
-	if (!UrlDownloadToFileW)
-		goto EXIT_ROUTINE;
-
-	Result = UrlDownloadToFileW(0, Url, SavePath, 0, (IBindStatusCallback*)(&DownloadCallback));
+	Result = URLDownloadToFileW(0, Url, SavePath, 0, (IBindStatusCallback*)(&DownloadCallback));
 	if (Result != S_OK)
 		goto EXIT_ROUTINE;
 
@@ -89,9 +79,6 @@ EXIT_ROUTINE:
 		else
 			dwError = GetLastErrorFromTeb();
 	}
-
-	if (Urlmon)
-		FreeLibrary(Urlmon);
 
 	return dwError;
 }
@@ -145,19 +132,9 @@ DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath)
 	HRESULT Result = S_OK;
 	DownloadProgressRoutine DownloadCallback;
 	DWORD dwError = ERROR_SUCCESS;
-	URLDOWNLOADFILEA UrlDownloadToFileA = NULL;
-	HMODULE Urlmon;
 	BOOL bFlag = FALSE;
 
-	Urlmon = TryLoadDllMultiMethodW((PWCHAR)L"Urlmon.dll");
-	if (Urlmon == NULL)
-		goto EXIT_ROUTINE;
-
-	UrlDownloadToFileA = (URLDOWNLOADFILEA)GetProcAddressA((DWORD64)Urlmon, "URLDownloadToFileA");
-	if (!UrlDownloadToFileA)
-		goto EXIT_ROUTINE;
-
-	Result = UrlDownloadToFileA(0, Url, SavePath, 0, (IBindStatusCallback*)(&DownloadCallback));
+	Result = URLDownloadToFileA(0, Url, SavePath, 0, (IBindStatusCallback*)(&DownloadCallback));
 	if (Result != S_OK)
 		goto EXIT_ROUTINE;
 
@@ -185,9 +162,6 @@ EXIT_ROUTINE:
 		else
 			dwError = GetLastErrorFromTeb();
 	}
-
-	if (Urlmon)
-		FreeLibrary(Urlmon);
 
 	return dwError;
 }

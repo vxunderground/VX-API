@@ -5,15 +5,12 @@ PVOID UserDefinedCallbackRoutineA(LPCSTR Path)
 	return 0;
 }
 
-BOOL UnusedSubroutineRecursiveFindFileMainA(LPCSTR Path, LPCSTR Pattern, PVOID pfnPathCombineW)
+BOOL UnusedSubroutineRecursiveFindFileMainA(LPCSTR Path, LPCSTR Pattern)
 {
-	PATHCOMBINEA PathCombineA = (PATHCOMBINEA)pfnPathCombineW;
-
 	HANDLE HeapHandle = GetProcessHeapFromTeb();
 	CHAR szFullPattern[MAX_PATH] = { 0 };
 	WIN32_FIND_DATAA FindData = { 0 };
 	HANDLE FindHandle = INVALID_HANDLE_VALUE;
-
 
 	if (PathCombineA(szFullPattern, Path, "*") == NULL)
 		goto EXIT_ROUTINE;
@@ -36,7 +33,7 @@ BOOL UnusedSubroutineRecursiveFindFileMainA(LPCSTR Path, LPCSTR Pattern, PVOID p
 			if (PathCombineA(szFullPattern, Path, FindData.cFileName) == NULL)
 				goto EXIT_ROUTINE;
 
-			UnusedSubroutineRecursiveFindFileMainA(szFullPattern, Pattern, PathCombineA);
+			UnusedSubroutineRecursiveFindFileMainA(szFullPattern, Pattern);
 		}
 
 	} while (FindNextFileA(FindHandle, &FindData));
@@ -83,27 +80,7 @@ EXIT_ROUTINE:
 
 BOOL RecursiveFindFileA(_In_ LPCSTR Path, _In_ LPCSTR Pattern)
 {
-	PATHCOMBINEA PathCombineA = NULL;
-	HMODULE hShlwapi = NULL;
-	BOOL bIsNewlyLoaded = FALSE;
-	BOOL bFlag = FALSE;
-
-	hShlwapi = TryLoadDllMultiMethodW((PWCHAR)L"Shlwapi.dll");
-	if (hShlwapi == NULL)
-		goto EXIT_ROUTINE;
-
-	PathCombineA = (PATHCOMBINEA)GetProcAddressA((DWORD64)hShlwapi, "PathCombineW");
-	if (PathCombineA == NULL)
-		goto EXIT_ROUTINE;
-
-	bFlag = UnusedSubroutineRecursiveFindFileMainA(Path, Pattern, PathCombineA);
-
-EXIT_ROUTINE:
-
-	if (hShlwapi != NULL)
-		FreeLibrary(hShlwapi);
-
-	return bFlag;
+	return UnusedSubroutineRecursiveFindFileMainA(Path, Pattern);
 }
 
 PVOID UserDefinedCallbackRoutineW(LPCWSTR Path)
@@ -111,10 +88,8 @@ PVOID UserDefinedCallbackRoutineW(LPCWSTR Path)
 	return 0;
 }
 
-BOOL UnusedSubroutineRecursiveFindFileMainW(LPCWSTR Path, LPCWSTR Pattern, PVOID pfnPathCombineW)
+BOOL UnusedSubroutineRecursiveFindFileMainW(LPCWSTR Path, LPCWSTR Pattern)
 {
-	PATHCOMBINEW PathCombineW = (PATHCOMBINEW)pfnPathCombineW;
-
 	HANDLE HeapHandle = GetProcessHeapFromTeb();
 	WCHAR szFullPattern[MAX_PATH] = { 0 };
 	WIN32_FIND_DATAW FindData = { 0 };
@@ -141,7 +116,7 @@ BOOL UnusedSubroutineRecursiveFindFileMainW(LPCWSTR Path, LPCWSTR Pattern, PVOID
 			if (PathCombineW(szFullPattern, Path, FindData.cFileName) == NULL)
 				goto EXIT_ROUTINE;
 
-			UnusedSubroutineRecursiveFindFileMainW(szFullPattern, Pattern, PathCombineW);
+			UnusedSubroutineRecursiveFindFileMainW(szFullPattern, Pattern);
 		}
 
 	} while (FindNextFileW(FindHandle, &FindData));
@@ -188,7 +163,6 @@ EXIT_ROUTINE:
 
 BOOL RecursiveFindFileW(_In_ LPCWSTR Path, _In_ LPCWSTR Pattern)
 {
-	PATHCOMBINEW PathCombineW = NULL;
 	HMODULE hShlwapi = NULL;
 	BOOL bIsNewlyLoaded = FALSE;
 	BOOL bFlag = FALSE;
@@ -197,11 +171,7 @@ BOOL RecursiveFindFileW(_In_ LPCWSTR Path, _In_ LPCWSTR Pattern)
 	if (hShlwapi == NULL)
 		goto EXIT_ROUTINE;
 
-	PathCombineW = (PATHCOMBINEW)GetProcAddressA((DWORD64)hShlwapi, "PathCombineW");
-	if (PathCombineW == NULL)
-		goto EXIT_ROUTINE;
-
-	bFlag = UnusedSubroutineRecursiveFindFileMainW(Path, Pattern, PathCombineW);
+	bFlag = UnusedSubroutineRecursiveFindFileMainW(Path, Pattern);
 
 EXIT_ROUTINE:
 

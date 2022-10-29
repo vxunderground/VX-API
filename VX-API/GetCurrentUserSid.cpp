@@ -12,22 +12,12 @@ DWORD GetTokenInformationBufferSize(HANDLE hToken)
 
 LPWSTR GetCurrentUserSidW(VOID)
 {
-	CONVERTSIDTOSTRINGSIDW ConvertSidToStringSidW;
 	PSID Sid = NULL;
 	PTOKEN_GROUPS TokenGroup = NULL;
 	DWORD dwError = ERROR_SUCCESS, dwIndex = ERROR_SUCCESS;
 	BOOL bFlag = FALSE;
 	LPWSTR pSid = NULL;
-	HMODULE hAdvapi = NULL;
 	HANDLE hToken = NULL;
-
-	hAdvapi = TryLoadDllMultiMethodW((PWCHAR)L"Advapi32.dll");
-	if (hAdvapi == NULL)
-		goto EXIT_ROUTINE;
-
-	ConvertSidToStringSidW = (CONVERTSIDTOSTRINGSIDW)GetProcAddressA((DWORD64)hAdvapi, "ConvertSidToStringSidW");
-	if (!ConvertSidToStringSidW)
-		goto EXIT_ROUTINE;
 
 	if (!OpenProcessToken(InlineGetCurrentProcess, TOKEN_ALL_ACCESS, &hToken))
 		return NULL;
@@ -79,9 +69,6 @@ EXIT_ROUTINE:
 	if (Sid)
 		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, Sid);
 
-	if (hAdvapi)
-		FreeLibrary(hAdvapi);
-
 	if (hToken)
 		CloseHandle(hToken);
 
@@ -90,22 +77,12 @@ EXIT_ROUTINE:
 
 LPSTR GetCurrentUserSidA(VOID)
 {
-	CONVERTSIDTOSTRINGSIDA ConvertSidToStringSidA;
 	PSID Sid = NULL;
 	PTOKEN_GROUPS TokenGroup = NULL;
 	DWORD dwError = ERROR_SUCCESS, dwIndex = ERROR_SUCCESS;
 	BOOL bFlag = FALSE;
 	LPSTR pSid = NULL;
-	HMODULE hAdvapi = NULL;
 	HANDLE hToken = NULL;
-
-	hAdvapi = TryLoadDllMultiMethodW((PWCHAR)L"Advapi32.dll");
-	if (hAdvapi == NULL)
-		goto EXIT_ROUTINE;
-
-	ConvertSidToStringSidA = (CONVERTSIDTOSTRINGSIDA)GetProcAddressA((DWORD64)hAdvapi, "ConvertSidToStringSidA");
-	if (!ConvertSidToStringSidA)
-		goto EXIT_ROUTINE;
 
 	if (!OpenProcessToken(InlineGetCurrentProcess, TOKEN_ALL_ACCESS, &hToken))
 		return NULL;
@@ -156,9 +133,6 @@ EXIT_ROUTINE:
 
 	if (Sid)
 		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, Sid);
-
-	if (hAdvapi)
-		FreeLibrary(hAdvapi);
 
 	if (hToken)
 		CloseHandle(hToken);

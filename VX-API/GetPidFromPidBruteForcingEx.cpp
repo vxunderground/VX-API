@@ -6,29 +6,25 @@ DWORD GetPidFromPidBruteForcingExW(_In_ PWCHAR ProcessNameWithExtension)
 	IO_STATUS_BLOCK IoBlock = { 0 };
 	HANDLE hDevice = NULL;
 	OBJECT_ATTRIBUTES Attributes = { 0 };
-	HMODULE hModule = NULL, hShlwapi = NULL;
+	HMODULE hModule = NULL;
 	PFILE_PROCESS_IDS_USING_FILE_INFORMATION ProcessIdArray = NULL;
 	NTSTATUS Status = STATUS_SUCCESS;
 	DWORD ProcessId = ERROR_SUCCESS, dwProcessInformationListArrayLength = 16384;
-
 	NTCREATEFILE NtCreateFile = NULL;
 	NTCLOSE NtClose = NULL;
 	NTQUERYINFORMATIONFILE NtQueryInformationFile = NULL;
 	NTQUERYSYSTEMINFORMATION NtQuerySystemInformation = NULL;
-	PATHSTRIPPATHW PathStripPathW = NULL;
 
 	hModule = GetModuleHandleEx2W(L"ntdll.dll");
-	hShlwapi = TryLoadDllMultiMethodW((PWCHAR)L"shlwapi.dll");
 
-	if (!hModule || !hShlwapi)
+	if (!hModule)
 		return 0;
 
 	NtCreateFile = (NTCREATEFILE)GetProcAddressA((DWORD64)hModule, "NtCreateFile");
 	NtClose = (NTCLOSE)GetProcAddressA((DWORD64)hModule, "NtClose");
 	NtQueryInformationFile = (NTQUERYINFORMATIONFILE)GetProcAddressA((DWORD64)hModule, "NtQueryInformationFile");
 	NtQuerySystemInformation = (NTQUERYSYSTEMINFORMATION)GetProcAddressA((DWORD64)hModule, "NtQuerySystemInformation");
-	PathStripPathW = (PATHSTRIPPATHW)GetProcAddressA((DWORD64)hShlwapi, "PathStripPathW");
-	if (!NtCreateFile || !NtClose || !NtQueryInformationFile || !NtQuerySystemInformation || !PathStripPathW)
+	if (!NtCreateFile || !NtClose || !NtQueryInformationFile || !NtQuerySystemInformation)
 		return 0;
 
 	RtlInitUnicodeString(&NtfsRoot, L"\\NTFS\\");
@@ -89,9 +85,6 @@ EXIT_ROUTINE:
 	if (hDevice)
 		NtClose(hDevice);
 
-	if (hShlwapi)
-		FreeLibrary(hShlwapi);
-
 	return ProcessId;
 }
 
@@ -101,7 +94,7 @@ DWORD GetPidFromPidBruteForcingExA(_In_ PCHAR ProcessNameWithExtension)
 	IO_STATUS_BLOCK IoBlock = { 0 };
 	HANDLE hDevice = NULL;
 	OBJECT_ATTRIBUTES Attributes = { 0 };
-	HMODULE hModule = NULL, hShlwapi = NULL;
+	HMODULE hModule = NULL;
 	PFILE_PROCESS_IDS_USING_FILE_INFORMATION ProcessIdArray = NULL;
 	NTSTATUS Status = STATUS_SUCCESS;
 	DWORD ProcessId = ERROR_SUCCESS, dwProcessInformationListArrayLength = 16384;
@@ -110,23 +103,20 @@ DWORD GetPidFromPidBruteForcingExA(_In_ PCHAR ProcessNameWithExtension)
 	NTCLOSE NtClose = NULL;
 	NTQUERYINFORMATIONFILE NtQueryInformationFile = NULL;
 	NTQUERYSYSTEMINFORMATION NtQuerySystemInformation = NULL;
-	PATHSTRIPPATHW PathStripPathW = NULL;
 
 	if (CharStringToWCharString(ProcessParameterTransformed, ProcessNameWithExtension, StringLengthA(ProcessNameWithExtension) == 0))
 		goto EXIT_ROUTINE;
 
 	hModule = GetModuleHandleEx2W(L"ntdll.dll");
-	hShlwapi = TryLoadDllMultiMethodW((PWCHAR)L"shlwapi.dll");
 
-	if (!hModule || !hShlwapi)
+	if (!hModule)
 		return 0;
 
 	NtCreateFile = (NTCREATEFILE)GetProcAddressA((DWORD64)hModule, "NtCreateFile");
 	NtClose = (NTCLOSE)GetProcAddressA((DWORD64)hModule, "NtClose");
 	NtQueryInformationFile = (NTQUERYINFORMATIONFILE)GetProcAddressA((DWORD64)hModule, "NtQueryInformationFile");
 	NtQuerySystemInformation = (NTQUERYSYSTEMINFORMATION)GetProcAddressA((DWORD64)hModule, "NtQuerySystemInformation");
-	PathStripPathW = (PATHSTRIPPATHW)GetProcAddressA((DWORD64)hShlwapi, "PathStripPathW");
-	if (!NtCreateFile || !NtClose || !NtQueryInformationFile || !NtQuerySystemInformation || !PathStripPathW)
+	if (!NtCreateFile || !NtClose || !NtQueryInformationFile || !NtQuerySystemInformation)
 		return 0;
 
 	RtlInitUnicodeString(&NtfsRoot, L"\\NTFS\\");
@@ -186,9 +176,6 @@ EXIT_ROUTINE:
 
 	if (hDevice)
 		NtClose(hDevice);
-
-	if (hShlwapi)
-		FreeLibrary(hShlwapi);
 
 	return ProcessId;
 }

@@ -2,6 +2,17 @@
 #include "Internal.h"
 #include "StringManipulation.h"
 #include "FunctionDeclaration.h"
+#include <Dbghelp.h> 
+#include <wincrypt.h>
+#include <shlwapi.h>
+#include <Shlobj.h>
+#include <sddl.h>
+#include <wtsapi32.h>
+
+#pragma comment(lib, "Crypt32.lib")
+#pragma comment(lib, "Dbghelp.lib")
+#pragma comment(lib, "Wtsapi32.lib")
+#pragma comment(lib, "Urlmon.lib")
 
 #ifndef NT_SUCCESS
 #define NT_SUCCESS(x) ((x)>=0)
@@ -58,7 +69,8 @@ typedef enum SHELLCODE_EXECUTION_METHOD {
     E_ENUMWINDOWSTATIONSW, //24
     E_ENUMWINDOWS, //25
     E_ENUMPROPSW, //26 NOT IMPLEMENTED!
-    E_MESSAGEBOXINDIRECT //27 UNSTABLE
+    E_MESSAGEBOXINDIRECT, //27 UNSTABLE
+    E_PERFSTARTPROVIDEREX //28 NOT IMPLEMENTED!
 }SHELLCODE_EXECUTION_METHOD, *PSHELLCODE_EXECUTION_METHOD;
 
 typedef struct __SHELLCODE_EXECUTION_INFORMATION {
@@ -172,7 +184,7 @@ HMODULE TryLoadDllMultiMethodW(_In_ PWCHAR DllName);
 HMODULE TryLoadDllMultiMethodA(_In_ PCHAR DllName);
 DWORD CreateThreadAndWaitForCompletion(_In_ LPTHREAD_START_ROUTINE StartAddress, _In_ LPVOID Parameters, _In_ DWORD dwMilliseconds);
 BOOL GetProcessBinaryNameFromHwndW(_In_ HWND ProcessHwnd, _Inout_ PWCHAR BinaryName, _In_ DWORD BufferSize);
-BOOL GetProcessBinaryNameFromHwndA(_In_ HWND ProcessHwnd, _Inout_ PCHAR BinaryName, _In_ DWORD BufferSize)
+BOOL GetProcessBinaryNameFromHwndA(_In_ HWND ProcessHwnd, _Inout_ PCHAR BinaryName, _In_ DWORD BufferSize);
 
 
 

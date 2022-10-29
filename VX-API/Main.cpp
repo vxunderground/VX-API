@@ -45,7 +45,7 @@ int main(VOID)
 	SHELLCODE_EXECUTION_INFORMATION Sei = { 0 };
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
-	Sei.MethodEnum = E_MESSAGEBOXINDIRECT;
+	Sei.MethodEnum = E_ENUMDIRTREEW;
 
 	ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 	//MpfComMonitorChromeSessionOnce();
