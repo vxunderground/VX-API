@@ -17,6 +17,7 @@ TODO:
 int main(VOID)
 {
 	DWORD dwError = ERROR_SUCCESS;
+	CHAR Buffer[MAX_PATH * sizeof(WCHAR)] = { 0 };
 	//EXAMPLE PAYLOAD FOR TESTING!
 	//msfvenom -p windows/x64/exec EXITFUNC=thread CMD=calc.exe -f c -a x64
 	//Length = 277
@@ -47,8 +48,9 @@ int main(VOID)
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_ENUMPWRSCHEMES;
 
-	ShellcodeExecutionViaFunctionCallbackMain(&Sei);
-	//MpfComMonitorChromeSessionOnce();
+	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
+	
+	ShlwapiWCharStringToCharString((PWCHAR)L"Test", Buffer, MAX_PATH * sizeof(WCHAR));
 	
 
 	return dwError;

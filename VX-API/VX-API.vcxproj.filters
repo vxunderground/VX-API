@@ -396,6 +396,12 @@
     <ClCompile Include="GetProcessBinaryNameFromHwnd.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
+    <ClCompile Include="ShlwapiCharStringToWCharString.cpp">
+      <Filter>Source Files\String Manipulation\String Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="ShlwapiWCharStringToCharString.cpp">
+      <Filter>Source Files\String Manipulation\String Conversion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

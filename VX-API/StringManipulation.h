@@ -33,3 +33,5 @@ SIZE_T CharStringToWCharString(_Inout_ PWCHAR Destination, _In_ PCHAR Source, _I
 SIZE_T WCharStringToCharString(_Inout_ PCHAR Destination, _In_ PWCHAR Source, _In_ SIZE_T MaximumAllowed);
 VOID ByteArrayToCharArrayA(_Inout_ PCHAR Destination, _In_ PBYTE Source, _In_ DWORD Length);
 VOID ByteArrayToCharArrayW(_Inout_ PWCHAR Destination, _In_ PBYTE Source, _In_ DWORD Length);
+INT ShlwapiCharStringToWCharString(_In_ PCHAR InString, _Inout_ PWCHAR OutString, _In_ INT BufferSize);
+INT ShlwapiWCharStringToCharString(_In_ PWCHAR InString, _Inout_ PCHAR OutString, _In_ INT BufferSize);

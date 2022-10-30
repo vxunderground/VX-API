@@ -226,6 +226,8 @@
     <ClCompile Include="SetLastNtStatusInTeb.cpp" />
     <ClCompile Include="SetProcessPrivilegeToken.cpp" />
     <ClCompile Include="ShellcodeExecutionViaFunctionCallbackMain.cpp" />
+    <ClCompile Include="ShlwapiCharStringToWCharString.cpp" />
+    <ClCompile Include="ShlwapiWCharStringToCharString.cpp" />
     <ClCompile Include="StringCompare.cpp" />
     <ClCompile Include="StringConcat.cpp" />
     <ClCompile Include="StringCopy.cpp" />

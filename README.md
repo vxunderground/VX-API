@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.313
+Version: 2.0.321
 
 Developer: smelly__vx
   
@@ -22,6 +22,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | ------------- | --------------- | ------- |
 | ByteArrayToCharArray | smelly__vx | String Conversion |
 | CharArrayToByteArray | smelly__vx | String Conversion |
+| ShlwapiCharStringToWCharString | smelly__vx | String Conversion |
+| ShlwapiWCharStringToCharString | smelly__vx | String Conversion |
 | CharStringToWCharString | smelly__vx | String Conversion |
 | WCharStringToCharString | smelly__vx | String Conversion |
 | RtlInitEmptyUnicodeString | ReactOS | Windows Unicode Structure |
@@ -153,12 +155,12 @@ You're free to use this in any manner you please. You do not need to use this en
 | Function Name | Note | Fixed |
 | ------------- | ---- | ----- |
 | StringToken | Needs revision, buggy | N/A |
-| UnusedSubroutineGetShellViewForDesktop | TryDllMultiMethod | N/A |
-| DelayedExecutionExecuteOnDisplayOff | TryDllMultiMethod | N/A |
-| GetPidFromWindowsTerminalService | TryDllMultiMethod | N/A |
 | NtQueryOpenSubKeysEx | admin required | N/A |
 | MpfComMonitorChromeSessionOnce | Usability improvements needed | N/A |
-| ~~GetCurrentUserSid~~ | ~~TryDllMultiMethod~~ |October 29th, 2022 |
+| ~~DelayedExecutionExecuteOnDisplayOff~~ | ~~TryDllMultiMethod~~ | October 30th, 2022 |
+| ~~GetPidFromWindowsTerminalService~~ | ~~TryDllMultiMethod~~ | October 30th, 2022 |
+| ~~UnusedSubroutineGetShellViewForDesktop~~ | ~~TryDllMultiMethod~~ | October 30th, 2022 |
+| ~~GetCurrentUserSid~~ | ~~TryDllMultiMethod~~ | October 29th, 2022 |
 | ~~GetProcessBinaryNameFromHwndW~~ | ~~make A variant~~ | October 29th, 2022 |
 | ~~CreateProcessFromIShellDispatchInvoke~~ | ~~TryDllMultiMethod~~ | October 29th, 2022 |
 | ~~ShellcodeExecViaCertFindChainInStore~~ | ~~Buggy, unstable~~ | October 23rd, 2022 |
