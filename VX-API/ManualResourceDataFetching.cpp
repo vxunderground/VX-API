@@ -7,16 +7,16 @@
 
 BOOL GetResourceData(HMODULE hModule, WORD ResourceId, PVOID* ppResourceRawData, PDWORD psResourceDataSize) {
 
-	CHAR*					pBaseAddr		= (CHAR*)hModule;
+	CHAR*				pBaseAddr		= (CHAR*)hModule;
 	PIMAGE_DOS_HEADER 		pImgDosHdr		= (PIMAGE_DOS_HEADER)pBaseAddr;
 	PIMAGE_NT_HEADERS 		pImgNTHdr		= (PIMAGE_NT_HEADERS)(pBaseAddr + pImgDosHdr->e_lfanew);
-	PIMAGE_OPTIONAL_HEADER 	pImgOptionalHdr = (PIMAGE_OPTIONAL_HEADER)&pImgNTHdr->OptionalHeader;
-	PIMAGE_DATA_DIRECTORY 	pDataDir		= (PIMAGE_DATA_DIRECTORY)&pImgOptionalHdr->DataDirectory[IMAGE_DIRECTORY_ENTRY_RESOURCE];
+	PIMAGE_OPTIONAL_HEADER 		pImgOptionalHdr 	= (PIMAGE_OPTIONAL_HEADER)&pImgNTHdr->OptionalHeader;
+	PIMAGE_DATA_DIRECTORY 		pDataDir		= (PIMAGE_DATA_DIRECTORY)&pImgOptionalHdr->DataDirectory[IMAGE_DIRECTORY_ENTRY_RESOURCE];
 	
-	PIMAGE_RESOURCE_DIRECTORY 		pResourceDir	= NULL, pResourceDir2	= NULL, pResourceDir3	= NULL;
+	PIMAGE_RESOURCE_DIRECTORY	pResourceDir	= NULL, pResourceDir2	= NULL, pResourceDir3	= NULL;
 	PIMAGE_RESOURCE_DIRECTORY_ENTRY pResourceEntry	= NULL, pResourceEntry2 = NULL, pResourceEntry3 = NULL;
 	
-	PIMAGE_RESOURCE_DATA_ENTRY 		pResource		= NULL;
+	PIMAGE_RESOURCE_DATA_ENTRY	pResource	= NULL;
 
 
 	pResourceDir   = (PIMAGE_RESOURCE_DIRECTORY)(pBaseAddr + pDataDir->VirtualAddress);
