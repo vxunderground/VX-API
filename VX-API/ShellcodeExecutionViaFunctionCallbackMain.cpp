@@ -183,7 +183,7 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 
 		case E_ENUMERATELOADEDMODULES:
 		{
-			EnumerateLoadedModules64(InlineGetCurrentProcess, (PENUMLOADED_MODULES_CALLBACK)BinAddress, NULL);
+			EnumerateLoadedModules64(InlineGetCurrentProcess, (PENUMLOADED_MODULES_CALLBACK64)BinAddress, NULL);
 			break;
 		}
 
@@ -219,5 +219,5 @@ EXIT_ROUTINE:
 
 BOOL ShellcodeExecutionViaFunctionCallbackMain(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei)
 {
-	return CreateThreadAndWaitForCompletion(ShellcodeExecutionDispatchHandler, Sei, INFINITE);
+	return CreateThreadAndWaitForCompletion((LPTHREAD_START_ROUTINE)ShellcodeExecutionDispatchHandler, Sei, INFINITE);
 }
