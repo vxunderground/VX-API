@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.332
+Version: 2.0.342
 
 Developer: smelly__vx
   
@@ -107,7 +107,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | IsPathValid | smelly__vx | Helper Functions |
 | RecursiveFindFile | Luke | Helper Functions |
 | SetProcessPrivilegeToken | Microsoft | Helper Functions |
-| UrlDownloadToFileSynchronous | Hans Passant | Helper Functions |
 | IsDllLoaded | smelly__vx | Helper Functions | 
 | TryLoadDllMultiMethod | smelly__vx | Helper Functions |
 | CreateThreadAndWaitForCompletion | smelly__vx | Helper Functions |
@@ -138,6 +137,10 @@ You're free to use this in any manner you please. You do not need to use this en
 | ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malicious Capability |
 | MpfComMonitorChromeSessionOnce | smelly__vx | Malicious Capability |
 | MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malicious Capability |
+| UrlDownloadToFileSynchronous | Hans Passant | Network Connectivity |
+| ConvertIPv4IpAddressStructureToString | smelly__vx | Network Connectivity |
+| ConvertIPv4StringToUnsignedLong | smelly__vx | Network Connectivity |
+| SendIcmpEchoMessageToIPv4Host | smelly__vx | Network Connectivity |
 
 
 # Todo list
@@ -145,7 +148,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | ------------- | ------ | ---- |
 | NtMapViewOfSection lsass | modexp | NtMapViewOfSection |
 | Run PE In Memory with Reloc | N/A | N/A |
-| IcmpSendEcho | N/A | Sync PING |
 | IcmpSendEcho2Ex | N/A | Async PING w/ APC |
 | WMI PING | N/A | Sync/Async PING with COM |
 | Process Injection | N/A | N/A |

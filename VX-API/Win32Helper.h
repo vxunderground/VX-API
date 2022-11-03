@@ -10,12 +10,17 @@
 #include <wtsapi32.h>
 #include <psapi.h>
 #include <powrprof.h>
+#include <Iphlpapi.h>
+#include <icmpapi.h>
 
+
+#pragma comment(lib, "Iphlpapi.lib")
 #pragma comment(lib, "Crypt32.lib")
 #pragma comment(lib, "Dbghelp.lib")
 #pragma comment(lib, "Wtsapi32.lib")
 #pragma comment(lib, "Urlmon.lib")
 #pragma comment(lib, "PowrProf.lib")
+
 
 #ifndef NT_SUCCESS
 #define NT_SUCCESS(x) ((x)>=0)
@@ -85,7 +90,6 @@ typedef struct __SHELLCODE_EXECUTION_INFORMATION {
     DWORD dwLengthOfPayloadInBytes;
     DWORD MethodEnum;
 }SHELLCODE_EXECUTION_INFORMATION, * PSHELLCODE_EXECUTION_INFORMATION;
-
 
 
 /*******************************************
@@ -182,8 +186,6 @@ DWORD GetCurrentWindowTextFromUserProcessParametersA(_In_ DWORD nBufferLength, _
 DWORD GetCurrentWindowTextFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
 LONGLONG GetFileSizeFromPathW(_In_ PWCHAR Path, _In_ DWORD dwFlagsAndAttributes);
 LONGLONG GetFileSizeFromPathA(_In_ PCHAR Path, _In_ DWORD dwFlagsAndAttributes);
-DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath);
-DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath);
 BOOL SetProcessPrivilegeToken(_In_ DWORD PrivilegeEnum);
 BOOL IsDllLoadedW(_In_ LPCWSTR DllName);
 BOOL IsDllLoadedA(_In_ LPCSTR DllName);
@@ -269,7 +271,6 @@ BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
 
 
 
-
 /*******************************************
  ANTI-DEBUGGING
 *******************************************/
@@ -279,3 +280,17 @@ BOOL AdfOpenProcessOnCsrss(VOID);
 BOOL IsIntelHardwareBreakpointPresent(VOID);
 BOOL CheckRemoteDebuggerPresent2(_In_ HANDLE hHandle, _Inout_ PBOOL pbDebuggerPresent);
 BOOL IsDebuggerPresentEx(VOID);
+
+
+
+/*******************************************
+ NETWORK CONNECTIVITY
+*******************************************/
+DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath);
+DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath);
+BOOL SendIcmpEchoMessageToIPv4HostW(_In_ PWCHAR IpAddress, _Inout_ PDWORD Status, _Inout_ PDWORD RoundTripTime, _Inout_ PWCHAR EchoReplyAddress);
+BOOL SendIcmpEchoMessageToIPv4HostA(_In_ PCHAR IpAddress, _Inout_ PDWORD Status, _Inout_ PDWORD RoundTripTime, _Inout_ PCHAR EchoReplyAddress);
+ULONG ConvertIPv4StringToUnsignedLongW(_In_ PWCHAR IpAddress);
+ULONG ConvertIPv4StringToUnsignedLongA(_In_ PCHAR IpAddress);
+BOOL ConvertIPv4IpAddressStructureToStringW(_In_ PIN_ADDR Address, _Out_ PWCHAR Buffer);
+BOOL ConvertIPv4IpAddressStructureToStringA(_In_ PIN_ADDR Address, _Out_ PCHAR Buffer);

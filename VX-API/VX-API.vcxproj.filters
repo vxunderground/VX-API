@@ -52,6 +52,9 @@
     <Filter Include="Source Files\Windows API Helper Functions\Antidebug">
       <UniqueIdentifier>{5c518d5a-a7b5-448a-8872-577693d1ccca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Network Connectivity">
+      <UniqueIdentifier>{71e7ff3a-c576-49b0-96e2-0b4479a5fa5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -258,9 +261,6 @@
     <ClCompile Include="RecursiveFindFile.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="UrlDownloadToFileSynchronous.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
-    </ClCompile>
     <ClCompile Include="GetNumberOfLinkedDlls.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
     </ClCompile>
@@ -404,6 +404,21 @@
     </ClCompile>
     <ClCompile Include="MpfExecutePeBinaryInMemoryFromByteArray.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ManualResourceDataFetching.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="UrlDownloadToFileSynchronous.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
+    </ClCompile>
+    <ClCompile Include="SendIcmpEchoMessageToIPv4Host.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvertIPv4StringToUnsignedLong.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvertIPv4IpAddressStructureToString.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

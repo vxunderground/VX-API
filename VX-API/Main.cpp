@@ -45,7 +45,8 @@ int main(VOID)
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_ENUMERATELOADEDMODULES;
 	
-	ShellcodeExecutionViaFunctionCallbackMain(&Sei);
+	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
+
 	
 	return dwError;
 }
