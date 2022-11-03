@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.328
+Version: 2.0.332
 
 Developer: smelly__vx
   
@@ -157,6 +157,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | ------------- | ---- | ----- |
 | StringToken | Needs revision, buggy | N/A |
 | NtQueryOpenSubKeysEx | admin required | N/A |
+| ManualResourceDataFetching by Orca | Review and complete | N/A |
 | MpfComMonitorChromeSessionOnce | Usability improvements needed | N/A |
 | ~~DelayedExecutionExecuteOnDisplayOff~~ | ~~TryDllMultiMethod~~ | October 30th, 2022 |
 | ~~GetPidFromWindowsTerminalService~~ | ~~TryDllMultiMethod~~ | October 30th, 2022 |

@@ -43,9 +43,9 @@ int main(VOID)
 	SHELLCODE_EXECUTION_INFORMATION Sei = { 0 };
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
-	Sei.MethodEnum = E_ENUMPWRSCHEMES;
+	Sei.MethodEnum = E_ENUMERATELOADEDMODULES;
 	
-	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
+	ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 	
 	return dwError;
 }
