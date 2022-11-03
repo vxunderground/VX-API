@@ -7,9 +7,6 @@
 /*
 TODO:
 	- Ping with 'IcmpSendEcho2Ex'
-	- Run PE in memory https://papers.vx-underground.org/papers/Windows/Evasion%20-%20Systems%20Call%20and%20Memory%20Evasion/Executing%20a%20PE%20File%20in%20Memory.zip
-	- Download file options: https://www.x86matthew.com/view_post?id=ntsockets
-	- https://learn.microsoft.com/en-us/windows/win32/api/shlwapi/nf-shlwapi-shansitounicode
 	- https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767757(v=vs.85)
 */
 
@@ -17,7 +14,7 @@ TODO:
 int main(VOID)
 {
 	DWORD dwError = ERROR_SUCCESS;
-	CHAR Buffer[MAX_PATH * sizeof(WCHAR)] = { 0 };
+
 	//EXAMPLE PAYLOAD FOR TESTING!
 	//msfvenom -p windows/x64/exec EXITFUNC=thread CMD=calc.exe -f c -a x64
 	//Length = 277
@@ -47,12 +44,9 @@ int main(VOID)
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_ENUMPWRSCHEMES;
-
+	
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 	
-	ShlwapiWCharStringToCharString((PWCHAR)L"Test", Buffer, MAX_PATH * sizeof(WCHAR));
-	
-
 	return dwError;
 }
 

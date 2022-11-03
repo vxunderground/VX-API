@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.321
+Version: 2.0.328
 
 Developer: smelly__vx
   
@@ -137,16 +137,17 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromNamedPipe | modexp | Malicious Capability |
 | ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malicious Capability |
 | MpfComMonitorChromeSessionOnce | smelly__vx | Malicious Capability |
+| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malicious Capability |
 
 
 # Todo list
 | Functionality | Author | Note |
 | ------------- | ------ | ---- |
 | NtMapViewOfSection lsass | modexp | NtMapViewOfSection |
+| Run PE In Memory with Reloc | N/A | N/A |
 | IcmpSendEcho | N/A | Sync PING |
 | IcmpSendEcho2Ex | N/A | Async PING w/ APC |
 | WMI PING | N/A | Sync/Async PING with COM |
-| Run PE in memory | N/A | N/A |
 | Process Injection | N/A | N/A |
 | More string manipulation from MSDN | N/A | N/A |
 | More hashing algorithms | N/A | N/A |

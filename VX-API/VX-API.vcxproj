@@ -211,6 +211,7 @@
     <ClCompile Include="MpfComModifyShortcutTarget.cpp" />
     <ClCompile Include="MpfComMonitorChromeSessionOnce.cpp" />
     <ClCompile Include="MpfComVssDeleteShadowVolumeBackups.cpp" />
+    <ClCompile Include="MpfExecutePeBinaryInMemoryFromByteArray.cpp" />
     <ClCompile Include="MpfGetLsaPidFromNamedPipe.cpp" />
     <ClCompile Include="MpfGetLsaPidFromRegistry.cpp" />
     <ClCompile Include="MpfGetLsaPidFromServiceManager.cpp" />

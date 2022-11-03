@@ -402,6 +402,9 @@
     <ClCompile Include="ShlwapiWCharStringToCharString.cpp">
       <Filter>Source Files\String Manipulation\String Conversion</Filter>
     </ClCompile>
+    <ClCompile Include="MpfExecutePeBinaryInMemoryFromByteArray.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

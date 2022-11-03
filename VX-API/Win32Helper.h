@@ -241,6 +241,7 @@ DWORD MpfGetLsaPidFromServiceManager(VOID);
 DWORD MpfGetLsaPidFromNamedPipe(VOID);
 BOOL ShellcodeExecutionViaFunctionCallbackMain(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 DWORD MpfComMonitorChromeSessionOnce(VOID);
+DWORD MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc(_In_ PBYTE BinaryImage);
 
 
 
