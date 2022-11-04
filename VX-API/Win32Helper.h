@@ -294,3 +294,5 @@ ULONG ConvertIPv4StringToUnsignedLongW(_In_ PWCHAR IpAddress);
 ULONG ConvertIPv4StringToUnsignedLongA(_In_ PCHAR IpAddress);
 BOOL ConvertIPv4IpAddressStructureToStringW(_In_ PIN_ADDR Address, _Out_ PWCHAR Buffer);
 BOOL ConvertIPv4IpAddressStructureToStringA(_In_ PIN_ADDR Address, _Out_ PCHAR Buffer);
+BOOL ConvertIPv4IpAddressUnsignedLongToStringW(_In_ ULONG Address, _Out_ PWCHAR Buffer);
+BOOL ConvertIPv4IpAddressUnsignedLongToStringA(_In_ ULONG Address, _Out_ PWCHAR Buffer);

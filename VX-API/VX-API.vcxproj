@@ -136,6 +136,7 @@
     <ClCompile Include="CharStringToWCharString.cpp" />
     <ClCompile Include="CheckRemoteDebuggerPresentEx.cpp" />
     <ClCompile Include="ConvertIPv4IpAddressStructureToString.cpp" />
+    <ClCompile Include="ConvertIPv4IpAddressUnsignedLongToString.cpp" />
     <ClCompile Include="ConvertIPv4StringToUnsignedLong.cpp" />
     <ClCompile Include="CopyMemoryEx.cpp" />
     <ClCompile Include="CreateFileFromDsCopyFromSharedFile.cpp" />

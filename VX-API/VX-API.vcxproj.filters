@@ -420,6 +420,9 @@
     <ClCompile Include="ConvertIPv4IpAddressStructureToString.cpp">
       <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
     </ClCompile>
+    <ClCompile Include="ConvertIPv4IpAddressUnsignedLongToString.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

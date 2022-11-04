@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.342
+Version: 2.0.347
 
 Developer: smelly__vx
   
@@ -141,6 +141,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | ConvertIPv4IpAddressStructureToString | smelly__vx | Network Connectivity |
 | ConvertIPv4StringToUnsignedLong | smelly__vx | Network Connectivity |
 | SendIcmpEchoMessageToIPv4Host | smelly__vx | Network Connectivity |
+| ConvertIPv4IpAddressUnsignedLongToString | smelly__vx | Network Connectivity |
 
 
 # Todo list
