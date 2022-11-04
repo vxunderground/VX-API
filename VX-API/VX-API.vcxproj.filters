@@ -423,6 +423,9 @@
     <ClCompile Include="ConvertIPv4IpAddressUnsignedLongToString.cpp">
       <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
     </ClCompile>
+    <ClCompile Include="GetByteArrayFromFile.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

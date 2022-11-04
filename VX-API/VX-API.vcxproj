@@ -154,6 +154,7 @@
     <ClCompile Include="CreateWindowsObjectPath.cpp" />
     <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp" />
     <ClCompile Include="DeleteFileWithCreateFileFlag.cpp" />
+    <ClCompile Include="GetByteArrayFromFile.cpp" />
     <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp" />
     <ClCompile Include="GetCurrentLocaleFromTeb.cpp" />
     <ClCompile Include="GetCurrentProcessIdFromTeb.cpp" />

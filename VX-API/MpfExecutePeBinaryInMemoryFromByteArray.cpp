@@ -58,10 +58,10 @@ BOOL UnusedSubroutineRepair64bitImportAddressTable(PBYTE ExecutableMemoryBaseAdd
 			}
 			OffsetField += sizeof(IMAGE_THUNK_DATA);
 			OffsetThunk += sizeof(IMAGE_THUNK_DATA);
-			
-			if (hModule != NULL)
-				FreeLibrary(hModule);
 		}
+
+		if (hModule != NULL)
+			FreeLibrary(hModule);
 	}
 
 	return TRUE;

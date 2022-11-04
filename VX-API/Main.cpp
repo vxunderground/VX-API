@@ -14,6 +14,7 @@ TODO:
 int main(VOID)
 {
 	DWORD dwError = ERROR_SUCCESS;
+	PBYTE Buffer = NULL;
 
 	//EXAMPLE PAYLOAD FOR TESTING!
 	//msfvenom -p windows/x64/exec EXITFUNC=thread CMD=calc.exe -f c -a x64
@@ -44,7 +45,7 @@ int main(VOID)
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_ENUMERATELOADEDMODULES;
-	
+
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 
 	

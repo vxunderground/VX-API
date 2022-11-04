@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.347
+Version: 2.0.354
 
 Developer: smelly__vx
   
@@ -111,6 +111,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | TryLoadDllMultiMethod | smelly__vx | Helper Functions |
 | CreateThreadAndWaitForCompletion | smelly__vx | Helper Functions |
 | GetProcessBinaryNameFromHwndW | smelly__vx | Helper Functions |
+| GetByteArrayFromFile | smelly__vx | Helper Functions |
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
