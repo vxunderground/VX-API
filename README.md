@@ -147,13 +147,14 @@ You're free to use this in any manner you please. You do not need to use this en
 # Todo list
 | Functionality | Author | Note |
 | ------------- | ------ | ---- |
-| NtMapViewOfSection lsass | modexp | NtMapViewOfSection |
+| NtMapViewOfSection LSASS | modexp | N/A |
 | Run PE In Memory with Reloc | N/A | N/A |
-| IcmpSendEcho2Ex | N/A | Async PING w/ APC |
-| WMI PING | N/A | Sync/Async PING with COM |
+| IcmpSendEcho2Ex | N/A | N/A |
+| WQL Win32_Ping | Martin Friedrich | N/A |
+| Resolve DNS to IP | N/A | N/A |
 | Process Injection | N/A | N/A |
-| More string manipulation from MSDN | N/A | N/A |
-| More hashing algorithms | N/A | N/A |
+| More String Manipulation code | N/A | Continuous Improvement |
+| More hashing algorithms | N/A | Continuous Improvement |
 
 # Notes
 | Function Name | Note | Fixed |
