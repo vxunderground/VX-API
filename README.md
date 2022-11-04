@@ -137,11 +137,11 @@ You're free to use this in any manner you please. You do not need to use this en
 | ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malicious Capability |
 | MpfComMonitorChromeSessionOnce | smelly__vx | Malicious Capability |
 | MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malicious Capability |
-| UrlDownloadToFileSynchronous | Hans Passant | Network Connectivity |
-| ConvertIPv4IpAddressStructureToString | smelly__vx | Network Connectivity |
-| ConvertIPv4StringToUnsignedLong | smelly__vx | Network Connectivity |
-| SendIcmpEchoMessageToIPv4Host | smelly__vx | Network Connectivity |
-| ConvertIPv4IpAddressUnsignedLongToString | smelly__vx | Network Connectivity |
+| UrlDownloadToFileSynchronous | Hans Passant | Networking |
+| ConvertIPv4IpAddressStructureToString | smelly__vx | Networking |
+| ConvertIPv4StringToUnsignedLong | smelly__vx | Networking |
+| SendIcmpEchoMessageToIPv4Host | smelly__vx | Networking |
+| ConvertIPv4IpAddressUnsignedLongToString | smelly__vx | Networking |
 
 
 # Todo list
