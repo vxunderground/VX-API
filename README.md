@@ -127,16 +127,16 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetRtlUserProcessParameters | ReactOS | Library Loading |
 | GetTeb | ReactOS | Library Loading |
 | RtlLoadPeHeaders | smelly__vx | Library Loading |
-| MpfComModifyShortcutTarget | Unknown | Malicious Capability |
-| MpfComVssDeleteShadowVolumeBackups | am0nsec | Malicious Capability |
-| OleGetClipboardData | Microsoft | Malicious Capability |
-| UacBypassFodHelperMethod | winscripting.blog | Malicious Capability |
-| MpfGetLsaPidFromServiceManager | modexp | Malicious Capability |
-| MpfGetLsaPidFromRegistry | modexp | Malicious Capability |
-| MpfGetLsaPidFromNamedPipe | modexp | Malicious Capability |
-| ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malicious Capability |
-| MpfComMonitorChromeSessionOnce | smelly__vx | Malicious Capability |
-| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malicious Capability |
+| MpfComModifyShortcutTarget | Unknown | Malcode |
+| MpfComVssDeleteShadowVolumeBackups | am0nsec | Malcode |
+| OleGetClipboardData | Microsoft | Malcode |
+| UacBypassFodHelperMethod | winscripting.blog | Malcode |
+| MpfGetLsaPidFromServiceManager | modexp | Malcode |
+| MpfGetLsaPidFromRegistry | modexp | Malcode |
+| MpfGetLsaPidFromNamedPipe | modexp | Malcode |
+| ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malcode |
+| MpfComMonitorChromeSessionOnce | smelly__vx | Malcode |
+| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malcode |
 | UrlDownloadToFileSynchronous | Hans Passant | Networking |
 | ConvertIPv4IpAddressStructureToString | smelly__vx | Networking |
 | ConvertIPv4StringToUnsignedLong | smelly__vx | Networking |
