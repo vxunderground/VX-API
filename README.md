@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.354
+Version: 2.0.364
 
 Developer: smelly__vx
   
@@ -13,7 +13,7 @@ Some functions may be dependent on other functions present within the solution f
 
 You're free to use this in any manner you please. You do not need to use this entire solution for your malware proof-of-concepts or Red Team engagements. Strip, copy, paste, delete, or edit this projects contents as much as you'd like.
  
-
+ 
 </div>
 
 # List of features
