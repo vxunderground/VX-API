@@ -154,6 +154,8 @@
     <ClCompile Include="CreateWindowsObjectPath.cpp" />
     <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp" />
     <ClCompile Include="DeleteFileWithCreateFileFlag.cpp" />
+    <ClCompile Include="DnsGetDomainNameIPv4AddressAsString.cpp" />
+    <ClCompile Include="DnsGetDomainNameIPv4AddressUnsignedLong.cpp" />
     <ClCompile Include="GetByteArrayFromFile.cpp" />
     <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp" />
     <ClCompile Include="GetCurrentLocaleFromTeb.cpp" />

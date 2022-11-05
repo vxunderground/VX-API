@@ -1,8 +1,4 @@
-#include <Windows.h>
-#include "Internal.h"
-#include "StringManipulation.h"
 #include "Win32Helper.h"
-
 
 /*
 TODO:
@@ -45,10 +41,12 @@ int main(VOID)
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_ENUMERATELOADEDMODULES;
+	WCHAR IpAddress[32] = { 0 };
 
+	DnsGetDomainNameIPv4AddressAsStringW((PWCHAR)L"google.com", (PWCHAR)IpAddress);
+	
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 
-	
 	return dwError;
 }
 

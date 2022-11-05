@@ -9,7 +9,7 @@ BOOL GetByteArrayFromFileW(_Inout_ PBYTE Buffer, _In_ PWCHAR Path, _In_ ULONGLON
 	if (hHandle == INVALID_HANDLE_VALUE)
 		goto EXIT_ROUTINE;
 
-	if (!ReadFile(hHandle, Buffer, BytesToRead, NULL, NULL))
+	if (!ReadFile(hHandle, Buffer, (DWORD)BytesToRead, NULL, NULL))
 		goto EXIT_ROUTINE;
 
 	bFlag = TRUE;
@@ -31,7 +31,7 @@ BOOL GetByteArrayFromFileA(_Inout_ PBYTE Buffer, _In_ PCHAR Path, _In_ ULONGLONG
 	if (hHandle == INVALID_HANDLE_VALUE)
 		goto EXIT_ROUTINE;
 
-	if (!ReadFile(hHandle, Buffer, BytesToRead, NULL, NULL))
+	if (!ReadFile(hHandle, Buffer, (DWORD)BytesToRead, NULL, NULL))
 		goto EXIT_ROUTINE;
 
 	bFlag = TRUE;

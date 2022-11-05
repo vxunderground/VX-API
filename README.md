@@ -143,6 +143,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | ConvertIPv4StringToUnsignedLong | smelly__vx | Networking |
 | SendIcmpEchoMessageToIPv4Host | smelly__vx | Networking |
 | ConvertIPv4IpAddressUnsignedLongToString | smelly__vx | Networking |
+| DnsGetDomainNameIPv4AddressAsString | smelly__vx | Networking |
+| DnsGetDomainNameIPv4AddressUnsignedLong | smelly__vx | Networking |
 
 
 # Todo list
@@ -152,7 +154,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | Run PE In Memory with Reloc | N/A | N/A |
 | IcmpSendEcho2Ex | N/A | N/A |
 | WQL Win32_Ping | Martin Friedrich | N/A |
-| Resolve DNS to IP | N/A | N/A |
 | Process Injection | N/A | N/A |
 | More String Manipulation code | N/A | Continuous Improvement |
 | More hashing algorithms | N/A | Continuous Improvement |

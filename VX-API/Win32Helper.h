@@ -12,8 +12,10 @@
 #include <powrprof.h>
 #include <Iphlpapi.h>
 #include <icmpapi.h>
+#include <windns.h>
 
 
+#pragma comment(lib, "Dnsapi.lib")
 #pragma comment(lib, "Iphlpapi.lib")
 #pragma comment(lib, "Crypt32.lib")
 #pragma comment(lib, "Dbghelp.lib")
@@ -297,4 +299,8 @@ ULONG ConvertIPv4StringToUnsignedLongA(_In_ PCHAR IpAddress);
 BOOL ConvertIPv4IpAddressStructureToStringW(_In_ PIN_ADDR Address, _Out_ PWCHAR Buffer);
 BOOL ConvertIPv4IpAddressStructureToStringA(_In_ PIN_ADDR Address, _Out_ PCHAR Buffer);
 BOOL ConvertIPv4IpAddressUnsignedLongToStringW(_In_ ULONG Address, _Out_ PWCHAR Buffer);
-BOOL ConvertIPv4IpAddressUnsignedLongToStringA(_In_ ULONG Address, _Out_ PWCHAR Buffer);
+BOOL ConvertIPv4IpAddressUnsignedLongToStringA(_In_ ULONG Address, _Out_ PCHAR Buffer);
+DWORD DnsGetDomainNameIPv4AddressAsStringW(_In_ PWCHAR DomainName, _Inout_ PWCHAR IPv4IPAddress);
+DWORD DnsGetDomainNameIPv4AddressAsStringA(_In_ PCHAR DomainName, _Inout_ PCHAR IPv4IPAddress);
+ULONG DnsGetDomainNameIPv4AddressUnsignedLongW(_In_ PWCHAR DomainName);
+ULONG DnsGetDomainNameIPv4AddressUnsignedLongA(_In_ PCHAR DomainName);
