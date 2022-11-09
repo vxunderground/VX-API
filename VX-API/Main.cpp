@@ -1,12 +1,5 @@
 #include "Win32Helper.h"
 
-/*
-TODO:
-	- Ping with 'IcmpSendEcho2Ex'
-	- https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767757(v=vs.85)
-*/
-
-
 int main(VOID)
 {
 	DWORD dwError = ERROR_SUCCESS;
@@ -40,11 +33,8 @@ int main(VOID)
 	SHELLCODE_EXECUTION_INFORMATION Sei = { 0 };
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
-	Sei.MethodEnum = E_ENUMERATELOADEDMODULES;
-	WCHAR IpAddress[32] = { 0 };
+	Sei.MethodEnum = E_DNSQUERYEX;
 
-	DnsGetDomainNameIPv4AddressAsStringW((PWCHAR)L"google.com", (PWCHAR)IpAddress);
-	
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 
 	return dwError;

@@ -199,6 +199,26 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 			break;
 		}
 
+		case E_DNSQUERYEX:
+		{
+			//needs to be debugged
+
+			/*
+			DNS_QUERY_REQUEST Request = { 0 };
+			DNS_QUERY_RESULT Result = { 0 };
+			
+			Request.Version = DNS_QUERY_REQUEST_VERSION1;
+			Request.QueryName = NULL;
+			Request.QueryType = DNS_TYPE_A;
+			Request.QueryOptions = DNS_QUERY_STANDARD;
+			Request.InterfaceIndex = 0;
+			Request.pQueryCompletionCallback = (PDNS_QUERY_COMPLETION_ROUTINE)BinAddress;
+
+			DnsQueryEx(&Request, &Result, NULL);
+			*/
+
+		}
+
 		default:
 			goto EXIT_ROUTINE;
 

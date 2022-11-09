@@ -84,7 +84,8 @@ typedef enum SHELLCODE_EXECUTION_METHOD {
     E_MINIDUMPWRITEDUMP, //29 UNSTABLE, FAILS
     E_ENUMERATELOADEDMODULES, //30
     E_ENUMPAGEFILESW, //31
-    E_ENUMPWRSCHEMES //32
+    E_ENUMPWRSCHEMES, //32
+    E_DNSQUERYEX //33
 }SHELLCODE_EXECUTION_METHOD, *PSHELLCODE_EXECUTION_METHOD;
 
 typedef struct __SHELLCODE_EXECUTION_INFORMATION {
@@ -198,6 +199,7 @@ BOOL GetProcessBinaryNameFromHwndW(_In_ HWND ProcessHwnd, _Inout_ PWCHAR BinaryN
 BOOL GetProcessBinaryNameFromHwndA(_In_ HWND ProcessHwnd, _Inout_ PCHAR BinaryName, _In_ DWORD BufferSize);
 BOOL GetByteArrayFromFileW(_Inout_ PBYTE Buffer, _In_ PWCHAR Path, _In_ ULONGLONG BytesToRead);
 BOOL GetByteArrayFromFileA(_Inout_ PBYTE Buffer, _In_ PCHAR Path, _In_ ULONGLONG BytesToRead);
+BOOL Ex_GetHandleOnDeviceHttpCommunication(_Out_ PHANDLE Handle);
 
 
 
