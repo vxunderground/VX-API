@@ -19,6 +19,8 @@ HMODULE GetModuleHandleEx2A(_In_ LPCSTR lpModuleName)
 			if (StringCompareA(lpModuleName, wDllName) == 0)
 				return (HMODULE)Module->BaseAddress;
 		}
+
+		Next = Next->Flink;
 	}
 
 	return NULL;
