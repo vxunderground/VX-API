@@ -163,6 +163,7 @@
     <ClCompile Include="GetCurrentProcessIdFromTeb.cpp" />
     <ClCompile Include="GetCurrentUserSid.cpp" />
     <ClCompile Include="GetCurrentWindowTextFromUserProcessParameter.cpp" />
+    <ClCompile Include="GetDomainNameFromUnsignedLongIPV4Address.cpp" />
     <ClCompile Include="GetFileSizeFromPath.cpp" />
     <ClCompile Include="GetKUserSharedData.cpp" />
     <ClCompile Include="GetLastErrorFromTeb.cpp" />

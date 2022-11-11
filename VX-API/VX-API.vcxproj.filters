@@ -435,6 +435,9 @@
     <ClCompile Include="Ex_GetHandleOnDeviceHttpCommunication.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
+    <ClCompile Include="GetDomainNameFromUnsignedLongIPV4Address.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

@@ -2,6 +2,7 @@
 #include "Internal.h"
 #include "StringManipulation.h"
 #include "FunctionDeclaration.h"
+#include <Ws2tcpip.h>
 #include <Dbghelp.h> 
 #include <wincrypt.h>
 #include <shlwapi.h>
@@ -15,6 +16,7 @@
 #include <windns.h>
 
 
+
 #pragma comment(lib, "Dnsapi.lib")
 #pragma comment(lib, "Iphlpapi.lib")
 #pragma comment(lib, "Crypt32.lib")
@@ -22,6 +24,7 @@
 #pragma comment(lib, "Wtsapi32.lib")
 #pragma comment(lib, "Urlmon.lib")
 #pragma comment(lib, "PowrProf.lib")
+#pragma comment(lib, "Ws2_32.lib")
 
 
 #ifndef NT_SUCCESS
@@ -306,3 +309,5 @@ DWORD DnsGetDomainNameIPv4AddressAsStringW(_In_ PWCHAR DomainName, _Inout_ PWCHA
 DWORD DnsGetDomainNameIPv4AddressAsStringA(_In_ PCHAR DomainName, _Inout_ PCHAR IPv4IPAddress);
 ULONG DnsGetDomainNameIPv4AddressUnsignedLongW(_In_ PWCHAR DomainName);
 ULONG DnsGetDomainNameIPv4AddressUnsignedLongA(_In_ PCHAR DomainName);
+BOOL GetDomainNameFromUnsignedLongIPV4AddressW(_In_ ULONG IpAddress, _Inout_ PWCHAR DomainName);
+BOOL GetDomainNameFromUnsignedLongIPV4AddressA(_In_ ULONG IpAddress, _Inout_ PCHAR DomainName);

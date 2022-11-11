@@ -34,6 +34,7 @@ int main(VOID)
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_DNSQUERYEX;
+	
 
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 

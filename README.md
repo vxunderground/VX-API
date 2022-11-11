@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.364
+Version: 2.0.379
 
 Developer: smelly__vx
   
@@ -146,6 +146,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | ConvertIPv4IpAddressUnsignedLongToString | smelly__vx | Networking |
 | DnsGetDomainNameIPv4AddressAsString | smelly__vx | Networking |
 | DnsGetDomainNameIPv4AddressUnsignedLong | smelly__vx | Networking |
+| GetDomainNameFromUnsignedLongIPV4Address | smelly__vx | Networking |
 
 
 # Todo list
