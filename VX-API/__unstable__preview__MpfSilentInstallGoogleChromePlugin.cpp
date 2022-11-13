@@ -32,7 +32,7 @@ BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR Extens
 	if (dwError != ERROR_FILE_NOT_FOUND) //other error occurred
 		goto EXIT_ROUTINE;
 
-    dwError = ERROR_SUCCESS;
+	dwError = ERROR_SUCCESS;
 
 	Result = CoInitializeEx(NULL, COINIT_MULTITHREADED);
 	if (!SUCCEEDED(Result))
@@ -57,11 +57,11 @@ BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR Extens
 	if (!SUCCEEDED(Result))
 		goto EXIT_ROUTINE;
 
-    if (RegCreateKeyExW(HKEY_LOCAL_MACHINE, RegistryKeyPath, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, NULL, &hKey, NULL) != ERROR_SUCCESS)
-        goto EXIT_ROUTINE;
+	if (RegCreateKeyExW(HKEY_LOCAL_MACHINE, RegistryKeyPath, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, NULL, &hKey, NULL) != ERROR_SUCCESS)
+		goto EXIT_ROUTINE;
 
-    if(RegSetValueExW(hKey, L"update_url", 0, REG_SZ, (PBYTE)UpdateUrl, (DWORD)StringLengthW(UpdateUrl) * sizeof(WCHAR)) != ERROR_SUCCESS)
-        goto EXIT_ROUTINE;
+	if(RegSetValueExW(hKey, L"update_url", 0, REG_SZ, (PBYTE)UpdateUrl, (DWORD)StringLengthW(UpdateUrl) * sizeof(WCHAR)) != ERROR_SUCCESS)
+		goto EXIT_ROUTINE;
 
 	Result = Automaton->ElementFromHandle(hChrome, &Element);
 	if (!SUCCEEDED(Result))
@@ -161,8 +161,8 @@ EXIT_ROUTINE:
 
 	CoUninitialize();
 
-    if (hKey)
-        RegCloseKey(hKey);
+	if (hKey)
+		RegCloseKey(hKey);
 
 	return bFlag;
 }
