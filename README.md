@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.379
+Version: 2.0.388
 
 Developer: smelly__vx
   
@@ -113,6 +113,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetProcessBinaryNameFromHwndW | smelly__vx | Helper Functions |
 | GetByteArrayFromFile | smelly__vx | Helper Functions |
 | Ex_GetHandleOnDeviceHttpCommunication | x86matthew | Helper Functions |
+| IsRegistryKeyValid | smelly__vx | Helper Functions |
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
@@ -147,6 +148,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | DnsGetDomainNameIPv4AddressAsString | smelly__vx | Networking |
 | DnsGetDomainNameIPv4AddressUnsignedLong | smelly__vx | Networking |
 | GetDomainNameFromUnsignedLongIPV4Address | smelly__vx | Networking |
+| GetDomainNameFromIPV4AddressAsString | smelly__vx | Networking | 
 
 
 # Todo list

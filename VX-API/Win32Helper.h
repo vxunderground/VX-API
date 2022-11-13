@@ -203,7 +203,7 @@ BOOL GetProcessBinaryNameFromHwndA(_In_ HWND ProcessHwnd, _Inout_ PCHAR BinaryNa
 BOOL GetByteArrayFromFileW(_Inout_ PBYTE Buffer, _In_ PWCHAR Path, _In_ ULONGLONG BytesToRead);
 BOOL GetByteArrayFromFileA(_Inout_ PBYTE Buffer, _In_ PCHAR Path, _In_ ULONGLONG BytesToRead);
 BOOL Ex_GetHandleOnDeviceHttpCommunication(_Out_ PHANDLE Handle);
-
+DWORD IsRegistryKeyValidW(_In_ HKEY PredefinedKey, _In_ PWCHAR Path);
 
 
 /*******************************************
@@ -253,6 +253,8 @@ DWORD MpfGetLsaPidFromNamedPipe(VOID);
 BOOL ShellcodeExecutionViaFunctionCallbackMain(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 DWORD MpfComMonitorChromeSessionOnce(VOID);
 DWORD MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc(_In_ PBYTE BinaryImage);
+BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR ExtensionIdentifier);
+BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
 
 
 
@@ -311,3 +313,5 @@ ULONG DnsGetDomainNameIPv4AddressUnsignedLongW(_In_ PWCHAR DomainName);
 ULONG DnsGetDomainNameIPv4AddressUnsignedLongA(_In_ PCHAR DomainName);
 BOOL GetDomainNameFromUnsignedLongIPV4AddressW(_In_ ULONG IpAddress, _Inout_ PWCHAR DomainName);
 BOOL GetDomainNameFromUnsignedLongIPV4AddressA(_In_ ULONG IpAddress, _Inout_ PCHAR DomainName);
+BOOL GetDomainNameFromIPV4AddressAsStringW(_In_ PWCHAR IpAddress, _Inout_ PWCHAR DomainName);
+BOOL GetDomainNameFromIPV4AddressAsStringA(_In_ PCHAR IpAddress, _Inout_ PCHAR DomainName);

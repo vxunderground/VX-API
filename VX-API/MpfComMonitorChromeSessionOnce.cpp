@@ -129,7 +129,6 @@ DWORD MpfComMonitorChromeSessionOnce(VOID)
 	IUIAutomationElementArray* Array = NULL;
 	EventHandler *EventHandlerObject = NULL;
 
-
 	EventHandlerObject = new EventHandler();
 	if (!EventHandlerObject)
 		return -1;
@@ -201,7 +200,6 @@ DWORD MpfComMonitorChromeSessionOnce(VOID)
 	else
 		bHandlerPresent = TRUE;
 
-	
 	for (;;) { Sleep(10); } //let event handler work
 
 	bFlag = TRUE;

@@ -55,6 +55,9 @@
     <Filter Include="Source Files\Windows API Helper Functions\Network Connectivity">
       <UniqueIdentifier>{71e7ff3a-c576-49b0-96e2-0b4479a5fa5f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions">
+      <UniqueIdentifier>{6be9adc7-8493-44a7-abce-3ec818469f70}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -414,29 +417,38 @@
     <ClCompile Include="SendIcmpEchoMessageToIPv4Host.cpp">
       <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
     </ClCompile>
-    <ClCompile Include="ConvertIPv4StringToUnsignedLong.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
-    </ClCompile>
-    <ClCompile Include="ConvertIPv4IpAddressStructureToString.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
-    </ClCompile>
-    <ClCompile Include="ConvertIPv4IpAddressUnsignedLongToString.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
-    </ClCompile>
     <ClCompile Include="GetByteArrayFromFile.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="DnsGetDomainNameIPv4AddressAsString.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
-    </ClCompile>
-    <ClCompile Include="DnsGetDomainNameIPv4AddressUnsignedLong.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
     </ClCompile>
     <ClCompile Include="Ex_GetHandleOnDeviceHttpCommunication.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
+    <ClCompile Include="ConvertIPv4IpAddressStructureToString.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvertIPv4IpAddressUnsignedLongToString.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvertIPv4StringToUnsignedLong.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions</Filter>
+    </ClCompile>
+    <ClCompile Include="DnsGetDomainNameIPv4AddressAsString.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions</Filter>
+    </ClCompile>
+    <ClCompile Include="DnsGetDomainNameIPv4AddressUnsignedLong.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions</Filter>
+    </ClCompile>
     <ClCompile Include="GetDomainNameFromUnsignedLongIPV4Address.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Network Connectivity</Filter>
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetDomainNameFromIPV4AddressAsString.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSilentInstallGoogleChromePlugin.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
+    <ClCompile Include="IsRegistryKeyValid.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
