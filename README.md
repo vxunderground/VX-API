@@ -169,17 +169,3 @@ You're free to use this in any manner you please. You do not need to use this en
 | NtQueryOpenSubKeysEx | admin required | N/A |
 | ManualResourceDataFetching by Orca | Review and complete | N/A |
 | MpfComMonitorChromeSessionOnce | Usability improvements needed | N/A |
-| ~~DelayedExecutionExecuteOnDisplayOff~~ | ~~TryDllMultiMethod~~ | October 30th, 2022 |
-| ~~GetPidFromWindowsTerminalService~~ | ~~TryDllMultiMethod~~ | October 30th, 2022 |
-| ~~UnusedSubroutineGetShellViewForDesktop~~ | ~~TryDllMultiMethod~~ | October 30th, 2022 |
-| ~~GetCurrentUserSid~~ | ~~TryDllMultiMethod~~ | October 29th, 2022 |
-| ~~GetProcessBinaryNameFromHwndW~~ | ~~make A variant~~ | October 29th, 2022 |
-| ~~CreateProcessFromIShellDispatchInvoke~~ | ~~TryDllMultiMethod~~ | October 29th, 2022 |
-| ~~ShellcodeExecViaCertFindChainInStore~~ | ~~Buggy, unstable~~ | October 23rd, 2022 |
-| ~~RecursiveFindFile~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
-| ~~UrlDownloadToFileSynchronous~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
-| ~~CreateFileFromDsCopyFromSharedFileW~~ | ~~Never unloads dll~~ | October 21th, 2022 |
-| ~~HashFileByMsiFileHashTable~~ | ~~TryDllMultiMethod~~ | October 21th, 2022 |
-| ~~RtlInitEmptyUnicodeString~~ | ~~Needs revision~~ | October 21th, 2022 |
-| ~~CreateProcessByNotepadProxy~~ | ~~Removed, unstable~~ | October 16th, 2022 |
-| ~~SystemFunction036~~ | ~~Removed, unstable~~ | October 16th, 2022 |
