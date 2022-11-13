@@ -444,7 +444,7 @@
     <ClCompile Include="GetDomainNameFromIPV4AddressAsString.cpp">
       <Filter>Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions</Filter>
     </ClCompile>
-    <ClCompile Include="MpfSilentInstallGoogleChromePlugin.cpp">
+    <ClCompile Include="__unstable__preview__MpfSilentInstallGoogleChromePlugin.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
     <ClCompile Include="IsRegistryKeyValid.cpp">

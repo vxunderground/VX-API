@@ -37,7 +37,7 @@ int main(VOID)
 	WCHAR IpBuffer[32] = { 0 };
 
 	//MpfSilentInstallGoogleChromePluginW((PWCHAR)L"aapbdbdomjkkjkaonfhkkikfgjllcleb");
-	MpfComMonitorChromeSessionOnce2();
+	
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 
 	return dwError;
