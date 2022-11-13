@@ -5,8 +5,8 @@
 
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR ExtensionIdentifier)
 {
-    WCHAR RegistryKeyPath[MAX_PATH] = L"SOFTWARE\\WOW6432Node\\Google\\Chrome\\Extensions\\";
-    WCHAR UpdateUrl[MAX_PATH] = L"https://clients2.google.com/service/update2/crx";
+	WCHAR RegistryKeyPath[MAX_PATH] = L"SOFTWARE\\WOW6432Node\\Google\\Chrome\\Extensions\\";
+	WCHAR UpdateUrl[MAX_PATH] = L"https://clients2.google.com/service/update2/crx";
 	BOOL bFlag = FALSE;
 	HKEY hKey = NULL;
 	INT Length = 0;
@@ -22,15 +22,15 @@ BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR Extens
 	if (!IsProcessRunningAsAdmin()) //admin required
 		goto EXIT_ROUTINE;
 
-    if (StringConcatW(RegistryKeyPath, ExtensionIdentifier) == NULL)
-        goto EXIT_ROUTINE;
+	if (StringConcatW(RegistryKeyPath, ExtensionIdentifier) == NULL)
+		goto EXIT_ROUTINE;
 
-    dwError = IsRegistryKeyValidW(HKEY_LOCAL_MACHINE, RegistryKeyPath);
-    if (dwError == ERROR_SUCCESS) //already installed
-        goto EXIT_ROUTINE; 
+	dwError = IsRegistryKeyValidW(HKEY_LOCAL_MACHINE, RegistryKeyPath);
+	if (dwError == ERROR_SUCCESS) //already installed
+		goto EXIT_ROUTINE; 
 
-    if (dwError != ERROR_FILE_NOT_FOUND) //other error occurred
-        goto EXIT_ROUTINE;
+	if (dwError != ERROR_FILE_NOT_FOUND) //other error occurred
+		goto EXIT_ROUTINE;
 
     dwError = ERROR_SUCCESS;
 
