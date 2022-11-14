@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.389
+Version: 2.0.396
 
 Developer: smelly__vx
   
@@ -140,6 +140,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malcode |
 | MpfComMonitorChromeSessionOnce | smelly__vx | Malcode |
 | MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malcode |
+| MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey | Malcode |
 | UrlDownloadToFileSynchronous | Hans Passant | Networking |
 | ConvertIPv4IpAddressStructureToString | smelly__vx | Networking |
 | ConvertIPv4StringToUnsignedLong | smelly__vx | Networking |

