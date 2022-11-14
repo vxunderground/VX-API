@@ -58,6 +58,9 @@
     <Filter Include="Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions">
       <UniqueIdentifier>{6be9adc7-8493-44a7-abce-3ec818469f70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Malicious Capabilities\Lolbins">
+      <UniqueIdentifier>{b688b3fc-f662-4634-b690-f200a79aee37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -450,8 +453,8 @@
     <ClCompile Include="IsRegistryKeyValid.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="LolbinExecutionMain.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    <ClCompile Include="MpfLolExecuteRemoteBinaryByAppInstaller.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Lolbins</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

