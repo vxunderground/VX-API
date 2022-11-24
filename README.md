@@ -55,6 +55,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | HashStringSdbm | Ozan Yigit | String Hashing |
 | HashStringSuperFastHash | Paul Hsieh | String Hashing |
 | HashStringUnknownGenericHash1A | Unknown | String Hashing |
+| HashStringSipHash | RistBS | String Hashing | 
+| HashStringMurmur | RistBS | String Hashing | 
 | CreateMd5HashFromFilePath | Microsoft | Cryptography Related |
 | CreatePseudoRandomInteger | Apple (c) 1999 | Cryptography Related |
 | CreatePseudoRandomString | smelly__vx | Cryptography Related |
@@ -114,7 +116,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetByteArrayFromFile | smelly__vx | Helper Functions |
 | Ex_GetHandleOnDeviceHttpCommunication | x86matthew | Helper Functions |
 | IsRegistryKeyValid | smelly__vx | Helper Functions |
-FastcallExecuteBinaryShellExecuteEx | smelly__vx | Helper Functions |
+| FastcallExecuteBinaryShellExecuteEx | smelly__vx | Helper Functions |
+| GetCurrentProcessIdFromOffset | RistBS | Helper Functions | 
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
@@ -128,6 +131,8 @@ FastcallExecuteBinaryShellExecuteEx | smelly__vx | Helper Functions |
 | GetProcAddressSdbm | smelly__vx | Library Loading |
 | GetProcAddressSuperFastHash | smelly__vx | Library Loading |
 | GetProcAddressUnknownGenericHash1 | smelly__vx | Library Loading |
+| GetProcAddressSipHash | RistBS | Library Loading |
+| GetProcAddressMurmur | RistBS | Library Loading |
 | GetRtlUserProcessParameters | ReactOS | Library Loading |
 | GetTeb | ReactOS | Library Loading |
 | RtlLoadPeHeaders | smelly__vx | Library Loading |

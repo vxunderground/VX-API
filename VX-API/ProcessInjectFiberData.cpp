@@ -2,7 +2,7 @@
 
 typedef int(WINAPI* RtlUserFiberStart)();
 
-DWORD ProcessInjectFiberData(_In_ PCHAR Shellcode, _In_ DWORD Length)
+DWORD __revision_required_ProcessInjectFiberData(_In_ PCHAR Shellcode, _In_ DWORD Length)
 {
     NTSTATUS status;
     DWORD OldProt = 0;

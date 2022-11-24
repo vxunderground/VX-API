@@ -228,7 +228,6 @@
     <ClCompile Include="MpfGetLsaPidFromNamedPipe.cpp" />
     <ClCompile Include="MpfGetLsaPidFromRegistry.cpp" />
     <ClCompile Include="MpfGetLsaPidFromServiceManager.cpp" />
-    <ClCompile Include="MpfLolScheduledPersistenceByAt.cpp" />
     <ClCompile Include="__unstable__preview__MpfSilentInstallGoogleChromePlugin.cpp" />
     <ClCompile Include="SendIcmpEchoMessageToIPv4Host.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />

@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD GetCurrentPid(VOID)
+DWORD GetCurrentProcessIdFromOffset(VOID)
 {
 #if defined(_WIN64)
     return (UINT32)__readgsqword(0x40);

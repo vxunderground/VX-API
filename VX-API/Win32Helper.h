@@ -211,7 +211,7 @@ BOOL Ex_GetHandleOnDeviceHttpCommunication(_Out_ PHANDLE Handle);
 DWORD IsRegistryKeyValidW(_In_ HKEY PredefinedKey, _In_ PWCHAR Path);
 BOOL FastcallExecuteBinaryShellExecuteExW(_In_ PWCHAR FullPathToBinary, _In_ PWCHAR OptionalParameters);
 BOOL FastcallExecuteBinaryShellExecuteExA(_In_ PCHAR FullPathToBinary, _In_ PCHAR OptionalParameters);
-DWORD GetCurrentPid(VOID);
+DWORD GetCurrentProcessIdFromOffset(VOID);
 
 /*******************************************
  FINGERPRINTING
@@ -264,7 +264,9 @@ BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR Extens
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
-DWORD ProcessInjectFiberData(_In_ PCHAR Shellcode, _In_ DWORD Length);
+DWORD __revision_required_ProcessInjectFiberData(_In_ PCHAR Shellcode, _In_ DWORD Length);
+
+
 
 /*******************************************
  EVASION
