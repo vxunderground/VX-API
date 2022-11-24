@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.396
+Version: 2.0.402
 
 Developer: smelly__vx
   
@@ -114,6 +114,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetByteArrayFromFile | smelly__vx | Helper Functions |
 | Ex_GetHandleOnDeviceHttpCommunication | x86matthew | Helper Functions |
 | IsRegistryKeyValid | smelly__vx | Helper Functions |
+FastcallExecuteBinaryShellExecuteEx | smelly__vx | Helper Functions |
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
