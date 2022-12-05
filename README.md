@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.402
+Version: 2.0.420
 
 Developer: smelly__vx
   
@@ -136,6 +136,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetRtlUserProcessParameters | ReactOS | Library Loading |
 | GetTeb | ReactOS | Library Loading |
 | RtlLoadPeHeaders | smelly__vx | Library Loading |
+| ProxyWorkItemLoadLibrary | Rad98, Peter Winter-Smith | Library Loading |
 | MpfComModifyShortcutTarget | Unknown | Malcode |
 | MpfComVssDeleteShadowVolumeBackups | am0nsec | Malcode |
 | OleGetClipboardData | Microsoft | Malcode |

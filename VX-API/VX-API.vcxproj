@@ -161,6 +161,7 @@
     <ClCompile Include="GetByteArrayFromFile.cpp" />
     <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp" />
     <ClCompile Include="GetCurrentLocaleFromTeb.cpp" />
+    <ClCompile Include="GetCurrentProcessIdFromOffset.cpp" />
     <ClCompile Include="GetCurrentProcessIdFromTeb.cpp" />
     <ClCompile Include="GetCurrentUserSid.cpp" />
     <ClCompile Include="GetCurrentWindowTextFromUserProcessParameter.cpp" />
@@ -189,8 +190,10 @@
     <ClCompile Include="GetProcAddressFowlerNollVoVariant1a.cpp" />
     <ClCompile Include="GetProcAddressJenkinsOneAtATime32Bit.cpp" />
     <ClCompile Include="GetProcAddressLoseLose.cpp" />
+    <ClCompile Include="GetProcAddressMurmur.cpp" />
     <ClCompile Include="GetProcAddressRotr32.cpp" />
     <ClCompile Include="GetProcAddressSdbm.cpp" />
+    <ClCompile Include="GetProcAddressSipHash.cpp" />
     <ClCompile Include="GetProcAddressSuperFastHash.cpp" />
     <ClCompile Include="GetProcAddressUnknownGenericHash1.cpp" />
     <ClCompile Include="GetProcessBinaryNameFromHwnd.cpp" />
@@ -205,8 +208,10 @@
     <ClCompile Include="HashStringFowlerNollVoVariant1a.cpp" />
     <ClCompile Include="HashStringJenkinsOneAtATime32Bit.cpp" />
     <ClCompile Include="HashStringLoseLose.cpp" />
+    <ClCompile Include="HashStringMurmur.cpp" />
     <ClCompile Include="HashStringRotr32.cpp" />
     <ClCompile Include="HashStringSdbm.cpp" />
+    <ClCompile Include="HashStringSipHash.cpp" />
     <ClCompile Include="HashStringSuperFastHash.cpp" />
     <ClCompile Include="HashStringUnknownGenericHash1.cpp" />
     <ClCompile Include="IsDebuggerPresentEx.cpp" />
@@ -228,6 +233,7 @@
     <ClCompile Include="MpfGetLsaPidFromNamedPipe.cpp" />
     <ClCompile Include="MpfGetLsaPidFromRegistry.cpp" />
     <ClCompile Include="MpfGetLsaPidFromServiceManager.cpp" />
+    <ClCompile Include="ProxyWorkItemLoadLibrary.cpp" />
     <ClCompile Include="__unstable__preview__MpfSilentInstallGoogleChromePlugin.cpp" />
     <ClCompile Include="SendIcmpEchoMessageToIPv4Host.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />

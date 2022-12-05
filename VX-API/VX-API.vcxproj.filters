@@ -459,6 +459,24 @@
     <ClCompile Include="FastcallExecuteBinaryShellExecuteEx.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
+    <ClCompile Include="HashStringMurmur.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="HashStringSipHash.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\String Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressSipHash.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetProcAddressMurmur.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCurrentProcessIdFromOffset.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="ProxyWorkItemLoadLibrary.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

