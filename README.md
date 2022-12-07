@@ -160,13 +160,13 @@ You're free to use this in any manner you please. You do not need to use this en
 | DnsGetDomainNameIPv4AddressUnsignedLong | smelly__vx | Networking |
 | GetDomainNameFromUnsignedLongIPV4Address | smelly__vx | Networking |
 | GetDomainNameFromIPV4AddressAsString | smelly__vx | Networking | 
-| InitHardwareBreakpointEngine | rad9800 | Rad Hardware Breakpoint Hooking Engine |
-| ShutdownHardwareBreakpointEngine | rad9800 | Rad Hardware Breakpoint Hooking Engine |
-| ExceptionHandlerCallbackRoutine | rad9800 | Rad Hardware Breakpoint Hooking Engine |
-| SetHardwareBreakpoint | rad9800 | Rad Hardware Breakpoint Hooking Engine |
-| InsertDescriptorEntry | rad9800 | Rad Hardware Breakpoint Hooking Engine |
-| RemoveDescriptorEntry | rad9800 | Rad Hardware Breakpoint Hooking Engine |
-| SnapshotInsertHardwareBreakpointHookIntoTargetThread | rad9800 | Rad Hardware Breakpoint Hooking Engine |
+| InitHardwareBreakpointEngine | rad98 | Hooking Engine |
+| ShutdownHardwareBreakpointEngine | rad98 | Hooking Engine |
+| ExceptionHandlerCallbackRoutine | rad98 | Hooking Engine |
+| SetHardwareBreakpoint | rad98 | Hooking Engine |
+| InsertDescriptorEntry | rad98 | Hooking Engine |
+| RemoveDescriptorEntry | rad98 | Hooking Engine |
+| SnapshotInsertHardwareBreakpointHookIntoTargetThread | rad98 | Hooking Engine |
 
 
 # Todo list
