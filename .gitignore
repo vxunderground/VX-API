@@ -17,3 +17,6 @@ x64/Debug/VX-API.exe
 *.log
 *.txt
 *.bin
+*.xml
+*.sarif
+*.lastcodeanalysissucceeded
