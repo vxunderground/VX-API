@@ -14,7 +14,7 @@
 #include <Iphlpapi.h>
 #include <icmpapi.h>
 #include <windns.h>
-
+#include <tlhelp32.h>
 
 
 #pragma comment(lib, "Dnsapi.lib")
@@ -98,6 +98,32 @@ typedef struct __SHELLCODE_EXECUTION_INFORMATION {
     DWORD MethodEnum;
 }SHELLCODE_EXECUTION_INFORMATION, * PSHELLCODE_EXECUTION_INFORMATION;
 
+/*******************************************
+ RAD HARDWARE BREAKPOINT HOOKING ENGINE DATA
+*******************************************/
+typedef struct __HARDWARE_ENGINE_INIT_SETTINGS_GLOBAL {
+    PVOID HandlerObject;
+    BOOL IsInit;
+}HARDWARE_ENGINE_INIT_SETTINGS_GLOBAL, * PHARDWARE_ENGINE_INIT_SETTINGS_GLOBAL;
+
+typedef uintptr_t PUINT_VAR_T;
+typedef void (WINAPI* EXCEPTION_CALLBACK)(PEXCEPTION_POINTERS);
+
+typedef struct DESCRIPTOR_ENTRY {
+    struct DESCRIPTOR_ENTRY* Next;
+    struct DESCRIPTOR_ENTRY* Previous;
+    PUINT_VAR_T Address;
+    DWORD Position;
+    DWORD Tid;
+    BOOL Dis;
+    EXCEPTION_CALLBACK CallbackRoutine;
+}DESCRIPTOR_ENTRY, *PDESCRIPTOR_ENTRY;
+
+inline CRITICAL_SECTION CriticalSection = { 0 };
+inline DESCRIPTOR_ENTRY* Head = NULL;
+inline HARDWARE_ENGINE_INIT_SETTINGS_GLOBAL GlobalHardwareBreakpointObject;
+
+
 
 /*******************************************
  ERROR HANDLING
@@ -143,6 +169,7 @@ BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash);
 BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash);
 
 
+
 /*******************************************
  LIBRARY LOADING
 *******************************************/
@@ -168,6 +195,8 @@ HMODULE GetModuleHandleEx2A(_In_ LPCSTR lpModuleName);
 HMODULE GetModuleHandleEx2W(_In_ LPCWSTR lpModuleName);
 HMODULE ProxyWorkItemLoadLibraryW(_In_ LPCWSTR lpModuleName);
 HMODULE ProxyWorkItemLoadLibraryA(_In_ LPCSTR lpModuleName);
+HMODULE ProxyRegisterWaitLoadLibraryW(_In_ LPCWSTR lpModuleName);
+HMODULE ProxyRegisterWaitLoadLibraryA(_In_ LPCSTR lpModuleName);
 
 
 
@@ -215,6 +244,8 @@ DWORD IsRegistryKeyValidW(_In_ HKEY PredefinedKey, _In_ PWCHAR Path);
 BOOL FastcallExecuteBinaryShellExecuteExW(_In_ PWCHAR FullPathToBinary, _In_ PWCHAR OptionalParameters);
 BOOL FastcallExecuteBinaryShellExecuteExA(_In_ PCHAR FullPathToBinary, _In_ PCHAR OptionalParameters);
 DWORD GetCurrentProcessIdFromOffset(VOID);
+
+
 
 /*******************************************
  FINGERPRINTING
@@ -267,7 +298,6 @@ BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR Extens
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
-DWORD __revision_required_ProcessInjectFiberData(_In_ PCHAR Shellcode, _In_ DWORD Length);
 
 
 
@@ -292,6 +322,8 @@ DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR FullBinaryPath);
 DWORD CreateProcessViaNtCreateUserProcessA(PCHAR FullBinaryPath);
 BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName);
 BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
+BOOL HookEngineUnhookHeapFree(_In_ BOOL StartEngine);
+BOOL HookEngineRestoreHeapFree(_In_ BOOL ShutdownEngine);
 
 
 
@@ -328,3 +360,18 @@ BOOL GetDomainNameFromUnsignedLongIPV4AddressW(_In_ ULONG IpAddress, _Inout_ PWC
 BOOL GetDomainNameFromUnsignedLongIPV4AddressA(_In_ ULONG IpAddress, _Inout_ PCHAR DomainName);
 BOOL GetDomainNameFromIPV4AddressAsStringW(_In_ PWCHAR IpAddress, _Inout_ PWCHAR DomainName);
 BOOL GetDomainNameFromIPV4AddressAsStringA(_In_ PCHAR IpAddress, _Inout_ PCHAR DomainName);
+
+
+
+/*******************************************
+ RAD HARDWARE BREAKPOINT HOOKING ENGINE FUNCTIONS
+*******************************************/
+BOOL InitHardwareBreakpointEngine(VOID);
+BOOL ShutdownHardwareBreakpointEngine(VOID);
+LONG ExceptionHandlerCallbackRoutine(_In_ PEXCEPTION_POINTERS ExceptionInfo);
+BOOL SetHardwareBreakpoint(_In_ DWORD ThreadId, _In_ PUINT_VAR_T Address, _In_ UINT Position, _In_ BOOL Init);
+BOOL InsertDescriptorEntry(_In_ PUINT_VAR_T Address, _In_ DWORD Position, _In_ EXCEPTION_CALLBACK CallbackRoutine, _In_ DWORD Tid, _In_ BOOL Dis);
+BOOL RemoveDescriptorEntry(_In_ PUINT_VAR_T Address, _In_ DWORD Tid);
+BOOL SnapshotInsertHardwareBreakpointHookIntoTargetThread(_In_ PUINT_VAR_T Address, _In_ DWORD Position, _In_ BOOL Init, _In_ DWORD Tid);
+
+INT __demonstration_WinMain(VOID); //hook sleep

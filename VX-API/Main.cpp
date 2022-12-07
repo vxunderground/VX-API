@@ -37,7 +37,7 @@ int main(VOID)
 
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 
-	HMODULE hMod = ProxyWorkItemLoadLibraryA("DBGHELP.DLL");
+	__demonstration_WinMain();
 	
 
 	return dwError;

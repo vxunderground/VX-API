@@ -89,7 +89,7 @@ INT32 HashStringSipHashW(_In_ PWCHAR String)
 		SIPROUND;
 
 		hash = v0 ^ v1 ^ v2 ^ v3;
-		return hash;
+		return (INT32)hash;
 }
 
 
@@ -160,5 +160,5 @@ INT32 HashStringSipHashA(_In_ PCHAR String)
 	SIPROUND;
 
 	hash = v0 ^ v1 ^ v2 ^ v3;
-	return hash;
+	return (INT32)hash;
 }

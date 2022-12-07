@@ -13,8 +13,7 @@ HMODULE ProxyWorkItemLoadLibraryW(_In_ LPCWSTR lpModuleName)
 	if (!NtWaitForSingleObject || !RtlQueueWorkItem)
 		return NULL;
 
-	Status = RtlQueueWorkItem((PRTL_WORK_ITEM_ROUTINE)&LoadLibraryW, (PVOID)lpModuleName, WT_EXECUTEDEFAULT);
-	if (!NT_SUCCESS(Status))
+	if(RtlQueueWorkItem((PRTL_WORK_ITEM_ROUTINE)&LoadLibraryW, (PVOID)lpModuleName, WT_EXECUTEDEFAULT) != STATUS_SUCCESS)
 		return NULL;
 
 	Timeout.QuadPart = -500000;
@@ -37,8 +36,7 @@ HMODULE ProxyWorkItemLoadLibraryA(_In_ LPCSTR lpModuleName)
 	if (!NtWaitForSingleObject || !RtlQueueWorkItem)
 		return NULL;
 
-	Status = RtlQueueWorkItem((PRTL_WORK_ITEM_ROUTINE)&LoadLibraryA, (PVOID)lpModuleName, WT_EXECUTEDEFAULT);
-	if (!NT_SUCCESS(Status))
+	if(RtlQueueWorkItem((PRTL_WORK_ITEM_ROUTINE)&LoadLibraryA, (PVOID)lpModuleName, WT_EXECUTEDEFAULT) != STATUS_SUCCESS)
 		return NULL;
 
 	Timeout.QuadPart = -500000;

@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,6 +157,8 @@
     <ClCompile Include="DeleteFileWithCreateFileFlag.cpp" />
     <ClCompile Include="DnsGetDomainNameIPv4AddressAsString.cpp" />
     <ClCompile Include="DnsGetDomainNameIPv4AddressUnsignedLong.cpp" />
+    <ClCompile Include="ExampleOfUsageOfHardwareBreakpointHookingEngine.cpp" />
+    <ClCompile Include="ExceptHandlerCallbackRoutine.cpp" />
     <ClCompile Include="Ex_GetHandleOnDeviceHttpCommunication.cpp" />
     <ClCompile Include="FastcallExecuteBinaryShellExecuteEx.cpp" />
     <ClCompile Include="GetByteArrayFromFile.cpp" />
@@ -214,6 +217,9 @@
     <ClCompile Include="HashStringSipHash.cpp" />
     <ClCompile Include="HashStringSuperFastHash.cpp" />
     <ClCompile Include="HashStringUnknownGenericHash1.cpp" />
+    <ClCompile Include="HookEngineUnhookHeapFreecpp.cpp" />
+    <ClCompile Include="InitHardwareBreakpointEngine.cpp" />
+    <ClCompile Include="InsertDescriptorEntry.cpp" />
     <ClCompile Include="IsDebuggerPresentEx.cpp" />
     <ClCompile Include="IsDllLoaded.cpp" />
     <ClCompile Include="IsIntelHardwareBreakpointPresent.cpp" />
@@ -233,7 +239,12 @@
     <ClCompile Include="MpfGetLsaPidFromNamedPipe.cpp" />
     <ClCompile Include="MpfGetLsaPidFromRegistry.cpp" />
     <ClCompile Include="MpfGetLsaPidFromServiceManager.cpp" />
+    <ClCompile Include="ProxyRegisterWaitLoadLibrary.cpp" />
     <ClCompile Include="ProxyWorkItemLoadLibrary.cpp" />
+    <ClCompile Include="RemoveDescriptorEntry.cpp" />
+    <ClCompile Include="SetHardwareBreakpoint.cpp" />
+    <ClCompile Include="ShutdownHardwareBreakpointEngine.cpp" />
+    <ClCompile Include="SnapshotInsertHardwareBreakpointHookIntoTargetThread.cpp" />
     <ClCompile Include="__unstable__preview__MpfSilentInstallGoogleChromePlugin.cpp" />
     <ClCompile Include="SendIcmpEchoMessageToIPv4Host.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />

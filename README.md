@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.420
+Version: 2.0.439
 
 Developer: smelly__vx
   
@@ -78,6 +78,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | DelayedExecutionExecuteOnDisplayOff | am0nsec and smelly__vx | Evasion |
 | MasqueradePebAsExplorer | smelly__vx | Evasion |
 | RemoveDllFromPeb | rad9800 | Evasion |
+| HookEngineRestoreHeapFree | rad9800 | Evasion |
+| HookEngineUnhookHeapFree | rad9800 | Evasion |
 | GetCurrentLocaleFromTeb | 3xp0rt | Fingerprinting |
 | GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
 | GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |
@@ -137,6 +139,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetTeb | ReactOS | Library Loading |
 | RtlLoadPeHeaders | smelly__vx | Library Loading |
 | ProxyWorkItemLoadLibrary | Rad98, Peter Winter-Smith | Library Loading |
+| ProxyRegisterWaitLoadLibrary | Rad98, Peter Winter-Smith | Library Loading |
 | MpfComModifyShortcutTarget | Unknown | Malcode |
 | MpfComVssDeleteShadowVolumeBackups | am0nsec | Malcode |
 | OleGetClipboardData | Microsoft | Malcode |
@@ -157,6 +160,13 @@ You're free to use this in any manner you please. You do not need to use this en
 | DnsGetDomainNameIPv4AddressUnsignedLong | smelly__vx | Networking |
 | GetDomainNameFromUnsignedLongIPV4Address | smelly__vx | Networking |
 | GetDomainNameFromIPV4AddressAsString | smelly__vx | Networking | 
+| InitHardwareBreakpointEngine | rad9800 | Rad Hardware Breakpoint Hooking Engine |
+| ShutdownHardwareBreakpointEngine | rad9800 | Rad Hardware Breakpoint Hooking Engine |
+| ExceptionHandlerCallbackRoutine | rad9800 | Rad Hardware Breakpoint Hooking Engine |
+| SetHardwareBreakpoint | rad9800 | Rad Hardware Breakpoint Hooking Engine |
+| InsertDescriptorEntry | rad9800 | Rad Hardware Breakpoint Hooking Engine |
+| RemoveDescriptorEntry | rad9800 | Rad Hardware Breakpoint Hooking Engine |
+| SnapshotInsertHardwareBreakpointHookIntoTargetThread | rad9800 | Rad Hardware Breakpoint Hooking Engine |
 
 
 # Todo list

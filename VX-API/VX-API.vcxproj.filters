@@ -61,6 +61,12 @@
     <Filter Include="Source Files\Windows API Helper Functions\Malicious Capabilities\Lolbins">
       <UniqueIdentifier>{b688b3fc-f662-4634-b690-f200a79aee37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Rad Hardware Breakpoint Hooking Engine">
+      <UniqueIdentifier>{148b86cd-abe4-43c3-a827-d89b58910722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rad Hardware Breakpoint Hooking Engine\Demonstration">
+      <UniqueIdentifier>{5d653d78-df9a-400d-a3bd-3961bf4e09e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -476,6 +482,36 @@
     </ClCompile>
     <ClCompile Include="ProxyWorkItemLoadLibrary.cpp">
       <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="ProxyRegisterWaitLoadLibrary.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Library Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="InitHardwareBreakpointEngine.cpp">
+      <Filter>Source Files\Rad Hardware Breakpoint Hooking Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceptHandlerCallbackRoutine.cpp">
+      <Filter>Source Files\Rad Hardware Breakpoint Hooking Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="SetHardwareBreakpoint.cpp">
+      <Filter>Source Files\Rad Hardware Breakpoint Hooking Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleOfUsageOfHardwareBreakpointHookingEngine.cpp">
+      <Filter>Source Files\Rad Hardware Breakpoint Hooking Engine\Demonstration</Filter>
+    </ClCompile>
+    <ClCompile Include="InsertDescriptorEntry.cpp">
+      <Filter>Source Files\Rad Hardware Breakpoint Hooking Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoveDescriptorEntry.cpp">
+      <Filter>Source Files\Rad Hardware Breakpoint Hooking Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ShutdownHardwareBreakpointEngine.cpp">
+      <Filter>Source Files\Rad Hardware Breakpoint Hooking Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapshotInsertHardwareBreakpointHookIntoTargetThread.cpp">
+      <Filter>Source Files\Rad Hardware Breakpoint Hooking Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="HookEngineUnhookHeapFreecpp.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
