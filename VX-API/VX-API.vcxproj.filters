@@ -513,6 +513,12 @@
     <ClCompile Include="HookEngineUnhookHeapFreecpp.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
+    <ClCompile Include="SleepObfuscationViaVirtualProtect.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="GetPeFileBaseAddress.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

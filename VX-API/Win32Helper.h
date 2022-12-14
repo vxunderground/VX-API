@@ -15,6 +15,7 @@
 #include <icmpapi.h>
 #include <windns.h>
 #include <tlhelp32.h>
+#include <stdio.h>
 
 
 #pragma comment(lib, "Dnsapi.lib")
@@ -140,6 +141,13 @@ DWORD RtlNtStatusToDosErrorViaImport(_In_ NTSTATUS Status);
 /*******************************************
  CRYPTOGRAPHY RELATED
 *******************************************/
+//#define TOKENIZE( x ) #x
+//#define CONCAT3( X, Y, Z ) X##Y##Z
+//#define HASHALGOA HashStringDjb2A
+//#define hasha( VAL ) constexpr auto CONCAT3(hash,VAL,A) = HASHALGOA((PCHAR)TOKENIZE(VAL))
+//#define hashw( VAL ) constexpr auto CONCAT3(hash,VAL,W) = HASHALGOA((PWCHAR)TOKENIZE(VAL))
+
+
 DWORD HashStringDjb2A(_In_ PCHAR String);
 DWORD HashStringDjb2W(_In_ PWCHAR String);
 ULONG HashStringFowlerNollVoVariant1aA(_In_ PCHAR String);
@@ -244,6 +252,7 @@ DWORD IsRegistryKeyValidW(_In_ HKEY PredefinedKey, _In_ PWCHAR Path);
 BOOL FastcallExecuteBinaryShellExecuteExW(_In_ PWCHAR FullPathToBinary, _In_ PWCHAR OptionalParameters);
 BOOL FastcallExecuteBinaryShellExecuteExA(_In_ PCHAR FullPathToBinary, _In_ PCHAR OptionalParameters);
 DWORD GetCurrentProcessIdFromOffset(VOID);
+HMODULE GetPeFileBaseAddress(VOID);
 
 
 
@@ -324,6 +333,7 @@ BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName);
 BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
 BOOL HookEngineUnhookHeapFree(_In_ BOOL StartEngine);
 BOOL HookEngineRestoreHeapFree(_In_ BOOL ShutdownEngine);
+BOOL SleepObfuscationViaVirtualProtect(_In_ DWORD dwSleepTimeInMilliseconds, _In_ PUCHAR Key);
 
 
 

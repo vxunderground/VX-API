@@ -3,7 +3,7 @@
 DWORD HashStringDjb2A(_In_ PCHAR String)
 {
 	ULONG Hash = 5381;
-	INT c;
+	INT c = 0;
 
 	while (c = *String++)
 		Hash = ((Hash << 5) + Hash) + c;
@@ -14,7 +14,7 @@ DWORD HashStringDjb2A(_In_ PCHAR String)
 DWORD HashStringDjb2W(_In_ PWCHAR String)
 {
 	ULONG Hash = 5381;
-	INT c;
+	INT c = 0;
 
 	while (c = *String++)
 		Hash = ((Hash << 5) + Hash) + c;

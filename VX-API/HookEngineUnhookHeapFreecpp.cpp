@@ -2,7 +2,7 @@
 
 VOID HeapFreeInterceptionRoutine(PEXCEPTION_POINTERS ExceptionInfo)
 {
-	CONST DWORD dwSize = HeapSize((HANDLE)ExceptionInfo->ContextRecord->Rcx, (DWORD)ExceptionInfo->ContextRecord->Rdx, (LPCVOID)ExceptionInfo->ContextRecord->R8);
+	CONST DWORD dwSize = (DWORD)HeapSize((HANDLE)ExceptionInfo->ContextRecord->Rcx, (DWORD)ExceptionInfo->ContextRecord->Rdx, (LPCVOID)ExceptionInfo->ContextRecord->R8);
 
 	if (dwSize)
 		ZeroMemoryEx((PVOID)ExceptionInfo->ContextRecord->R8, dwSize);

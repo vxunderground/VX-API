@@ -80,6 +80,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | RemoveDllFromPeb | rad9800 | Evasion |
 | HookEngineRestoreHeapFree | rad9800 | Evasion |
 | HookEngineUnhookHeapFree | rad9800 | Evasion |
+| SleepObfuscationViaVirtualProtect | 5pider | Evasion |
 | GetCurrentLocaleFromTeb | 3xp0rt | Fingerprinting |
 | GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
 | GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |
@@ -120,6 +121,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | IsRegistryKeyValid | smelly__vx | Helper Functions |
 | FastcallExecuteBinaryShellExecuteEx | smelly__vx | Helper Functions |
 | GetCurrentProcessIdFromOffset | RistBS | Helper Functions | 
+| GetPeBaseAddress | smelly__vx | Helper Functions | 
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |

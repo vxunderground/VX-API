@@ -20,3 +20,6 @@ x64/Debug/VX-API.exe
 *.xml
 *.sarif
 *.lastcodeanalysissucceeded
+*.iobj
+*.ipdb
+*.exe

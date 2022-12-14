@@ -37,8 +37,10 @@ int main(VOID)
 
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 
-	__demonstration_WinMain();
-	
+	//hasha(NtMapViewOfSection);
+	UCHAR KeyBuf[17] = { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x00};
+
+	SleepObfuscationViaVirtualProtect(4000, KeyBuf);
 
 	return dwError;
 }
