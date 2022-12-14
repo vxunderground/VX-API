@@ -253,6 +253,7 @@ BOOL FastcallExecuteBinaryShellExecuteExW(_In_ PWCHAR FullPathToBinary, _In_ PWC
 BOOL FastcallExecuteBinaryShellExecuteExA(_In_ PCHAR FullPathToBinary, _In_ PCHAR OptionalParameters);
 DWORD GetCurrentProcessIdFromOffset(VOID);
 HMODULE GetPeFileBaseAddress(VOID);
+DWORD64 LdrLoadGetProcedureAddress(VOID);
 
 
 

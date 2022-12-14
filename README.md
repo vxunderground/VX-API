@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.439
+Version: 2.0.460
 
 Developer: smelly__vx
   
@@ -122,11 +122,12 @@ You're free to use this in any manner you please. You do not need to use this en
 | FastcallExecuteBinaryShellExecuteEx | smelly__vx | Helper Functions |
 | GetCurrentProcessIdFromOffset | RistBS | Helper Functions | 
 | GetPeBaseAddress | smelly__vx | Helper Functions | 
+| LdrLoadGetProcedureAddress | c5pider | Helper Functions | 
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
 | GetPebFromTeb | ReactOS | Library Loading |
-| GetProcAddress | 29a Volume 2 | Library Loading |
+| GetProcAddress | 29a Volume 2, c5pider | Library Loading |
 | GetProcAddressDjb2 | smelly__vx | Library Loading |
 | GetProcAddressFowlerNollVoVariant1a | smelly__vx | Library Loading |
 | GetProcAddressJenkinsOneAtATime32Bit | smelly__vx | Library Loading |

