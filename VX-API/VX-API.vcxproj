@@ -245,6 +245,7 @@
     <ClCompile Include="ProxyRegisterWaitLoadLibrary.cpp" />
     <ClCompile Include="ProxyWorkItemLoadLibrary.cpp" />
     <ClCompile Include="RemoveDescriptorEntry.cpp" />
+    <ClCompile Include="RemoveRegisterDllNotification.cpp" />
     <ClCompile Include="SetHardwareBreakpoint.cpp" />
     <ClCompile Include="ShutdownHardwareBreakpointEngine.cpp" />
     <ClCompile Include="SleepObfuscationViaVirtualProtect.cpp" />

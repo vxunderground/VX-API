@@ -81,6 +81,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | HookEngineRestoreHeapFree | rad9800 | Evasion |
 | HookEngineUnhookHeapFree | rad9800 | Evasion |
 | SleepObfuscationViaVirtualProtect | 5pider | Evasion |
+| RemoveRegisterDllNotification | Rad98, Peter Winter-Smith | Evasion |
 | GetCurrentLocaleFromTeb | 3xp0rt | Fingerprinting |
 | GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
 | GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |
@@ -180,8 +181,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | IcmpSendEcho2Ex | N/A | N/A |
 | WQL Win32_Ping | Martin Friedrich | N/A |
 | Process Injection | N/A | N/A |
-| More String Manipulation code | N/A | Continuous Improvement |
-| More hashing algorithms | N/A | Continuous Improvement |
 
 # Notes
 | Function Name | Note | Fixed |

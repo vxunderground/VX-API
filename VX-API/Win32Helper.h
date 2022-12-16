@@ -335,6 +335,7 @@ BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
 BOOL HookEngineUnhookHeapFree(_In_ BOOL StartEngine);
 BOOL HookEngineRestoreHeapFree(_In_ BOOL ShutdownEngine);
 BOOL SleepObfuscationViaVirtualProtect(_In_ DWORD dwSleepTimeInMilliseconds, _In_ PUCHAR Key);
+BOOL RemoveRegisterDllNotification(VOID);
 
 
 
