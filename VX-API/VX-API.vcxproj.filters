@@ -525,6 +525,18 @@
     <ClCompile Include="RemoveRegisterDllNotification.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
+    <ClCompile Include="ConvertCharacterStringToIntegerUsingNtdll.cpp">
+      <Filter>Source Files\String Manipulation\String Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatePseudoRandomIntegerFromNtdll.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessByWindowsRHotKey.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessByWindowsRHotKeyEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

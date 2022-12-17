@@ -137,6 +137,7 @@
     <ClCompile Include="CharArrayToByteArray.cpp" />
     <ClCompile Include="CharStringToWCharString.cpp" />
     <ClCompile Include="CheckRemoteDebuggerPresentEx.cpp" />
+    <ClCompile Include="ConvertCharacterStringToIntegerUsingNtdll.cpp" />
     <ClCompile Include="ConvertIPv4IpAddressStructureToString.cpp" />
     <ClCompile Include="ConvertIPv4IpAddressUnsignedLongToString.cpp" />
     <ClCompile Include="ConvertIPv4StringToUnsignedLong.cpp" />
@@ -144,6 +145,8 @@
     <ClCompile Include="CreateFileFromDsCopyFromSharedFile.cpp" />
     <ClCompile Include="CreateLocalAppDataObjectPath.cpp" />
     <ClCompile Include="CreateMd5HashFromFilePath.cpp" />
+    <ClCompile Include="CreateProcessByWindowsRHotKey.cpp" />
+    <ClCompile Include="CreateProcessByWindowsRHotKeyEx.cpp" />
     <ClCompile Include="CreateProcessFromIHxHelpPaneServer.cpp" />
     <ClCompile Include="CreateProcessFromIHxInteractiveUser.cpp" />
     <ClCompile Include="CreateProcessFromIShellDispatchInvoke.cpp" />
@@ -151,6 +154,7 @@
     <ClCompile Include="CreateProcessViaNtCreateUserProcess.cpp" />
     <ClCompile Include="CreateProcessWithCfGuard.cpp" />
     <ClCompile Include="CreatePseudoRandomInteger.cpp" />
+    <ClCompile Include="CreatePseudoRandomIntegerFromNtdll.cpp" />
     <ClCompile Include="CreatePseudoRandomString.cpp" />
     <ClCompile Include="CreateThreadAndWaitForCompletion.cpp" />
     <ClCompile Include="CreateWindowsObjectPath.cpp" />

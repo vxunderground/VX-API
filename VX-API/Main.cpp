@@ -34,6 +34,7 @@ int main(VOID)
 	Sei.Payload = GlobalOpenCalcPayload;
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_RTLUSERFIBERSTART;
+	DWORD dwX = 0;
 
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
 

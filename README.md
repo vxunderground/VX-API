@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.477
+Version: 2.0.488
 
 Developer: smelly__vx
   
@@ -40,7 +40,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | StringRemoveSubstring | smelly__vx | String Manipulation |
 | StringTerminateStringAtChar | smelly__vx | String Manipulation |
 | StringToken | Apple (c) 1999 | String Manipulation |
-| ZeroMemoryEx | ReactOS | String Manipulation |
+| ZeroMemoryEx | ReactOS | String Manipulation | 
+| ConvertCharacterStringToIntegerUsingNtdll | smelly__vx | String Manipulation |
 | AdfCloseHandleOnInvalidAddress | Checkpoint Research | Anti-debug |
 | AdfIsCreateProcessDebugEventCodeSet | Checkpoint Research | Anti-debug |
 | AdfOpenProcessOnCsrss | Checkpoint Research | Anti-debug |
@@ -61,6 +62,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | CreatePseudoRandomInteger | Apple (c) 1999 | Cryptography Related |
 | CreatePseudoRandomString | smelly__vx | Cryptography Related |
 | HashFileByMsiFileHashTable | smelly__vx | Cryptography Related |
+| CreatePseudoRandomIntegerFromNtdll | smelly__vx | Cryptography Related |
 | GetLastErrorFromTeb | smelly__vx | Error Handling |
 | GetLastNtStatusFromTeb | smelly__vx | Error Handling |
 | RtlNtStatusToDosErrorViaImport | ReactOS | Error Handling |
@@ -82,6 +84,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | HookEngineUnhookHeapFree | rad9800 | Evasion |
 | SleepObfuscationViaVirtualProtect | 5pider | Evasion |
 | RemoveRegisterDllNotification | Rad98, Peter Winter-Smith | Evasion |
+| CreateProcessByWindowsRHotKey | smelly__vx | Evasion |
+| CreateProcessByWindowsRHotKeyEx | smelly__vx | Evasion |
 | GetCurrentLocaleFromTeb | 3xp0rt | Fingerprinting |
 | GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
 | GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |

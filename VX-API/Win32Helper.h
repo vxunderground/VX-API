@@ -175,6 +175,7 @@ PWCHAR CreatePseudoRandomStringW(_In_ SIZE_T dwLength, _In_ ULONG Seed);
 PCHAR CreatePseudoRandomStringA(_In_ SIZE_T dwLength, _In_ ULONG Seed);
 BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash);
 BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash);
+ULONG CreatePseudoRandomIntegerFromNtdll(_In_ ULONG Seed);
 
 
 
@@ -336,6 +337,10 @@ BOOL HookEngineUnhookHeapFree(_In_ BOOL StartEngine);
 BOOL HookEngineRestoreHeapFree(_In_ BOOL ShutdownEngine);
 BOOL SleepObfuscationViaVirtualProtect(_In_ DWORD dwSleepTimeInMilliseconds, _In_ PUCHAR Key);
 BOOL RemoveRegisterDllNotification(VOID);
+DWORD CreateProcessByWindowsRHotKeyW(_In_ PWCHAR FullPathToBinary);
+DWORD CreateProcessByWindowsRHotKeyA(_In_ PCHAR FullPathToBinary);
+DWORD CreateProcessByWindowsRHotKeyExW(_In_ PWCHAR FullPathToBinary);
+DWORD CreateProcessByWindowsRHotKeyExA(_In_ PCHAR FullPathToBinary);
 
 
 
