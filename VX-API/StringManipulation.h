@@ -37,3 +37,4 @@ INT ShlwapiCharStringToWCharString(_In_ PCHAR InString, _Inout_ PWCHAR OutString
 INT ShlwapiWCharStringToCharString(_In_ PWCHAR InString, _Inout_ PCHAR OutString, _In_ INT BufferSize);
 ULONG ConvertCharacterStringToIntegerUsingNtdllA(_In_ PCHAR InString);
 ULONG ConvertCharacterStringToIntegerUsingNtdllW(_In_ PWCHAR InString);
+PVOID MemoryFindMemory(_In_ PVOID Haystack, _In_ SIZE_T HaystackLength, _In_ PVOID Needle, _In_ SIZE_T NeedleLength);

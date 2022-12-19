@@ -35,8 +35,16 @@ int main(VOID)
 	Sei.dwLengthOfPayloadInBytes = 277;
 	Sei.MethodEnum = E_RTLUSERFIBERSTART;
 	DWORD dwX = 0;
+	
+	PROCESS_INJECTION_INFORMATION Pii = { 0 };
+
+	Pii.Payload = GlobalOpenCalcPayload;
+	Pii.dwLengthOfPayloadInBytes = 277;
+	Pii.ProcessId = 31480;
+	Pii.MethodEnum = E_CTRL_INJECT;
 
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
+	//ProcessInjectionMain(&Pii);
 
 	return dwError;
 }

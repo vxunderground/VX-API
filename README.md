@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.488
+Version: 2.0.505
 
 Developer: smelly__vx
   
@@ -42,6 +42,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | StringToken | Apple (c) 1999 | String Manipulation |
 | ZeroMemoryEx | ReactOS | String Manipulation | 
 | ConvertCharacterStringToIntegerUsingNtdll | smelly__vx | String Manipulation |
+| MemoryFindMemory | KamilCuk | String Manipulation |
 | AdfCloseHandleOnInvalidAddress | Checkpoint Research | Anti-debug |
 | AdfIsCreateProcessDebugEventCodeSet | Checkpoint Research | Anti-debug |
 | AdfOpenProcessOnCsrss | Checkpoint Research | Anti-debug |
@@ -156,6 +157,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromRegistry | modexp | Malcode |
 | MpfGetLsaPidFromNamedPipe | modexp | Malcode |
 | ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malcode |
+| ProcessInjectionMain | SafeBreach Labs | Malcode |
 | MpfComMonitorChromeSessionOnce | smelly__vx | Malcode |
 | MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malcode |
 | MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey | Malcode |
@@ -185,11 +187,3 @@ You're free to use this in any manner you please. You do not need to use this en
 | IcmpSendEcho2Ex | N/A | N/A |
 | WQL Win32_Ping | Martin Friedrich | N/A |
 | Process Injection | N/A | N/A |
-
-# Notes
-| Function Name | Note | Fixed |
-| ------------- | ---- | ----- |
-| StringToken | Needs revision, buggy | N/A |
-| NtQueryOpenSubKeysEx | admin required | N/A |
-| ManualResourceDataFetching by Orca | Review and complete | N/A |
-| MpfComMonitorChromeSessionOnce | Usability improvements needed | N/A |

@@ -235,6 +235,7 @@
     <ClCompile Include="IsProcessRunningAsAdmin.cpp" />
     <ClCompile Include="IsRegistryKeyValid.cpp" />
     <ClCompile Include="LdrLoadGetProcedureAddress.cpp" />
+    <ClCompile Include="MemoryFindMemory.cpp" />
     <ClCompile Include="MpfLolExecuteRemoteBinaryByAppInstaller.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ManualResourceDataFetching.cpp" />
@@ -246,6 +247,8 @@
     <ClCompile Include="MpfGetLsaPidFromNamedPipe.cpp" />
     <ClCompile Include="MpfGetLsaPidFromRegistry.cpp" />
     <ClCompile Include="MpfGetLsaPidFromServiceManager.cpp" />
+    <ClCompile Include="MpfProcessInjectionViaProcessReflection.cpp" />
+    <ClCompile Include="ProcessInjectionMain.cpp" />
     <ClCompile Include="ProxyRegisterWaitLoadLibrary.cpp" />
     <ClCompile Include="ProxyWorkItemLoadLibrary.cpp" />
     <ClCompile Include="RemoveDescriptorEntry.cpp" />

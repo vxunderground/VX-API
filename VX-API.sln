@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VX-API", "VX-API\VX-API.vcxproj", "{12CF8029-1663-470E-B138-39DC69C35B1D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Process Injection Testing Applications", "Process Injection Testing Applications\Process Injection Testing Applications.vcxproj", "{FBF1308A-94F4-4BEC-B2B3-D30A19BDDB4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{12CF8029-1663-470E-B138-39DC69C35B1D}.Release|x64.Build.0 = Release|x64
 		{12CF8029-1663-470E-B138-39DC69C35B1D}.Release|x86.ActiveCfg = Release|Win32
 		{12CF8029-1663-470E-B138-39DC69C35B1D}.Release|x86.Build.0 = Release|Win32
+		{FBF1308A-94F4-4BEC-B2B3-D30A19BDDB4A}.Debug|x64.ActiveCfg = Debug|x64
+		{FBF1308A-94F4-4BEC-B2B3-D30A19BDDB4A}.Debug|x64.Build.0 = Debug|x64
+		{FBF1308A-94F4-4BEC-B2B3-D30A19BDDB4A}.Debug|x86.ActiveCfg = Debug|Win32
+		{FBF1308A-94F4-4BEC-B2B3-D30A19BDDB4A}.Debug|x86.Build.0 = Debug|Win32
+		{FBF1308A-94F4-4BEC-B2B3-D30A19BDDB4A}.Release|x64.ActiveCfg = Release|x64
+		{FBF1308A-94F4-4BEC-B2B3-D30A19BDDB4A}.Release|x64.Build.0 = Release|x64
+		{FBF1308A-94F4-4BEC-B2B3-D30A19BDDB4A}.Release|x86.ActiveCfg = Release|Win32
+		{FBF1308A-94F4-4BEC-B2B3-D30A19BDDB4A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

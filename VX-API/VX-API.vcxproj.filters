@@ -67,6 +67,9 @@
     <Filter Include="Source Files\Rad Hardware Breakpoint Hooking Engine\Demonstration">
       <UniqueIdentifier>{5d653d78-df9a-400d-a3bd-3961bf4e09e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Malicious Capabilities\Process Injection">
+      <UniqueIdentifier>{afb1a792-4365-4fb2-ae74-b93768c98289}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -536,6 +539,15 @@
     </ClCompile>
     <ClCompile Include="CreateProcessByWindowsRHotKeyEx.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfProcessInjectionViaProcessReflection.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Process Injection</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessInjectionMain.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Process Injection</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryFindMemory.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

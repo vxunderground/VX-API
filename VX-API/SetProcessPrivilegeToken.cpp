@@ -15,17 +15,17 @@ BOOL SetProcessPrivilegeToken(_In_ DWORD PrivilegeEnum)
 
 	switch (PrivilegeEnum)
 	{
-	case 0:
-	{
-		StringCopyW(PrivilegeString, (PWCHAR)L"SeDebugPrivilege");
-		break;
-	}
-	case 1:
-	{
-		StringCopyW(PrivilegeString, (PWCHAR)L"SeBackupPrivilege");
-		break;
-	}
-	default:
+		case 0:
+		{
+			StringCopyW(PrivilegeString, (PWCHAR)L"SeDebugPrivilege");
+			break;
+		}
+		case 1:
+		{
+			StringCopyW(PrivilegeString, (PWCHAR)L"SeBackupPrivilege");
+			break;
+		}
+		default:
 		goto EXIT_ROUTINE;
 	}
 
