@@ -549,6 +549,9 @@
     <ClCompile Include="MemoryFindMemory.cpp">
       <Filter>Source Files\String Manipulation</Filter>
     </ClCompile>
+    <ClCompile Include="MiscGenericShellcodePayloads.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

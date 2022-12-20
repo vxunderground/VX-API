@@ -163,7 +163,8 @@ inline HARDWARE_ENGINE_INIT_SETTINGS_GLOBAL GlobalHardwareBreakpointObject;
 typedef enum PROCESS_INJECTION_METHOD {
     E_WRITEPROCESSMEMORY_CREATEREMOTETHREAD_EXECUTESHELLCODE, //0
     E_PROCESS_REFLECTION_EXECUTESHELLCODE, //1 UNIMPLEMENTED
-    E_CTRL_INJECT //2
+    E_CTRL_INJECT, //2
+    E_QUEUE_USER_APC //3
 }PROCESS_INJECTION_METHOD, * PPROCESS_INJECTION_METHOD;
 
 typedef struct __PROCESS_INJECTION_INFORMATION {
@@ -446,3 +447,12 @@ BOOL RemoveDescriptorEntry(_In_ PUINT_VAR_T Address, _In_ DWORD Tid);
 BOOL SnapshotInsertHardwareBreakpointHookIntoTargetThread(_In_ PUINT_VAR_T Address, _In_ DWORD Position, _In_ BOOL Init, _In_ DWORD Tid);
 
 INT __demonstration_WinMain(VOID); //hook sleep
+
+
+
+/*******************************************
+ GENERIC SHELLCODE PAYLOADS FOR TESTINGS
+*******************************************/
+PCHAR GenericShellcodeHelloWorldMessageBoxA(VOID);
+PCHAR GenericShellcodeOpenCalcExitThread(VOID);
+PCHAR GenericShellcodeHelloWorldMessageBoxAEbFbLoop(VOID);

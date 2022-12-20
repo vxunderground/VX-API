@@ -177,6 +177,9 @@ You're free to use this in any manner you please. You do not need to use this en
 | InsertDescriptorEntry | rad98 | Hooking Engine |
 | RemoveDescriptorEntry | rad98 | Hooking Engine |
 | SnapshotInsertHardwareBreakpointHookIntoTargetThread | rad98 | Hooking Engine |
+| GenericShellcodeHelloWorldMessageBoxA | SafeBreach Labs | Generic Shellcode |
+| GenericShellcodeHelloWorldMessageBoxAEbFbLoop | SafeBreach Labs | Generic Shellcode |
+| GenericShellcodeOpenCalcExitThread | MsfVenom | Generic Shellcode |
 
 
 # Todo list
