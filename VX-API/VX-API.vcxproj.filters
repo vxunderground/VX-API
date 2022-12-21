@@ -552,6 +552,9 @@
     <ClCompile Include="MiscGenericShellcodePayloads.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
+    <ClCompile Include="MpfExtractMaliciousPayloadFromZipFile.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

@@ -44,6 +44,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -105,6 +106,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -237,6 +239,7 @@
     <ClCompile Include="IsRegistryKeyValid.cpp" />
     <ClCompile Include="LdrLoadGetProcedureAddress.cpp" />
     <ClCompile Include="MemoryFindMemory.cpp" />
+    <ClCompile Include="MpfExtractMaliciousPayloadFromZipFile.cpp" />
     <ClCompile Include="MpfLolExecuteRemoteBinaryByAppInstaller.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ManualResourceDataFetching.cpp" />
