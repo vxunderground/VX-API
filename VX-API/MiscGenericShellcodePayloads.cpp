@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-PCHAR GenericShellcodeHelloWorldMessageBoxA(VOID)
+PCHAR GenericShellcodeHelloWorldMessageBoxA(_Out_ PDWORD SizeOfShellcodeInBytes)
 {
 	UCHAR RawPayloadBuffer[] =
 		"\x48\xB8\x44\x44\x44\x44\x44\x44\x44\x44\x50\x48\xB8"
@@ -28,10 +28,12 @@ PCHAR GenericShellcodeHelloWorldMessageBoxA(VOID)
 	CopyMemory(MemoryFindMemory(Payload, RawBufferSize, (PCHAR)&OffsetCaption, 8), Caption, 8);
 	CopyMemory(MemoryFindMemory(Payload, RawBufferSize, (PCHAR)&OffsetFunction, 8), &FunctionPointer, 8);
 
+	*SizeOfShellcodeInBytes = RawBufferSize;
+
 	return Payload;
 }
 
-PCHAR GenericShellcodeHelloWorldMessageBoxAEbFbLoop(VOID)
+PCHAR GenericShellcodeHelloWorldMessageBoxAEbFbLoop(_Out_ PDWORD SizeOfShellcodeInBytes)
 {
 	UCHAR RawPayloadBuffer[] =
 		"\x48\xB8\x44\x44\x44\x44\x44\x44\x44\x44\x50\x48\xB8"
@@ -59,10 +61,12 @@ PCHAR GenericShellcodeHelloWorldMessageBoxAEbFbLoop(VOID)
 	CopyMemory(MemoryFindMemory(Payload, RawBufferSize, (PCHAR)&OffsetCaption, 8), Caption, 8);
 	CopyMemory(MemoryFindMemory(Payload, RawBufferSize, (PCHAR)&OffsetFunction, 8), &FunctionPointer, 8);
 
+	*SizeOfShellcodeInBytes = RawBufferSize;
+
 	return Payload;
 }
 
-PCHAR GenericShellcodeOpenCalcExitThread(VOID)
+PCHAR GenericShellcodeOpenCalcExitThread(_Out_ PDWORD SizeOfShellcodeInBytes)
 {
 	//msfvenom -p windows/x64/exec EXITFUNC=thread CMD=calc.exe -f c -a x64
 	//Length = 277
@@ -97,6 +101,8 @@ PCHAR GenericShellcodeOpenCalcExitThread(VOID)
 		return NULL;
 
 	CopyMemory(Payload, RawPayloadBuffer, RawBufferSize);
+
+	*SizeOfShellcodeInBytes = RawBufferSize;
 
 	return Payload;
 }

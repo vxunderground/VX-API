@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.513
+Version: 2.0.559
 
 Developer: smelly__vx
   
@@ -156,12 +156,41 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromServiceManager | modexp | Malcode |
 | MpfGetLsaPidFromRegistry | modexp | Malcode |
 | MpfGetLsaPidFromNamedPipe | modexp | Malcode |
-| ShellcodeExecutionViaFunctionCallbackMain | alfarom256, aahmad097| Malcode |
-| ProcessInjectionMain | SafeBreach Labs | Malcode |
+| MpfSceViaEnumChildWindows | alfarom256, aahmad097 | Malcode |
+| MpfSceViaCDefFolderMenu_Create2 | alfarom256, aahmad097 | Malcode |
+| MpfSceViaCertEnumSystemStore | alfarom256, aahmad097 | Malcode |
+| MpfSceViaCertEnumSystemStoreLocation | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumDateFormatsW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumDesktopWindows | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumDesktopsW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumDirTreeW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumDisplayMonitors | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumFontFamiliesExW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumFontsW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumLanguageGroupLocalesW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumObjects | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumResourceTypesExW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumSystemCodePagesW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumSystemGeoID | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumSystemLanguageGroupsW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumSystemLocalesEx | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumThreadWindows | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumTimeFormatsEx | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumUILanguagesW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumWindowStationsW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumWindows | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumerateLoadedModules64 | alfarom256, aahmad097 | Malcode |
+| MpfSceViaK32EnumPageFilesW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumPwrSchemes | alfarom256, aahmad097 | Malcode |
+| MpfSceViaMessageBoxIndirectW | alfarom256, aahmad097 | Malcode |
 | MpfComMonitorChromeSessionOnce | smelly__vx | Malcode |
 | MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malcode |
 | MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey | Malcode |
 | MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu | Malcode |
+| MpfPiControlInjection | SafeBreach Labs | Malcode |
+| MpfPiQueueUserAPCViaAtomBomb | SafeBreach Labs | Malcode |
+| MpfPiWriteProcessMemoryCreateRemoteThread | SafeBreach Labs | Malcode |
+| MpfProcessInjectionViaProcessReflection | Deep Instinct | Malcode |
 | UrlDownloadToFileSynchronous | Hans Passant | Networking |
 | ConvertIPv4IpAddressStructureToString | smelly__vx | Networking |
 | ConvertIPv4StringToUnsignedLong | smelly__vx | Networking |
