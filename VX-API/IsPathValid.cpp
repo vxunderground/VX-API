@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL IsPathValidA(_In_ PCHAR FilePath)
+BOOL IsPathValidA(_In_ LPCSTR FilePath)
 {
 	HANDLE hFile = INVALID_HANDLE_VALUE;
 
@@ -14,7 +14,7 @@ BOOL IsPathValidA(_In_ PCHAR FilePath)
 	return TRUE;
 }
 
-BOOL IsPathValidW(_In_ PWCHAR FilePath)
+BOOL IsPathValidW(_In_ LPCWSTR FilePath)
 {
 	HANDLE hFile = INVALID_HANDLE_VALUE;
 

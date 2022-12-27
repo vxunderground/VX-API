@@ -21,11 +21,11 @@
 	} while (0)
 
 
-INT32 HashStringSipHashW(_In_ PWCHAR String) 
+INT32 HashStringSipHashW(_In_ LPCWSTR String)
 {
 		INT    Length = (INT)StringLengthW(String);
 		UINT64 hash   = ((UINT64)Length) << 56;
-		PWCHAR end    = String + Length - (Length % sizeof(UINT64));
+		PWCHAR end    = (PWCHAR)String + Length - (Length % sizeof(UINT64));
 		INT    left   = Length & 7;
 
 
@@ -93,11 +93,11 @@ INT32 HashStringSipHashW(_In_ PWCHAR String)
 }
 
 
-INT32 HashStringSipHashA(_In_ PCHAR String) 
+INT32 HashStringSipHashA(_In_ LPCSTR String)
 {
 	INT    Length = (INT)StringLengthA(String);
 	UINT64 hash = ((UINT64)Length) << 56;
-	PCHAR  end = String + Length - (Length % sizeof(UINT64));
+	PCHAR  end = (PCHAR)String + Length - (Length % sizeof(UINT64));
 	INT    left = Length & 7;
 
 	UINT64 m;

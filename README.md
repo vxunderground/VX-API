@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.559
+Version: 2.0.607
 
 Developer: smelly__vx
   
@@ -129,6 +129,9 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetCurrentProcessIdFromOffset | RistBS | Helper Functions | 
 | GetPeBaseAddress | smelly__vx | Helper Functions | 
 | LdrLoadGetProcedureAddress | c5pider | Helper Functions | 
+| IsPeSection | smelly__vx | Helper Functions | 
+| AddSectionToPeFile | smelly__vx | Helper Functions | 
+| WriteDataToPeSection | smelly__vx | Helper Functions | 
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
@@ -191,6 +194,16 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfPiQueueUserAPCViaAtomBomb | SafeBreach Labs | Malcode |
 | MpfPiWriteProcessMemoryCreateRemoteThread | SafeBreach Labs | Malcode |
 | MpfProcessInjectionViaProcessReflection | Deep Instinct | Malcode |
+| MpfSceViaImmEnumInputContext | alfarom256, aahmad097 | Malcode |
+| MpfSceViaCertFindChainInStore | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumPropsExW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaCreateThreadpoolWait | alfarom256, aahmad097 | Malcode |
+| MpfSceViaCryptEnumOIDInfo | alfarom256, aahmad097 | Malcode |
+| MpfSceViaDSA_EnumCallback | alfarom256, aahmad097 | Malcode |
+| MpfSceViaCreateTimerQueueTimer | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEvtSubscribe | alfarom256, aahmad097 | Malcode |
+| MpfSceViaFlsAlloc | alfarom256, aahmad097 | Malcode |
+| MpfSceViaInitOnceExecuteOnce | alfarom256, aahmad097 | Malcode |
 | UrlDownloadToFileSynchronous | Hans Passant | Networking |
 | ConvertIPv4IpAddressStructureToString | smelly__vx | Networking |
 | ConvertIPv4StringToUnsignedLong | smelly__vx | Networking |

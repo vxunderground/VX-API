@@ -1,7 +1,7 @@
 #include "Win32Helper.h"
 #include <Wincrypt.h>
 
-BOOL CreateMd5HashFromFilePathW(_In_ PWCHAR FilePath, _Inout_ PWCHAR Md5Hash)
+BOOL CreateMd5HashFromFilePathW(_In_ LPCWSTR FilePath, _Inout_ PWCHAR Md5Hash)
 {
 	HANDLE hHandle = INVALID_HANDLE_VALUE;
 	HCRYPTPROV hProvider = NULL;
@@ -65,7 +65,7 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL CreateMd5HashFromFilePathA(_In_ PCHAR FilePath, _Inout_ PCHAR Md5Hash)
+BOOL CreateMd5HashFromFilePathA(_In_ LPCSTR FilePath, _Inout_ PCHAR Md5Hash)
 {
 	HANDLE hHandle = INVALID_HANDLE_VALUE;
 	HCRYPTPROV hProvider = NULL;

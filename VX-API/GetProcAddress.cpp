@@ -31,7 +31,7 @@ DWORD64 __stdcall GetProcAddressA(_In_ DWORD64 ModuleBase, _In_ LPCSTR lpProcNam
 				FunctionAddress < (ModuleBase + Optional->DataDirectory[0].VirtualAddress) + (ModuleBase + Optional->DataDirectory[0].Size))
 			{
 				ForwardFunctionString.Buffer = (PCHAR)pFunctionName;
-				ForwardFunctionString.Length = StringLengthA((PCHAR)pFunctionName);
+				ForwardFunctionString.Length = (USHORT)StringLengthA((PCHAR)pFunctionName);
 				ForwardFunctionString.MaximumLength = ForwardFunctionString.Length + sizeof(CHAR);
 
 				if (LdrGetProcedureAddress((HMODULE)ModuleBase, &ForwardFunctionString, 0, &FunctionAddress) != STATUS_SUCCESS)
@@ -80,7 +80,7 @@ DWORD64 __stdcall GetProcAddressW(_In_ DWORD64 ModuleBase, _In_ LPCWSTR lpProcNa
 				FunctionAddress < (ModuleBase + Optional->DataDirectory[0].VirtualAddress) + (ModuleBase + Optional->DataDirectory[0].Size))
 			{
 				ForwardFunctionString.Buffer = (PCHAR)pFunctionName;
-				ForwardFunctionString.Length = StringLengthA((PCHAR)pFunctionName);
+				ForwardFunctionString.Length = (USHORT)StringLengthA((PCHAR)pFunctionName);
 				ForwardFunctionString.MaximumLength = ForwardFunctionString.Length + sizeof(CHAR);
 
 				if (LdrGetProcedureAddress((HMODULE)ModuleBase, &ForwardFunctionString, 0, &FunctionAddress) != STATUS_SUCCESS)

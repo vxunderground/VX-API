@@ -1,7 +1,7 @@
 #include "Win32Helper.h"
 
 //NOTE: PULONG must be pointed to an array of ULONG integers e.g. ULONG FileHash[4] = { 0 };
-BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash)
+BOOL HashFileByMsiFileHashTableW(_In_ LPCWSTR Path, _Inout_ PULONG FileHash)
 {
 	MSIGETFILEHASHW MsiGetFileHashW = NULL;
 	MSIFILEHASHINFO Hash = { 0 };
@@ -40,7 +40,7 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash)
+BOOL HashFileByMsiFileHashTableA(_In_ LPCSTR Path, _Inout_ PULONG FileHash)
 {
 	MSIGETFILEHASHA MsiGetFileHashA = NULL;
 	MSIFILEHASHINFO Hash = { 0 };

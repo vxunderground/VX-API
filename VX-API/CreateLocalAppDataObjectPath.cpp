@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL CreateLocalAppDataObjectPathW(_Inout_ PWCHAR pBuffer, _In_ PWCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist)
+BOOL CreateLocalAppDataObjectPathW(_Inout_ PWCHAR pBuffer, _In_ LPCWSTR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist)
 {
 	if (pBuffer == NULL)
 		return FALSE;
@@ -20,7 +20,7 @@ BOOL CreateLocalAppDataObjectPathW(_Inout_ PWCHAR pBuffer, _In_ PWCHAR Path, _In
 	return TRUE;
 }
 
-BOOL CreateLocalAppDataObjectPathA(_Inout_ PCHAR pBuffer, _In_ PCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist)
+BOOL CreateLocalAppDataObjectPathA(_Inout_ PCHAR pBuffer, _In_ LPCSTR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist)
 {
 	if (pBuffer == NULL)
 		return FALSE;

@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddSectionToPeFile.cpp" />
     <ClCompile Include="AdfCloseHandleOnInvalidAddress.cpp" />
     <ClCompile Include="AdfIsCreateProcessDebugEventCodeSet.cpp" />
     <ClCompile Include="AdfOpenProcessOnCsrss.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="ExceptHandlerCallbackRoutine.cpp" />
     <ClCompile Include="Ex_GetHandleOnDeviceHttpCommunication.cpp" />
     <ClCompile Include="FastcallExecuteBinaryShellExecuteEx.cpp" />
+    <ClCompile Include="IsPeSection.cpp" />
     <ClCompile Include="MiscGenericShellcodePayloads.cpp" />
     <ClCompile Include="GetByteArrayFromFile.cpp" />
     <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp" />
@@ -258,6 +260,11 @@
     <ClCompile Include="MpfSceViaCDefFolderMenu_Create2.cpp" />
     <ClCompile Include="MpfSceViaCertEnumSystemStore.cpp" />
     <ClCompile Include="MpfSceViaCertEnumSystemStoreLocation.cpp" />
+    <ClCompile Include="MpfSceViaCertFindChainInStore.cpp" />
+    <ClCompile Include="MpfSceViaCreateThreadpoolWait.cpp" />
+    <ClCompile Include="MpfSceViaCreateTimerQueueTimer.cpp" />
+    <ClCompile Include="MpfSceViaCryptEnumOIDInfo.cpp" />
+    <ClCompile Include="MpfSceViaDSA_EnumCallback.cpp" />
     <ClCompile Include="MpfSceViaEnumChildWindows.cpp" />
     <ClCompile Include="MpfSceViaEnumDateFormatsW.cpp" />
     <ClCompile Include="MpfSceViaEnumDesktopsW.cpp" />
@@ -269,6 +276,7 @@
     <ClCompile Include="MpfSceViaEnumFontsW.cpp" />
     <ClCompile Include="MpfSceViaEnumLanguageGroupLocalesW.cpp" />
     <ClCompile Include="MpfSceViaEnumObjects.cpp" />
+    <ClCompile Include="MpfSceViaEnumPropsExW.cpp" />
     <ClCompile Include="MpfSceViaEnumPwrSchemes.cpp" />
     <ClCompile Include="MpfSceViaEnumResourceTypesExW.cpp" />
     <ClCompile Include="MpfSceViaEnumSystemCodePagesW.cpp" />
@@ -280,6 +288,10 @@
     <ClCompile Include="MpfSceViaEnumUILanguagesW.cpp" />
     <ClCompile Include="MpfSceViaEnumWindows.cpp" />
     <ClCompile Include="MpfSceViaEnumWindowStationsW.cpp" />
+    <ClCompile Include="MpfSceViaEvtSubscribe.cpp" />
+    <ClCompile Include="MpfSceViaFlsAlloc.cpp" />
+    <ClCompile Include="MpfSceViaImmEnumInputContext.cpp" />
+    <ClCompile Include="MpfSceViaInitOnceExecuteOnce.cpp" />
     <ClCompile Include="MpfSceViaK32EnumPageFilesW.cpp" />
     <ClCompile Include="MpfSceViaMessageBoxIndirectW.cpp" />
     <ClCompile Include="ProxyRegisterWaitLoadLibrary.cpp" />
@@ -290,6 +302,7 @@
     <ClCompile Include="ShutdownHardwareBreakpointEngine.cpp" />
     <ClCompile Include="SleepObfuscationViaVirtualProtect.cpp" />
     <ClCompile Include="SnapshotInsertHardwareBreakpointHookIntoTargetThread.cpp" />
+    <ClCompile Include="WriteDataToPeSection.cpp" />
     <ClCompile Include="__unstable__preview__MpfSilentInstallGoogleChromePlugin.cpp" />
     <ClCompile Include="SendIcmpEchoMessageToIPv4Host.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />
@@ -303,7 +316,6 @@
     <ClCompile Include="SetLastErrorInTeb.cpp" />
     <ClCompile Include="SetLastNtStatusInTeb.cpp" />
     <ClCompile Include="SetProcessPrivilegeToken.cpp" />
-    <ClCompile Include="ShellcodeExecutionViaFunctionCallbackMain.cpp" />
     <ClCompile Include="ShlwapiCharStringToWCharString.cpp" />
     <ClCompile Include="ShlwapiWCharStringToCharString.cpp" />
     <ClCompile Include="StringCompare.cpp" />

@@ -2,7 +2,7 @@
 
 #include <psapi.h>
 
-BOOL IsProcessRunningA(_In_ PCHAR ProcessNameWithExtension)
+BOOL IsProcessRunningA(_In_ LPCSTR ProcessNameWithExtension)
 {
 	HANDLE hProcess = NULL;
 
@@ -43,7 +43,7 @@ BOOL IsProcessRunningA(_In_ PCHAR ProcessNameWithExtension)
 	return FALSE;
 }
 
-BOOL IsProcessRunningW(_In_ PWCHAR ProcessNameWithExtension)
+BOOL IsProcessRunningW(_In_ LPCWSTR ProcessNameWithExtension)
 {
 	HANDLE hProcess = NULL;
 

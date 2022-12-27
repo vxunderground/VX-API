@@ -33,7 +33,7 @@ DWORD64 __stdcall GetProcAddressRotr32(_In_ DWORD64 ModuleBase, _In_ DWORD64 Has
 				FunctionAddress < (ModuleBase + Optional->DataDirectory[0].VirtualAddress) + (ModuleBase + Optional->DataDirectory[0].Size))
 			{
 				ForwardFunctionString.Buffer = (PCHAR)pFunctionName;
-				ForwardFunctionString.Length = StringLengthA((PCHAR)pFunctionName);
+				ForwardFunctionString.Length = (USHORT)StringLengthA((PCHAR)pFunctionName);
 				ForwardFunctionString.MaximumLength = ForwardFunctionString.Length + sizeof(CHAR);
 
 				if (LdrGetProcedureAddress((HMODULE)ModuleBase, &ForwardFunctionString, 0, &FunctionAddress) != STATUS_SUCCESS)

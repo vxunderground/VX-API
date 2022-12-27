@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-DWORD HashStringLoseLoseA(_In_ PCHAR String)
+DWORD HashStringLoseLoseA(_In_ LPCSTR String)
 {
 	ULONG Hash = 0;
 	INT c;
@@ -11,7 +11,7 @@ DWORD HashStringLoseLoseA(_In_ PCHAR String)
 	return Hash;
 }
 
-DWORD HashStringLoseLoseW(_In_ PWCHAR String)
+DWORD HashStringLoseLoseW(_In_ LPCWSTR String)
 {
 	ULONG Hash = 0;
 	INT c;

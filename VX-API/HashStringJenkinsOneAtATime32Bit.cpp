@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-UINT32 HashStringJenkinsOneAtATime32BitA(_In_ PCHAR String)
+UINT32 HashStringJenkinsOneAtATime32BitA(_In_ LPCSTR String)
 {
 	SIZE_T Index = 0;
 	UINT32 Hash = 0;
@@ -20,7 +20,7 @@ UINT32 HashStringJenkinsOneAtATime32BitA(_In_ PCHAR String)
 	return Hash;
 }
 
-UINT32 HashStringJenkinsOneAtATime32BitW(_In_ PWCHAR String)
+UINT32 HashStringJenkinsOneAtATime32BitW(_In_ LPCWSTR String)
 {
 	SIZE_T Index = 0;
 	UINT32 Hash = 0;

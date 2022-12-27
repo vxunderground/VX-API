@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-ULONG HashStringFowlerNollVoVariant1aA(_In_ PCHAR String)
+ULONG HashStringFowlerNollVoVariant1aA(_In_ LPCSTR String)
 {
 	ULONG Hash = 0x811c9dc5;
 
@@ -13,7 +13,7 @@ ULONG HashStringFowlerNollVoVariant1aA(_In_ PCHAR String)
 	return Hash;
 }
 
-ULONG HashStringFowlerNollVoVariant1aW(_In_ PWCHAR String)
+ULONG HashStringFowlerNollVoVariant1aW(_In_ LPCWSTR String)
 {
 	ULONG Hash = 0x811c9dc5;
 

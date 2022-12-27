@@ -10,7 +10,7 @@ UINT32 HashStringRotr32SubA(UINT32 Value, UINT Count)
 #pragma warning( pop ) 
 }
 
-INT HashStringRotr32A(_In_ PCHAR String)
+INT HashStringRotr32A(_In_ LPCSTR String)
 {
 	INT Value = 0;
 
@@ -30,7 +30,7 @@ UINT32 HashStringRotr32SubW(UINT32 Value, UINT Count)
 #pragma warning( pop ) 
 }
 
-INT HashStringRotr32W(_In_ PWCHAR String)
+INT HashStringRotr32W(_In_ LPCWSTR String)
 {
 	INT Value = 0;
 

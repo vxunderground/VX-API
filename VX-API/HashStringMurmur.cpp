@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-INT32 HashStringMurmurW(_In_ PWCHAR String) 
+INT32 HashStringMurmurW(_In_ LPCWSTR String)
 {
 	INT  Length = (INT)StringLengthW(String);
 	UINT32 hash = 0;
@@ -57,7 +57,7 @@ INT32 HashStringMurmurW(_In_ PWCHAR String)
 	return hash;
 }
 
-INT32 HashStringMurmurA(_In_ PCHAR String)
+INT32 HashStringMurmurA(_In_ LPCSTR String)
 {
 	INT  Length = (INT)StringLengthA(String);
 	UINT32 hash = 0;

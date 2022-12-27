@@ -552,9 +552,6 @@
     <ClCompile Include="MpfPiControlInjection.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Process Injection</Filter>
     </ClCompile>
-    <ClCompile Include="ShellcodeExecutionViaFunctionCallbackMain.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
-    </ClCompile>
     <ClCompile Include="UacBypassFodHelperMethod.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\UAC Bypasses</Filter>
     </ClCompile>
@@ -650,6 +647,45 @@
     </ClCompile>
     <ClCompile Include="MpfSceViaMessageBoxIndirectW.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaImmEnumInputContext.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaCertFindChainInStore.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaEnumPropsExW.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaCreateThreadpoolWait.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaCryptEnumOIDInfo.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaDSA_EnumCallback.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaCreateTimerQueueTimer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaEvtSubscribe.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaInitOnceExecuteOnce.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaFlsAlloc.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="IsPeSection.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="AddSectionToPeFile.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="WriteDataToPeSection.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

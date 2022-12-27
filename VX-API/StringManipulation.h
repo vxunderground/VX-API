@@ -9,10 +9,11 @@ PCHAR SecureStringCopyA(_Inout_ PCHAR String1, _In_ LPCSTR String2, _In_ SIZE_T 
 PWCHAR SecureStringCopyW(_Inout_ PWCHAR String1, _In_ LPCWSTR String2, _In_ SIZE_T Size);
 INT StringCompareA(_In_ LPCSTR String1, _In_ LPCSTR String2);
 INT StringCompareW(_In_ LPCWSTR String1, _In_ LPCWSTR String2);
-PWCHAR StringConcatW(_Inout_ PWCHAR String, _In_ PWCHAR String2);
-PCHAR StringConcatA(_Inout_ PCHAR String, _In_ PCHAR String2);
-PCHAR StringCopyA(_Inout_ PCHAR String1, _In_ PCHAR String2);
-PWCHAR StringCopyW(_Inout_ PWCHAR String1, _In_ PWCHAR String2);
+PWCHAR StringConcatW(_Inout_ PWCHAR String, _In_ LPCWSTR String2);
+PCHAR StringConcatA(_Inout_ PCHAR String, _In_ LPCSTR String2);
+PCHAR StringCopyA(_Inout_ PCHAR String1, _In_ LPCSTR String2);
+PWCHAR StringCopyW(_Inout_ PWCHAR String1, _In_ LPCWSTR String2);
+//todo
 PCHAR StringFindSubstringA(_In_ PCHAR String1, _In_ PCHAR String2);
 PWCHAR StringFindSubstringW(_In_ PWCHAR String1, _In_ PWCHAR String2);
 SIZE_T StringLengthA(_In_ LPCSTR String);

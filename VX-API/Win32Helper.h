@@ -16,6 +16,9 @@
 #include <windns.h>
 #include <tlhelp32.h>
 #include <stdio.h>
+#include <imm.h>
+#include <dpa_dsa.h>
+#include <winevt.h>
 
 
 #pragma comment(lib, "Dnsapi.lib")
@@ -26,6 +29,9 @@
 #pragma comment(lib, "Urlmon.lib")
 #pragma comment(lib, "PowrProf.lib")
 #pragma comment(lib, "Ws2_32.lib")
+#pragma comment(lib, "Imm32.lib")
+#pragma comment(lib, "Comctl32.lib")
+#pragma comment(lib, "Wevtapi.lib")
 
 
 #ifndef NT_SUCCESS
@@ -80,40 +86,33 @@ DWORD RtlNtStatusToDosErrorViaImport(_In_ NTSTATUS Status);
 /*******************************************
  CRYPTOGRAPHY RELATED
 *******************************************/
-//#define TOKENIZE( x ) #x
-//#define CONCAT3( X, Y, Z ) X##Y##Z
-//#define HASHALGOA HashStringDjb2A
-//#define hasha( VAL ) constexpr auto CONCAT3(hash,VAL,A) = HASHALGOA((PCHAR)TOKENIZE(VAL))
-//#define hashw( VAL ) constexpr auto CONCAT3(hash,VAL,W) = HASHALGOA((PWCHAR)TOKENIZE(VAL))
-
-
-DWORD HashStringDjb2A(_In_ PCHAR String);
-DWORD HashStringDjb2W(_In_ PWCHAR String);
-ULONG HashStringFowlerNollVoVariant1aA(_In_ PCHAR String);
-ULONG HashStringFowlerNollVoVariant1aW(_In_ PWCHAR String);
-UINT32 HashStringJenkinsOneAtATime32BitA(_In_ PCHAR String);
-UINT32 HashStringJenkinsOneAtATime32BitW(_In_ PWCHAR String);
-DWORD HashStringLoseLoseA(_In_ PCHAR String);
-DWORD HashStringLoseLoseW(_In_ PWCHAR String);
-INT HashStringRotr32A(_In_ PCHAR String);
-INT HashStringRotr32W(_In_ PWCHAR String);
-DWORD HashStringSdbmA(_In_ PCHAR String);
-DWORD HashStringSdbmW(_In_ PWCHAR String);
-UINT32 HashStringSuperFastHashA(_In_ PCHAR String);
-UINT32 HashStringSuperFastHashW(_In_ PWCHAR String);
-INT HashStringUnknownGenericHash1A(_In_ PCHAR String);
-INT HashStringUnknownGenericHash1W(_In_ PWCHAR String);
-INT32 HashStringSipHashA(_In_ PCHAR String);
-INT32 HashStringSipHashW(_In_ PWCHAR String);
-INT32 HashStringMurmurA(_In_ PCHAR String);
-INT32 HashStringMurmurW(_In_ PWCHAR String);
-BOOL CreateMd5HashFromFilePathW(_In_ PWCHAR FilePath, _Inout_ PWCHAR Md5Hash);
-BOOL CreateMd5HashFromFilePathA(_In_ PCHAR FilePath, _Inout_ PCHAR Md5Hash);
+DWORD HashStringDjb2A(_In_ LPCSTR String);
+DWORD HashStringDjb2W(_In_ LPCWSTR String);
+ULONG HashStringFowlerNollVoVariant1aA(_In_ LPCSTR String);
+ULONG HashStringFowlerNollVoVariant1aW(_In_ LPCWSTR String);
+UINT32 HashStringJenkinsOneAtATime32BitA(_In_ LPCSTR String);
+UINT32 HashStringJenkinsOneAtATime32BitW(_In_ LPCWSTR String);
+DWORD HashStringLoseLoseA(_In_ LPCSTR String);
+DWORD HashStringLoseLoseW(_In_ LPCWSTR String);
+INT HashStringRotr32A(_In_ LPCSTR String);
+INT HashStringRotr32W(_In_ LPCWSTR String);
+DWORD HashStringSdbmA(_In_ LPCSTR String);
+DWORD HashStringSdbmW(_In_ LPCWSTR String);
+UINT32 HashStringSuperFastHashA(_In_ LPCSTR String);
+UINT32 HashStringSuperFastHashW(_In_ LPCWSTR String);
+INT HashStringUnknownGenericHash1A(_In_ LPCSTR String);
+INT HashStringUnknownGenericHash1W(_In_ LPCWSTR String);
+INT32 HashStringSipHashA(_In_ LPCSTR String);
+INT32 HashStringSipHashW(_In_ LPCWSTR String);
+INT32 HashStringMurmurA(_In_ LPCSTR String);
+INT32 HashStringMurmurW(_In_ LPCWSTR String);
+BOOL CreateMd5HashFromFilePathW(_In_ LPCWSTR FilePath, _Inout_ PWCHAR Md5Hash);
+BOOL CreateMd5HashFromFilePathA(_In_ LPCSTR FilePath, _Inout_ PCHAR Md5Hash);
 INT CreatePseudoRandomInteger(_In_ ULONG Seed);
 PWCHAR CreatePseudoRandomStringW(_In_ SIZE_T dwLength, _In_ ULONG Seed);
 PCHAR CreatePseudoRandomStringA(_In_ SIZE_T dwLength, _In_ ULONG Seed);
-BOOL HashFileByMsiFileHashTableW(_In_ PWCHAR Path, _Inout_ PULONG FileHash);
-BOOL HashFileByMsiFileHashTableA(_In_ PCHAR Path, _Inout_ PULONG FileHash);
+BOOL HashFileByMsiFileHashTableW(_In_ LPCWSTR Path, _Inout_ PULONG FileHash);
+BOOL HashFileByMsiFileHashTableA(_In_ LPCSTR Path, _Inout_ PULONG FileHash);
 ULONG CreatePseudoRandomIntegerFromNtdll(_In_ ULONG Seed);
 
 
@@ -126,18 +125,18 @@ PPEB GetPeb(VOID);
 PPEB GetPebFromTeb(VOID);
 PKUSER_SHARED_DATA GetKUserSharedData(VOID);
 PRTL_USER_PROCESS_PARAMETERS GetRtlUserProcessParameters(VOID);
-DWORD64 __stdcall GetProcAddressDjb2(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressFowlerNollVoVariant1a(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressJenkinsOneAtATime32Bit(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressLoseLose(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressRotr32(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressSdbm(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressSuperFastHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressUnknownGenericHash1(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressSipHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressMurmur(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 __stdcall GetProcAddressA(_In_ DWORD64 ModuleBase, _In_ LPCSTR lpProcName);
-DWORD64 __stdcall GetProcAddressW(_In_ DWORD64 ModuleBase, _In_ LPCWSTR lpProcName);
+DWORD64 GetProcAddressDjb2(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressFowlerNollVoVariant1a(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressJenkinsOneAtATime32Bit(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressLoseLose(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressRotr32(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressSdbm(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressSuperFastHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressUnknownGenericHash1(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressSipHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressMurmur(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressA(_In_ DWORD64 ModuleBase, _In_ LPCSTR lpProcName);
+DWORD64 GetProcAddressW(_In_ DWORD64 ModuleBase, _In_ LPCWSTR lpProcName);
 BOOL RtlLoadPeHeaders(_Inout_ PIMAGE_DOS_HEADER* Dos, _Inout_ PIMAGE_NT_HEADERS* Nt, _Inout_ PIMAGE_FILE_HEADER* File, _Inout_ PIMAGE_OPTIONAL_HEADER* Optional, _Inout_ PBYTE* ImageBase);
 HMODULE GetModuleHandleEx2A(_In_ LPCSTR lpModuleName);
 HMODULE GetModuleHandleEx2W(_In_ LPCWSTR lpModuleName);
@@ -151,10 +150,10 @@ HMODULE ProxyRegisterWaitLoadLibraryA(_In_ LPCSTR lpModuleName);
 /*******************************************
  HELPER FUNCTIONS
 *******************************************/
-BOOL IsPathValidA(_In_ PCHAR FilePath);
-BOOL IsPathValidW(_In_ PWCHAR FilePath);
-BOOL CreateLocalAppDataObjectPathW(_Inout_ PWCHAR pBuffer, _In_ PWCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
-BOOL CreateLocalAppDataObjectPathA(_Inout_ PCHAR pBuffer, _In_ PCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
+BOOL IsPathValidA(_In_ LPCSTR FilePath);
+BOOL IsPathValidW(_In_ LPCWSTR FilePath);
+BOOL CreateLocalAppDataObjectPathW(_Inout_ PWCHAR pBuffer, _In_ LPCWSTR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
+BOOL CreateLocalAppDataObjectPathA(_Inout_ PCHAR pBuffer, _In_ LPCSTR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
 BOOL GetSystemWindowsDirectoryA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer);
 BOOL GetSystemWindowsDirectoryW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
 BOOL CreateWindowsObjectPathW(_Inout_ PWCHAR pBuffer, _In_ PWCHAR Path, _In_ DWORD Size, _In_ BOOL bDoesObjectExist);
@@ -194,6 +193,13 @@ BOOL FastcallExecuteBinaryShellExecuteExA(_In_ PCHAR FullPathToBinary, _In_ PCHA
 DWORD GetCurrentProcessIdFromOffset(VOID);
 HMODULE GetPeFileBaseAddress(VOID);
 DWORD64 LdrLoadGetProcedureAddress(VOID);
+BOOL IsPeSectionW(_In_ LPCWSTR PathToBinary, _In_ LPCWSTR PeSectionName);
+BOOL IsPeSectionA(_In_ LPCSTR PathToBinary, _In_ LPCSTR PeSectionName);
+BOOL AddSectionToPeFileW(_In_ LPCWSTR Path, _In_ LPCSTR SectionName, _In_ DWORD SectionSizeInBytes);
+BOOL AddSectionToPeFileA(_In_ LPCSTR Path, _In_ LPCSTR SectionName, _In_ DWORD SectionSizeInBytes);
+BOOL WriteDataToPeSectionW(_In_ LPCWSTR Path, _In_ LPCWSTR SectionName, _In_ PBYTE DataToWrite, _In_ DWORD DataToWriteInBytes);
+BOOL WriteDataToPeSectionA(_In_ LPCSTR Path, _In_ LPCSTR SectionName, _In_ PBYTE DataToWrite, _In_ DWORD DataToWriteInBytes);
+
 
 
 
@@ -204,8 +210,8 @@ LCID GetCurrentLocaleFromTeb(VOID);
 DWORD GetNumberOfLinkedDlls(VOID);
 BOOL IsNvidiaGraphicsCardPresentA(VOID);
 BOOL IsNvidiaGraphicsCardPresentW(VOID);
-BOOL IsProcessRunningA(_In_ PCHAR ProcessNameWithExtension);
-BOOL IsProcessRunningW(_In_ PWCHAR ProcessNameWithExtension);
+BOOL IsProcessRunningA(_In_ LPCSTR ProcessNameWithExtension);
+BOOL IsProcessRunningW(_In_ LPCWSTR ProcessNameWithExtension);
 BOOL IsProcessRunningAsAdmin(VOID);
 ULONG GetOsMajorVersionFromPeb(VOID);
 ULONG GetOsMinorVersionFromPeb(VOID);
@@ -280,6 +286,17 @@ BOOL MpfSceViaEnumerateLoadedModules64(_In_ PBYTE Payload, _In_ DWORD PayloadSiz
 BOOL MpfSceViaK32EnumPageFilesW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 BOOL MpfSceViaEnumPwrSchemes(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 BOOL MpfSceViaMessageBoxIndirectW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes); //Unstable, only triggers on certain button presses, prone to crashing
+BOOL MpfSceViaImmEnumInputContext(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaCertFindChainInStore(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes); //Not working?
+BOOL MpfSceViaEnumPropsExW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaCreateThreadpoolWait(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes); //Unstable, some shellcode crashes application, requires improved testing
+BOOL MpfSceViaCryptEnumOIDInfo(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaDSA_EnumCallback(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaCreateTimerQueueTimer(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes); //Unstable, some shellcode crashes application, requires improved testing
+BOOL MpfSceViaEvtSubscribe(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes); //Unstable, some shellcode crashes application, requires improved testing
+BOOL MpfSceViaFlsAlloc(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaInitOnceExecuteOnce(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+
 
 
 /*******************************************
