@@ -169,6 +169,7 @@
     <ClCompile Include="ExceptHandlerCallbackRoutine.cpp" />
     <ClCompile Include="Ex_GetHandleOnDeviceHttpCommunication.cpp" />
     <ClCompile Include="FastcallExecuteBinaryShellExecuteEx.cpp" />
+    <ClCompile Include="GetPeSectionSizeInBytes.cpp" />
     <ClCompile Include="IsPeSection.cpp" />
     <ClCompile Include="MiscGenericShellcodePayloads.cpp" />
     <ClCompile Include="GetByteArrayFromFile.cpp" />
@@ -296,6 +297,7 @@
     <ClCompile Include="MpfSceViaMessageBoxIndirectW.cpp" />
     <ClCompile Include="ProxyRegisterWaitLoadLibrary.cpp" />
     <ClCompile Include="ProxyWorkItemLoadLibrary.cpp" />
+    <ClCompile Include="ReadDataFromPeSection.cpp" />
     <ClCompile Include="RemoveDescriptorEntry.cpp" />
     <ClCompile Include="RemoveRegisterDllNotification.cpp" />
     <ClCompile Include="SetHardwareBreakpoint.cpp" />

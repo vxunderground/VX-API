@@ -199,6 +199,10 @@ BOOL AddSectionToPeFileW(_In_ LPCWSTR Path, _In_ LPCSTR SectionName, _In_ DWORD 
 BOOL AddSectionToPeFileA(_In_ LPCSTR Path, _In_ LPCSTR SectionName, _In_ DWORD SectionSizeInBytes);
 BOOL WriteDataToPeSectionW(_In_ LPCWSTR Path, _In_ LPCWSTR SectionName, _In_ PBYTE DataToWrite, _In_ DWORD DataToWriteInBytes);
 BOOL WriteDataToPeSectionA(_In_ LPCSTR Path, _In_ LPCSTR SectionName, _In_ PBYTE DataToWrite, _In_ DWORD DataToWriteInBytes);
+DWORD GetPeSectionSizeInBytesW(_In_ LPCWSTR Path, _In_ LPCWSTR SectionName);
+DWORD GetPeSectionSizeInBytesA(_In_ LPCSTR Path, _In_ LPCSTR SectionName);
+BOOL ReadDataFromPeSectionW(_In_ LPCWSTR Path, _In_ LPCWSTR SectionName, _Inout_ PBYTE ReadData, _Inout_opt_ PDWORD DataReadInBytes);
+BOOL ReadDataFromPeSectionA(_In_ LPCSTR Path, _In_ LPCSTR SectionName, _Inout_ PBYTE ReadData, _Inout_opt_ PDWORD DataReadInBytes);
 
 
 

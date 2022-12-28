@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.607
+Version: 2.0.613
 
 Developer: smelly__vx
   
@@ -132,6 +132,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | IsPeSection | smelly__vx | Helper Functions | 
 | AddSectionToPeFile | smelly__vx | Helper Functions | 
 | WriteDataToPeSection | smelly__vx | Helper Functions | 
+| GetPeSectionSizeInByte | smelly__vx | Helper Functions | 
+| ReadDataFromPeSection | smelly__vx | Helper Functions | 
 | GetKUserSharedData | Geoff Chappell | Library Loading |
 | GetModuleHandleEx2 | smelly__vx | Library Loading |
 | GetPeb | 29a | Library Loading |
@@ -229,6 +231,4 @@ You're free to use this in any manner you please. You do not need to use this en
 | Functionality | Author | Note |
 | ------------- | ------ | ---- |
 | NtMapViewOfSection LSASS | modexp | N/A |
-| Run PE In Memory with Reloc | N/A | N/A |
-| IcmpSendEcho2Ex | N/A | N/A |
 | WQL Win32_Ping | Martin Friedrich | N/A |
