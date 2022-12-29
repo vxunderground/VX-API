@@ -195,7 +195,7 @@ HMODULE GetPeFileBaseAddress(VOID);
 DWORD64 LdrLoadGetProcedureAddress(VOID);
 BOOL IsPeSectionW(_In_ LPCWSTR PathToBinary, _In_ LPCWSTR PeSectionName);
 BOOL IsPeSectionA(_In_ LPCSTR PathToBinary, _In_ LPCSTR PeSectionName);
-BOOL AddSectionToPeFileW(_In_ LPCWSTR Path, _In_ LPCSTR SectionName, _In_ DWORD SectionSizeInBytes);
+BOOL AddSectionToPeFileW(_In_ LPCWSTR Path, _In_ LPCWSTR SectionName, _In_ DWORD SectionSizeInBytes);
 BOOL AddSectionToPeFileA(_In_ LPCSTR Path, _In_ LPCSTR SectionName, _In_ DWORD SectionSizeInBytes);
 BOOL WriteDataToPeSectionW(_In_ LPCWSTR Path, _In_ LPCWSTR SectionName, _In_ PBYTE DataToWrite, _In_ DWORD DataToWriteInBytes);
 BOOL WriteDataToPeSectionA(_In_ LPCSTR Path, _In_ LPCSTR SectionName, _In_ PBYTE DataToWrite, _In_ DWORD DataToWriteInBytes);

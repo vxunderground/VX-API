@@ -8,7 +8,7 @@ DWORD AlignSection(_In_ DWORD Size, _In_ DWORD Align, _In_ DWORD Address)
 	return Address + (Size / Align + 1) * Align;
 }
 
-BOOL AddSectionToPeFileW(_In_ LPCWSTR Path, _In_ LPCSTR SectionName, _In_ DWORD SectionSizeInBytes)
+BOOL AddSectionToPeFileW(_In_ LPCWSTR Path, _In_ LPCWSTR SectionName, _In_ DWORD SectionSizeInBytes)
 {
 	BOOL bFlag = FALSE;
 	HANDLE hHandle = INVALID_HANDLE_VALUE;
@@ -24,12 +24,12 @@ BOOL AddSectionToPeFileW(_In_ LPCWSTR Path, _In_ LPCSTR SectionName, _In_ DWORD 
 
 	DWORD SectionCharacteristics = ERROR_SUCCESS;
 
-	WCHAR DisposeableObject[32] = { 0 };
+	CHAR DisposeableObject[32] = { 0 };
 
-	if (CharStringToWCharString(DisposeableObject, (PCHAR)SectionName, StringLengthA(SectionName)) == 0)
+	if (WCharStringToCharString(DisposeableObject, (PWCHAR)SectionName, StringLengthW(SectionName)) == 0)
 		goto EXIT_ROUTINE;
 
-	if(IsPeSectionW(Path, DisposeableObject))
+	if(IsPeSectionW(Path, SectionName))
 		return TRUE;
 
 	SizeOfTargetBinary = GetFileSizeFromPathW((PWCHAR)Path, FILE_ATTRIBUTE_NORMAL);
@@ -54,7 +54,7 @@ BOOL AddSectionToPeFileW(_In_ LPCWSTR Path, _In_ LPCSTR SectionName, _In_ DWORD 
 	Offset = File->NumberOfSections;
 
 	RtlZeroMemory(&Section[Offset], sizeof(IMAGE_SECTION_HEADER));
-	RtlCopyMemory(&Section[Offset].Name, SectionName, StringLengthA(SectionName));
+	RtlCopyMemory(&Section[Offset].Name, DisposeableObject, StringLengthA(DisposeableObject));
 
 	Section[Offset].Misc.VirtualSize = AlignSection(SectionSizeInBytes, Optional->SectionAlignment, 0);
 	Section[Offset].VirtualAddress = AlignSection(Section[Offset - 1].Misc.VirtualSize, Optional->SectionAlignment, Section[Offset - 1].VirtualAddress);
