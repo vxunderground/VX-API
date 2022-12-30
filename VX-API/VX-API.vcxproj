@@ -171,6 +171,10 @@
     <ClCompile Include="FastcallExecuteBinaryShellExecuteEx.cpp" />
     <ClCompile Include="GetPeSectionSizeInBytes.cpp" />
     <ClCompile Include="IsPeSection.cpp" />
+    <ClCompile Include="LzMaximumCompressBuffer.cpp" />
+    <ClCompile Include="LzMaximumDecompressBuffer.cpp" />
+    <ClCompile Include="LzStandardCompressBuffer.cpp" />
+    <ClCompile Include="LzStandardDecompressBuffer.cpp" />
     <ClCompile Include="MiscGenericShellcodePayloads.cpp" />
     <ClCompile Include="GetByteArrayFromFile.cpp" />
     <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp" />

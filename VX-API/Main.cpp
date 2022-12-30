@@ -5,12 +5,17 @@ INT main(VOID)
 	PCHAR Buffer = NULL;
 	DWORD dwSize = 0;
 	HMODULE hMod = NULL;
+	BYTE CompressedBuffer[512] = { 0 };
+	ULONG Size = 512;
+	ULONG Out = 0;
+
+	BYTE DecompressedBuffer[512] = { 0 };
 
 	Buffer = GenericShellcodeOpenCalcExitThread(&dwSize);
 
-	//MpfPiControlInjection((PBYTE)Buffer, dwSize, 19768);
+	Out = LzStandardCompressBuffer((PBYTE)Buffer, dwSize, CompressedBuffer, Size);
 
-	//MpfSceViaInitOnceExecuteOnce((PBYTE)Buffer, dwSize);
+	Out = LzStandardDecompressBuffer(CompressedBuffer, Out, DecompressedBuffer, Size);
 
 	if (Buffer)
 		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, Buffer);

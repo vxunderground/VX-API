@@ -114,6 +114,18 @@ PCHAR CreatePseudoRandomStringA(_In_ SIZE_T dwLength, _In_ ULONG Seed);
 BOOL HashFileByMsiFileHashTableW(_In_ LPCWSTR Path, _Inout_ PULONG FileHash);
 BOOL HashFileByMsiFileHashTableA(_In_ LPCSTR Path, _Inout_ PULONG FileHash);
 ULONG CreatePseudoRandomIntegerFromNtdll(_In_ ULONG Seed);
+ULONG LzStandardCompressBuffer(_In_ PBYTE UncompressedBuffer, _In_ ULONG SizeOfUncompressedBufferInBytes, _Inout_ PBYTE CompressedBuffer, _In_ ULONG CompressedBufferSizeInBytes);
+ULONG LzStandardDecompressBuffer(_In_ PBYTE CompressedBuffer, _In_ ULONG SizeOfCompressedBufferInBytes, _Inout_ PBYTE DecompressedBuffer, _In_ ULONG DecompressedBufferSizeInBytes);
+ULONG LzMaximumCompressBuffer(_In_ PBYTE UncompressedBuffer, _In_ ULONG SizeOfUncompressedBufferInBytes, _Inout_ PBYTE CompressedBuffer, _In_ ULONG CompressedBufferSizeInBytes);
+ULONG LzMaximumDecompressBuffer(_In_ PBYTE CompressedBuffer, _In_ ULONG SizeOfCompressedBufferInBytes, _Inout_ PBYTE DecompressedBuffer, _In_ ULONG DecompressedBufferSizeInBytes);
+ULONG XpressStandardCompressBuffer(_In_ PBYTE UncompressedBuffer, _In_ ULONG SizeOfUncompressedBufferInBytes, _Inout_ PBYTE CompressedBuffer, _In_ ULONG CompressedBufferSizeInBytes);
+ULONG XpressStandardDecompressBuffer(_In_ PBYTE CompressedBuffer, _In_ ULONG SizeOfCompressedBufferInBytes, _Inout_ PBYTE DecompressedBuffer, _In_ ULONG DecompressedBufferSizeInBytes);
+ULONG XpressMaximumCompressBuffer(_In_ PBYTE UncompressedBuffer, _In_ ULONG SizeOfUncompressedBufferInBytes, _Inout_ PBYTE CompressedBuffer, _In_ ULONG CompressedBufferSizeInBytes);
+ULONG XpressMaximumDecompressBuffer(_In_ PBYTE CompressedBuffer, _In_ ULONG SizeOfCompressedBufferInBytes, _Inout_ PBYTE DecompressedBuffer, _In_ ULONG DecompressedBufferSizeInBytes);
+ULONG XpressHuffStandardCompressBuffer(_In_ PBYTE UncompressedBuffer, _In_ ULONG SizeOfUncompressedBufferInBytes, _Inout_ PBYTE CompressedBuffer, _In_ ULONG CompressedBufferSizeInBytes);
+ULONG XpressHuffStandardDecompressBuffer(_In_ PBYTE CompressedBuffer, _In_ ULONG SizeOfCompressedBufferInBytes, _Inout_ PBYTE DecompressedBuffer, _In_ ULONG DecompressedBufferSizeInBytes);
+ULONG XpressHuffMaximumCompressBuffer(_In_ PBYTE UncompressedBuffer, _In_ ULONG SizeOfUncompressedBufferInBytes, _Inout_ PBYTE CompressedBuffer, _In_ ULONG CompressedBufferSizeInBytes);
+ULONG XpressHuffMaximumDecompressBuffer(_In_ PBYTE CompressedBuffer, _In_ ULONG SizeOfCompressedBufferInBytes, _Inout_ PBYTE DecompressedBuffer, _In_ ULONG DecompressedBufferSizeInBytes);
 
 
 

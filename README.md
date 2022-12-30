@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.615
+Version: 2.0.632
 
 Developer: smelly__vx
   
@@ -64,6 +64,18 @@ You're free to use this in any manner you please. You do not need to use this en
 | CreatePseudoRandomString | smelly__vx | Cryptography Related |
 | HashFileByMsiFileHashTable | smelly__vx | Cryptography Related |
 | CreatePseudoRandomIntegerFromNtdll | smelly__vx | Cryptography Related |
+| LzMaximumCompressBuffer | smelly__vx | Compression |
+| LzMaximumDecompressBuffer | smelly__vx | Compression |
+| LzStandardCompressBuffer | smelly__vx | Compression |
+| LzStandardDecompressBuffer | smelly__vx | Compression |
+| XpressHuffMaximumCompressBuffer | smelly__vx | Compression |
+| XpressHuffMaximumDecompressBuffer | smelly__vx | Compression |
+| XpressHuffStandardCompressBuffer | smelly__vx | Compression |
+| XpressHuffStandardDecompressBuffer | smelly__vx | Compression |
+| XpressMaximumCompressBuffer | smelly__vx | Compression |
+| XpressMaximumDecompressBuffer | smelly__vx | Compression |
+| XpressStandardCompressBuffer | smelly__vx | Compression |
+| XpressStandardDecompressBuffer | smelly__vx | Compression |
 | GetLastErrorFromTeb | smelly__vx | Error Handling |
 | GetLastNtStatusFromTeb | smelly__vx | Error Handling |
 | RtlNtStatusToDosErrorViaImport | ReactOS | Error Handling |

@@ -79,6 +79,9 @@
     <Filter Include="Source Files\Windows API Helper Functions\Malicious Capabilities\LSASS Dumping">
       <UniqueIdentifier>{182eb745-5d27-4728-bd5e-030c4df5b57a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Cryptography Related\Compression">
+      <UniqueIdentifier>{7a06268b-3929-4e23-b09a-101861ee4807}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -692,6 +695,18 @@
     </ClCompile>
     <ClCompile Include="ReadDataFromPeSection.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="LzStandardCompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="LzStandardDecompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="LzMaximumCompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="LzMaximumDecompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
