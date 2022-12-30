@@ -82,6 +82,15 @@
     <Filter Include="Source Files\Windows API Helper Functions\Cryptography Related\Compression">
       <UniqueIdentifier>{7a06268b-3929-4e23-b09a-101861ee4807}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Cryptography Related\Compression\Lz">
+      <UniqueIdentifier>{d0f775a2-63ba-48e4-928d-19e08cf6823c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress">
+      <UniqueIdentifier>{6c62dc2e-0dae-4ba0-aacc-0a2c2556879c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress Huff">
+      <UniqueIdentifier>{28a8f2b1-755e-465f-b650-13a6f1c191c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -696,17 +705,41 @@
     <ClCompile Include="ReadDataFromPeSection.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="LzStandardCompressBuffer.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression</Filter>
-    </ClCompile>
-    <ClCompile Include="LzStandardDecompressBuffer.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression</Filter>
-    </ClCompile>
     <ClCompile Include="LzMaximumCompressBuffer.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression</Filter>
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Lz</Filter>
     </ClCompile>
     <ClCompile Include="LzMaximumDecompressBuffer.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression</Filter>
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Lz</Filter>
+    </ClCompile>
+    <ClCompile Include="LzStandardCompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Lz</Filter>
+    </ClCompile>
+    <ClCompile Include="LzStandardDecompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Lz</Filter>
+    </ClCompile>
+    <ClCompile Include="XpressStandardCompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress</Filter>
+    </ClCompile>
+    <ClCompile Include="XpressStandardDecompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress</Filter>
+    </ClCompile>
+    <ClCompile Include="XpressMaximumCompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress</Filter>
+    </ClCompile>
+    <ClCompile Include="XpressMaximumDecompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress</Filter>
+    </ClCompile>
+    <ClCompile Include="XpressHuffStandardCompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress Huff</Filter>
+    </ClCompile>
+    <ClCompile Include="XpressHuffStandardDecompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress Huff</Filter>
+    </ClCompile>
+    <ClCompile Include="XpressHuffMaximumCompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress Huff</Filter>
+    </ClCompile>
+    <ClCompile Include="XpressHuffMaximumDecompressBuffer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress Huff</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

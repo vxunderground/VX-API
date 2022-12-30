@@ -309,6 +309,14 @@
     <ClCompile Include="SleepObfuscationViaVirtualProtect.cpp" />
     <ClCompile Include="SnapshotInsertHardwareBreakpointHookIntoTargetThread.cpp" />
     <ClCompile Include="WriteDataToPeSection.cpp" />
+    <ClCompile Include="XpressHuffMaximumCompressBuffer.cpp" />
+    <ClCompile Include="XpressHuffMaximumDecompressBuffer.cpp" />
+    <ClCompile Include="XpressHuffStandardCompressBuffer.cpp" />
+    <ClCompile Include="XpressHuffStandardDecompressBuffer.cpp" />
+    <ClCompile Include="XpressMaximumCompressBuffer.cpp" />
+    <ClCompile Include="XpressMaximumDecompressBuffer.cpp" />
+    <ClCompile Include="XpressStandardCompressBuffer.cpp" />
+    <ClCompile Include="XpressStandardDecompressBuffer.cpp" />
     <ClCompile Include="__unstable__preview__MpfSilentInstallGoogleChromePlugin.cpp" />
     <ClCompile Include="SendIcmpEchoMessageToIPv4Host.cpp" />
     <ClCompile Include="OleGetClipboardData.cpp" />
