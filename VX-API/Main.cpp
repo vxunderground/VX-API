@@ -2,23 +2,20 @@
 
 INT main(VOID)
 {
-	PCHAR Buffer = NULL;
+	/*
+	
+	This is stuff I was debugging.
+	------------------------------------
+	
 	DWORD dwSize = 0;
-	HMODULE hMod = NULL;
-	BYTE CompressedBuffer[512] = { 0 };
-	ULONG Size = 512;
-	ULONG Out = 0;
+	PCHAR Buffer = GenericShellcodeOpenCalcExitThread(&dwSize);
 
-	BYTE DecompressedBuffer[512] = { 0 };
+	MpfSceViaImageGetDigestStream((PBYTE)Buffer, dwSize);
+	
+	------------------------------------
+	*/
 
-	Buffer = GenericShellcodeOpenCalcExitThread(&dwSize);
-
-	Out = LzStandardCompressBuffer((PBYTE)Buffer, dwSize, CompressedBuffer, Size);
-
-	Out = LzStandardDecompressBuffer(CompressedBuffer, Out, DecompressedBuffer, Size);
-
-	if (Buffer)
-		HeapFree(GetProcessHeapFromTeb(), HEAP_ZERO_MEMORY, Buffer);
+	
 
 	return ERROR_SUCCESS;
 }

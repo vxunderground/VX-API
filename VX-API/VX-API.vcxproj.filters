@@ -741,6 +741,18 @@
     <ClCompile Include="XpressHuffMaximumDecompressBuffer.cpp">
       <Filter>Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress Huff</Filter>
     </ClCompile>
+    <ClCompile Include="MpfSceViaChooseColor.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaClusWorkerCreate.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaSymEnumProcesses.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaImageGetDigestStream.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

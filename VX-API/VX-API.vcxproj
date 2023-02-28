@@ -266,6 +266,8 @@
     <ClCompile Include="MpfSceViaCertEnumSystemStore.cpp" />
     <ClCompile Include="MpfSceViaCertEnumSystemStoreLocation.cpp" />
     <ClCompile Include="MpfSceViaCertFindChainInStore.cpp" />
+    <ClCompile Include="MpfSceViaChooseColor.cpp" />
+    <ClCompile Include="MpfSceViaClusWorkerCreate.cpp" />
     <ClCompile Include="MpfSceViaCreateThreadpoolWait.cpp" />
     <ClCompile Include="MpfSceViaCreateTimerQueueTimer.cpp" />
     <ClCompile Include="MpfSceViaCryptEnumOIDInfo.cpp" />
@@ -295,10 +297,12 @@
     <ClCompile Include="MpfSceViaEnumWindowStationsW.cpp" />
     <ClCompile Include="MpfSceViaEvtSubscribe.cpp" />
     <ClCompile Include="MpfSceViaFlsAlloc.cpp" />
+    <ClCompile Include="MpfSceViaImageGetDigestStream.cpp" />
     <ClCompile Include="MpfSceViaImmEnumInputContext.cpp" />
     <ClCompile Include="MpfSceViaInitOnceExecuteOnce.cpp" />
     <ClCompile Include="MpfSceViaK32EnumPageFilesW.cpp" />
     <ClCompile Include="MpfSceViaMessageBoxIndirectW.cpp" />
+    <ClCompile Include="MpfSceViaSymEnumProcesses.cpp" />
     <ClCompile Include="ProxyRegisterWaitLoadLibrary.cpp" />
     <ClCompile Include="ProxyWorkItemLoadLibrary.cpp" />
     <ClCompile Include="ReadDataFromPeSection.cpp" />

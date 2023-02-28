@@ -173,33 +173,37 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromServiceManager | modexp | Malcode |
 | MpfGetLsaPidFromRegistry | modexp | Malcode |
 | MpfGetLsaPidFromNamedPipe | modexp | Malcode |
-| MpfSceViaEnumChildWindows | alfarom256, aahmad097 | Malcode |
-| MpfSceViaCDefFolderMenu_Create2 | alfarom256, aahmad097 | Malcode |
-| MpfSceViaCertEnumSystemStore | alfarom256, aahmad097 | Malcode |
-| MpfSceViaCertEnumSystemStoreLocation | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumDateFormatsW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumDesktopWindows | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumDesktopsW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumDirTreeW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumDisplayMonitors | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumFontFamiliesExW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumFontsW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumLanguageGroupLocalesW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumObjects | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumResourceTypesExW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumSystemCodePagesW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumSystemGeoID | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumSystemLanguageGroupsW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumSystemLocalesEx | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumThreadWindows | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumTimeFormatsEx | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumUILanguagesW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumWindowStationsW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumWindows | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumerateLoadedModules64 | alfarom256, aahmad097 | Malcode |
-| MpfSceViaK32EnumPageFilesW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumPwrSchemes | alfarom256, aahmad097 | Malcode |
-| MpfSceViaMessageBoxIndirectW | alfarom256, aahmad097 | Malcode |
+| MpfSceViaEnumChildWindows | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaCDefFolderMenu_Create2 | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaCertEnumSystemStore | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaCertEnumSystemStoreLocation | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumDateFormatsW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumDesktopWindows | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumDesktopsW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumDirTreeW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumDisplayMonitors | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumFontFamiliesExW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumFontsW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumLanguageGroupLocalesW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumObjects | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumResourceTypesExW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumSystemCodePagesW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumSystemGeoID | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumSystemLanguageGroupsW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumSystemLocalesEx | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumThreadWindows | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumTimeFormatsEx | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumUILanguagesW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumWindowStationsW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumWindows | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumerateLoadedModules64 | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaK32EnumPageFilesW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaEnumPwrSchemes | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaMessageBoxIndirectW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaChooseColorW | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaClusWorkerCreate | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaSymEnumProcesses | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaImageGetDigestStream | alfarom256, aahmad097, wra7h | Malcode |
 | MpfComMonitorChromeSessionOnce | smelly__vx | Malcode |
 | MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malcode |
 | MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey | Malcode |

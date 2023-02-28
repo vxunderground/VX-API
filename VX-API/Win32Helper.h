@@ -3,7 +3,8 @@
 #include "StringManipulation.h"
 #include "FunctionDeclaration.h"
 #include <Ws2tcpip.h>
-#include <Dbghelp.h> 
+#include <imagehlp.h>
+//#include <Dbghelp.h> 
 #include <wincrypt.h>
 #include <shlwapi.h>
 #include <Shlobj.h>
@@ -19,12 +20,15 @@
 #include <imm.h>
 #include <dpa_dsa.h>
 #include <winevt.h>
+#include <resapi.h>
+
 
 
 #pragma comment(lib, "Dnsapi.lib")
 #pragma comment(lib, "Iphlpapi.lib")
 #pragma comment(lib, "Crypt32.lib")
-#pragma comment(lib, "Dbghelp.lib")
+#pragma comment(lib, "Imagehlp.lib")
+//#pragma comment(lib, "Dbghelp.lib")
 #pragma comment(lib, "Wtsapi32.lib")
 #pragma comment(lib, "Urlmon.lib")
 #pragma comment(lib, "PowrProf.lib")
@@ -32,6 +36,8 @@
 #pragma comment(lib, "Imm32.lib")
 #pragma comment(lib, "Comctl32.lib")
 #pragma comment(lib, "Wevtapi.lib")
+#pragma comment(lib, "ResUtils.lib")
+
 
 
 #ifndef NT_SUCCESS
@@ -312,6 +318,11 @@ BOOL MpfSceViaCreateTimerQueueTimer(_In_ PBYTE Payload, _In_ DWORD PayloadSizeIn
 BOOL MpfSceViaEvtSubscribe(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes); //Unstable, some shellcode crashes application, requires improved testing
 BOOL MpfSceViaFlsAlloc(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 BOOL MpfSceViaInitOnceExecuteOnce(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaChooseColorW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaClusWorkerCreate(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaSymEnumProcesses(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaImageGetDigestStream(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+
 
 
 
