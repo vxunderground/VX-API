@@ -135,6 +135,7 @@
     <ClCompile Include="AdfCloseHandleOnInvalidAddress.cpp" />
     <ClCompile Include="AdfIsCreateProcessDebugEventCodeSet.cpp" />
     <ClCompile Include="AdfOpenProcessOnCsrss.cpp" />
+    <ClCompile Include="AmsiBypassViaPatternScan.cpp" />
     <ClCompile Include="ByteArrayToCharArray.cpp" />
     <ClCompile Include="CaplockString.cpp" />
     <ClCompile Include="CharArrayToByteArray.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="ConvertIPv4IpAddressStructureToString.cpp" />
     <ClCompile Include="ConvertIPv4IpAddressUnsignedLongToString.cpp" />
     <ClCompile Include="ConvertIPv4StringToUnsignedLong.cpp" />
+    <ClCompile Include="CopyFileViaSetupCopyFile.cpp" />
     <ClCompile Include="CopyMemoryEx.cpp" />
     <ClCompile Include="CreateFileFromDsCopyFromSharedFile.cpp" />
     <ClCompile Include="CreateLocalAppDataObjectPath.cpp" />
@@ -152,6 +154,8 @@
     <ClCompile Include="CreateProcessByWindowsRHotKeyEx.cpp" />
     <ClCompile Include="CreateProcessFromIHxHelpPaneServer.cpp" />
     <ClCompile Include="CreateProcessFromIHxInteractiveUser.cpp" />
+    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab.cpp" />
+    <ClCompile Include="CreateProcessFromINFSetupCommand.cpp" />
     <ClCompile Include="CreateProcessFromIShellDispatchInvoke.cpp" />
     <ClCompile Include="CreateProcessFromShellExecuteInExplorerProcess.cpp" />
     <ClCompile Include="CreateProcessViaNtCreateUserProcess.cpp" />
@@ -303,6 +307,8 @@
     <ClCompile Include="MpfSceViaK32EnumPageFilesW.cpp" />
     <ClCompile Include="MpfSceViaMessageBoxIndirectW.cpp" />
     <ClCompile Include="MpfSceViaSymEnumProcesses.cpp" />
+    <ClCompile Include="MpfSceViaSymEnumSourceFiles.cpp" />
+    <ClCompile Include="MpfSceViaVerifierEnumerateResource.cpp" />
     <ClCompile Include="ProxyRegisterWaitLoadLibrary.cpp" />
     <ClCompile Include="ProxyWorkItemLoadLibrary.cpp" />
     <ClCompile Include="ReadDataFromPeSection.cpp" />

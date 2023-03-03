@@ -32,7 +32,7 @@ BOOL IsPeSectionW(_In_ LPCWSTR PathToBinary, _In_ LPCWSTR PeSectionName)
 	if (Buffer == NULL)
 		goto EXIT_ROUTINE;
 
-	if (!ReadFile(hHandle, Buffer, SizeOfTargetBinary, NULL, NULL))
+	if (!ReadFile(hHandle, Buffer, (DWORD)SizeOfTargetBinary, NULL, NULL))
 		goto EXIT_ROUTINE;
 
 	if (!RtlLoadPeHeaders(&Dos, &Nt, &File, &Optional, &Buffer))
@@ -83,7 +83,7 @@ BOOL IsPeSectionA(_In_ LPCSTR PathToBinary, _In_ LPCSTR PeSectionName)
 	if (Buffer == NULL)
 		goto EXIT_ROUTINE;
 
-	if (!ReadFile(hHandle, Buffer, SizeOfTargetBinary, NULL, NULL))
+	if (!ReadFile(hHandle, Buffer, (DWORD)SizeOfTargetBinary, NULL, NULL))
 		goto EXIT_ROUTINE;
 
 	if (!RtlLoadPeHeaders(&Dos, &Nt, &File, &Optional, &Buffer))

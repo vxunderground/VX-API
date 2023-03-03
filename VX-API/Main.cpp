@@ -2,20 +2,14 @@
 
 INT main(VOID)
 {
-	/*
-	
-	This is stuff I was debugging.
-	------------------------------------
-	
 	DWORD dwSize = 0;
 	PCHAR Buffer = GenericShellcodeOpenCalcExitThread(&dwSize);
 
-	MpfSceViaImageGetDigestStream((PBYTE)Buffer, dwSize);
+	//MpfSceViaSymEnumSourceFiles((PBYTE)Buffer, dwSize);
 	
-	------------------------------------
-	*/
-
+	//BOOL bFlag = AmsiBypassViaPatternScan(4288);
 	
+	CreateProcessFromINFSectionInstallStringNoCabA("C:\\Users\\dwThr\\Desktop\\demo.inf", "DefaultInstall_SingleUser");
 
 	return ERROR_SUCCESS;
 }

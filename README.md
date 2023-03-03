@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.642
+Version: 2.0.658
 
 Developer: smelly__vx
   
@@ -99,6 +99,10 @@ You're free to use this in any manner you please. You do not need to use this en
 | RemoveRegisterDllNotification | Rad98, Peter Winter-Smith | Evasion |
 | CreateProcessByWindowsRHotKey | smelly__vx | Evasion |
 | CreateProcessByWindowsRHotKeyEx | smelly__vx | Evasion |
+| AmsiBypassViaPatternScan | ZeroMemoryEx | Evasion |
+| CopyFileViaSetupCopyFile | smelly__vx | Evasion |
+| CreateProcessFromINFSectionInstallStringNoCab | smelly__vx | Evasion |
+| CreateProcessFromINFSetupCommand | smelly__vx | Evasion |
 | GetCurrentLocaleFromTeb | 3xp0rt | Fingerprinting |
 | GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
 | GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |
@@ -204,6 +208,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfSceViaClusWorkerCreate | alfarom256, aahmad097, wra7h | Malcode |
 | MpfSceViaSymEnumProcesses | alfarom256, aahmad097, wra7h | Malcode |
 | MpfSceViaImageGetDigestStream | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaVerifierEnumerateResource | alfarom256, aahmad097, wra7h | Malcode |
+| MpfSceViaSymEnumSourceFiles | alfarom256, aahmad097, wra7h | Malcode |
 | MpfComMonitorChromeSessionOnce | smelly__vx | Malcode |
 | MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malcode |
 | MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey | Malcode |

@@ -21,4 +21,6 @@ BOOL MpfSceViaChooseColorW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes)
 	CopyMemoryEx(BinAddress, Payload, PayloadSizeInBytes);
 
 	CreateThreadAndWaitForCompletion((LPTHREAD_START_ROUTINE)InvokeChooseColorWCallbackRoutine, BinAddress, INFINITE);
+
+	return TRUE;
 }

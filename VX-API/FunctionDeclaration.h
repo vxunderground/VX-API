@@ -80,3 +80,10 @@ typedef HRESULT(WINAPI* DLLGETCLASSOBJECT)(REFCLSID, REFIID, LPVOID*);
  ADVAPI32 IMPORT
 *******************************************/
 typedef NTSTATUS(NTAPI* SYSTEMFUNCTION032)(PAB_STRING, PAB_STRING);
+
+
+
+///*******************************************
+// IMAGEHLP IMPORT
+//*******************************************/
+typedef BOOL(WINAPI* IMAGEGETDIGESTSTREAM)(HANDLE, DWORD, LPVOID, PHANDLE);

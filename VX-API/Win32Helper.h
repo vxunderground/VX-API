@@ -3,8 +3,7 @@
 #include "StringManipulation.h"
 #include "FunctionDeclaration.h"
 #include <Ws2tcpip.h>
-#include <imagehlp.h>
-//#include <Dbghelp.h> 
+#include <Dbghelp.h> 
 #include <wincrypt.h>
 #include <shlwapi.h>
 #include <Shlobj.h>
@@ -21,14 +20,15 @@
 #include <dpa_dsa.h>
 #include <winevt.h>
 #include <resapi.h>
+#include <amsi.h>
+#include <SetupAPI.h>
 
 
 
 #pragma comment(lib, "Dnsapi.lib")
 #pragma comment(lib, "Iphlpapi.lib")
 #pragma comment(lib, "Crypt32.lib")
-#pragma comment(lib, "Imagehlp.lib")
-//#pragma comment(lib, "Dbghelp.lib")
+#pragma comment(lib, "Dbghelp.lib")
 #pragma comment(lib, "Wtsapi32.lib")
 #pragma comment(lib, "Urlmon.lib")
 #pragma comment(lib, "PowrProf.lib")
@@ -37,7 +37,7 @@
 #pragma comment(lib, "Comctl32.lib")
 #pragma comment(lib, "Wevtapi.lib")
 #pragma comment(lib, "ResUtils.lib")
-
+#pragma comment(lib, "Setupapi.lib")
 
 
 #ifndef NT_SUCCESS
@@ -322,6 +322,8 @@ BOOL MpfSceViaChooseColorW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 BOOL MpfSceViaClusWorkerCreate(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 BOOL MpfSceViaSymEnumProcesses(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 BOOL MpfSceViaImageGetDigestStream(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaVerifierEnumerateResource(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
+BOOL MpfSceViaSymEnumSourceFiles(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 
 
 
@@ -355,6 +357,13 @@ DWORD CreateProcessByWindowsRHotKeyW(_In_ PWCHAR FullPathToBinary);
 DWORD CreateProcessByWindowsRHotKeyA(_In_ PCHAR FullPathToBinary);
 DWORD CreateProcessByWindowsRHotKeyExW(_In_ PWCHAR FullPathToBinary);
 DWORD CreateProcessByWindowsRHotKeyExA(_In_ PCHAR FullPathToBinary);
+BOOL AmsiBypassViaPatternScan(DWORD ProcessId);
+BOOL CopyFileViaSetupCopyFileW(LPCWSTR Source, LPCWSTR Destination);
+BOOL CopyFileViaSetupCopyFileA(LPCSTR Source, LPCSTR Destination);
+BOOL CreateProcessFromINFSectionInstallStringNoCabW(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
+BOOL CreateProcessFromINFSectionInstallStringNoCabA(LPCSTR PathToInfFile, LPCSTR NameOfSection);
+BOOL CreateProcessFromINFSetupCommandW(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
+BOOL CreateProcessFromINFSetupCommandA(LPCSTR PathToInfFile, LPCSTR NameOfSection);
 
 
 

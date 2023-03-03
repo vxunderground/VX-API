@@ -753,6 +753,24 @@
     <ClCompile Include="MpfSceViaImageGetDigestStream.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
     </ClCompile>
+    <ClCompile Include="AmsiBypassViaPatternScan.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaVerifierEnumerateResource.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfSceViaSymEnumSourceFiles.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyFileViaSetupCopyFile.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromINFSetupCommand.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">
