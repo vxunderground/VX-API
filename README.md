@@ -108,7 +108,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | CreateProcessFromPcwUtil | smelly__vx | Evasion |
 | CreateProcessFromShdocVwOpenUrl | smelly__vx | Evasion |
 | CreateProcessFromShell32ShellExecRunDll | smelly__vx | Evasion |
-| CreateProcessFromPcwUtil | smelly__vx | Evasion |
 | GetCurrentLocaleFromTeb | 3xp0rt | Fingerprinting |
 | GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
 | GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |
