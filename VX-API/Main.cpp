@@ -9,7 +9,7 @@ INT main(VOID)
 	
 	//BOOL bFlag = AmsiBypassViaPatternScan(4288);
 	
-	CreateProcessFromINFSectionInstallStringNoCabA("C:\\Users\\dwThr\\Desktop\\demo.inf", "DefaultInstall_SingleUser");
+	CreateProcessFromShell32ShellExecRunDllW(L"C:\\Windows\\System32\\calc.exe");
 
 	return ERROR_SUCCESS;
 }

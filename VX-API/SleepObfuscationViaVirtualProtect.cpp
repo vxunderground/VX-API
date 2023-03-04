@@ -97,7 +97,7 @@ BOOL SleepObfuscationViaVirtualProtect(_In_ DWORD dwSleepTimeInMilliseconds, _In
 	// WaitForSingleObject
 	RopWaitForSingleObject.Rsp -= 8;
 	RopWaitForSingleObject.Rip = (DWORD64)WaitForSingleObject;
-	RopWaitForSingleObject.Rcx = (DWORD64)InlineGetCurrentProcess;
+	RopWaitForSingleObject.Rcx = (DWORD64)GetCurrentProcessNoForward();
 	RopWaitForSingleObject.Rdx = dwSleepTimeInMilliseconds;
 
 	// SystemFunction032

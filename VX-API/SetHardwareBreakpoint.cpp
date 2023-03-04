@@ -13,7 +13,7 @@ BOOL SetHardwareBreakpoint(_In_ DWORD ThreadId, _In_ PUINT_VAR_T Address, _In_ U
 			goto EXIT_ROUTINE;
 	}
 	else
-		hHandle = InlineGetCurrentThread;
+		hHandle = GetCurrentThreadNoForward();
 
 	if (!GetThreadContext(hHandle, &Context))
 		goto EXIT_ROUTINE;

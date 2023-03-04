@@ -2,7 +2,7 @@
 
 VOID InvokeEnumerateLoadedModules64CallbackRoutine(LPVOID lpParameter)
 {
-	EnumerateLoadedModules64(InlineGetCurrentProcess, (PENUMLOADED_MODULES_CALLBACK64)lpParameter, NULL);
+	EnumerateLoadedModules64(GetCurrentProcessNoForward(), (PENUMLOADED_MODULES_CALLBACK64)lpParameter, NULL);
 }
 
 BOOL MpfSceViaEnumerateLoadedModules64(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes)

@@ -152,11 +152,17 @@
     <ClCompile Include="CreateMd5HashFromFilePath.cpp" />
     <ClCompile Include="CreateProcessByWindowsRHotKey.cpp" />
     <ClCompile Include="CreateProcessByWindowsRHotKeyEx.cpp" />
+    <ClCompile Include="CreateProcessFromIeFrameOpenUrl.cpp" />
     <ClCompile Include="CreateProcessFromIHxHelpPaneServer.cpp" />
     <ClCompile Include="CreateProcessFromIHxInteractiveUser.cpp" />
     <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab.cpp" />
+    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab2.cpp" />
+    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab3.cpp" />
     <ClCompile Include="CreateProcessFromINFSetupCommand.cpp" />
     <ClCompile Include="CreateProcessFromIShellDispatchInvoke.cpp" />
+    <ClCompile Include="CreateProcessFromPcwUtil.cpp" />
+    <ClCompile Include="CreateProcessFromShdocVwOpenUrl.cpp" />
+    <ClCompile Include="CreateProcessFromShell32ShellExecRunDll.cpp" />
     <ClCompile Include="CreateProcessFromShellExecuteInExplorerProcess.cpp" />
     <ClCompile Include="CreateProcessViaNtCreateUserProcess.cpp" />
     <ClCompile Include="CreateProcessWithCfGuard.cpp" />
@@ -173,6 +179,8 @@
     <ClCompile Include="ExceptHandlerCallbackRoutine.cpp" />
     <ClCompile Include="Ex_GetHandleOnDeviceHttpCommunication.cpp" />
     <ClCompile Include="FastcallExecuteBinaryShellExecuteEx.cpp" />
+    <ClCompile Include="GetCurrentProcessNoForward.cpp" />
+    <ClCompile Include="GetCurrentThreadNoForward.cpp" />
     <ClCompile Include="GetPeSectionSizeInBytes.cpp" />
     <ClCompile Include="IsPeSection.cpp" />
     <ClCompile Include="LzMaximumCompressBuffer.cpp" />

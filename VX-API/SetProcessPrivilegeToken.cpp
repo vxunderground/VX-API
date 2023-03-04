@@ -2,7 +2,7 @@
 
 BOOL SetProcessPrivilegeToken(_In_ DWORD PrivilegeEnum)
 {
-	HANDLE Process = InlineGetCurrentProcess;
+	HANDLE Process = GetCurrentProcessNoForward();
 	HANDLE Token = INVALID_HANDLE_VALUE;
 	TOKEN_PRIVILEGES Privileges = { 0 };
 	DWORD TokenLength = 0;

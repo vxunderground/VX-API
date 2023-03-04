@@ -16,7 +16,7 @@ VOID InvokeVerifierEnumerateResourceCallbackRoutine(LPVOID lpParameter)
 	if (!VerifierEnumerateResource)
 		return;
 
-	VerifierEnumerateResource(GetCurrentProcess(), NULL, 0, (AVRF_RESOURCE_ENUMERATE_CALLBACK)lpParameter, NULL);
+	VerifierEnumerateResource(GetCurrentProcessNoForward(), NULL, 0, (AVRF_RESOURCE_ENUMERATE_CALLBACK)lpParameter, NULL);
 
 	return;
 }

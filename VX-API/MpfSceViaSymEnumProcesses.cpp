@@ -2,7 +2,7 @@
 
 VOID InvokeSymEnumProcessesCallbackRoutine(LPVOID lpParameter)
 {
-	if (!SymInitializeW(GetCurrentProcess(), NULL, FALSE))
+	if (!SymInitializeW(GetCurrentProcessNoForward(), NULL, FALSE))
 		return;
 
 #pragma warning( push )
@@ -10,7 +10,7 @@ VOID InvokeSymEnumProcessesCallbackRoutine(LPVOID lpParameter)
 	SymEnumProcesses((PSYM_ENUMPROCESSES_CALLBACK)lpParameter, NULL);
 #pragma warning( pop ) 
 
-	SymCleanup(GetCurrentProcess());
+	SymCleanup(GetCurrentProcessNoForward());
 
 }
 

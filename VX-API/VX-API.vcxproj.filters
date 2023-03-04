@@ -771,6 +771,30 @@
     <ClCompile Include="CreateProcessFromINFSetupCommand.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
+    <ClCompile Include="CreateProcessFromPcwUtil.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCurrentProcessNoForward.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCurrentThreadNoForward.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab2.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromIeFrameOpenUrl.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab3.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromShdocVwOpenUrl.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromShell32ShellExecRunDll.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">

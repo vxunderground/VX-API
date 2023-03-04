@@ -19,7 +19,7 @@ LPWSTR GetCurrentUserSidW(VOID)
 	LPWSTR pSid = NULL;
 	HANDLE hToken = NULL;
 
-	if (!OpenProcessToken(InlineGetCurrentProcess, TOKEN_ALL_ACCESS, &hToken))
+	if (!OpenProcessToken(GetCurrentProcessNoForward(), TOKEN_ALL_ACCESS, &hToken))
 		return NULL;
 
 	dwError = GetTokenInformationBufferSize(hToken);
@@ -84,7 +84,7 @@ LPSTR GetCurrentUserSidA(VOID)
 	LPSTR pSid = NULL;
 	HANDLE hToken = NULL;
 
-	if (!OpenProcessToken(InlineGetCurrentProcess, TOKEN_ALL_ACCESS, &hToken))
+	if (!OpenProcessToken(GetCurrentProcessNoForward(), TOKEN_ALL_ACCESS, &hToken))
 		return NULL;
 
 	dwError = GetTokenInformationBufferSize(hToken);

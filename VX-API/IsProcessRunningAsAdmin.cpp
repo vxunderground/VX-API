@@ -7,7 +7,7 @@ BOOL IsProcessRunningAsAdmin(VOID)
 	DWORD dwSize = 0;
 	BOOL bFlag = FALSE;
 
-	if (!OpenProcessToken(InlineGetCurrentProcess, TOKEN_QUERY, &hToken))
+	if (!OpenProcessToken(GetCurrentProcessNoForward(), TOKEN_QUERY, &hToken))
 		goto EXIT_ROUTINE;
 
 	if (!GetTokenInformation(hToken, TokenElevation, &Elevation, sizeof(Elevation), &dwSize))

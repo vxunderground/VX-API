@@ -13,7 +13,7 @@ BOOL IsIntelHardwareBreakpointPresent(VOID)
 
 	Context->ContextFlags = CONTEXT_DEBUG_REGISTERS;
 
-	if (!GetThreadContext(InlineGetCurrentThread, Context))
+	if (!GetThreadContext(GetCurrentThreadNoForward(), Context))
 		goto EXIT_ROUTINE;
 
 	if (Context->Dr0 || Context->Dr1 || Context->Dr2 || Context->Dr3)

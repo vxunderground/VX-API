@@ -47,9 +47,6 @@
 
 #define Get16Bits(d) ((((UINT32)(((CONST UINT8*)(d))[1])) << 8) +(UINT32)(((CONST UINT8*)(d))[0]))
 
-#define InlineGetCurrentThread ((HANDLE)(LONG_PTR)-2)
-#define InlineGetCurrentProcess (HANDLE)((HANDLE)-1)
-
 /*******************************************
  RAD HARDWARE BREAKPOINT HOOKING ENGINE DATA
 *******************************************/
@@ -221,6 +218,8 @@ DWORD GetPeSectionSizeInBytesW(_In_ LPCWSTR Path, _In_ LPCWSTR SectionName);
 DWORD GetPeSectionSizeInBytesA(_In_ LPCSTR Path, _In_ LPCSTR SectionName);
 BOOL ReadDataFromPeSectionW(_In_ LPCWSTR Path, _In_ LPCWSTR SectionName, _Inout_ PBYTE ReadData, _Inout_opt_ PDWORD DataReadInBytes);
 BOOL ReadDataFromPeSectionA(_In_ LPCSTR Path, _In_ LPCSTR SectionName, _Inout_ PBYTE ReadData, _Inout_opt_ PDWORD DataReadInBytes);
+HANDLE GetCurrentProcessNoForward(VOID);
+HANDLE GetCurrentThreadNoForward(VOID);
 
 
 
@@ -364,6 +363,18 @@ BOOL CreateProcessFromINFSectionInstallStringNoCabW(LPCWSTR PathToInfFile, LPCWS
 BOOL CreateProcessFromINFSectionInstallStringNoCabA(LPCSTR PathToInfFile, LPCSTR NameOfSection);
 BOOL CreateProcessFromINFSetupCommandW(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
 BOOL CreateProcessFromINFSetupCommandA(LPCSTR PathToInfFile, LPCSTR NameOfSection);
+BOOL CreateProcessFromPcwUtilW(LPCWSTR PathToBinary);
+BOOL CreateProcessFromPcwUtilA(LPCSTR PathToBinary);
+BOOL CreateProcessFromINFSectionInstallStringNoCab2A(LPCSTR PathToInfFile, LPCSTR NameOfSection);
+BOOL CreateProcessFromINFSectionInstallStringNoCab2W(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
+BOOL CreateProcessFromIeFrameOpenUrlW(LPCWSTR PathToUrlFile);
+BOOL CreateProcessFromIeFrameOpenUrlA(LPCSTR PathToUrlFile);
+BOOL CreateProcessFromINFSectionInstallStringNoCab3W(LPCWSTR PathToInfFile, LPCWSTR NameOfSection); // <--- not implemented
+BOOL CreateProcessFromINFSectionInstallStringNoCab3A(LPCSTR PathToInfFile, LPCSTR NameOfSection); // <--- not implemented
+BOOL CreateProcessFromShdocVwOpenUrlW(LPCWSTR PathToUrlFile);
+BOOL CreateProcessFromShdocVwOpenUrlA(LPCSTR PathToUrlFile);
+BOOL CreateProcessFromShell32ShellExecRunDllW(LPCWSTR PathToFile);
+BOOL CreateProcessFromShell32ShellExecRunDllA(LPCSTR PathToFile);
 
 
 

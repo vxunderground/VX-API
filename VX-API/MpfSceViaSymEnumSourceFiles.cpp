@@ -2,12 +2,12 @@
 
 VOID InvokeSymEnumSourceFilesCallbackRoutine(LPVOID lpParameter)
 {
-	if (!SymInitializeW(GetCurrentProcess(), NULL, TRUE))
+	if (!SymInitializeW(GetCurrentProcessNoForward(), NULL, TRUE))
 		return;
 
-	SymEnumSourceFilesW(GetCurrentProcess(), NULL, NULL, (PSYM_ENUMSOURCEFILES_CALLBACKW)lpParameter, NULL);
+	SymEnumSourceFilesW(GetCurrentProcessNoForward(), NULL, NULL, (PSYM_ENUMSOURCEFILES_CALLBACKW)lpParameter, NULL);
 
-	SymCleanup(GetCurrentProcess());
+	SymCleanup(GetCurrentProcessNoForward());
 }
 
 BOOL MpfSceViaSymEnumSourceFiles(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes)
