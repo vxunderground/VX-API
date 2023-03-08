@@ -211,6 +211,29 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromServiceManager | modexp |
 | MpfGetLsaPidFromRegistry | modexp |
 | MpfGetLsaPidFromNamedPipe | modexp |
+| MpfComMonitorChromeSessionOnce | smelly__vx |
+| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 |
+| MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey |
+| MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu |
+| MpfPiControlInjection | SafeBreach Labs |
+| MpfPiQueueUserAPCViaAtomBomb | SafeBreach Labs |
+| MpfPiWriteProcessMemoryCreateRemoteThread | SafeBreach Labs |
+| MpfProcessInjectionViaProcessReflection | Deep Instinct |
+
+
+## Shellcode Execution
+| Function Name | Original Author |
+| ------------- | --------------- |
+| MpfSceViaImmEnumInputContext | alfarom256, aahmad097 |
+| MpfSceViaCertFindChainInStore | alfarom256, aahmad097 |
+| MpfSceViaEnumPropsExW | alfarom256, aahmad097 |
+| MpfSceViaCreateThreadpoolWait | alfarom256, aahmad097 |
+| MpfSceViaCryptEnumOIDInfo | alfarom256, aahmad097 |
+| MpfSceViaDSA_EnumCallback | alfarom256, aahmad097 |
+| MpfSceViaCreateTimerQueueTimer | alfarom256, aahmad097 |
+| MpfSceViaEvtSubscribe | alfarom256, aahmad097 |
+| MpfSceViaFlsAlloc | alfarom256, aahmad097 |
+| MpfSceViaInitOnceExecuteOnce | alfarom256, aahmad097 |
 | MpfSceViaEnumChildWindows | alfarom256, aahmad097, wra7h |
 | MpfSceViaCDefFolderMenu_Create2 | alfarom256, aahmad097, wra7h |
 | MpfSceViaCertEnumSystemStore | alfarom256, aahmad097, wra7h |
@@ -244,24 +267,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfSceViaImageGetDigestStream | alfarom256, aahmad097, wra7h |
 | MpfSceViaVerifierEnumerateResource | alfarom256, aahmad097, wra7h |
 | MpfSceViaSymEnumSourceFiles | alfarom256, aahmad097, wra7h |
-| MpfComMonitorChromeSessionOnce | smelly__vx |
-| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 |
-| MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey |
-| MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu |
-| MpfPiControlInjection | SafeBreach Labs |
-| MpfPiQueueUserAPCViaAtomBomb | SafeBreach Labs |
-| MpfPiWriteProcessMemoryCreateRemoteThread | SafeBreach Labs |
-| MpfProcessInjectionViaProcessReflection | Deep Instinct |
-| MpfSceViaImmEnumInputContext | alfarom256, aahmad097 |
-| MpfSceViaCertFindChainInStore | alfarom256, aahmad097 |
-| MpfSceViaEnumPropsExW | alfarom256, aahmad097 |
-| MpfSceViaCreateThreadpoolWait | alfarom256, aahmad097 |
-| MpfSceViaCryptEnumOIDInfo | alfarom256, aahmad097 |
-| MpfSceViaDSA_EnumCallback | alfarom256, aahmad097 |
-| MpfSceViaCreateTimerQueueTimer | alfarom256, aahmad097 |
-| MpfSceViaEvtSubscribe | alfarom256, aahmad097 |
-| MpfSceViaFlsAlloc | alfarom256, aahmad097 |
-| MpfSceViaInitOnceExecuteOnce | alfarom256, aahmad097 |
 
 
 ## UAC Bypass
