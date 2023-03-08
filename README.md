@@ -18,45 +18,47 @@ You're free to use this in any manner you please. You do not need to use this en
 
 # List of features
 
-## String Conversion
+## String Manipulation
 | Function Name | Original Author |
 | ------------- | --------------- |
 | ByteArrayToCharArray | smelly__vx |
+| CharArrayToByteArray | smelly__vx |
+| ShlwapiCharStringToWCharString | smelly__vx |
+| ShlwapiWCharStringToCharString | smelly__vx |
+| CharStringToWCharString | smelly__vx |
+| WCharStringToCharString | smelly__vx |
+| RtlInitEmptyUnicodeString | ReactOS |
+| RtlInitUnicodeString | ReactOS |
+| CaplockString | simonc |
+| CopyMemoryEx | ReactOS |
+| SecureStringCopy | Apple (c) 1999 |
+| StringCompare | Apple (c) 1999 |
+| StringConcat | Apple (c) 1999 |
+| StringCopy | Apple (c) 1999 |
+| StringFindSubstring | Apple (c) 1999 |
+| StringLength | Apple (c) 1999 |
+| StringLocateChar | Apple (c) 1999 |
+| StringRemoveSubstring | smelly__vx |
+| StringTerminateStringAtChar | smelly__vx |
+| StringToken | Apple (c) 1999 |
+| ZeroMemoryEx | ReactOS |
+| ConvertCharacterStringToIntegerUsingNtdll | smelly__vx |
+| MemoryFindMemory | KamilCuk |
 
 
-| Function Name | Original Author | Section |
-| ------------- | --------------- | ------- |
-| CharArrayToByteArray | smelly__vx | String Conversion |
-| ShlwapiCharStringToWCharString | smelly__vx | String Conversion |
-| ShlwapiWCharStringToCharString | smelly__vx | String Conversion |
-| CharStringToWCharString | smelly__vx | String Conversion |
-| WCharStringToCharString | smelly__vx | String Conversion |
-| RtlInitEmptyUnicodeString | ReactOS | Windows Unicode Structure |
-| RtlInitUnicodeString | ReactOS | Windows Unicode Structure |
-| CaplockString | simonc | String Manipulation |
-| CopyMemoryEx | ReactOS | String Manipulation |
-| SecureStringCopy | Apple (c) 1999 | String Manipulation |
-| StringCompare | Apple (c) 1999 | String Manipulation |
-| StringConcat | Apple (c) 1999 | String Manipulation |
-| StringCopy | Apple (c) 1999 | String Manipulation |
-| StringFindSubstring | Apple (c) 1999 | String Manipulation |
-| StringLength | Apple (c) 1999 | String Manipulation |
-| StringLocateChar | Apple (c) 1999 | String Manipulation |
-| StringRemoveSubstring | smelly__vx | String Manipulation |
-| StringTerminateStringAtChar | smelly__vx | String Manipulation |
-| StringToken | Apple (c) 1999 | String Manipulation |
-| ZeroMemoryEx | ReactOS | String Manipulation | 
-| ConvertCharacterStringToIntegerUsingNtdll | smelly__vx | String Manipulation |
-| MemoryFindMemory | KamilCuk | String Manipulation |
+## Anti-debug
+| Function Name | Original Author |
+| ------------- | --------------- |
+| AdfCloseHandleOnInvalidAddress | Checkpoint Research |
+| AdfIsCreateProcessDebugEventCodeSet | Checkpoint Research |
+| AdfOpenProcessOnCsrss | Checkpoint Research |
+| CheckRemoteDebuggerPresent2 | ReactOS |
+| IsDebuggerPresentEx | smelly__vx |
+| IsIntelHardwareBreakpointPresent | Checkpoint Research |
 
 
 
-| AdfCloseHandleOnInvalidAddress | Checkpoint Research | Anti-debug |
-| AdfIsCreateProcessDebugEventCodeSet | Checkpoint Research | Anti-debug |
-| AdfOpenProcessOnCsrss | Checkpoint Research | Anti-debug |
-| CheckRemoteDebuggerPresent2 | ReactOS | Anti-debug |
-| IsDebuggerPresentEx | smelly__vx | Anti-debug |
-| IsIntelHardwareBreakpointPresent | Checkpoint Research | Anti-debug |
+
 | HashStringDjb2 | Dan Bernstein | String Hashing |
 | HashStringFowlerNollVoVariant1a | Glenn Fowler, Landon Curt Noll, and Kiem-Phong Vo | String Hashing |
 | HashStringJenkinsOneAtATime32Bit | Bob Jenkins | String Hashing |
