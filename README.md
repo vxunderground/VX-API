@@ -18,6 +18,7 @@ You're free to use this in any manner you please. You do not need to use this en
 
 # List of features
 
+| String Conversion |
 | Function Name | Original Author | Section |
 | ------------- | --------------- | ------- |
 | ByteArrayToCharArray | smelly__vx | String Conversion |
@@ -43,6 +44,9 @@ You're free to use this in any manner you please. You do not need to use this en
 | ZeroMemoryEx | ReactOS | String Manipulation | 
 | ConvertCharacterStringToIntegerUsingNtdll | smelly__vx | String Manipulation |
 | MemoryFindMemory | KamilCuk | String Manipulation |
+
+
+
 | AdfCloseHandleOnInvalidAddress | Checkpoint Research | Anti-debug |
 | AdfIsCreateProcessDebugEventCodeSet | Checkpoint Research | Anti-debug |
 | AdfOpenProcessOnCsrss | Checkpoint Research | Anti-debug |
@@ -107,7 +111,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | CreateProcessFromIeFrameOpenUrl | smelly__vx | Evasion |
 | CreateProcessFromPcwUtil | smelly__vx | Evasion |
 | CreateProcessFromShdocVwOpenUrl | smelly__vx | Evasion |
-| CreateProcessFromShell32ShellExecRunDll | smelly__vx | Evasion |
+| CreateProcessFromShell32ShellExecRun | smelly__vx | Evasion |
 | GetCurrentLocaleFromTeb | 3xp0rt | Fingerprinting |
 | GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
 | GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |
