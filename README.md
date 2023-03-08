@@ -18,10 +18,14 @@ You're free to use this in any manner you please. You do not need to use this en
 
 # List of features
 
-| String Conversion |
+## String Conversion
+| Function Name | Original Author |
+| ------------- | --------------- |
+| ByteArrayToCharArray | smelly__vx |
+
+
 | Function Name | Original Author | Section |
 | ------------- | --------------- | ------- |
-| ByteArrayToCharArray | smelly__vx | String Conversion |
 | CharArrayToByteArray | smelly__vx | String Conversion |
 | ShlwapiCharStringToWCharString | smelly__vx | String Conversion |
 | ShlwapiWCharStringToCharString | smelly__vx | String Conversion |
