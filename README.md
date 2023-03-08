@@ -57,217 +57,275 @@ You're free to use this in any manner you please. You do not need to use this en
 | IsIntelHardwareBreakpointPresent | Checkpoint Research |
 
 
+## Data Hashing
+| Function Name | Original Author |
+| ------------- | --------------- |
+| HashStringDjb2 | Dan Bernstein |
+| HashStringFowlerNollVoVariant1a | Glenn Fowler, Landon Curt Noll, and Kiem-Phong Vo |
+| HashStringJenkinsOneAtATime32Bit | Bob Jenkins |
+| HashStringLoseLose | Brian Kernighan and Dennis Ritchie |
+| HashStringRotr32 | T. Oshiba (1972) |
+| HashStringSdbm | Ozan Yigit |
+| HashStringSuperFastHash | Paul Hsieh |
+| HashStringUnknownGenericHash1A | Unknown |
+| HashStringSipHash | RistBS | 
+| HashStringMurmur | RistBS | 
 
 
-| HashStringDjb2 | Dan Bernstein | String Hashing |
-| HashStringFowlerNollVoVariant1a | Glenn Fowler, Landon Curt Noll, and Kiem-Phong Vo | String Hashing |
-| HashStringJenkinsOneAtATime32Bit | Bob Jenkins | String Hashing |
-| HashStringLoseLose | Brian Kernighan and Dennis Ritchie | String Hashing |
-| HashStringRotr32 | T. Oshiba (1972) | String Hashing |
-| HashStringSdbm | Ozan Yigit | String Hashing |
-| HashStringSuperFastHash | Paul Hsieh | String Hashing |
-| HashStringUnknownGenericHash1A | Unknown | String Hashing |
-| HashStringSipHash | RistBS | String Hashing | 
-| HashStringMurmur | RistBS | String Hashing | 
-| CreateMd5HashFromFilePath | Microsoft | Cryptography Related |
-| CreatePseudoRandomInteger | Apple (c) 1999 | Cryptography Related |
-| CreatePseudoRandomString | smelly__vx | Cryptography Related |
-| HashFileByMsiFileHashTable | smelly__vx | Cryptography Related |
-| CreatePseudoRandomIntegerFromNtdll | smelly__vx | Cryptography Related |
-| LzMaximumCompressBuffer | smelly__vx | Compression |
-| LzMaximumDecompressBuffer | smelly__vx | Compression |
-| LzStandardCompressBuffer | smelly__vx | Compression |
-| LzStandardDecompressBuffer | smelly__vx | Compression |
-| XpressHuffMaximumCompressBuffer | smelly__vx | Compression |
-| XpressHuffMaximumDecompressBuffer | smelly__vx | Compression |
-| XpressHuffStandardCompressBuffer | smelly__vx | Compression |
-| XpressHuffStandardDecompressBuffer | smelly__vx | Compression |
-| XpressMaximumCompressBuffer | smelly__vx | Compression |
-| XpressMaximumDecompressBuffer | smelly__vx | Compression |
-| XpressStandardCompressBuffer | smelly__vx | Compression |
-| XpressStandardDecompressBuffer | smelly__vx | Compression |
-| GetLastErrorFromTeb | smelly__vx | Error Handling |
-| GetLastNtStatusFromTeb | smelly__vx | Error Handling |
-| RtlNtStatusToDosErrorViaImport | ReactOS | Error Handling |
-| GetLastErrorFromTeb | smelly__vx | Error Handling |
-| SetLastErrorInTeb | smelly__vx | Error Handling |
-| SetLastNtStatusInTeb | smelly__vx | Error Handling |
-| Win32FromHResult | Raymond Chen | Error Handling |
-| CreateFileFromDsCopyFromSharedFile | Jonas Lyk | Evasion |
-| CreateProcessFromIHxHelpPaneServer | James Forshaw | Evasion |
-| CreateProcessFromIHxInteractiveUser | James Forshaw | Evasion |
-| CreateProcessFromIShellDispatchInvoke | Mohamed Fakroud | Evasion |
-| CreateProcessFromShellExecuteInExplorerProcess | Microsoft | Evasion |
-| CreateProcessViaNtCreateUserProcess | CaptMeelo | Evasion |
-| CreateProcessWithCfGuard | smelly__vx and Adam Chester | Evasion |
-| DelayedExecutionExecuteOnDisplayOff | am0nsec and smelly__vx | Evasion |
-| MasqueradePebAsExplorer | smelly__vx | Evasion |
-| RemoveDllFromPeb | rad9800 | Evasion |
-| HookEngineRestoreHeapFree | rad9800 | Evasion |
-| HookEngineUnhookHeapFree | rad9800 | Evasion |
-| SleepObfuscationViaVirtualProtect | 5pider | Evasion |
-| RemoveRegisterDllNotification | Rad98, Peter Winter-Smith | Evasion |
-| CreateProcessByWindowsRHotKey | smelly__vx | Evasion |
-| CreateProcessByWindowsRHotKeyEx | smelly__vx | Evasion |
-| AmsiBypassViaPatternScan | ZeroMemoryEx | Evasion |
-| CopyFileViaSetupCopyFile | smelly__vx | Evasion |
-| CreateProcessFromINFSectionInstallStringNoCab | smelly__vx | Evasion |
-| CreateProcessFromINFSetupCommand | smelly__vx | Evasion |
-| CreateProcessFromINFSectionInstallStringNoCab2 | smelly__vx | Evasion |
-| CreateProcessFromIeFrameOpenUrl | smelly__vx | Evasion |
-| CreateProcessFromPcwUtil | smelly__vx | Evasion |
-| CreateProcessFromShdocVwOpenUrl | smelly__vx | Evasion |
-| CreateProcessFromShell32ShellExecRun | smelly__vx | Evasion |
-| GetCurrentLocaleFromTeb | 3xp0rt | Fingerprinting |
-| GetNumberOfLinkedDlls | smelly__vx | Fingerprinting |
-| GetOsBuildNumberFromPeb | smelly__vx | Fingerprinting |
-| GetOsMajorVersionFromPeb | smelly__vx | Fingerprinting |
-| GetOsMinorVersionFromPeb | smelly__vx | Fingerprinting |
-| GetOsPlatformIdFromPeb | smelly__vx | Fingerprinting |
-| IsNvidiaGraphicsCardPresent | smelly__vx | Fingerprinting |
-| IsProcessRunning | smelly__vx | Fingerprinting |
-| IsProcessRunningAsAdmin | Vimal Shekar | Fingerprinting |
-| GetPidFromNtQuerySystemInformation | smelly__vx | Fingerprinting |
-| GetPidFromWindowsTerminalService | modexp | Fingerprinting |
-| GetPidFromWmiComInterface | aalimian and modexp | Fingerprinting |
-| GetPidFromEnumProcesses | smelly__vx | Fingerprinting |
-| GetPidFromPidBruteForcing | modexp | Fingerprinting |
-| GetPidFromNtQueryFileInformation | modexp, Lloyd Davies, Jonas Lyk | Fingerprinting |
-| GetPidFromPidBruteForcingExW | smelly__vx, LLoyd Davies, Jonas Lyk, modexp | Fingerprinting |
-| CreateLocalAppDataObjectPath | smelly__vx | Helper Functions |
-| CreateWindowsObjectPath | smelly__vx | Helper Functions |
-| DeleteFileWithCreateFileFlag | smelly__vx | Helper Functions |
-| GetCurrentDirectoryFromUserProcessParameters | smelly__vx | Helper Functions |
-| GetCurrentProcessIdFromTeb | ReactOS | Helper Functions |
-| GetCurrentUserSid | Giovanni Dicanio | Helper Functions |
-| GetCurrentWindowTextFromUserProcessParameter | smelly__vx | Helper Functions |
-| GetFileSizeFromPath | smelly__vx | Helper Functions |
-| GetProcessHeapFromTeb | smelly__vx | Helper Functions |
-| GetProcessPathFromLoaderLoadModule | smelly__vx | Helper Functions |
-| GetProcessPathFromUserProcessParameters | smelly__vx | Helper Functions |
-| GetSystemWindowsDirectory | Geoff Chappell | Helper Functions |
-| IsPathValid | smelly__vx | Helper Functions |
-| RecursiveFindFile | Luke | Helper Functions |
-| SetProcessPrivilegeToken | Microsoft | Helper Functions |
-| IsDllLoaded | smelly__vx | Helper Functions | 
-| TryLoadDllMultiMethod | smelly__vx | Helper Functions |
-| CreateThreadAndWaitForCompletion | smelly__vx | Helper Functions |
-| GetProcessBinaryNameFromHwndW | smelly__vx | Helper Functions |
-| GetByteArrayFromFile | smelly__vx | Helper Functions |
-| Ex_GetHandleOnDeviceHttpCommunication | x86matthew | Helper Functions |
-| IsRegistryKeyValid | smelly__vx | Helper Functions |
-| FastcallExecuteBinaryShellExecuteEx | smelly__vx | Helper Functions |
-| GetCurrentProcessIdFromOffset | RistBS | Helper Functions | 
-| GetPeBaseAddress | smelly__vx | Helper Functions | 
-| LdrLoadGetProcedureAddress | c5pider | Helper Functions | 
-| IsPeSection | smelly__vx | Helper Functions | 
-| AddSectionToPeFile | smelly__vx | Helper Functions | 
-| WriteDataToPeSection | smelly__vx | Helper Functions | 
-| GetPeSectionSizeInByte | smelly__vx | Helper Functions | 
-| ReadDataFromPeSection | smelly__vx | Helper Functions | 
-| GetCurrentProcessNoForward | ReactOS | Helper Functions | 
-| GetCurrentThreadNoForward | ReactOS | Helper Functions | 
-| GetKUserSharedData | Geoff Chappell | Library Loading |
-| GetModuleHandleEx2 | smelly__vx | Library Loading |
-| GetPeb | 29a | Library Loading |
-| GetPebFromTeb | ReactOS | Library Loading |
-| GetProcAddress | 29a Volume 2, c5pider | Library Loading |
-| GetProcAddressDjb2 | smelly__vx | Library Loading |
-| GetProcAddressFowlerNollVoVariant1a | smelly__vx | Library Loading |
-| GetProcAddressJenkinsOneAtATime32Bit | smelly__vx | Library Loading |
-| GetProcAddressLoseLose | smelly__vx | Library Loading |
-| GetProcAddressRotr32 | smelly__vx | Library Loading |
-| GetProcAddressSdbm | smelly__vx | Library Loading |
-| GetProcAddressSuperFastHash | smelly__vx | Library Loading |
-| GetProcAddressUnknownGenericHash1 | smelly__vx | Library Loading |
-| GetProcAddressSipHash | RistBS | Library Loading |
-| GetProcAddressMurmur | RistBS | Library Loading |
-| GetRtlUserProcessParameters | ReactOS | Library Loading |
-| GetTeb | ReactOS | Library Loading |
-| RtlLoadPeHeaders | smelly__vx | Library Loading |
-| ProxyWorkItemLoadLibrary | Rad98, Peter Winter-Smith | Library Loading |
-| ProxyRegisterWaitLoadLibrary | Rad98, Peter Winter-Smith | Library Loading |
-| MpfComModifyShortcutTarget | Unknown | Malcode |
-| MpfComVssDeleteShadowVolumeBackups | am0nsec | Malcode |
-| OleGetClipboardData | Microsoft | Malcode |
-| UacBypassFodHelperMethod | winscripting.blog | Malcode |
-| MpfGetLsaPidFromServiceManager | modexp | Malcode |
-| MpfGetLsaPidFromRegistry | modexp | Malcode |
-| MpfGetLsaPidFromNamedPipe | modexp | Malcode |
-| MpfSceViaEnumChildWindows | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaCDefFolderMenu_Create2 | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaCertEnumSystemStore | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaCertEnumSystemStoreLocation | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumDateFormatsW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumDesktopWindows | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumDesktopsW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumDirTreeW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumDisplayMonitors | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumFontFamiliesExW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumFontsW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumLanguageGroupLocalesW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumObjects | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumResourceTypesExW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumSystemCodePagesW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumSystemGeoID | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumSystemLanguageGroupsW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumSystemLocalesEx | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumThreadWindows | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumTimeFormatsEx | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumUILanguagesW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumWindowStationsW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumWindows | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumerateLoadedModules64 | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaK32EnumPageFilesW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaEnumPwrSchemes | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaMessageBoxIndirectW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaChooseColorW | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaClusWorkerCreate | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaSymEnumProcesses | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaImageGetDigestStream | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaVerifierEnumerateResource | alfarom256, aahmad097, wra7h | Malcode |
-| MpfSceViaSymEnumSourceFiles | alfarom256, aahmad097, wra7h | Malcode |
-| MpfComMonitorChromeSessionOnce | smelly__vx | Malcode |
-| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 | Malcode |
-| MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey | Malcode |
-| MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu | Malcode |
-| MpfPiControlInjection | SafeBreach Labs | Malcode |
-| MpfPiQueueUserAPCViaAtomBomb | SafeBreach Labs | Malcode |
-| MpfPiWriteProcessMemoryCreateRemoteThread | SafeBreach Labs | Malcode |
-| MpfProcessInjectionViaProcessReflection | Deep Instinct | Malcode |
-| MpfSceViaImmEnumInputContext | alfarom256, aahmad097 | Malcode |
-| MpfSceViaCertFindChainInStore | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEnumPropsExW | alfarom256, aahmad097 | Malcode |
-| MpfSceViaCreateThreadpoolWait | alfarom256, aahmad097 | Malcode |
-| MpfSceViaCryptEnumOIDInfo | alfarom256, aahmad097 | Malcode |
-| MpfSceViaDSA_EnumCallback | alfarom256, aahmad097 | Malcode |
-| MpfSceViaCreateTimerQueueTimer | alfarom256, aahmad097 | Malcode |
-| MpfSceViaEvtSubscribe | alfarom256, aahmad097 | Malcode |
-| MpfSceViaFlsAlloc | alfarom256, aahmad097 | Malcode |
-| MpfSceViaInitOnceExecuteOnce | alfarom256, aahmad097 | Malcode |
-| UrlDownloadToFileSynchronous | Hans Passant | Networking |
-| ConvertIPv4IpAddressStructureToString | smelly__vx | Networking |
-| ConvertIPv4StringToUnsignedLong | smelly__vx | Networking |
-| SendIcmpEchoMessageToIPv4Host | smelly__vx | Networking |
-| ConvertIPv4IpAddressUnsignedLongToString | smelly__vx | Networking |
-| DnsGetDomainNameIPv4AddressAsString | smelly__vx | Networking |
-| DnsGetDomainNameIPv4AddressUnsignedLong | smelly__vx | Networking |
-| GetDomainNameFromUnsignedLongIPV4Address | smelly__vx | Networking |
-| GetDomainNameFromIPV4AddressAsString | smelly__vx | Networking | 
-| InitHardwareBreakpointEngine | rad98 | Hooking Engine |
-| ShutdownHardwareBreakpointEngine | rad98 | Hooking Engine |
-| ExceptionHandlerCallbackRoutine | rad98 | Hooking Engine |
-| SetHardwareBreakpoint | rad98 | Hooking Engine |
-| InsertDescriptorEntry | rad98 | Hooking Engine |
-| RemoveDescriptorEntry | rad98 | Hooking Engine |
-| SnapshotInsertHardwareBreakpointHookIntoTargetThread | rad98 | Hooking Engine |
-| GenericShellcodeHelloWorldMessageBoxA | SafeBreach Labs | Generic Shellcode |
-| GenericShellcodeHelloWorldMessageBoxAEbFbLoop | SafeBreach Labs | Generic Shellcode |
-| GenericShellcodeOpenCalcExitThread | MsfVenom | Generic Shellcode |
+## Cryptography Related
+| Function Name | Original Author |
+| ------------- | --------------- |
+| CreateMd5HashFromFilePath | Microsoft |
+| CreatePseudoRandomInteger | Apple (c) 1999 |
+| CreatePseudoRandomString | smelly__vx |
+| HashFileByMsiFileHashTable | smelly__vx |
+| CreatePseudoRandomIntegerFromNtdll | smelly__vx |
+| LzMaximumCompressBuffer | smelly__vx |
+| LzMaximumDecompressBuffer | smelly__vx |
+| LzStandardCompressBuffer | smelly__vx |
+| LzStandardDecompressBuffer | smelly__vx |
+| XpressHuffMaximumCompressBuffer | smelly__vx |
+| XpressHuffMaximumDecompressBuffer | smelly__vx |
+| XpressHuffStandardCompressBuffer | smelly__vx |
+| XpressHuffStandardDecompressBuffer | smelly__vx |
+| XpressMaximumCompressBuffer | smelly__vx |
+| XpressMaximumDecompressBuffer | smelly__vx |
+| XpressStandardCompressBuffer | smelly__vx |
+| XpressStandardDecompressBuffer | smelly__vx |
 
 
-# Todo list
-| Functionality | Author | Note |
-| ------------- | ------ | ---- |
-| NtMapViewOfSection LSASS | modexp | N/A |
-| WQL Win32_Ping | Martin Friedrich | N/A |
+## Error Handling
+| Function Name | Original Author |
+| ------------- | --------------- |
+| GetLastErrorFromTeb | smelly__vx |
+| GetLastNtStatusFromTeb | smelly__vx |
+| RtlNtStatusToDosErrorViaImport | ReactOS |
+| GetLastErrorFromTeb | smelly__vx |
+| SetLastErrorInTeb | smelly__vx |
+| SetLastNtStatusInTeb | smelly__vx |
+| Win32FromHResult | Raymond Chen |
+
+
+## Evasion
+| Function Name | Original Author |
+| ------------- | --------------- |
+| AmsiBypassViaPatternScan | ZeroMemoryEx |
+| DelayedExecutionExecuteOnDisplayOff | am0nsec and smelly__vx |
+| HookEngineRestoreHeapFree | rad9800 |
+| MasqueradePebAsExplorer | smelly__vx |
+| RemoveDllFromPeb | rad9800 |
+| RemoveRegisterDllNotification | Rad98, Peter Winter-Smith |
+| SleepObfuscationViaVirtualProtect | 5pider |
+
+
+## Fingerprinting
+| Function Name | Original Author |
+| ------------- | --------------- |
+| GetCurrentLocaleFromTeb | 3xp0rt |
+| GetNumberOfLinkedDlls | smelly__vx |
+| GetOsBuildNumberFromPeb | smelly__vx |
+| GetOsMajorVersionFromPeb | smelly__vx |
+| GetOsMinorVersionFromPeb | smelly__vx |
+| GetOsPlatformIdFromPeb | smelly__vx |
+| IsNvidiaGraphicsCardPresent | smelly__vx |
+| IsProcessRunning | smelly__vx |
+| IsProcessRunningAsAdmin | Vimal Shekar |
+| GetPidFromNtQuerySystemInformation | smelly__vx |
+| GetPidFromWindowsTerminalService | modexp |
+| GetPidFromWmiComInterface | aalimian and modexp |
+| GetPidFromEnumProcesses | smelly__vx |
+| GetPidFromPidBruteForcing | modexp |
+| GetPidFromNtQueryFileInformation | modexp, Lloyd Davies, Jonas Lyk |
+| GetPidFromPidBruteForcingExW | smelly__vx, LLoyd Davies, Jonas Lyk, modexp |
+
+
+## Helper Functions
+| Function Name | Original Author |
+| ------------- | --------------- |
+| CreateLocalAppDataObjectPath | smelly__vx |
+| CreateWindowsObjectPath | smelly__vx |
+| DeleteFileWithCreateFileFlag | smelly__vx |
+| GetCurrentDirectoryFromUserProcessParameters | smelly__vx |
+| GetCurrentProcessIdFromTeb | ReactOS |
+| GetCurrentUserSid | Giovanni Dicanio |
+| GetCurrentWindowTextFromUserProcessParameter | smelly__vx |
+| GetFileSizeFromPath | smelly__vx |
+| GetProcessHeapFromTeb | smelly__vx |
+| GetProcessPathFromLoaderLoadModule | smelly__vx |
+| GetProcessPathFromUserProcessParameters | smelly__vx |
+| GetSystemWindowsDirectory | Geoff Chappell |
+| IsPathValid | smelly__vx |
+| RecursiveFindFile | Luke |
+| SetProcessPrivilegeToken | Microsoft |
+| IsDllLoaded | smelly__vx | 
+| TryLoadDllMultiMethod | smelly__vx |
+| CreateThreadAndWaitForCompletion | smelly__vx |
+| GetProcessBinaryNameFromHwndW | smelly__vx |
+| GetByteArrayFromFile | smelly__vx |
+| Ex_GetHandleOnDeviceHttpCommunication | x86matthew |
+| IsRegistryKeyValid | smelly__vx |
+| FastcallExecuteBinaryShellExecuteEx | smelly__vx |
+| GetCurrentProcessIdFromOffset | RistBS | 
+| GetPeBaseAddress | smelly__vx | 
+| LdrLoadGetProcedureAddress | c5pider | 
+| IsPeSection | smelly__vx | 
+| AddSectionToPeFile | smelly__vx | 
+| WriteDataToPeSection | smelly__vx | 
+| GetPeSectionSizeInByte | smelly__vx | 
+| ReadDataFromPeSection | smelly__vx | 
+| GetCurrentProcessNoForward | ReactOS | 
+| GetCurrentThreadNoForward | ReactOS | 
+
+
+## Library Loading
+| Function Name | Original Author |
+| ------------- | --------------- |
+| GetKUserSharedData | Geoff Chappell |
+| GetModuleHandleEx2 | smelly__vx |
+| GetPeb | 29a |
+| GetPebFromTeb | ReactOS |
+| GetProcAddress | 29a Volume 2, c5pider |
+| GetProcAddressDjb2 | smelly__vx |
+| GetProcAddressFowlerNollVoVariant1a | smelly__vx |
+| GetProcAddressJenkinsOneAtATime32Bit | smelly__vx |
+| GetProcAddressLoseLose | smelly__vx |
+| GetProcAddressRotr32 | smelly__vx |
+| GetProcAddressSdbm | smelly__vx |
+| GetProcAddressSuperFastHash | smelly__vx |
+| GetProcAddressUnknownGenericHash1 | smelly__vx |
+| GetProcAddressSipHash | RistBS |
+| GetProcAddressMurmur | RistBS |
+| GetRtlUserProcessParameters | ReactOS |
+| GetTeb | ReactOS |
+| RtlLoadPeHeaders | smelly__vx |
+| ProxyWorkItemLoadLibrary | Rad98, Peter Winter-Smith |
+| ProxyRegisterWaitLoadLibrary | Rad98, Peter Winter-Smith |
+
+
+## Malicious Capabilities
+| Function Name | Original Author |
+| ------------- | --------------- |
+| MpfComModifyShortcutTarget | Unknown |
+| MpfComVssDeleteShadowVolumeBackups | am0nsec |
+| OleGetClipboardData | Microsoft |
+| MpfGetLsaPidFromServiceManager | modexp |
+| MpfGetLsaPidFromRegistry | modexp |
+| MpfGetLsaPidFromNamedPipe | modexp |
+| MpfSceViaEnumChildWindows | alfarom256, aahmad097, wra7h |
+| MpfSceViaCDefFolderMenu_Create2 | alfarom256, aahmad097, wra7h |
+| MpfSceViaCertEnumSystemStore | alfarom256, aahmad097, wra7h |
+| MpfSceViaCertEnumSystemStoreLocation | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumDateFormatsW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumDesktopWindows | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumDesktopsW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumDirTreeW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumDisplayMonitors | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumFontFamiliesExW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumFontsW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumLanguageGroupLocalesW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumObjects | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumResourceTypesExW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumSystemCodePagesW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumSystemGeoID | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumSystemLanguageGroupsW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumSystemLocalesEx | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumThreadWindows | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumTimeFormatsEx | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumUILanguagesW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumWindowStationsW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumWindows | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumerateLoadedModules64 | alfarom256, aahmad097, wra7h |
+| MpfSceViaK32EnumPageFilesW | alfarom256, aahmad097, wra7h |
+| MpfSceViaEnumPwrSchemes | alfarom256, aahmad097, wra7h |
+| MpfSceViaMessageBoxIndirectW | alfarom256, aahmad097, wra7h |
+| MpfSceViaChooseColorW | alfarom256, aahmad097, wra7h |
+| MpfSceViaClusWorkerCreate | alfarom256, aahmad097, wra7h |
+| MpfSceViaSymEnumProcesses | alfarom256, aahmad097, wra7h |
+| MpfSceViaImageGetDigestStream | alfarom256, aahmad097, wra7h |
+| MpfSceViaVerifierEnumerateResource | alfarom256, aahmad097, wra7h |
+| MpfSceViaSymEnumSourceFiles | alfarom256, aahmad097, wra7h |
+| MpfComMonitorChromeSessionOnce | smelly__vx |
+| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 |
+| MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey |
+| MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu |
+| MpfPiControlInjection | SafeBreach Labs |
+| MpfPiQueueUserAPCViaAtomBomb | SafeBreach Labs |
+| MpfPiWriteProcessMemoryCreateRemoteThread | SafeBreach Labs |
+| MpfProcessInjectionViaProcessReflection | Deep Instinct |
+| MpfSceViaImmEnumInputContext | alfarom256, aahmad097 |
+| MpfSceViaCertFindChainInStore | alfarom256, aahmad097 |
+| MpfSceViaEnumPropsExW | alfarom256, aahmad097 |
+| MpfSceViaCreateThreadpoolWait | alfarom256, aahmad097 |
+| MpfSceViaCryptEnumOIDInfo | alfarom256, aahmad097 |
+| MpfSceViaDSA_EnumCallback | alfarom256, aahmad097 |
+| MpfSceViaCreateTimerQueueTimer | alfarom256, aahmad097 |
+| MpfSceViaEvtSubscribe | alfarom256, aahmad097 |
+| MpfSceViaFlsAlloc | alfarom256, aahmad097 |
+| MpfSceViaInitOnceExecuteOnce | alfarom256, aahmad097 |
+
+
+## UAC Bypass
+| Function Name | Original Author |
+| ------------- | --------------- |
+| UacBypassFodHelperMethod | winscripting.blog |
+
+
+## Network Connectivity
+| Function Name | Original Author |
+| ------------- | --------------- |
+| UrlDownloadToFileSynchronous | Hans Passant |
+| ConvertIPv4IpAddressStructureToString | smelly__vx |
+| ConvertIPv4StringToUnsignedLong | smelly__vx |
+| SendIcmpEchoMessageToIPv4Host | smelly__vx |
+| ConvertIPv4IpAddressUnsignedLongToString | smelly__vx |
+| DnsGetDomainNameIPv4AddressAsString | smelly__vx |
+| DnsGetDomainNameIPv4AddressUnsignedLong | smelly__vx |
+| GetDomainNameFromUnsignedLongIPV4Address | smelly__vx |
+| GetDomainNameFromIPV4AddressAsString | smelly__vx | 
+
+
+## File System Manipulation
+| Function Name | Original Author |
+| ------------- | --------------- |
+| CopyFileViaSetupCopyFile | smelly__vx |
+| CreateFileFromDsCopyFromSharedFile | Jonas Lyk |
+
+
+## Process Creation
+| Function Name | Original Author |
+| ------------- | --------------- |
+| CreateProcessFromIHxHelpPaneServer | James Forshaw |
+| CreateProcessFromIHxInteractiveUser | James Forshaw |
+| CreateProcessFromIShellDispatchInvoke | Mohamed Fakroud |
+| CreateProcessFromShellExecuteInExplorerProcess | Microsoft |
+| CreateProcessViaNtCreateUserProcess | CaptMeelo |
+| CreateProcessWithCfGuard | smelly__vx and Adam Chester |
+| CreateProcessByWindowsRHotKey | smelly__vx |
+| CreateProcessByWindowsRHotKeyEx | smelly__vx |
+| CreateProcessFromINFSectionInstallStringNoCab | smelly__vx |
+| CreateProcessFromINFSetupCommand | smelly__vx |
+| CreateProcessFromINFSectionInstallStringNoCab2 | smelly__vx |
+| CreateProcessFromIeFrameOpenUrl | smelly__vx |
+| CreateProcessFromPcwUtil | smelly__vx |
+| CreateProcessFromShdocVwOpenUrl | smelly__vx |
+| CreateProcessFromShell32ShellExecRun | smelly__vx |
+
+
+## Rad98 Hooking Engine
+| Function Name | Original Author |
+| ------------- | --------------- |
+| InitHardwareBreakpointEngine | rad98 |
+| ShutdownHardwareBreakpointEngine | rad98 |
+| ExceptionHandlerCallbackRoutine | rad98 |
+| SetHardwareBreakpoint | rad98 |
+| InsertDescriptorEntry | rad98 |
+| RemoveDescriptorEntry | rad98 |
+| SnapshotInsertHardwareBreakpointHookIntoTargetThread | rad98 |
+
+
+## Generic Shellcode
+| Function Name | Original Author |
+| ------------- | --------------- |
+| GenericShellcodeHelloWorldMessageBoxA | SafeBreach Labs |
+| GenericShellcodeHelloWorldMessageBoxAEbFbLoop | SafeBreach Labs |
+| GenericShellcodeOpenCalcExitThread | MsfVenom |
