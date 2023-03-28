@@ -22,9 +22,9 @@
 #include <resapi.h>
 #include <amsi.h>
 #include <SetupAPI.h>
+#include <WbemCli.h>
 
-
-
+#pragma comment(lib, "wbemuuid.lib")
 #pragma comment(lib, "Dnsapi.lib")
 #pragma comment(lib, "Iphlpapi.lib")
 #pragma comment(lib, "Crypt32.lib")
@@ -272,8 +272,6 @@ DWORD MpfComMonitorChromeSessionOnce(VOID);
 DWORD MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc(_In_ PBYTE BinaryImage);
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR ExtensionIdentifier);
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
-BOOL MpfLolExecuteRemoteBinaryByAppInstallerW(_In_ PWCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
-BOOL MpfLolExecuteRemoteBinaryByAppInstallerA(_In_ PCHAR RemoteUrlTextFile, _In_ DWORD RemoteUrlLengthInBytes);
 BOOL MpfProcessInjectionViaProcessReflection(_In_ PBYTE Shellcode, _In_ DWORD dwSizeOfShellcodeInBytes, _In_ DWORD TargetPid);
 BOOL MpfExtractMaliciousPayloadFromZipFileNoPasswordW(_In_ PWCHAR FullPathToZip, _In_ PWCHAR FullPathToExtractionDirectory);
 BOOL MpfExtractMaliciousPayloadFromZipFileNoPasswordA(_In_ PCHAR FullPathToZip, _In_ PCHAR FullPathToExtractionDirectory);
@@ -330,35 +328,35 @@ BOOL MpfSceViaSymEnumSourceFiles(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInByt
 /*******************************************
  EVASION
 *******************************************/
-BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);
-BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, _In_ PCHAR Path);
-HRESULT CreateProcessFromIHxInteractiveUserW(_In_ PWCHAR UriFile);
-HRESULT CreateProcessFromIHxInteractiveUserA(_In_ PCHAR UriFile);
-HRESULT CreateProcessFromIHxHelpPaneServerW(_In_ PWCHAR UriFile);
-HRESULT CreateProcessFromIHxHelpPaneServerA(_In_ PCHAR UriFile);
 BOOL MasqueradePebAsExplorer(VOID);
 BOOL CreateFileFromDsCopyFromSharedFileW(_In_ PWCHAR NewFileName, _In_ PWCHAR FileToClone);
 BOOL CreateFileFromDsCopyFromSharedFileA(_In_ PCHAR NewFileName, _In_ PCHAR FileToClone);
 BOOL DelayedExecutionExecuteOnDisplayOff(VOID);
-DWORD CreateProcessFromShellExecuteInExplorerProcessW(_In_ PWCHAR BinaryPath);
-DWORD CreateProcessFromShellExecuteInExplorerProcessA(_In_ PCHAR BinaryPath);
-DWORD CreateProcessFromIShellDispatchInvokeW(_In_ PWCHAR BinaryPath);
-DWORD CreateProcessFromIShellDispatchInvokeA(_In_ PCHAR BinaryPath);
-DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR FullBinaryPath);
-DWORD CreateProcessViaNtCreateUserProcessA(PCHAR FullBinaryPath);
 BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName);
 BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
 BOOL HookEngineUnhookHeapFree(_In_ BOOL StartEngine);
 BOOL HookEngineRestoreHeapFree(_In_ BOOL ShutdownEngine);
 BOOL SleepObfuscationViaVirtualProtect(_In_ DWORD dwSleepTimeInMilliseconds, _In_ PUCHAR Key);
 BOOL RemoveRegisterDllNotification(VOID);
+BOOL AmsiBypassViaPatternScan(DWORD ProcessId);
+BOOL CopyFileViaSetupCopyFileW(LPCWSTR Source, LPCWSTR Destination);
+BOOL CopyFileViaSetupCopyFileA(LPCSTR Source, LPCSTR Destination);
+BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);
+BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, _In_ PCHAR Path);
+HRESULT CreateProcessFromIHxInteractiveUserW(_In_ PWCHAR UriFile);
+HRESULT CreateProcessFromIHxInteractiveUserA(_In_ PCHAR UriFile);
+HRESULT CreateProcessFromIHxHelpPaneServerW(_In_ PWCHAR UriFile);
+HRESULT CreateProcessFromIHxHelpPaneServerA(_In_ PCHAR UriFile);
+DWORD CreateProcessFromShellExecuteInExplorerProcessW(_In_ PWCHAR BinaryPath);
+DWORD CreateProcessFromShellExecuteInExplorerProcessA(_In_ PCHAR BinaryPath);
+DWORD CreateProcessFromIShellDispatchInvokeW(_In_ PWCHAR BinaryPath);
+DWORD CreateProcessFromIShellDispatchInvokeA(_In_ PCHAR BinaryPath);
+DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR FullBinaryPath);
+DWORD CreateProcessViaNtCreateUserProcessA(PCHAR FullBinaryPath);
 DWORD CreateProcessByWindowsRHotKeyW(_In_ PWCHAR FullPathToBinary);
 DWORD CreateProcessByWindowsRHotKeyA(_In_ PCHAR FullPathToBinary);
 DWORD CreateProcessByWindowsRHotKeyExW(_In_ PWCHAR FullPathToBinary);
 DWORD CreateProcessByWindowsRHotKeyExA(_In_ PCHAR FullPathToBinary);
-BOOL AmsiBypassViaPatternScan(DWORD ProcessId);
-BOOL CopyFileViaSetupCopyFileW(LPCWSTR Source, LPCWSTR Destination);
-BOOL CopyFileViaSetupCopyFileA(LPCSTR Source, LPCSTR Destination);
 BOOL CreateProcessFromINFSectionInstallStringNoCabW(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
 BOOL CreateProcessFromINFSectionInstallStringNoCabA(LPCSTR PathToInfFile, LPCSTR NameOfSection);
 BOOL CreateProcessFromINFSetupCommandW(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
@@ -369,12 +367,18 @@ BOOL CreateProcessFromINFSectionInstallStringNoCab2A(LPCSTR PathToInfFile, LPCST
 BOOL CreateProcessFromINFSectionInstallStringNoCab2W(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
 BOOL CreateProcessFromIeFrameOpenUrlW(LPCWSTR PathToUrlFile);
 BOOL CreateProcessFromIeFrameOpenUrlA(LPCSTR PathToUrlFile);
-BOOL CreateProcessFromINFSectionInstallStringNoCab3W(LPCWSTR PathToInfFile, LPCWSTR NameOfSection); // <--- not implemented
-BOOL CreateProcessFromINFSectionInstallStringNoCab3A(LPCSTR PathToInfFile, LPCSTR NameOfSection); // <--- not implemented
 BOOL CreateProcessFromShdocVwOpenUrlW(LPCWSTR PathToUrlFile);
 BOOL CreateProcessFromShdocVwOpenUrlA(LPCSTR PathToUrlFile);
-BOOL CreateProcessFromShell32ShellExecRunDllW(LPCWSTR PathToFile);
-BOOL CreateProcessFromShell32ShellExecRunDllA(LPCSTR PathToFile);
+BOOL CreateProcessFromShell32ShellExecRunW(LPCWSTR PathToFile);
+BOOL CreateProcessFromShell32ShellExecRunA(LPCSTR PathToFile);
+BOOL CreateProcessFromUrlOpenUrlW(LPCWSTR PathToUrlFile);
+BOOL CreateProcessFromUrlOpenUrlA(LPCSTR PathToUrlFile);
+BOOL CreateProcessFromUrlFileProtocolHandlerW(LPCWSTR PathToUrlFile);
+BOOL CreateProcessFromUrlFileProtocolHandlerA(LPCSTR PathToUrlFile);
+BOOL CreateProcessFromZipfldrRouteCallW(LPCWSTR PathToFile);
+BOOL CreateProcessFromZipfldrRouteCallA(LPCSTR PathToFile);
+BOOL CreateProcessFromMsHTMLW(LPCWSTR MshtaCommand);
+
 
 
 
@@ -435,3 +439,16 @@ INT __demonstration_WinMain(VOID); //hook sleep
 PCHAR GenericShellcodeHelloWorldMessageBoxA(_Out_ PDWORD SizeOfShellcodeInBytes);
 PCHAR GenericShellcodeOpenCalcExitThread(_Out_ PDWORD SizeOfShellcodeInBytes);
 PCHAR GenericShellcodeHelloWorldMessageBoxAEbFbLoop(_Out_ PDWORD SizeOfShellcodeInBytes);
+
+
+BOOL DeleteDirectoryAndSubDataViaDelNodeW(LPCWSTR FullPathToDirectory);
+BOOL DeleteDirectoryAndSubDataViaDelNodeA(LPCSTR FullPathToDirectory);
+BOOL IsProcessRunningAsAdmin2(VOID);
+BOOL ExtractFilesFromCabIntoTargetW(LPCWSTR CabFile, LPCWSTR OutputDirectory);
+BOOL ExtractFilesFromCabIntoTargetA(LPCSTR CabFile, LPCSTR OutputDirectory);
+
+HANDLE IeCreateFileW(LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
+HANDLE IeCreateFileA(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
+
+BOOL RtlSetBaseUnicodeCommandLine(PWCHAR CommandLinePayload);
+DWORD CreateProcessFromWmiWin32_ProcessW(LPCWSTR BinaryPath);

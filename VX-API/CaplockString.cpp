@@ -25,3 +25,4 @@ PWCHAR CaplockStringW(_In_ PWCHAR Ptr)
 	}
 	return Ptr;
 }
+

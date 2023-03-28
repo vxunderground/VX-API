@@ -30,6 +30,7 @@ VOID CharArrayToByteArrayA(_In_ PCHAR Char, _Inout_ PBYTE Byte, _In_ DWORD Lengt
 VOID CharArrayToByteArrayW(_In_ PWCHAR Char, _Inout_ PBYTE Byte, _In_ DWORD Length);
 VOID RtlInitUnicodeString(_Inout_ PUNICODE_STRING DestinationString, _In_ PCWSTR SourceString);
 VOID RtlInitEmptyUnicodeString(_Inout_ PUNICODE_STRING UnicodeString);
+VOID RtlInitAnsiString(_Inout_ PANSI_STRING DestinationString, _In_ PCSTR SourceString);
 SIZE_T CharStringToWCharString(_Inout_ PWCHAR Destination, _In_ PCHAR Source, _In_ SIZE_T MaximumAllowed);
 SIZE_T WCharStringToCharString(_Inout_ PCHAR Destination, _In_ PWCHAR Source, _In_ SIZE_T MaximumAllowed);
 VOID ByteArrayToCharArrayA(_Inout_ PCHAR Destination, _In_ PBYTE Source, _In_ DWORD Length);

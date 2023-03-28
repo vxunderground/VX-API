@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL CreateProcessFromShell32ShellExecRunDllW(LPCWSTR PathToFile)
+BOOL CreateProcessFromShell32ShellExecRunW(LPCWSTR PathToFile)
 {
 	typedef VOID(WINAPI* SHELLEXEC_RUNDLLW)(HWND, HINSTANCE, LPCWSTR, INT);
 	SHELLEXEC_RUNDLLW ShellExec_RunDllW = NULL;
@@ -25,7 +25,7 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL CreateProcessFromShell32ShellExecRunDllA(LPCSTR PathToFile)
+BOOL CreateProcessFromShell32ShellExecRunA(LPCSTR PathToFile)
 {
 	typedef VOID(WINAPI* SHELLEXEC_RUNDLLA)(HWND, HINSTANCE, LPCSTR, INT);
 	SHELLEXEC_RUNDLLA ShellExec_RunDllA = NULL;

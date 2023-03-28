@@ -58,9 +58,6 @@
     <Filter Include="Source Files\Windows API Helper Functions\Network Connectivity\Network Data Conversions">
       <UniqueIdentifier>{6be9adc7-8493-44a7-abce-3ec818469f70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Windows API Helper Functions\Malicious Capabilities\Lolbins">
-      <UniqueIdentifier>{b688b3fc-f662-4634-b690-f200a79aee37}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Rad Hardware Breakpoint Hooking Engine">
       <UniqueIdentifier>{148b86cd-abe4-43c3-a827-d89b58910722}</UniqueIdentifier>
     </Filter>
@@ -91,15 +88,18 @@
     <Filter Include="Source Files\Windows API Helper Functions\Cryptography Related\Compression\Xpress Huff">
       <UniqueIdentifier>{28a8f2b1-755e-465f-b650-13a6f1c191c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\Process Creation">
+      <UniqueIdentifier>{97f12dfe-6de4-480c-834c-ea10483eea2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows API Helper Functions\File Handling">
+      <UniqueIdentifier>{b1bb1e2e-db48-4d6e-91a7-213c6e47a46a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StringCopy.cpp">
-      <Filter>Source Files\String Manipulation</Filter>
-    </ClCompile>
-    <ClCompile Include="CaplockString.cpp">
       <Filter>Source Files\String Manipulation</Filter>
     </ClCompile>
     <ClCompile Include="CopyMemoryEx.cpp">
@@ -249,9 +249,6 @@
     <ClCompile Include="CreateWindowsObjectPath.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="DeleteFileWithCreateFileFlag.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
-    </ClCompile>
     <ClCompile Include="GetCurrentDirectoryFromUserProcessParameters.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
@@ -306,15 +303,6 @@
     <ClCompile Include="MpfComModifyShortcutTarget.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
-    <ClCompile Include="CreateProcessWithCfGuard.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessFromIHxInteractiveUser.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessFromIHxHelpPaneServer.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
     <ClCompile Include="HashFileByMsiFileHashTable.cpp">
       <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
     </ClCompile>
@@ -339,23 +327,11 @@
     <ClCompile Include="IsDebuggerPresentEx.cpp">
       <Filter>Source Files\Windows API Helper Functions\Antidebug</Filter>
     </ClCompile>
-    <ClCompile Include="CreateFileFromDsCopyFromSharedFile.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
     <ClCompile Include="DelayedExecutionExecuteOnDisplayOff.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
     <ClCompile Include="CreateMd5HashFromFilePath.cpp">
       <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessFromShellExecuteInExplorerProcess.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessFromIShellDispatchInvoke.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessViaNtCreateUserProcess.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
     <ClCompile Include="GetOsMajorVersionFromPeb.cpp">
       <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
@@ -423,9 +399,6 @@
     <ClCompile Include="ShlwapiWCharStringToCharString.cpp">
       <Filter>Source Files\String Manipulation\String Conversion</Filter>
     </ClCompile>
-    <ClCompile Include="MpfExecutePeBinaryInMemoryFromByteArray.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
-    </ClCompile>
     <ClCompile Include="ManualResourceDataFetching.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
@@ -466,12 +439,6 @@
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities</Filter>
     </ClCompile>
     <ClCompile Include="IsRegistryKeyValid.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="MpfLolExecuteRemoteBinaryByAppInstaller.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Lolbins</Filter>
-    </ClCompile>
-    <ClCompile Include="FastcallExecuteBinaryShellExecuteEx.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
     <ClCompile Include="HashStringMurmur.cpp">
@@ -539,12 +506,6 @@
     </ClCompile>
     <ClCompile Include="CreatePseudoRandomIntegerFromNtdll.cpp">
       <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessByWindowsRHotKey.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessByWindowsRHotKeyEx.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
     <ClCompile Include="MpfProcessInjectionViaProcessReflection.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Process Injection</Filter>
@@ -762,38 +723,107 @@
     <ClCompile Include="MpfSceViaSymEnumSourceFiles.cpp">
       <Filter>Source Files\Windows API Helper Functions\Malicious Capabilities\Shellcode Execution</Filter>
     </ClCompile>
-    <ClCompile Include="CopyFileViaSetupCopyFile.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessFromINFSetupCommand.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateProcessFromPcwUtil.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
-    </ClCompile>
     <ClCompile Include="GetCurrentProcessNoForward.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
     <ClCompile Include="GetCurrentThreadNoForward.cpp">
       <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
     </ClCompile>
-    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab2.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    <ClCompile Include="CreateProcessFromUrlOpenUrl.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
     </ClCompile>
-    <ClCompile Include="CreateProcessFromIeFrameOpenUrl.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    <ClCompile Include="CreateProcessWithCfGuard.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
     </ClCompile>
-    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab3.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    <ClCompile Include="CreateProcessViaNtCreateUserProcess.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromZipfldrRouteCall.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromShellExecuteInExplorerProcess.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromShell32ShellExecRun.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
     </ClCompile>
     <ClCompile Include="CreateProcessFromShdocVwOpenUrl.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromUrlFileProtocolHandler.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromPcwUtil.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromIShellDispatchInvoke.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromINFSetupCommand.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab2.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromIHxInteractiveUser.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromIeFrameOpenUrl.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromIHxHelpPaneServer.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessByWindowsRHotKeyEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromINFSectionInstallStringNoCab.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessByWindowsRHotKey.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateFileFromDsCopyFromSharedFile.cpp">
+      <Filter>Source Files\Windows API Helper Functions\File Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyFileViaSetupCopyFile.cpp">
+      <Filter>Source Files\Windows API Helper Functions\File Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="FastcallExecuteBinaryShellExecuteEx.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Helper Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteFileWithCreateFileFlag.cpp">
+      <Filter>Source Files\Windows API Helper Functions\File Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="MpfExecutePeBinaryInMemoryFromByteArray.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteDirectoryAndSubDataViaDelNode.cpp">
+      <Filter>Source Files\Windows API Helper Functions\File Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="IsProcessRunningAsAdmin2.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Fingerprinting</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractFilesFromCabIntoTarget.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Cryptography Related</Filter>
+    </ClCompile>
+    <ClCompile Include="IeCreateFile.cpp">
+      <Filter>Source Files\Windows API Helper Functions\File Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="CaplockString.cpp">
+      <Filter>Source Files\String Manipulation</Filter>
+    </ClCompile>
+    <ClCompile Include="RtlInitAnsiString.cpp">
+      <Filter>Source Files\String Manipulation\Windows Unicode Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessFromMSHTML.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="RtlSetBaseUnicodeCommandLine.cpp">
       <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
     </ClCompile>
-    <ClCompile Include="CreateProcessFromShell32ShellExecRunDll.cpp">
-      <Filter>Source Files\Windows API Helper Functions\Evasion</Filter>
+    <ClCompile Include="CreateProcessFromWmiWin32_Process.cpp">
+      <Filter>Source Files\Windows API Helper Functions\Process Creation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -812,5 +842,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Notes.txt" />
   </ItemGroup>
 </Project>

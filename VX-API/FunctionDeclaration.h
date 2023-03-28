@@ -83,7 +83,15 @@ typedef NTSTATUS(NTAPI* SYSTEMFUNCTION032)(PAB_STRING, PAB_STRING);
 
 
 
-///*******************************************
-// IMAGEHLP IMPORT
-//*******************************************/
+/*******************************************
+ IMAGEHLP IMPORT
+/*******************************************/
 typedef BOOL(WINAPI* IMAGEGETDIGESTSTREAM)(HANDLE, DWORD, LPVOID, PHANDLE);
+
+
+/*******************************************
+ ADVPACK IMPORT
+/*******************************************/
+typedef HRESULT(WINAPI* DELNODEW)(LPCWSTR, DWORD);
+typedef BOOL(WINAPI* ISNTADMIN)(DWORD, LPDWORD);
+typedef HRESULT(WINAPI* EXTRACTFILESW)(LPCWSTR, LPCWSTR, DWORD, LPCWSTR, LPVOID, DWORD);

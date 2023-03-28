@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL CreateProcessFromShdocVwOpenUrlW(LPCWSTR PathToUrlFile)
+BOOL CreateProcessFromUrlOpenUrlW(LPCWSTR PathToUrlFile)
 {
 	typedef VOID(WINAPI* OPENURL)(HWND, HINSTANCE, LPCSTR);
 	OPENURL OpenUrl = NULL;
@@ -11,7 +11,7 @@ BOOL CreateProcessFromShdocVwOpenUrlW(LPCWSTR PathToUrlFile)
 	if (WCharStringToCharString(ccPathToUrlFile, (PWCHAR)PathToUrlFile, StringLengthW(PathToUrlFile)) == 0)
 		goto EXIT_ROUTINE;
 
-	hMod = LoadLibraryW(L"shdocvw.dll");
+	hMod = LoadLibraryW(L"url.dll");
 	if (hMod == NULL)
 		goto EXIT_ROUTINE;
 
@@ -31,14 +31,14 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL CreateProcessFromShdocVwOpenUrlA(LPCSTR PathToUrlFile)
+BOOL CreateProcessFromUrlOpenUrlA(LPCSTR PathToUrlFile)
 {
 	typedef VOID(WINAPI* OPENURL)(HWND, HINSTANCE, LPCSTR);
 	OPENURL OpenUrl = NULL;
 	HMODULE hMod = NULL;
 	BOOL bFlag = FALSE;
 
-	hMod = LoadLibraryW(L"shdocvw.dll");
+	hMod = LoadLibraryW(L"url.dll");
 	if (hMod == NULL)
 		goto EXIT_ROUTINE;
 

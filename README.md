@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.684
+Version: 2.0.709
 
 Developer: smelly__vx
   
@@ -92,6 +92,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | XpressMaximumDecompressBuffer | smelly__vx |
 | XpressStandardCompressBuffer | smelly__vx |
 | XpressStandardDecompressBuffer | smelly__vx |
+| MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu |
+| ExtractFilesFromCabIntoTarget | smelly__vx |
 
 
 ## Error Handling
@@ -137,6 +139,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetPidFromPidBruteForcing | modexp |
 | GetPidFromNtQueryFileInformation | modexp, Lloyd Davies, Jonas Lyk |
 | GetPidFromPidBruteForcingExW | smelly__vx, LLoyd Davies, Jonas Lyk, modexp |
+| IsProcessRunningAsAdmin2 | smelly__vx |
 
 
 ## Helper Functions
@@ -144,7 +147,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | ------------- | --------------- |
 | CreateLocalAppDataObjectPath | smelly__vx |
 | CreateWindowsObjectPath | smelly__vx |
-| DeleteFileWithCreateFileFlag | smelly__vx |
 | GetCurrentDirectoryFromUserProcessParameters | smelly__vx |
 | GetCurrentProcessIdFromTeb | ReactOS |
 | GetCurrentUserSid | Giovanni Dicanio |
@@ -212,9 +214,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfGetLsaPidFromRegistry | modexp |
 | MpfGetLsaPidFromNamedPipe | modexp |
 | MpfComMonitorChromeSessionOnce | smelly__vx |
-| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 |
 | MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey |
-| MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu |
 | MpfPiControlInjection | SafeBreach Labs |
 | MpfPiQueueUserAPCViaAtomBomb | SafeBreach Labs |
 | MpfPiWriteProcessMemoryCreateRemoteThread | SafeBreach Labs |
@@ -294,6 +294,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | ------------- | --------------- |
 | CopyFileViaSetupCopyFile | smelly__vx |
 | CreateFileFromDsCopyFromSharedFile | Jonas Lyk |
+| DeleteDirectoryAndSubDataViaDelNode | smelly__vx |
+| DeleteFileWithCreateFileFlag | smelly__vx |
 
 
 ## Process Creation
@@ -314,6 +316,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | CreateProcessFromPcwUtil | smelly__vx |
 | CreateProcessFromShdocVwOpenUrl | smelly__vx |
 | CreateProcessFromShell32ShellExecRun | smelly__vx |
+| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 |
 
 
 ## Rad98 Hooking Engine

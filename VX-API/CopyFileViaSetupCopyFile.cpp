@@ -5,6 +5,7 @@ BOOL CopyFileViaSetupCopyFileW(LPCWSTR Source, LPCWSTR Destination)
 	return SetupDecompressOrCopyFileW(Source, Destination, FILE_COMPRESSION_NONE);
 }
 
+
 BOOL CopyFileViaSetupCopyFileA(LPCSTR Source, LPCSTR Destination)
 {
 	WCHAR wSource[MAX_PATH * sizeof(WCHAR)] = { 0 };

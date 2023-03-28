@@ -2,15 +2,24 @@
 
 INT main(VOID)
 {
+	//////////////////////////////////////////////////////////////////////////
+	//
+	// The following variables are used for VX-API development and debugging,
+	// they do not serve any purpose and can be removed.
+	// 
+	//////////////////////////////////////////////////////////////////////////
 	DWORD dwSize = 0;
-	PCHAR Buffer = GenericShellcodeOpenCalcExitThread(&dwSize);
+	PCHAR ppShellcodeBuffer = GenericShellcodeOpenCalcExitThread(&dwSize);
+	WCHAR wBuffer[MAX_PATH * sizeof(WCHAR)] = L"C:\\Windows\\System32\\calc.exe";
+	CHAR cBuffer[MAX_PATH] = "C:\\Windows\\System32\\calc.exe";
 
-	//MpfSceViaSymEnumSourceFiles((PBYTE)Buffer, dwSize);
-	
-	//BOOL bFlag = AmsiBypassViaPatternScan(4288);
-	
-	CreateProcessFromShell32ShellExecRunDllW(L"C:\\Windows\\System32\\calc.exe");
+	//////////////////////////////////////////////////////////////////////////
+	//
+	// Test area
+	// 
+	//////////////////////////////////////////////////////////////////////////
 
-	return ERROR_SUCCESS;
+	
+	Sleep(1);
+	return 0;
 }
-
