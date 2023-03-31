@@ -253,7 +253,7 @@
     <ClCompile Include="HashStringSipHash.cpp" />
     <ClCompile Include="HashStringSuperFastHash.cpp" />
     <ClCompile Include="HashStringUnknownGenericHash1.cpp" />
-    <ClCompile Include="HookEngineUnhookHeapFreecpp.cpp" />
+    <ClCompile Include="HookEngineUnhookHeapFree.cpp" />
     <ClCompile Include="InitHardwareBreakpointEngine.cpp" />
     <ClCompile Include="InsertDescriptorEntry.cpp" />
     <ClCompile Include="IsDebuggerPresentEx.cpp" />

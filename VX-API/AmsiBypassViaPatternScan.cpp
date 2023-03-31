@@ -18,14 +18,14 @@ ULONGLONG UnusedSubroutineSearchAmsiPattern(PBYTE Address, DWORD Size, PBYTE Pat
 			}
 
 			if (dwOffset == PatternSize)
-				return (dwX + 3);
+				return (ULONGLONG)(dwX + 3);
 		}
 	}
 
 	return 0;
 }
 
-BOOL AmsiBypassViaPatternScan(DWORD ProcessId)
+BOOL AmsiBypassViaPatternScan(_In_ DWORD ProcessId)
 {
 	HANDLE hProcess = NULL;
 	HMODULE hMod = NULL;

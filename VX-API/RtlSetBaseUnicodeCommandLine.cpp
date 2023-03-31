@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL RtlSetBaseUnicodeCommandLine(PWCHAR CommandLinePayload)
+BOOL RtlSetBaseUnicodeCommandLine(_In_ PWCHAR CommandLinePayload)
 {
 	PIMAGE_DOS_HEADER Dos = NULL;
 	PIMAGE_NT_HEADERS Nt = NULL;

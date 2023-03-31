@@ -42,7 +42,7 @@ BOOL DelayedExecutionExecuteOnDisplayOff(VOID)
 	DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS NotificationsParameters;
 	HANDLE hNotificationRegister = NULL;
 
-	hLibrary = LoadLibrary(L"powrprof.dll");
+	hLibrary = LoadLibraryW(L"powrprof.dll");
 	if (hLibrary == NULL)
 		goto FAILURE;
 

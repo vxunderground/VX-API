@@ -73,17 +73,15 @@ inline DESCRIPTOR_ENTRY* Head = NULL;
 inline HARDWARE_ENGINE_INIT_SETTINGS_GLOBAL GlobalHardwareBreakpointObject;
 
 
-
 /*******************************************
- ERROR HANDLING
+ ANTI-DEBUGGING
 *******************************************/
-DWORD GetLastErrorFromTeb(VOID);
-NTSTATUS GetLastNtStatusFromTeb(VOID);
-VOID SetLastErrorInTeb(_In_ DWORD ErrorCode);
-VOID SetLastNtStatusInTeb(_In_ NTSTATUS Status);
-DWORD Win32FromHResult(_In_ HRESULT Result);
-DWORD RtlNtStatusToDosErrorViaImport(_In_ NTSTATUS Status);
-
+BOOL AdfCloseHandleOnInvalidAddress(VOID);
+BOOL AdfIsCreateProcessDebugEventCodeSet(VOID);
+BOOL AdfOpenProcessOnCsrss(VOID);
+BOOL IsIntelHardwareBreakpointPresent(VOID);
+BOOL CheckRemoteDebuggerPresent2(_In_ HANDLE hHandle, _Inout_ PBOOL pbDebuggerPresent);
+BOOL IsDebuggerPresentEx(VOID);
 
 
 /*******************************************
@@ -129,37 +127,64 @@ ULONG XpressHuffStandardCompressBuffer(_In_ PBYTE UncompressedBuffer, _In_ ULONG
 ULONG XpressHuffStandardDecompressBuffer(_In_ PBYTE CompressedBuffer, _In_ ULONG SizeOfCompressedBufferInBytes, _Inout_ PBYTE DecompressedBuffer, _In_ ULONG DecompressedBufferSizeInBytes);
 ULONG XpressHuffMaximumCompressBuffer(_In_ PBYTE UncompressedBuffer, _In_ ULONG SizeOfUncompressedBufferInBytes, _Inout_ PBYTE CompressedBuffer, _In_ ULONG CompressedBufferSizeInBytes);
 ULONG XpressHuffMaximumDecompressBuffer(_In_ PBYTE CompressedBuffer, _In_ ULONG SizeOfCompressedBufferInBytes, _Inout_ PBYTE DecompressedBuffer, _In_ ULONG DecompressedBufferSizeInBytes);
-
+BOOL ExtractFilesFromCabIntoTargetW(LPCWSTR CabFile, LPCWSTR OutputDirectory);
+BOOL ExtractFilesFromCabIntoTargetA(LPCSTR CabFile, LPCSTR OutputDirectory);
 
 
 /*******************************************
- LIBRARY LOADING
+ ERROR HANDLING
 *******************************************/
-PTEB GetTeb(VOID);
-PPEB GetPeb(VOID);
-PPEB GetPebFromTeb(VOID);
-PKUSER_SHARED_DATA GetKUserSharedData(VOID);
-PRTL_USER_PROCESS_PARAMETERS GetRtlUserProcessParameters(VOID);
-DWORD64 GetProcAddressDjb2(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressFowlerNollVoVariant1a(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressJenkinsOneAtATime32Bit(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressLoseLose(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressRotr32(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressSdbm(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressSuperFastHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressUnknownGenericHash1(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressSipHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressMurmur(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
-DWORD64 GetProcAddressA(_In_ DWORD64 ModuleBase, _In_ LPCSTR lpProcName);
-DWORD64 GetProcAddressW(_In_ DWORD64 ModuleBase, _In_ LPCWSTR lpProcName);
-BOOL RtlLoadPeHeaders(_Inout_ PIMAGE_DOS_HEADER* Dos, _Inout_ PIMAGE_NT_HEADERS* Nt, _Inout_ PIMAGE_FILE_HEADER* File, _Inout_ PIMAGE_OPTIONAL_HEADER* Optional, _Inout_ PBYTE* ImageBase);
-HMODULE GetModuleHandleEx2A(_In_ LPCSTR lpModuleName);
-HMODULE GetModuleHandleEx2W(_In_ LPCWSTR lpModuleName);
-HMODULE ProxyWorkItemLoadLibraryW(_In_ LPCWSTR lpModuleName);
-HMODULE ProxyWorkItemLoadLibraryA(_In_ LPCSTR lpModuleName);
-HMODULE ProxyRegisterWaitLoadLibraryW(_In_ LPCWSTR lpModuleName);
-HMODULE ProxyRegisterWaitLoadLibraryA(_In_ LPCSTR lpModuleName);
+DWORD GetLastErrorFromTeb(VOID);
+NTSTATUS GetLastNtStatusFromTeb(VOID);
+VOID SetLastErrorInTeb(_In_ DWORD ErrorCode);
+VOID SetLastNtStatusInTeb(_In_ NTSTATUS Status);
+DWORD Win32FromHResult(_In_ HRESULT Result);
+DWORD RtlNtStatusToDosErrorViaImport(_In_ NTSTATUS Status);
 
+
+/*******************************************
+ EVASION
+*******************************************/
+BOOL MasqueradePebAsExplorer(VOID);
+BOOL DelayedExecutionExecuteOnDisplayOff(VOID);
+BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName);
+BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
+BOOL HookEngineUnhookHeapFree(_In_ BOOL StartEngine);
+BOOL HookEngineRestoreHeapFree(_In_ BOOL ShutdownEngine);
+BOOL SleepObfuscationViaVirtualProtect(_In_ DWORD dwSleepTimeInMilliseconds, _In_ PUCHAR Key);
+BOOL RemoveRegisterDllNotification(VOID);
+BOOL AmsiBypassViaPatternScan(_In_ DWORD ProcessId);
+BOOL RtlSetBaseUnicodeCommandLine(_In_ PWCHAR CommandLinePayload);
+
+
+/*******************************************
+ FINGERPRINTING
+*******************************************/
+LCID GetCurrentLocaleFromTeb(VOID);
+DWORD GetNumberOfLinkedDlls(VOID);
+BOOL IsNvidiaGraphicsCardPresentA(VOID);
+BOOL IsNvidiaGraphicsCardPresentW(VOID);
+BOOL IsProcessRunningA(_In_ LPCSTR ProcessNameWithExtension);
+BOOL IsProcessRunningW(_In_ LPCWSTR ProcessNameWithExtension);
+BOOL IsProcessRunningAsAdmin(VOID);
+ULONG GetOsMajorVersionFromPeb(VOID);
+ULONG GetOsMinorVersionFromPeb(VOID);
+ULONG GetOsBuildNumberFromPeb(VOID);
+ULONG GetOsPlatformIdFromPeb(VOID);
+DWORD GetPidFromNtQuerySystemInformationW(_In_ PWCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromNtQuerySystemInformationA(_In_ PCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromWindowsTerminalServiceW(_In_ PWCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromWindowsTerminalServiceA(_In_ PCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromWmiComInterfaceW(_In_ PWCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromWmiComInterfaceA(_In_ PCHAR BinaryNameWithFileExtension);
+DWORD GetPidFromEnumProcessesW(_In_ PWCHAR ProcessNameWithExtension);
+DWORD GetPidFromEnumProcessesA(_In_ PCHAR ProcessNameWithExtension);
+DWORD GetPidFromPidBruteForcingW(_In_ PWCHAR ProcessNameWithExtension);
+DWORD GetPidFromPidBruteForcingA(_In_ PCHAR ProcessNameWithExtension);
+DWORD GetPidFromNtQueryFileInformationW(_In_ PWCHAR FullBinaryPath);
+DWORD GetPidFromNtQueryFileInformationA(_In_ PCHAR FullBinaryPath);
+DWORD GetPidFromPidBruteForcingExW(_In_ PWCHAR ProcessNameWithExtension);
+DWORD GetPidFromPidBruteForcingExA(_In_ PCHAR ProcessNameWithExtension);
 
 
 /*******************************************
@@ -182,8 +207,6 @@ DWORD GetProcessPathFromUserProcessParametersA(_In_ DWORD nBufferLength, _Inout_
 DWORD GetProcessPathFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
 BOOL RecursiveFindFileA(_In_ LPCSTR Path, _In_ LPCSTR Pattern);
 BOOL RecursiveFindFileW(_In_ LPCWSTR Path, _In_ LPCWSTR Pattern);
-BOOL DeleteFileWithCreateFileFlagA(_In_ PCHAR Path);
-BOOL DeleteFileWithCreateFileFlagW(_In_ PWCHAR Path);
 DWORD GetCurrentDirectoryFromUserProcessParametersA(_In_ DWORD nBufferLength, _Inout_ PCHAR lpBuffer);
 DWORD GetCurrentDirectoryFromUserProcessParametersW(_In_ DWORD nBufferLength, _Inout_ PWCHAR lpBuffer);
 DWORD GetCurrentProcessIdFromTeb(VOID);
@@ -222,62 +245,153 @@ HANDLE GetCurrentProcessNoForward(VOID);
 HANDLE GetCurrentThreadNoForward(VOID);
 
 
-
-
 /*******************************************
- FINGERPRINTING
+ LIBRARY LOADING
 *******************************************/
-LCID GetCurrentLocaleFromTeb(VOID);
-DWORD GetNumberOfLinkedDlls(VOID);
-BOOL IsNvidiaGraphicsCardPresentA(VOID);
-BOOL IsNvidiaGraphicsCardPresentW(VOID);
-BOOL IsProcessRunningA(_In_ LPCSTR ProcessNameWithExtension);
-BOOL IsProcessRunningW(_In_ LPCWSTR ProcessNameWithExtension);
-BOOL IsProcessRunningAsAdmin(VOID);
-ULONG GetOsMajorVersionFromPeb(VOID);
-ULONG GetOsMinorVersionFromPeb(VOID);
-ULONG GetOsBuildNumberFromPeb(VOID);
-ULONG GetOsPlatformIdFromPeb(VOID);
-DWORD GetPidFromNtQuerySystemInformationW(_In_ PWCHAR BinaryNameWithFileExtension);
-DWORD GetPidFromNtQuerySystemInformationA(_In_ PCHAR BinaryNameWithFileExtension);
-DWORD GetPidFromWindowsTerminalServiceW(_In_ PWCHAR BinaryNameWithFileExtension);
-DWORD GetPidFromWindowsTerminalServiceA(_In_ PCHAR BinaryNameWithFileExtension);
-DWORD GetPidFromWmiComInterfaceW(_In_ PWCHAR BinaryNameWithFileExtension);
-DWORD GetPidFromWmiComInterfaceA(_In_ PCHAR BinaryNameWithFileExtension);
-DWORD GetPidFromEnumProcessesW(_In_ PWCHAR ProcessNameWithExtension);
-DWORD GetPidFromEnumProcessesA(_In_ PCHAR ProcessNameWithExtension);
-DWORD GetPidFromPidBruteForcingW(_In_ PWCHAR ProcessNameWithExtension);
-DWORD GetPidFromPidBruteForcingA(_In_ PCHAR ProcessNameWithExtension);
-DWORD GetPidFromNtQueryFileInformationW(_In_ PWCHAR FullBinaryPath);
-DWORD GetPidFromNtQueryFileInformationA(_In_ PCHAR FullBinaryPath);
-DWORD GetPidFromPidBruteForcingExW(_In_ PWCHAR ProcessNameWithExtension);
-DWORD GetPidFromPidBruteForcingExA(_In_ PCHAR ProcessNameWithExtension);
-
+PTEB GetTeb(VOID);
+PPEB GetPeb(VOID);
+PPEB GetPebFromTeb(VOID);
+PKUSER_SHARED_DATA GetKUserSharedData(VOID);
+PRTL_USER_PROCESS_PARAMETERS GetRtlUserProcessParameters(VOID);
+DWORD64 GetProcAddressDjb2(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressFowlerNollVoVariant1a(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressJenkinsOneAtATime32Bit(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressLoseLose(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressRotr32(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressSdbm(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressSuperFastHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressUnknownGenericHash1(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressSipHash(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressMurmur(_In_ DWORD64 ModuleBase, _In_ DWORD64 Hash);
+DWORD64 GetProcAddressA(_In_ DWORD64 ModuleBase, _In_ LPCSTR lpProcName);
+DWORD64 GetProcAddressW(_In_ DWORD64 ModuleBase, _In_ LPCWSTR lpProcName);
+BOOL RtlLoadPeHeaders(_Inout_ PIMAGE_DOS_HEADER* Dos, _Inout_ PIMAGE_NT_HEADERS* Nt, _Inout_ PIMAGE_FILE_HEADER* File, _Inout_ PIMAGE_OPTIONAL_HEADER* Optional, _Inout_ PBYTE* ImageBase);
+HMODULE GetModuleHandleEx2A(_In_ LPCSTR lpModuleName);
+HMODULE GetModuleHandleEx2W(_In_ LPCWSTR lpModuleName);
+HMODULE ProxyWorkItemLoadLibraryW(_In_ LPCWSTR lpModuleName);
+HMODULE ProxyWorkItemLoadLibraryA(_In_ LPCSTR lpModuleName);
+HMODULE ProxyRegisterWaitLoadLibraryW(_In_ LPCWSTR lpModuleName);
+HMODULE ProxyRegisterWaitLoadLibraryA(_In_ LPCSTR lpModuleName);
 
 
 /*******************************************
- MALICIOUS CAPABILITIES
+ LSASS DUMPING
+*******************************************/
+DWORD MpfGetLsaPidFromRegistry(VOID);
+DWORD MpfGetLsaPidFromServiceManager(VOID);
+DWORD MpfGetLsaPidFromNamedPipe(VOID);
+
+
+/*******************************************
+ NETWORK CONNECTIVITY
+*******************************************/
+DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath);
+DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath);
+BOOL SendIcmpEchoMessageToIPv4HostW(_In_ PWCHAR IpAddress, _Inout_ PDWORD Status, _Inout_ PDWORD RoundTripTime, _Inout_ PWCHAR EchoReplyAddress);
+BOOL SendIcmpEchoMessageToIPv4HostA(_In_ PCHAR IpAddress, _Inout_ PDWORD Status, _Inout_ PDWORD RoundTripTime, _Inout_ PCHAR EchoReplyAddress);
+ULONG ConvertIPv4StringToUnsignedLongW(_In_ PWCHAR IpAddress);
+ULONG ConvertIPv4StringToUnsignedLongA(_In_ PCHAR IpAddress);
+BOOL ConvertIPv4IpAddressStructureToStringW(_In_ PIN_ADDR Address, _Out_ PWCHAR Buffer);
+BOOL ConvertIPv4IpAddressStructureToStringA(_In_ PIN_ADDR Address, _Out_ PCHAR Buffer);
+BOOL ConvertIPv4IpAddressUnsignedLongToStringW(_In_ ULONG Address, _Out_ PWCHAR Buffer);
+BOOL ConvertIPv4IpAddressUnsignedLongToStringA(_In_ ULONG Address, _Out_ PCHAR Buffer);
+DWORD DnsGetDomainNameIPv4AddressAsStringW(_In_ PWCHAR DomainName, _Inout_ PWCHAR IPv4IPAddress);
+DWORD DnsGetDomainNameIPv4AddressAsStringA(_In_ PCHAR DomainName, _Inout_ PCHAR IPv4IPAddress);
+ULONG DnsGetDomainNameIPv4AddressUnsignedLongW(_In_ PWCHAR DomainName);
+ULONG DnsGetDomainNameIPv4AddressUnsignedLongA(_In_ PCHAR DomainName);
+BOOL GetDomainNameFromUnsignedLongIPV4AddressW(_In_ ULONG IpAddress, _Inout_ PWCHAR DomainName);
+BOOL GetDomainNameFromUnsignedLongIPV4AddressA(_In_ ULONG IpAddress, _Inout_ PCHAR DomainName);
+BOOL GetDomainNameFromIPV4AddressAsStringW(_In_ PWCHAR IpAddress, _Inout_ PWCHAR DomainName);
+BOOL GetDomainNameFromIPV4AddressAsStringA(_In_ PCHAR IpAddress, _Inout_ PCHAR DomainName);
+
+
+/*******************************************
+ OTHER
 *******************************************/
 DWORD OleGetClipboardDataA(_Inout_ PCHAR Buffer);
 DWORD OleGetClipboardDataW(_Inout_ PWCHAR Buffer);
 DWORD MpfComVssDeleteShadowVolumeBackups(_In_ BOOL CoUninitializeAfterCompletion);
 BOOL MpfComModifyShortcutTargetW(_In_ PWCHAR LnkPath, _In_  PWCHAR LnkExecutionProperty);
 BOOL MpfComModifyShortcutTargetA(_In_ PCHAR LnkPath, _In_  PCHAR LnkExecutionProperty);
-BOOL UacBypassFodHelperMethodA(_In_ PCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
-BOOL UacBypassFodHelperMethodW(_In_ PWCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
-DWORD MpfGetLsaPidFromRegistry(VOID);
-DWORD MpfGetLsaPidFromServiceManager(VOID);
-DWORD MpfGetLsaPidFromNamedPipe(VOID);
 DWORD MpfComMonitorChromeSessionOnce(VOID);
-DWORD MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc(_In_ PBYTE BinaryImage);
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginW(_In_ PWCHAR ExtensionIdentifier);
 BOOL __unstable__preview__MpfSilentInstallGoogleChromePluginA(_In_ PCHAR ExtensionIdentifier);
-BOOL MpfProcessInjectionViaProcessReflection(_In_ PBYTE Shellcode, _In_ DWORD dwSizeOfShellcodeInBytes, _In_ DWORD TargetPid);
 BOOL MpfExtractMaliciousPayloadFromZipFileNoPasswordW(_In_ PWCHAR FullPathToZip, _In_ PWCHAR FullPathToExtractionDirectory);
 BOOL MpfExtractMaliciousPayloadFromZipFileNoPasswordA(_In_ PCHAR FullPathToZip, _In_ PCHAR FullPathToExtractionDirectory);
+
+
+/*******************************************
+ PROCESS CREATION
+*******************************************/
+HRESULT CreateProcessFromIHxInteractiveUserW(_In_ PWCHAR UriFile);
+HRESULT CreateProcessFromIHxInteractiveUserA(_In_ PCHAR UriFile);
+HRESULT CreateProcessFromIHxHelpPaneServerW(_In_ PWCHAR UriFile);
+HRESULT CreateProcessFromIHxHelpPaneServerA(_In_ PCHAR UriFile);
+DWORD CreateProcessFromShellExecuteInExplorerProcessW(_In_ PWCHAR BinaryPath);
+DWORD CreateProcessFromShellExecuteInExplorerProcessA(_In_ PCHAR BinaryPath);
+DWORD CreateProcessFromIShellDispatchInvokeW(_In_ PWCHAR BinaryPath);
+DWORD CreateProcessFromIShellDispatchInvokeA(_In_ PCHAR BinaryPath);
+DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR FullBinaryPath);
+DWORD CreateProcessViaNtCreateUserProcessA(PCHAR FullBinaryPath);
+DWORD CreateProcessByWindowsRHotKeyW(_In_ PWCHAR FullPathToBinary);
+DWORD CreateProcessByWindowsRHotKeyA(_In_ PCHAR FullPathToBinary);
+DWORD CreateProcessByWindowsRHotKeyExW(_In_ PWCHAR FullPathToBinary);
+DWORD CreateProcessByWindowsRHotKeyExA(_In_ PCHAR FullPathToBinary);
+BOOL CreateProcessFromINFSectionInstallStringNoCabW(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
+BOOL CreateProcessFromINFSectionInstallStringNoCabA(LPCSTR PathToInfFile, LPCSTR NameOfSection);
+BOOL CreateProcessFromINFSetupCommandW(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
+BOOL CreateProcessFromINFSetupCommandA(LPCSTR PathToInfFile, LPCSTR NameOfSection);
+BOOL CreateProcessFromPcwUtilW(LPCWSTR PathToBinary);
+BOOL CreateProcessFromPcwUtilA(LPCSTR PathToBinary);
+BOOL CreateProcessFromINFSectionInstallStringNoCab2A(LPCSTR PathToInfFile, LPCSTR NameOfSection);
+BOOL CreateProcessFromINFSectionInstallStringNoCab2W(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
+BOOL CreateProcessFromIeFrameOpenUrlW(LPCWSTR PathToUrlFile);
+BOOL CreateProcessFromIeFrameOpenUrlA(LPCSTR PathToUrlFile);
+BOOL CreateProcessFromShdocVwOpenUrlW(LPCWSTR PathToUrlFile);
+BOOL CreateProcessFromShdocVwOpenUrlA(LPCSTR PathToUrlFile);
+BOOL CreateProcessFromShell32ShellExecRunW(LPCWSTR PathToFile);
+BOOL CreateProcessFromShell32ShellExecRunA(LPCSTR PathToFile);
+BOOL CreateProcessFromUrlOpenUrlW(LPCWSTR PathToUrlFile);
+BOOL CreateProcessFromUrlOpenUrlA(LPCSTR PathToUrlFile);
+BOOL CreateProcessFromUrlFileProtocolHandlerW(LPCWSTR PathToUrlFile);
+BOOL CreateProcessFromUrlFileProtocolHandlerA(LPCSTR PathToUrlFile);
+BOOL CreateProcessFromZipfldrRouteCallW(LPCWSTR PathToFile);
+BOOL CreateProcessFromZipfldrRouteCallA(LPCSTR PathToFile);
+BOOL CreateProcessFromMsHTMLW(LPCWSTR MshtaCommand);
+DWORD MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc(_In_ PBYTE BinaryImage);
+BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);
+BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, _In_ PCHAR Path);
+DWORD CreateProcessFromWmiWin32_ProcessW(LPCWSTR BinaryPath);
+
+
+/*******************************************
+ PROCESS INJECTION
+*******************************************/
 BOOL MpfPiWriteProcessMemoryCreateRemoteThread(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes, _In_ DWORD TargetProcessId);
 BOOL MpfPiQueueUserAPCViaAtomBomb(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes, _In_ DWORD TargetThreadId);
 BOOL MpfPiControlInjection(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes, _In_ DWORD TargetProcessId);
+BOOL MpfProcessInjectionViaProcessReflection(_In_ PBYTE Shellcode, _In_ DWORD dwSizeOfShellcodeInBytes, _In_ DWORD TargetPid);
+
+
+/*******************************************
+ PROXIED FUNCTIONS
+*******************************************/
+HANDLE IeCreateFileW(LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
+HANDLE IeCreateFileA(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
+BOOL DeleteDirectoryAndSubDataViaDelNodeW(LPCWSTR FullPathToDirectory);
+BOOL DeleteDirectoryAndSubDataViaDelNodeA(LPCSTR FullPathToDirectory);
+BOOL CopyFileViaSetupCopyFileW(LPCWSTR Source, LPCWSTR Destination);
+BOOL CopyFileViaSetupCopyFileA(LPCSTR Source, LPCSTR Destination);
+BOOL IsProcessRunningAsAdmin2(VOID);
+BOOL DeleteFileWithCreateFileFlagA(_In_ PCHAR Path);
+BOOL DeleteFileWithCreateFileFlagW(_In_ PWCHAR Path);
+BOOL CreateFileFromDsCopyFromSharedFileW(_In_ PWCHAR NewFileName, _In_ PWCHAR FileToClone);
+BOOL CreateFileFromDsCopyFromSharedFileA(_In_ PCHAR NewFileName, _In_ PCHAR FileToClone);
+
+
+/*******************************************
+ SHELLCODE EXECUTION
+*******************************************/
 BOOL MpfSceViaEnumChildWindows(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 BOOL MpfSceViaCDefFolderMenu_Create2(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 BOOL MpfSceViaCertEnumSystemStore(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
@@ -323,99 +437,11 @@ BOOL MpfSceViaVerifierEnumerateResource(_In_ PBYTE Payload, _In_ DWORD PayloadSi
 BOOL MpfSceViaSymEnumSourceFiles(_In_ PBYTE Payload, _In_ DWORD PayloadSizeInBytes);
 
 
-
-
 /*******************************************
- EVASION
+ UAC BYPASSES
 *******************************************/
-BOOL MasqueradePebAsExplorer(VOID);
-BOOL CreateFileFromDsCopyFromSharedFileW(_In_ PWCHAR NewFileName, _In_ PWCHAR FileToClone);
-BOOL CreateFileFromDsCopyFromSharedFileA(_In_ PCHAR NewFileName, _In_ PCHAR FileToClone);
-BOOL DelayedExecutionExecuteOnDisplayOff(VOID);
-BOOL RemoveDllFromPebA(_In_ LPCSTR lpModuleName);
-BOOL RemoveDllFromPebW(_In_ LPCWSTR lpModuleName);
-BOOL HookEngineUnhookHeapFree(_In_ BOOL StartEngine);
-BOOL HookEngineRestoreHeapFree(_In_ BOOL ShutdownEngine);
-BOOL SleepObfuscationViaVirtualProtect(_In_ DWORD dwSleepTimeInMilliseconds, _In_ PUCHAR Key);
-BOOL RemoveRegisterDllNotification(VOID);
-BOOL AmsiBypassViaPatternScan(DWORD ProcessId);
-BOOL CopyFileViaSetupCopyFileW(LPCWSTR Source, LPCWSTR Destination);
-BOOL CopyFileViaSetupCopyFileA(LPCSTR Source, LPCSTR Destination);
-BOOL CreateProcessWithCfGuardW(_Inout_ PPROCESS_INFORMATION Pi, _In_ PWCHAR Path);
-BOOL CreateProcessWithCfGuardA(_Inout_ PPROCESS_INFORMATION Pi, _In_ PCHAR Path);
-HRESULT CreateProcessFromIHxInteractiveUserW(_In_ PWCHAR UriFile);
-HRESULT CreateProcessFromIHxInteractiveUserA(_In_ PCHAR UriFile);
-HRESULT CreateProcessFromIHxHelpPaneServerW(_In_ PWCHAR UriFile);
-HRESULT CreateProcessFromIHxHelpPaneServerA(_In_ PCHAR UriFile);
-DWORD CreateProcessFromShellExecuteInExplorerProcessW(_In_ PWCHAR BinaryPath);
-DWORD CreateProcessFromShellExecuteInExplorerProcessA(_In_ PCHAR BinaryPath);
-DWORD CreateProcessFromIShellDispatchInvokeW(_In_ PWCHAR BinaryPath);
-DWORD CreateProcessFromIShellDispatchInvokeA(_In_ PCHAR BinaryPath);
-DWORD CreateProcessViaNtCreateUserProcessW(PWCHAR FullBinaryPath);
-DWORD CreateProcessViaNtCreateUserProcessA(PCHAR FullBinaryPath);
-DWORD CreateProcessByWindowsRHotKeyW(_In_ PWCHAR FullPathToBinary);
-DWORD CreateProcessByWindowsRHotKeyA(_In_ PCHAR FullPathToBinary);
-DWORD CreateProcessByWindowsRHotKeyExW(_In_ PWCHAR FullPathToBinary);
-DWORD CreateProcessByWindowsRHotKeyExA(_In_ PCHAR FullPathToBinary);
-BOOL CreateProcessFromINFSectionInstallStringNoCabW(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
-BOOL CreateProcessFromINFSectionInstallStringNoCabA(LPCSTR PathToInfFile, LPCSTR NameOfSection);
-BOOL CreateProcessFromINFSetupCommandW(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
-BOOL CreateProcessFromINFSetupCommandA(LPCSTR PathToInfFile, LPCSTR NameOfSection);
-BOOL CreateProcessFromPcwUtilW(LPCWSTR PathToBinary);
-BOOL CreateProcessFromPcwUtilA(LPCSTR PathToBinary);
-BOOL CreateProcessFromINFSectionInstallStringNoCab2A(LPCSTR PathToInfFile, LPCSTR NameOfSection);
-BOOL CreateProcessFromINFSectionInstallStringNoCab2W(LPCWSTR PathToInfFile, LPCWSTR NameOfSection);
-BOOL CreateProcessFromIeFrameOpenUrlW(LPCWSTR PathToUrlFile);
-BOOL CreateProcessFromIeFrameOpenUrlA(LPCSTR PathToUrlFile);
-BOOL CreateProcessFromShdocVwOpenUrlW(LPCWSTR PathToUrlFile);
-BOOL CreateProcessFromShdocVwOpenUrlA(LPCSTR PathToUrlFile);
-BOOL CreateProcessFromShell32ShellExecRunW(LPCWSTR PathToFile);
-BOOL CreateProcessFromShell32ShellExecRunA(LPCSTR PathToFile);
-BOOL CreateProcessFromUrlOpenUrlW(LPCWSTR PathToUrlFile);
-BOOL CreateProcessFromUrlOpenUrlA(LPCSTR PathToUrlFile);
-BOOL CreateProcessFromUrlFileProtocolHandlerW(LPCWSTR PathToUrlFile);
-BOOL CreateProcessFromUrlFileProtocolHandlerA(LPCSTR PathToUrlFile);
-BOOL CreateProcessFromZipfldrRouteCallW(LPCWSTR PathToFile);
-BOOL CreateProcessFromZipfldrRouteCallA(LPCSTR PathToFile);
-BOOL CreateProcessFromMsHTMLW(LPCWSTR MshtaCommand);
-
-
-
-
-/*******************************************
- ANTI-DEBUGGING
-*******************************************/
-BOOL AdfCloseHandleOnInvalidAddress(VOID);
-BOOL AdfIsCreateProcessDebugEventCodeSet(VOID);
-BOOL AdfOpenProcessOnCsrss(VOID);
-BOOL IsIntelHardwareBreakpointPresent(VOID);
-BOOL CheckRemoteDebuggerPresent2(_In_ HANDLE hHandle, _Inout_ PBOOL pbDebuggerPresent);
-BOOL IsDebuggerPresentEx(VOID);
-
-
-
-/*******************************************
- NETWORK CONNECTIVITY
-*******************************************/
-DWORD UrlDownloadToFileSynchronousW(_In_ PWCHAR Url, _In_ PWCHAR SavePath);
-DWORD UrlDownloadToFileSynchronousA(_In_ PCHAR Url, _In_ PCHAR SavePath);
-BOOL SendIcmpEchoMessageToIPv4HostW(_In_ PWCHAR IpAddress, _Inout_ PDWORD Status, _Inout_ PDWORD RoundTripTime, _Inout_ PWCHAR EchoReplyAddress);
-BOOL SendIcmpEchoMessageToIPv4HostA(_In_ PCHAR IpAddress, _Inout_ PDWORD Status, _Inout_ PDWORD RoundTripTime, _Inout_ PCHAR EchoReplyAddress);
-ULONG ConvertIPv4StringToUnsignedLongW(_In_ PWCHAR IpAddress);
-ULONG ConvertIPv4StringToUnsignedLongA(_In_ PCHAR IpAddress);
-BOOL ConvertIPv4IpAddressStructureToStringW(_In_ PIN_ADDR Address, _Out_ PWCHAR Buffer);
-BOOL ConvertIPv4IpAddressStructureToStringA(_In_ PIN_ADDR Address, _Out_ PCHAR Buffer);
-BOOL ConvertIPv4IpAddressUnsignedLongToStringW(_In_ ULONG Address, _Out_ PWCHAR Buffer);
-BOOL ConvertIPv4IpAddressUnsignedLongToStringA(_In_ ULONG Address, _Out_ PCHAR Buffer);
-DWORD DnsGetDomainNameIPv4AddressAsStringW(_In_ PWCHAR DomainName, _Inout_ PWCHAR IPv4IPAddress);
-DWORD DnsGetDomainNameIPv4AddressAsStringA(_In_ PCHAR DomainName, _Inout_ PCHAR IPv4IPAddress);
-ULONG DnsGetDomainNameIPv4AddressUnsignedLongW(_In_ PWCHAR DomainName);
-ULONG DnsGetDomainNameIPv4AddressUnsignedLongA(_In_ PCHAR DomainName);
-BOOL GetDomainNameFromUnsignedLongIPV4AddressW(_In_ ULONG IpAddress, _Inout_ PWCHAR DomainName);
-BOOL GetDomainNameFromUnsignedLongIPV4AddressA(_In_ ULONG IpAddress, _Inout_ PCHAR DomainName);
-BOOL GetDomainNameFromIPV4AddressAsStringW(_In_ PWCHAR IpAddress, _Inout_ PWCHAR DomainName);
-BOOL GetDomainNameFromIPV4AddressAsStringA(_In_ PCHAR IpAddress, _Inout_ PCHAR DomainName);
-
+BOOL UacBypassFodHelperMethodA(_In_ PCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
+BOOL UacBypassFodHelperMethodW(_In_ PWCHAR PathToBinaryToExecute, _Inout_ PPROCESS_INFORMATION Pi);
 
 
 /*******************************************
@@ -428,9 +454,7 @@ BOOL SetHardwareBreakpoint(_In_ DWORD ThreadId, _In_ PUINT_VAR_T Address, _In_ U
 BOOL InsertDescriptorEntry(_In_ PUINT_VAR_T Address, _In_ DWORD Position, _In_ EXCEPTION_CALLBACK CallbackRoutine, _In_ DWORD Tid, _In_ BOOL Dis);
 BOOL RemoveDescriptorEntry(_In_ PUINT_VAR_T Address, _In_ DWORD Tid);
 BOOL SnapshotInsertHardwareBreakpointHookIntoTargetThread(_In_ PUINT_VAR_T Address, _In_ DWORD Position, _In_ BOOL Init, _In_ DWORD Tid);
-
 INT __demonstration_WinMain(VOID); //hook sleep
-
 
 
 /*******************************************
@@ -441,14 +465,9 @@ PCHAR GenericShellcodeOpenCalcExitThread(_Out_ PDWORD SizeOfShellcodeInBytes);
 PCHAR GenericShellcodeHelloWorldMessageBoxAEbFbLoop(_Out_ PDWORD SizeOfShellcodeInBytes);
 
 
-BOOL DeleteDirectoryAndSubDataViaDelNodeW(LPCWSTR FullPathToDirectory);
-BOOL DeleteDirectoryAndSubDataViaDelNodeA(LPCSTR FullPathToDirectory);
-BOOL IsProcessRunningAsAdmin2(VOID);
-BOOL ExtractFilesFromCabIntoTargetW(LPCWSTR CabFile, LPCWSTR OutputDirectory);
-BOOL ExtractFilesFromCabIntoTargetA(LPCSTR CabFile, LPCSTR OutputDirectory);
 
-HANDLE IeCreateFileW(LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
-HANDLE IeCreateFileA(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
 
-BOOL RtlSetBaseUnicodeCommandLine(PWCHAR CommandLinePayload);
-DWORD CreateProcessFromWmiWin32_ProcessW(LPCWSTR BinaryPath);
+
+
+
+
