@@ -1,6 +1,6 @@
 #include "Win32Helper.h"
 
-BOOL CreateProcessFromPcwUtilW(LPCWSTR PathToBinary)
+BOOL CreateProcessFromPcwUtilW(_In_ LPCWSTR PathToBinary)
 {
 	typedef VOID(WINAPI* LAUNCHAPPLICATIONW)(HWND, HINSTANCE, LPCWSTR);
 	LAUNCHAPPLICATIONW LaunchApplicationW = NULL;
@@ -27,7 +27,7 @@ EXIT_ROUTINE:
 	return bFlag;
 }
 
-BOOL CreateProcessFromPcwUtilA(LPCSTR PathToBinary)
+BOOL CreateProcessFromPcwUtilA(_In_ LPCSTR PathToBinary)
 {
 	typedef VOID(WINAPI* LAUNCHAPPLICATIONW)(HWND, HINSTANCE, LPCWSTR);
 	LAUNCHAPPLICATIONW LaunchApplicationW = NULL;
