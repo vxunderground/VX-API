@@ -378,10 +378,10 @@ BOOL MpfProcessInjectionViaProcessReflection(_In_ PBYTE Shellcode, _In_ DWORD dw
 *******************************************/
 HANDLE IeCreateFileW(_In_ LPCWSTR lpFileName, _In_ DWORD dwDesiredAccess, _In_ DWORD dwShareMode, _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes, _In_ DWORD dwCreationDisposition, _In_ DWORD dwFlagsAndAttributes, _In_opt_ HANDLE hTemplateFile);
 HANDLE IeCreateFileA(_In_ LPCSTR lpFileName, _In_ DWORD dwDesiredAccess, _In_ DWORD dwShareMode, _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes, _In_ DWORD dwCreationDisposition, _In_ DWORD dwFlagsAndAttributes, _In_opt_ HANDLE hTemplateFile);
-BOOL DeleteDirectoryAndSubDataViaDelNodeW(LPCWSTR FullPathToDirectory);
-BOOL DeleteDirectoryAndSubDataViaDelNodeA(LPCSTR FullPathToDirectory);
-BOOL CopyFileViaSetupCopyFileW(LPCWSTR Source, LPCWSTR Destination);
-BOOL CopyFileViaSetupCopyFileA(LPCSTR Source, LPCSTR Destination);
+BOOL DeleteDirectoryAndSubDataViaDelNodeW(_In_ LPCWSTR FullPathToDirectory);
+BOOL DeleteDirectoryAndSubDataViaDelNodeA(_In_ LPCSTR FullPathToDirectory);
+BOOL CopyFileViaSetupCopyFileW(_In_ LPCWSTR Source, _In_ LPCWSTR Destination);
+BOOL CopyFileViaSetupCopyFileA(_In_ LPCSTR Source, _In_ LPCSTR Destination);
 BOOL IsProcessRunningAsAdmin2(VOID);
 BOOL DeleteFileWithCreateFileFlagA(_In_ PCHAR Path);
 BOOL DeleteFileWithCreateFileFlagW(_In_ PWCHAR Path);
@@ -463,11 +463,3 @@ INT __demonstration_WinMain(VOID); //hook sleep
 PCHAR GenericShellcodeHelloWorldMessageBoxA(_Out_ PDWORD SizeOfShellcodeInBytes);
 PCHAR GenericShellcodeOpenCalcExitThread(_Out_ PDWORD SizeOfShellcodeInBytes);
 PCHAR GenericShellcodeHelloWorldMessageBoxAEbFbLoop(_Out_ PDWORD SizeOfShellcodeInBytes);
-
-
-
-
-
-
-
-

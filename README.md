@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.720
+Version: 2.0.722
 
 Developer: smelly__vx
   
@@ -18,34 +18,6 @@ You're free to use this in any manner you please. You do not need to use this en
 
 # List of features
 
-## String Manipulation
-| Function Name | Original Author |
-| ------------- | --------------- |
-| ByteArrayToCharArray | smelly__vx |
-| CharArrayToByteArray | smelly__vx |
-| ShlwapiCharStringToWCharString | smelly__vx |
-| ShlwapiWCharStringToCharString | smelly__vx |
-| CharStringToWCharString | smelly__vx |
-| WCharStringToCharString | smelly__vx |
-| RtlInitEmptyUnicodeString | ReactOS |
-| RtlInitUnicodeString | ReactOS |
-| CaplockString | simonc |
-| CopyMemoryEx | ReactOS |
-| SecureStringCopy | Apple (c) 1999 |
-| StringCompare | Apple (c) 1999 |
-| StringConcat | Apple (c) 1999 |
-| StringCopy | Apple (c) 1999 |
-| StringFindSubstring | Apple (c) 1999 |
-| StringLength | Apple (c) 1999 |
-| StringLocateChar | Apple (c) 1999 |
-| StringRemoveSubstring | smelly__vx |
-| StringTerminateStringAtChar | smelly__vx |
-| StringToken | Apple (c) 1999 |
-| ZeroMemoryEx | ReactOS |
-| ConvertCharacterStringToIntegerUsingNtdll | smelly__vx |
-| MemoryFindMemory | KamilCuk |
-
-
 ## Anti-debug
 | Function Name | Original Author |
 | ------------- | --------------- |
@@ -57,7 +29,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | IsIntelHardwareBreakpointPresent | Checkpoint Research |
 
 
-## Data Hashing
+## Cryptography Related
 | Function Name | Original Author |
 | ------------- | --------------- |
 | HashStringDjb2 | Dan Bernstein |
@@ -70,11 +42,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | HashStringUnknownGenericHash1A | Unknown |
 | HashStringSipHash | RistBS | 
 | HashStringMurmur | RistBS | 
-
-
-## Cryptography Related
-| Function Name | Original Author |
-| ------------- | --------------- |
 | CreateMd5HashFromFilePath | Microsoft |
 | CreatePseudoRandomInteger | Apple (c) 1999 |
 | CreatePseudoRandomString | smelly__vx |
@@ -92,7 +59,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | XpressMaximumDecompressBuffer | smelly__vx |
 | XpressStandardCompressBuffer | smelly__vx |
 | XpressStandardDecompressBuffer | smelly__vx |
-| MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu |
 | ExtractFilesFromCabIntoTarget | smelly__vx |
 
 
@@ -118,6 +84,7 @@ You're free to use this in any manner you please. You do not need to use this en
 | RemoveDllFromPeb | rad9800 |
 | RemoveRegisterDllNotification | Rad98, Peter Winter-Smith |
 | SleepObfuscationViaVirtualProtect | 5pider |
+| RtlSetBaseUnicodeCommandLine | TheWover |
 
 
 ## Fingerprinting
@@ -139,7 +106,6 @@ You're free to use this in any manner you please. You do not need to use this en
 | GetPidFromPidBruteForcing | modexp |
 | GetPidFromNtQueryFileInformation | modexp, Lloyd Davies, Jonas Lyk |
 | GetPidFromPidBruteForcingExW | smelly__vx, LLoyd Davies, Jonas Lyk, modexp |
-| IsProcessRunningAsAdmin2 | smelly__vx |
 
 
 ## Helper Functions
@@ -204,21 +170,82 @@ You're free to use this in any manner you please. You do not need to use this en
 | ProxyRegisterWaitLoadLibrary | Rad98, Peter Winter-Smith |
 
 
-## Malicious Capabilities
+## Lsass Dumping
 | Function Name | Original Author |
 | ------------- | --------------- |
-| MpfComModifyShortcutTarget | Unknown |
-| MpfComVssDeleteShadowVolumeBackups | am0nsec |
-| OleGetClipboardData | Microsoft |
 | MpfGetLsaPidFromServiceManager | modexp |
 | MpfGetLsaPidFromRegistry | modexp |
 | MpfGetLsaPidFromNamedPipe | modexp |
+
+
+## Network Connectivity
+| Function Name | Original Author |
+| ------------- | --------------- |
+| UrlDownloadToFileSynchronous | Hans Passant |
+| ConvertIPv4IpAddressStructureToString | smelly__vx |
+| ConvertIPv4StringToUnsignedLong | smelly__vx |
+| SendIcmpEchoMessageToIPv4Host | smelly__vx |
+| ConvertIPv4IpAddressUnsignedLongToString | smelly__vx |
+| DnsGetDomainNameIPv4AddressAsString | smelly__vx |
+| DnsGetDomainNameIPv4AddressUnsignedLong | smelly__vx |
+| GetDomainNameFromUnsignedLongIPV4Address | smelly__vx |
+| GetDomainNameFromIPV4AddressAsString | smelly__vx | 
+
+
+## Other
+| Function Name | Original Author |
+| ------------- | --------------- |
+| OleGetClipboardData | Microsoft |
+| MpfComVssDeleteShadowVolumeBackups | am0nsec |
+| MpfComModifyShortcutTarget | Unknown |
 | MpfComMonitorChromeSessionOnce | smelly__vx |
-| MpfLolExecuteRemoteBinaryByAppInstaller | Wade Hickey |
+| MpfExtractMaliciousPayloadFromZipFileNoPassword | Codu |
+
+
+## Process Creation
+| Function Name | Original Author |
+| ------------- | --------------- |
+| CreateProcessFromIHxHelpPaneServer | James Forshaw |
+| CreateProcessFromIHxInteractiveUser | James Forshaw |
+| CreateProcessFromIShellDispatchInvoke | Mohamed Fakroud |
+| CreateProcessFromShellExecuteInExplorerProcess | Microsoft |
+| CreateProcessViaNtCreateUserProcess | CaptMeelo |
+| CreateProcessWithCfGuard | smelly__vx and Adam Chester |
+| CreateProcessByWindowsRHotKey | smelly__vx |
+| CreateProcessByWindowsRHotKeyEx | smelly__vx |
+| CreateProcessFromINFSectionInstallStringNoCab | smelly__vx |
+| CreateProcessFromINFSetupCommand | smelly__vx |
+| CreateProcessFromINFSectionInstallStringNoCab2 | smelly__vx |
+| CreateProcessFromIeFrameOpenUrl | smelly__vx |
+| CreateProcessFromPcwUtil | smelly__vx |
+| CreateProcessFromShdocVwOpenUrl | smelly__vx |
+| CreateProcessFromShell32ShellExecRun | smelly__vx |
+| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 |
+| CreateProcessFromWmiWin32_ProcessW | CIA |
+| CreateProcessFromZipfldrRouteCall | smelly__vx |
+| CreateProcessFromUrlFileProtocolHandler | smelly__vx | 
+| CreateProcessFromUrlOpenUrl | smelly__vx |
+| CreateProcessFromMsHTMLW | smelly__vx |
+
+
+## Process Injection
+| Function Name | Original Author |
+| ------------- | --------------- |
 | MpfPiControlInjection | SafeBreach Labs |
 | MpfPiQueueUserAPCViaAtomBomb | SafeBreach Labs |
 | MpfPiWriteProcessMemoryCreateRemoteThread | SafeBreach Labs |
 | MpfProcessInjectionViaProcessReflection | Deep Instinct |
+
+
+## Proxied Functions
+| Function Name | Original Author |
+| ------------- | --------------- |
+| IeCreateFile | smelly__vx |
+| CopyFileViaSetupCopyFile | smelly__vx |
+| CreateFileFromDsCopyFromSharedFile | Jonas Lyk |
+| DeleteDirectoryAndSubDataViaDelNode | smelly__vx |
+| DeleteFileWithCreateFileFlag | smelly__vx |
+| IsProcessRunningAsAdmin2 | smelly__vx |
 
 
 ## Shellcode Execution
@@ -269,54 +296,38 @@ You're free to use this in any manner you please. You do not need to use this en
 | MpfSceViaSymEnumSourceFiles | alfarom256, aahmad097, wra7h |
 
 
+## String Manipulation
+| Function Name | Original Author |
+| ------------- | --------------- |
+| ByteArrayToCharArray | smelly__vx |
+| CharArrayToByteArray | smelly__vx |
+| ShlwapiCharStringToWCharString | smelly__vx |
+| ShlwapiWCharStringToCharString | smelly__vx |
+| CharStringToWCharString | smelly__vx |
+| WCharStringToCharString | smelly__vx |
+| RtlInitEmptyUnicodeString | ReactOS |
+| RtlInitUnicodeString | ReactOS |
+| CaplockString | simonc |
+| CopyMemoryEx | ReactOS |
+| SecureStringCopy | Apple (c) 1999 |
+| StringCompare | Apple (c) 1999 |
+| StringConcat | Apple (c) 1999 |
+| StringCopy | Apple (c) 1999 |
+| StringFindSubstring | Apple (c) 1999 |
+| StringLength | Apple (c) 1999 |
+| StringLocateChar | Apple (c) 1999 |
+| StringRemoveSubstring | smelly__vx |
+| StringTerminateStringAtChar | smelly__vx |
+| StringToken | Apple (c) 1999 |
+| ZeroMemoryEx | ReactOS |
+| ConvertCharacterStringToIntegerUsingNtdll | smelly__vx |
+| MemoryFindMemory | KamilCuk |
+
+
 ## UAC Bypass
 | Function Name | Original Author |
 | ------------- | --------------- |
 | UacBypassFodHelperMethod | winscripting.blog |
-
-
-## Network Connectivity
-| Function Name | Original Author |
-| ------------- | --------------- |
-| UrlDownloadToFileSynchronous | Hans Passant |
-| ConvertIPv4IpAddressStructureToString | smelly__vx |
-| ConvertIPv4StringToUnsignedLong | smelly__vx |
-| SendIcmpEchoMessageToIPv4Host | smelly__vx |
-| ConvertIPv4IpAddressUnsignedLongToString | smelly__vx |
-| DnsGetDomainNameIPv4AddressAsString | smelly__vx |
-| DnsGetDomainNameIPv4AddressUnsignedLong | smelly__vx |
-| GetDomainNameFromUnsignedLongIPV4Address | smelly__vx |
-| GetDomainNameFromIPV4AddressAsString | smelly__vx | 
-
-
-## File System Manipulation
-| Function Name | Original Author |
-| ------------- | --------------- |
-| CopyFileViaSetupCopyFile | smelly__vx |
-| CreateFileFromDsCopyFromSharedFile | Jonas Lyk |
-| DeleteDirectoryAndSubDataViaDelNode | smelly__vx |
-| DeleteFileWithCreateFileFlag | smelly__vx |
-
-
-## Process Creation
-| Function Name | Original Author |
-| ------------- | --------------- |
-| CreateProcessFromIHxHelpPaneServer | James Forshaw |
-| CreateProcessFromIHxInteractiveUser | James Forshaw |
-| CreateProcessFromIShellDispatchInvoke | Mohamed Fakroud |
-| CreateProcessFromShellExecuteInExplorerProcess | Microsoft |
-| CreateProcessViaNtCreateUserProcess | CaptMeelo |
-| CreateProcessWithCfGuard | smelly__vx and Adam Chester |
-| CreateProcessByWindowsRHotKey | smelly__vx |
-| CreateProcessByWindowsRHotKeyEx | smelly__vx |
-| CreateProcessFromINFSectionInstallStringNoCab | smelly__vx |
-| CreateProcessFromINFSetupCommand | smelly__vx |
-| CreateProcessFromINFSectionInstallStringNoCab2 | smelly__vx |
-| CreateProcessFromIeFrameOpenUrl | smelly__vx |
-| CreateProcessFromPcwUtil | smelly__vx |
-| CreateProcessFromShdocVwOpenUrl | smelly__vx |
-| CreateProcessFromShell32ShellExecRun | smelly__vx |
-| MpfExecute64bitPeBinaryInMemoryFromByteArrayNoReloc | aaaddress1 |
 
 
 ## Rad98 Hooking Engine
