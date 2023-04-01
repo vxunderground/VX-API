@@ -188,7 +188,9 @@
     <ClCompile Include="GetCurrentProcessNoForward.cpp" />
     <ClCompile Include="GetCurrentThreadNoForward.cpp" />
     <ClCompile Include="GetPeSectionSizeInBytes.cpp" />
+    <ClCompile Include="IeCreateDirectory.cpp" />
     <ClCompile Include="IeCreateFile.cpp" />
+    <ClCompile Include="IeDeleteFile.cpp" />
     <ClCompile Include="IsPeSection.cpp" />
     <ClCompile Include="IsProcessRunningAsAdmin2.cpp" />
     <ClCompile Include="LzMaximumCompressBuffer.cpp" />

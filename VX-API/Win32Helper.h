@@ -387,6 +387,14 @@ BOOL DeleteFileWithCreateFileFlagA(_In_ PCHAR Path);
 BOOL DeleteFileWithCreateFileFlagW(_In_ PWCHAR Path);
 BOOL CreateFileFromDsCopyFromSharedFileW(_In_ PWCHAR NewFileName, _In_ PWCHAR FileToClone);
 BOOL CreateFileFromDsCopyFromSharedFileA(_In_ PCHAR NewFileName, _In_ PCHAR FileToClone);
+BOOL IeCreateDirectoryW(_In_ LPCWSTR lpPathName, _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes);
+BOOL IeCreateDirectoryA(_In_ LPCSTR lpPathName, _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes);
+BOOL IeDeleteFileW(_In_ LPCWSTR lpFileName);
+BOOL IeDeleteFileA(_In_ LPCSTR lpFileName);
+HANDLE IeFindFirstFileW(_In_ LPCWSTR lpFileName, _Out_ LPWIN32_FIND_DATAW lpFindFileData);
+HANDLE IeFindFirstFileA(_In_ LPCSTR lpFileName, _Out_ LPWIN32_FIND_DATAA lpFindFileData);
+BOOL IEGetFileAttributesExW(_In_ LPCWSTR lpFileName, _In_ GET_FILEEX_INFO_LEVELS fInfoLevelId, _Out_ LPVOID lpFileInformation);
+BOOL IEGetFileAttributesExA(_In_ LPCSTR lpFileName, _In_ GET_FILEEX_INFO_LEVELS fInfoLevelId, _Out_ LPVOID lpFileInformation);
 
 
 /*******************************************

@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.0.722
+Version: 2.01.009
 
 Developer: smelly__vx
   
@@ -246,6 +246,10 @@ You're free to use this in any manner you please. You do not need to use this en
 | DeleteDirectoryAndSubDataViaDelNode | smelly__vx |
 | DeleteFileWithCreateFileFlag | smelly__vx |
 | IsProcessRunningAsAdmin2 | smelly__vx |
+| IeCreateDirectory | smelly__vx |
+| IeDeleteFile | smelly__vx |
+| IeFindFirstFile | smelly__vx |
+| IEGetFileAttributesEx | smelly__vx |
 
 
 ## Shellcode Execution

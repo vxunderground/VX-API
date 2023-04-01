@@ -822,6 +822,12 @@
     <ClCompile Include="IsProcessRunningAsAdmin2.cpp">
       <Filter>Source Files\Proxied Functions</Filter>
     </ClCompile>
+    <ClCompile Include="IeCreateDirectory.cpp">
+      <Filter>Source Files\Proxied Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="IeDeleteFile.cpp">
+      <Filter>Source Files\Proxied Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">
