@@ -3,7 +3,7 @@ managed by [vx-underground](https://vx-underground.org) | follow us on [Twitter]
   
 # VX-API
 
-Version: 2.01.009
+Version: 2.01.015
 
 Developer: smelly__vx
   
@@ -250,6 +250,8 @@ You're free to use this in any manner you please. You do not need to use this en
 | IeDeleteFile | smelly__vx |
 | IeFindFirstFile | smelly__vx |
 | IEGetFileAttributesEx | smelly__vx |
+| IeMoveFileEx | smelly__vx |
+| IeRemoveDirectory | smelly__vx |
 
 
 ## Shellcode Execution

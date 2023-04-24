@@ -191,6 +191,10 @@
     <ClCompile Include="IeCreateDirectory.cpp" />
     <ClCompile Include="IeCreateFile.cpp" />
     <ClCompile Include="IeDeleteFile.cpp" />
+    <ClCompile Include="IeFindFirstFile.cpp" />
+    <ClCompile Include="IEGetFileAttributesEx.cpp" />
+    <ClCompile Include="IeMoveFileEx.cpp" />
+    <ClCompile Include="IeRemoveDirectory.cpp" />
     <ClCompile Include="IsPeSection.cpp" />
     <ClCompile Include="IsProcessRunningAsAdmin2.cpp" />
     <ClCompile Include="LzMaximumCompressBuffer.cpp" />

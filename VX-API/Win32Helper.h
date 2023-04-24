@@ -395,6 +395,10 @@ HANDLE IeFindFirstFileW(_In_ LPCWSTR lpFileName, _Out_ LPWIN32_FIND_DATAW lpFind
 HANDLE IeFindFirstFileA(_In_ LPCSTR lpFileName, _Out_ LPWIN32_FIND_DATAA lpFindFileData);
 BOOL IEGetFileAttributesExW(_In_ LPCWSTR lpFileName, _In_ GET_FILEEX_INFO_LEVELS fInfoLevelId, _Out_ LPVOID lpFileInformation);
 BOOL IEGetFileAttributesExA(_In_ LPCSTR lpFileName, _In_ GET_FILEEX_INFO_LEVELS fInfoLevelId, _Out_ LPVOID lpFileInformation);
+BOOL IEMoveFileExW(_In_ LPCWSTR lpExistingFileName, _In_ LPCWSTR lpNewFileName, _In_ DWORD dwFlags);
+BOOL IEMoveFileExA(_In_ LPCSTR lpExistingFileName, _In_ LPCSTR lpNewFileName, _In_ DWORD dwFlags);
+BOOL IERemoveDirectoryW(_In_ LPCWSTR lpPathName);
+BOOL IERemoveDirectoryA(_In_ LPCSTR lpPathName);
 
 
 /*******************************************

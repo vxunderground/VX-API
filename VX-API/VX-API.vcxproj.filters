@@ -828,6 +828,18 @@
     <ClCompile Include="IeDeleteFile.cpp">
       <Filter>Source Files\Proxied Functions</Filter>
     </ClCompile>
+    <ClCompile Include="IeFindFirstFile.cpp">
+      <Filter>Source Files\Proxied Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="IEGetFileAttributesEx.cpp">
+      <Filter>Source Files\Proxied Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="IeMoveFileEx.cpp">
+      <Filter>Source Files\Proxied Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="IeRemoveDirectory.cpp">
+      <Filter>Source Files\Proxied Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Internal.h">
